@@ -1,0 +1,96 @@
+<mat-card>
+  <form [formGroup]="inputTabel" action="">
+    <h1>Input IT Spend</h1>
+    <div class="inputs d-flex">
+      <mat-form-field appearance="outline" class="">
+        <mat-label>Annual Revenue</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="annualRevenue"
+          matInput
+          placeholder="Annual Revenue"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="">
+        <mat-label>It Spend</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="itSpend"
+          matInput
+          placeholder="It Spend"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="">
+        <mat-label>Run It Spend</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="run"
+          matInput
+          placeholder="Run It Spend"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="">
+        <mat-label>Grow It Spend</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="grow"
+          matInput
+          placeholder="Run It Spend"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="">
+        <mat-label>Transform It Spend</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="transform"
+          matInput
+          placeholder="Run It Spend"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+  <h2>
+    Annual revenue:{{ annualRevenue?.value || 0 | currency: "USD":true:"1.0" }}
+  </h2>
+  <div class="result-tabel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="w-50">IT spend as % of revenue (~1.2-3%)</td>
+          <td>% {{ itSpend?.value || 0 }}</td>
+          <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td>
+        </tr>
+        <tr>
+          <td>RUN the business IT spend</td>
+          <td>% {{ run?.value || 0 }}</td>
+          <td>
+            {{
+              cal.caluclatePercentage(caluclatedItSpend, run?.value)
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+        </tr>
+        <tr>
+          <td>Grow the business IT spend</td>
+          <td>% {{ grow?.value || 0 }}</td>
+          <td>
+            {{
+              cal.caluclatePercentage(caluclatedItSpend, grow?.value)
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+        </tr>
+        <tr>
+          <td>Transform the business IT spend</td>
+          <td>% {{ transform?.value || 0 }}</td>
+          <td>
+            {{
+              cal.caluclatePercentage(caluclatedItSpend, transform?.value)
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>

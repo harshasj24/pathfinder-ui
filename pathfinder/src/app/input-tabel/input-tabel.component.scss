@@ -1,0 +1,13 @@
+mat-card {
+  height: calc(100vh - 70px);
+}
+.inputs {
+  gap: 15px;
+  flex-wrap: wrap;
+}
+tr td {
+  border: 1px solid lightgray !important;
+}
+mat-form-field {
+  width: 19%;
+}
