@@ -33,23 +33,33 @@ export class InputTabelComponent implements OnInit {
     return this.inputTabel?.get('transform');
   }
 
-  h: any = this.annualRevenue?.value;
   caluclatedItSpend: number = 0;
   ngOnInit(): void {
-    this.itSpend?.valueChanges.subscribe((val) => {
+    this.inputTabel.valueChanges.subscribe((val) => {
       this.caluclatedItSpend = this.cal.caluclatePercentage(
-        this.annualRevenue?.value,
-        val
+        val?.annualRevenue,
+        val?.itSpend
       );
-    });
-    this.transform?.valueChanges.subscribe((val) => {
       const values = {
-        ...this.inputTabel.value,
+        ...val,
         caluclatedItSpend: this.caluclatedItSpend,
-        transform: val,
       };
       this.store.setStore(values);
-      console.log(values);
     });
+    // this.itSpend?.valueChanges.subscribe((val) => {
+    //   this.caluclatedItSpend = this.cal.caluclatePercentage(
+    //     this.annualRevenue?.value,
+    //     val
+    //   );
+    // });
+    // this.transform?.valueChanges.subscribe((val) => {
+    //   const values = {
+    //     ...this.inputTabel.value,
+    //     caluclatedItSpend: this.caluclatedItSpend,
+    //     transform: val,
+    //   };
+    //   this.store.setStore(values);
+    //   console.log(values);
+    // });
   }
 }

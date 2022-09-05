@@ -10,16 +10,16 @@ import { mergeAll, concatMap } from 'rxjs';
 })
 export class IpPersonelComponent implements OnInit {
   constructor(public cal: ClaculationService, private store: StoreService) {}
-  inputTabel = new FormGroup({
+  itPersonel = new FormGroup({
     itSpend: new FormControl(''),
     ctc: new FormControl(''),
   });
 
   get itSpend() {
-    return this.inputTabel.get('itSpend');
+    return this.itPersonel.get('itSpend');
   }
   get ctc() {
-    return this.inputTabel.get('ctc');
+    return this.itPersonel.get('ctc');
   }
   claculatedVal = {
     outSourcing: 0,
