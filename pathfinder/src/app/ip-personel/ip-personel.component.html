@@ -20,6 +20,15 @@
           placeholder="It Spend"
         />
       </mat-form-field>
+      <mat-form-field appearance="outline" class="">
+        <mat-label>Max. % eligible for outsourcing</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="maxOutsourcing"
+          matInput
+          placeholder="It Spend"
+        />
+      </mat-form-field>
       <!-- <mat-form-field appearance="outline" class="">
         <mat-label>Run It Spend</mat-label>
         <input
@@ -58,6 +67,15 @@
           <td>TRANSFORM FTE</td>
           <td>{{ claculatedVal.transform | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.transform }}</td>
+        </tr>
+        <tr>
+          <td>Max. % eligible for outsourcing</td>
+          <td>{{ maxOutsourcing?.value || 0 }} %</td>
+          <td>
+            {{
+              cal.caluclatePercentage(maxOutsourcing?.value, dividedVals.run)
+            }}
+          </td>
         </tr>
       </tbody>
     </table>

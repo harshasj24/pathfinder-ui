@@ -57,12 +57,12 @@
       <tbody>
         <tr>
           <td class="w-50">IT spend as % of revenue (~1.2-3%)</td>
-          <td>% {{ itSpend?.value || 0 }}</td>
+          <td>{{ itSpend?.value || 0 }} %</td>
           <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td>
         </tr>
         <tr>
           <td>RUN the business IT spend</td>
-          <td>% {{ run?.value || 0 }}</td>
+          <td>{{ run?.value || 0 }} %</td>
           <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, run?.value)
@@ -72,7 +72,7 @@
         </tr>
         <tr>
           <td>Grow the business IT spend</td>
-          <td>% {{ grow?.value || 0 }}</td>
+          <td>{{ grow?.value || 0 }} %</td>
           <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, grow?.value)
@@ -82,7 +82,7 @@
         </tr>
         <tr>
           <td>Transform the business IT spend</td>
-          <td>% {{ transform?.value || 0 }}</td>
+          <td>{{ transform?.value || 0 }} %</td>
           <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, transform?.value)

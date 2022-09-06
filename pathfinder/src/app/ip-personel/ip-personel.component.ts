@@ -13,6 +13,7 @@ export class IpPersonelComponent implements OnInit {
   itPersonel = new FormGroup({
     itSpend: new FormControl(''),
     ctc: new FormControl(''),
+    maxOutsourcing: new FormControl(''),
   });
 
   get itSpend() {
@@ -20,6 +21,9 @@ export class IpPersonelComponent implements OnInit {
   }
   get ctc() {
     return this.itPersonel.get('ctc');
+  }
+  get maxOutsourcing() {
+    return this.itPersonel.get('maxOutsourcing');
   }
   claculatedVal = {
     outSourcing: 0,
