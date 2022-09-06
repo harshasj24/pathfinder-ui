@@ -10,6 +10,7 @@ import { StoreService } from '../store.service';
 })
 export class InputTabelComponent implements OnInit {
   constructor(public cal: ClaculationService, private store: StoreService) {}
+  submitted=false
   inputTabel = new FormGroup({
     annualRevenue: new FormControl(''),
     itSpend: new FormControl(''),
