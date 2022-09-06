@@ -52,6 +52,10 @@
   <h2>
     Annual revenue:{{ annualRevenue?.value || 0 | currency: "USD":true:"1.0" }}
   </h2>
+  <div class="ml-auto">
+  <a  routerLink="/chart" >View Chart</a>
+  <router-outlet></router-outlet>
+  </div>
   <div class="result-tabel">
     <table class="table">
       <tbody>
@@ -94,3 +98,4 @@
     </table>
   </div>
 </mat-card>
+
