@@ -1,6 +1,14 @@
 <mat-card>
   <form [formGroup]="itPersonel" action="">
-    <h1>IT Personnel</h1>
+    <div class="d-flex">
+      <div>
+        <h1>IT Personnel</h1>
+      </div>
+      <div class="ml-auto mt-2">
+        <a routerLink="/chart">View Chart</a>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
     <div class="inputs d-flex">
       <mat-form-field appearance="outline" class="">
         <mat-label>IT spend on personnel & outsourcing (67-72%)</mat-label>
