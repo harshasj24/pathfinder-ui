@@ -1,14 +1,8 @@
-<mat-toolbar>
-  <button routerLink="/home" mat-button>Home</button>
-</mat-toolbar>
-
-<mat-card>
-  <div class="d-flex">
-    <div class="px-5">
-      <canvas id="myChart" width="350px" height="350px"></canvas>
-    </div>
-    <div>
-      <canvas id="myChart2" width="350px" height="350px"></canvas>
-    </div>
+<div class="charts d-flex mt-5">
+  <div class="px-5">
+    <canvas #myChart id="myChart" width="450px" height="450px"></canvas>
   </div>
-</mat-card>
+  <div>
+    <canvas #myChart2 id="myChart2" width="450px" height="450px"></canvas>
+  </div>
+</div>

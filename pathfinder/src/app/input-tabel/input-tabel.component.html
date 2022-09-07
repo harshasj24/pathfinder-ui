@@ -2,10 +2,6 @@
   <form [formGroup]="inputTabel" action="">
     <div class="d-flex">
       <div><h1>Input IT Spend</h1></div>
-    <div class="ml-auto mt-2">
-      <a routerLink="/chart">View Chart</a>
-      <router-outlet></router-outlet>
-    </div>
     </div>
     <div class="inputs d-flex">
       <mat-form-field appearance="outline" class="">
@@ -99,5 +95,6 @@
       </tbody>
     </table>
   </div>
-</mat-card>
 
+  <app-charts ></app-charts>
+</mat-card>

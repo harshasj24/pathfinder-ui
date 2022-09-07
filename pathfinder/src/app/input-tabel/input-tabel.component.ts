@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Chart } from 'chart.js';
 import { ClaculationService } from '../claculation.service';
 import { StoreService } from '../store.service';
 
@@ -10,7 +11,7 @@ import { StoreService } from '../store.service';
 })
 export class InputTabelComponent implements OnInit {
   constructor(public cal: ClaculationService, private store: StoreService) {}
-  submitted=false
+  submitted = false;
   inputTabel = new FormGroup({
     annualRevenue: new FormControl(''),
     itSpend: new FormControl(''),
@@ -62,5 +63,6 @@ export class InputTabelComponent implements OnInit {
     //   this.store.setStore(values);
     //   console.log(values);
     // });
+    
   }
 }

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ClaculationService } from '../claculation.service';
 import { StoreService } from '../store.service';
 import { mergeAll, concatMap } from 'rxjs';
+import { Chart } from 'chart.js';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',
   styleUrls: ['./ip-personel.component.scss'],
 })
-export class IpPersonelComponent implements OnInit {
+export class IpPersonelComponent implements OnInit, AfterViewInit {
   constructor(public cal: ClaculationService, private store: StoreService) {}
+  @ViewChild('myChart') char: ElementRef;
+  @ViewChild('myChart1') char1: ElementRef;
   itPersonel = new FormGroup({
     itSpend: new FormControl(''),
     ctc: new FormControl(''),
@@ -40,6 +49,9 @@ export class IpPersonelComponent implements OnInit {
     grow: 0,
     transform: 0,
   };
+
+  ngAfterViewInit() {}
+
   ngOnInit(): void {
     this.store.store.subscribe((data: any) => {
       this.inputTabelVal = data;
@@ -74,5 +86,7 @@ export class IpPersonelComponent implements OnInit {
         val
       );
     });
+
+    // charts code
   }
 }
