@@ -8,10 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IpPersonelComponent } from './ip-personel/ip-personel.component';
-import { ChartsComponent } from './charts/charts.component';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
-  declarations: [AppComponent, InputTabelComponent, IpPersonelComponent, ChartsComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    InputTabelComponent,
+    IpPersonelComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +24,7 @@ import { HomeComponent } from './home/home.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
