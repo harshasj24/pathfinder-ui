@@ -10,9 +10,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { ItPartnerComponent } from './components/it-partner/it-partner.component';
+
 import { InputTabelComponent } from './components/it-partner/input-tabel/input-tabel.component';
 import { IpPersonelComponent } from './components/it-partner/ip-personel/ip-personel.component';
+import { ItPartnerComponent } from './components/it-partner/it-partner/it-partner.component';
 
 @NgModule({
   declarations: [
