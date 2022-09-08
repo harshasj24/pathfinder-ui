@@ -6,10 +6,11 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ClaculationService } from '../claculation.service';
-import { StoreService } from '../store.service';
+
 import { mergeAll, concatMap } from 'rxjs';
 import { Chart } from 'chart.js';
+import { StoreService } from 'src/app/store.service';
+import { ClaculationService } from 'src/app/claculation.service';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',

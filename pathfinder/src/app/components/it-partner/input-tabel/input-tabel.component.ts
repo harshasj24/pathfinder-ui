@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Chart } from 'chart.js';
-import { ClaculationService } from '../claculation.service';
-import { StoreService } from '../store.service';
+import { ClaculationService } from 'src/app/claculation.service';
+import { StoreService } from 'src/app/store.service';
 
 @Component({
   selector: 'app-input-tabel',
@@ -63,6 +63,5 @@ export class InputTabelComponent implements OnInit {
     //   this.store.setStore(values);
     //   console.log(values);
     // });
-    
   }
 }

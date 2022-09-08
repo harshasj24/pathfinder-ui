@@ -3,19 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InputTabelComponent } from './input-tabel/input-tabel.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IpPersonelComponent } from './ip-personel/ip-personel.component';
+
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { ItPartnerComponent } from './components/it-partner/it-partner.component';
+import { InputTabelComponent } from './components/it-partner/input-tabel/input-tabel.component';
+import { IpPersonelComponent } from './components/it-partner/ip-personel/ip-personel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     InputTabelComponent,
     IpPersonelComponent,
     HomeComponent,
+    ItPartnerComponent,
   ],
   imports: [
     BrowserModule,
