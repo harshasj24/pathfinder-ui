@@ -5,8 +5,12 @@ import { Subject } from 'rxjs';
 })
 export class StoreService {
   store = new Subject();
+  maxEle = new Subject();
   setStore(data: any) {
     this.store.next(data);
+  }
+  setMaxEle(data: any) {
+    this.maxEle.next(data);
   }
   constructor() {}
 }

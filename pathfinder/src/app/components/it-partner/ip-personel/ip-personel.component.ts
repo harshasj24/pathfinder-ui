@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { mergeAll, concatMap } from 'rxjs';
+import { mergeAll, concatMap, merge } from 'rxjs';
 import { Chart } from 'chart.js';
 import { StoreService } from 'src/app/store.service';
 import { ClaculationService } from 'src/app/claculation.service';
@@ -87,6 +87,15 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
         val
       );
     });
+
+    this.maxOutsourcing?.valueChanges.subscribe((val) => {
+      console.log(val);
+
+      this.store.setMaxEle(
+        this.cal.caluclatePercentage(val, this.dividedVals.run)
+      );
+    });
+    // sample
 
     // charts code
   }

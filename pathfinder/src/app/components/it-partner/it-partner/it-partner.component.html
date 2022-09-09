@@ -1,63 +1,256 @@
 <mat-card>
-  <h2>IT -Personnel Cost(Partner)</h2>
-  <div class="mat-card__body">
-    <div class="mat-card__body__inputs">
-      <mat-form-field appearance="outline" class="">
-        <mat-label>Partner CTC (Onsite)</mat-label>
-        <input
-          autocomplete="off"
-          formControlName="itSpend"
-          matInput
-          placeholder="Annual Revenue"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="">
-        <mat-label>Partner CTC (Offshore)</mat-label>
-        <input
-          autocomplete="off"
-          formControlName="itSpend"
-          matInput
-          placeholder="Annual Revenue"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="">
-        <mat-label>Onsite Ratio (to be)</mat-label>
-        <input
-          autocomplete="off"
-          formControlName="itSpend"
-          matInput
-          placeholder="Annual Revenue"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="">
-        <mat-label>Offshore Ratio (to be)</mat-label>
-        <input
-          autocomplete="off"
-          formControlName="itSpend"
-          matInput
-          placeholder="Annual Revenue"
-        />
-      </mat-form-field>
+  <form [formGroup]="itPartner" action="">
+    <h2>IT -Personnel Cost(Partner)</h2>
+    <div class="mat-card__body">
+      <div class="mat-card__body__inputs">
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Partner CTC (Onsite)</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Annual Revenue"
+            formControlName="partnerCtcOnsite"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Partner CTC (Offshore)</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="partnerCtcOffshore"
+            matInput
+            placeholder="Annual Revenue"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Onsite Ratio (to be)</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="onsiteRatioTobe"
+            matInput
+            placeholder="Annual Revenue"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="">
+          <mat-label>Offshore Ratio (to be)</mat-label>
+          <input
+            autocomplete="off"
+            formControlName="offshoreRatioTobe"
+            matInput
+            placeholder="Annual Revenue"
+          />
+        </mat-form-field>
+      </div>
     </div>
-  </div>
-
-  <br />
-  <div class="year__header">
-    <h2>Year-1</h2>
-    <h2>Year-2</h2>
-    <h2>Year-3</h2>
-  </div>
-  <div class="result-tabel">
-    <table class="table" border="2" cellspacing="0" cellpadding="0">
-      <tbody>
-        <!-- <tr  >
+    <div class="result-tabel">
+      <table class="table" cellspacing="0" cellpadding="0">
+        <tbody>
+          <!-- <tr  >
           <th>Year-1</th>
           <th>Year-2</th>
           <th >Year-3</th>
         </tr> -->
 
-        <!-- Outsourcing -->
-        <tr>
+          <!-- Outsourcing starts -->
+          <tr>
+            <th>OutSourcing</th>
+            <th class="text-center">Year 1</th>
+            <th class="text-center">Year 2</th>
+            <th class="text-center">Year 3</th>
+          </tr>
+          <tr class="Outsourcing">
+            <th>Take over plan</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Take over plan</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="takeoverYear1"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Take over plan</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="takeoverYear2"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Take over plan</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="takeoverYear3"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>In FTEs -Cumulative</th>
+            <td>
+              {{
+                calc.muttiplication(
+                  maxOutsourcing,
+                  getFieldValue("takeoverYear1")
+                )
+              }}
+            </td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <!-- Outsourcing ends -->
+
+          <!-- Partner Productivity starts -->
+
+          <tr></tr>
+          <tr class="Outsourcing">
+            <th>Partner Productivity Improvement (In FTE %)</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label
+                  >Partner Productivity Improvement (In FTE %)</mat-label
+                >
+                <input
+                  autocomplete="off"
+                  formControlName="ppiYear1"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label
+                  >Partner Productivity Improvement (In FTE %)</mat-label
+                >
+                <input
+                  autocomplete="off"
+                  formControlName="ppiYear2"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label
+                  >Partner Productivity Improvement (In FTE %)</mat-label
+                >
+                <input
+                  autocomplete="off"
+                  formControlName="ppiYear3"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>In FTEs savings cumulative</th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <!-- Partner Productivity ends -->
+          <tr>
+            <th>Net Partner FTEs</th>
+            <th>0</th>
+            <th>0</th>
+            <th>0</th>
+          </tr>
+          <tr class="Outsourcing">
+            <th>Onsite ratio</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Onsite ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="onsiteYear1"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Onsite ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="onsiteYear2"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Onsite ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="onsiteYear3"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>In FTEs</th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr class="Outsourcing">
+            <th>Offshore Ratio</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Offshore Ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="offshoreYear1"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Offshore Ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="offshoreYear2"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Offshore Ratio</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="offshoreYear3"
+                  matInput
+                  placeholder="Year -1"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>In FTEs</th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <!-- <tr>
           <th rowspan="4">
             <br />
             Outsourcing <br />
@@ -114,11 +307,11 @@
               />
             </mat-form-field>
           </td>
-        </tr>
-        <!-- Outsourcing -->
+        </tr> -->
+          <!-- Outsourcing -->
 
-        <!-- Partner Productivity Improvement (In FTE %)        -->
-        <tr>
+          <!-- Partner Productivity Improvement (In FTE %)        -->
+          <!-- <tr>
           <td>
             <mat-form-field appearance="outline" class="">
               <mat-label>Partner Productivity Improvement (In FTE %)</mat-label>
@@ -152,11 +345,11 @@
               />
             </mat-form-field>
           </td>
-        </tr>
-        <!-- Partner Productivity Improvement (In FTE %) -->
+        </tr> -->
+          <!-- Partner Productivity Improvement (In FTE %) -->
 
-        <!-- Net Partner FTEs -->
-        <tr>
+          <!-- Net Partner FTEs -->
+          <!-- <tr>
           <td>
             <mat-form-field appearance="outline" class="">
               <mat-label>Net Partner FTEs</mat-label>
@@ -190,11 +383,11 @@
               />
             </mat-form-field>
           </td>
-        </tr>
-        <!-- Net Partner FTEs -->
+        </tr> -->
+          <!-- Net Partner FTEs -->
 
-        <!-- Offshore Ratio  -->
-        <tr>
+          <!-- Offshore Ratio  -->
+          <!-- <tr>
           <td>
             <mat-form-field appearance="outline" class="">
               <mat-label>Offshore Ratio </mat-label>
@@ -228,10 +421,11 @@
               />
             </mat-form-field>
           </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </form>
   <h2 id="chart">Chart</h2>
   <app-charts></app-charts>
 </mat-card>
