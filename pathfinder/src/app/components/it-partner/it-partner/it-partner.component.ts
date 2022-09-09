@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ClaculationService } from 'src/app/claculation.service';
 import { StoreService } from 'src/app/store.service';
@@ -33,7 +33,44 @@ export class ItPartnerComponent implements OnInit {
     return this.itPartner.get(fieldName)?.value;
   }
   maxOutsourcing: any;
+
+  clalculatedValue = {
+    ...this.itPartner.value,
+  };
+  claculateFieldPrecentage(
+    fieldName: string,
+    fieldValue: any,
+    addition: number
+  ) {
+    this.clalculatedValue[fieldName] =
+      addition + this.calc.caluclatePercentage(fieldValue, this.maxOutsourcing);
+  }
+  claculateValue() {}
+
   ngOnInit(): void {
+    this.itPartner.valueChanges.subscribe((values) => {
+      if (values?.takeoverYear1) {
+        this.claculateFieldPrecentage(
+          'takeoverYear1',
+          values?.takeoverYear1,
+          0
+        );
+      }
+      if (values?.takeoverYear2) {
+        this.claculateFieldPrecentage(
+          'takeoverYear2',
+          values?.takeoverYear2,
+          this.clalculatedValue?.takeoverYear1
+        );
+      }
+      if (values?.takeoverYear3) {
+        this.claculateFieldPrecentage(
+          'takeoverYear3',
+          values?.takeoverYear3,
+          this.clalculatedValue?.takeoverYear2
+        );
+      }
+    });
     this.store.maxEle.subscribe((val) => {
       this.maxOutsourcing = val;
     });

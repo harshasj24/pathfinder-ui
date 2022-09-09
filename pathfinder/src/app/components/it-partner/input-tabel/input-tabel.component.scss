@@ -3,11 +3,11 @@ mat-card {
 }
 .inputs {
   gap: 15px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 tr td {
   border: 1px solid lightgray !important;
 }
 mat-form-field {
-  width: 19%;
+  width: 100%;
 }
