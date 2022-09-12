@@ -1,0 +1,100 @@
+<mat-card>
+    <form [formGroup]="COT" action="">
+        <div class="d-flex">
+            <div>
+                <h1>Cost of Transformation</h1>
+            </div>
+        </div>
+        <div class="inputs d-flex">
+            <mat-form-field appearance="outline" class="">
+                <mat-label>COT%</mat-label>
+                <input autocomplete="off" formControlName="cot" matInput placeholder="COT%" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="">
+                <mat-label>Client Share</mat-label>
+                <input autocomplete="off" formControlName="clientshare" matInput placeholder="Client Share" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="">
+                <mat-label>Partner/Client Share</mat-label>
+                <input autocomplete="off" formControlName="partnershare" matInput placeholder="Partner/Client Share" />
+            </mat-form-field>
+        </div>
+    </form>
+    <!-- <h2>
+        Cost of transformation % of IT spend:{{ cot?.value || 0 | currency: "USD":true:"1.0" }}
+    </h2> -->
+    <div class="result-tabel">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="w-50">COT % </td>
+                    <td>{{ cot?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+                <tr>
+                    <td>Client Share</td>
+                    <td>{{ clientshare?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+                <tr>
+                    <td>Partner/ Client share</td>
+                    <td>{{ partnershare?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <form [formGroup]="COT" action="">
+            <div class="d-flex">
+                <div>
+                    <h3 style="text-align:bold ;">Cost of Spread</h3>
+                </div>
+            </div>
+            <div class="inputs d-flex">
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>COT Spread Y1</mat-label>
+                    <input autocomplete="off" formControlName="cosy1" matInput placeholder="COT Spread Y1" />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>COT Spread Y2</mat-label>
+                    <input autocomplete="off" formControlName="cosy2" matInput placeholder="COT Spread Y2" />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="">
+                    <mat-label>COT Spread Y3</mat-label>
+                    <input autocomplete="off" formControlName="cosy3" matInput placeholder="COT Spread Y3" />
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div class="result-tabel">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>year 1</th>
+                    <th>year2</th>
+                    <th>year3</th>
+                </tr>
+                <tr>
+                    <td class="w-50">COT Spread</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+                <tr>
+                    <td>Client Share</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+                <tr>
+                    <td>Partner/ Client share</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>

@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { InputTabelComponent } from './components/it-partner/input-tabel/input-tabel.component';
 import { IpPersonelComponent } from './components/it-partner/ip-personel/ip-personel.component';
 import { ItPartnerComponent } from './components/it-partner/it-partner/it-partner.component';
+import { CostoftransformComponent } from './components/costoftransform/costoftransform.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ItPartnerComponent } from './components/it-partner/it-partner/it-partne
     IpPersonelComponent,
     HomeComponent,
     ItPartnerComponent,
+    CostoftransformComponent,
   ],
   imports: [
     BrowserModule,
