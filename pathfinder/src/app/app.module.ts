@@ -15,6 +15,7 @@ import { CostoftransformComponent } from './components/costoftransform/costoftra
 import { InputTabelComponent } from './components/input-tabel/input-tabel.component';
 import { IpPersonelComponent } from './components/ip-personel/ip-personel.component';
 import { ItPartnerComponent } from './components/it-partner/it-partner.component';
+import { BenchmarksComponent } from './components/benchmarks/benchmarks.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ItPartnerComponent } from './components/it-partner/it-partner.component
     HomeComponent,
     ItPartnerComponent,
     CostoftransformComponent,
+    BenchmarksComponent,
   ],
   imports: [
     BrowserModule,

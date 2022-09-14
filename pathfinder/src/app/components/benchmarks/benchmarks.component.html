@@ -1,0 +1,80 @@
+<mat-card>
+  <h2>IT spend Categories</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Select Year</mat-label>
+    <mat-select [(ngModel)]="select">
+      <mat-option value="2022">2022</mat-option>
+      <mat-option value="2021">2021</mat-option>
+      <mat-option value="2020">2020</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>
+<br />
+<h4>Selected Year {{ select }}</h4>
+<mat-card *ngIf="select">
+  <div class="result-tabel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>HARDWARE</th>
+          <td>
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Hardware</mat-label>
+              <input
+                autocomplete="off"
+                formControlName="transform"
+                matInput
+                placeholder=" IT-Spend"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <th>SOFTWARE</th>
+          <td>
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Software</mat-label>
+              <input
+                autocomplete="off"
+                formControlName="transform"
+                matInput
+                placeholder=" IT-Spend"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <th>HOSTED / CLOUD BASED SERVICES</th>
+          <td>
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Hosted / Cloud Based Services</mat-label>
+              <input
+                autocomplete="off"
+                formControlName="transform"
+                matInput
+                placeholder=" IT-Spend"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <th>MANAGED SERVICES</th>
+          <td>
+            <mat-form-field appearance="outline" class="">
+              <mat-label>Managed Services</mat-label>
+              <input
+                autocomplete="off"
+                formControlName="transform"
+                matInput
+                placeholder=" IT-Spend"
+              />
+            </mat-form-field>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button mat-raised-button class="ml-auto" color="primary" type="submit">
+    Primary
+  </button>
+</mat-card>
