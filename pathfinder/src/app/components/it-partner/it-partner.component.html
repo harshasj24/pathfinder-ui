@@ -150,16 +150,16 @@
           </tr>
           <tr>
             <th>In FTEs savings cumulative</th>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+            <td>{{ clalculatedValue?.ppiYear1 || 0 }}</td>
+            <td>{{ clalculatedValue?.ppiYear2 || 0 }}</td>
+            <td>{{ clalculatedValue?.ppiYear3 || 0 }}</td>
           </tr>
           <!-- Partner Productivity ends -->
           <tr>
             <th>Net Partner FTEs</th>
-            <th>0</th>
-            <th>0</th>
-            <th>0</th>
+            <th>{{ clalculatedValue?.netFteYear1 }}</th>
+            <th>{{ clalculatedValue?.netFteYear2 }}</th>
+            <th>{{ clalculatedValue?.netFteYear3 }}</th>
           </tr>
           <tr class="Outsourcing">
             <th>Onsite ratio</th>

@@ -15,4 +15,7 @@ export class ClaculationService {
   division(a: number, b: number) {
     return Math.round(a / b);
   }
+  substraction(...nums: number[]) {
+    return nums.reduce((a, b) => a - b);
+  }
 }

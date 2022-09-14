@@ -36,14 +36,18 @@ export class ItPartnerComponent implements OnInit {
 
   clalculatedValue = {
     ...this.itPartner.value,
+    netFteYear1: 0,
+    netFteYear2: 0,
+    netFteYear3: 0,
   };
   claculateFieldPrecentage(
     fieldName: string,
     fieldValue: any,
+    fieldValue2: any,
     addition: number
   ) {
     this.clalculatedValue[fieldName] =
-      addition + this.calc.caluclatePercentage(fieldValue, this.maxOutsourcing);
+      addition + this.calc.caluclatePercentage(fieldValue, fieldValue2);
   }
   claculateValue() {}
 
@@ -53,6 +57,7 @@ export class ItPartnerComponent implements OnInit {
         this.claculateFieldPrecentage(
           'takeoverYear1',
           values?.takeoverYear1,
+          this.maxOutsourcing,
           0
         );
       }
@@ -60,6 +65,7 @@ export class ItPartnerComponent implements OnInit {
         this.claculateFieldPrecentage(
           'takeoverYear2',
           values?.takeoverYear2,
+          this.maxOutsourcing,
           this.clalculatedValue?.takeoverYear1
         );
       }
@@ -67,7 +73,45 @@ export class ItPartnerComponent implements OnInit {
         this.claculateFieldPrecentage(
           'takeoverYear3',
           values?.takeoverYear3,
+          this.maxOutsourcing,
           this.clalculatedValue?.takeoverYear2
+        );
+      }
+
+      if (values?.ppiYear1) {
+        this.claculateFieldPrecentage(
+          'ppiYear1',
+          values.ppiYear1,
+          this.clalculatedValue?.takeoverYear1,
+          0
+        );
+        this.clalculatedValue.netFteYear1 = this.calc.substraction(
+          this.clalculatedValue?.takeoverYear1,
+          this.clalculatedValue.ppiYear1
+        );
+      }
+      if (values?.ppiYear2) {
+        this.claculateFieldPrecentage(
+          'ppiYear2',
+          values.ppiYear2,
+          this.clalculatedValue?.takeoverYear2,
+          this.clalculatedValue?.ppiYear1
+        );
+        this.clalculatedValue.netFteYear2 = this.calc.substraction(
+          this.clalculatedValue?.takeoverYear2,
+          this.clalculatedValue.ppiYear2
+        );
+      }
+      if (values?.ppiYear3) {
+        this.claculateFieldPrecentage(
+          'ppiYear3',
+          values.ppiYear3,
+          this.clalculatedValue?.takeoverYear3,
+          this.clalculatedValue?.ppiYear2
+        );
+        this.clalculatedValue.netFteYear3 = this.calc.substraction(
+          this.clalculatedValue?.takeoverYear3,
+          this.clalculatedValue.ppiYear3
         );
       }
     });
