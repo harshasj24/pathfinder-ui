@@ -16,6 +16,9 @@ import { InputTabelComponent } from './components/input-tabel/input-tabel.compon
 import { IpPersonelComponent } from './components/ip-personel/ip-personel.component';
 import { ItPartnerComponent } from './components/it-partner/it-partner.component';
 import { BenchmarksComponent } from './components/benchmarks/benchmarks.component';
+import { TableComponent } from './components/table/table.component';
+import { ItSpendComponent } from './components/it-spend/it-spend.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { BenchmarksComponent } from './components/benchmarks/benchmarks.componen
     ItPartnerComponent,
     CostoftransformComponent,
     BenchmarksComponent,
+    TableComponent,
+    ItSpendComponent,
   ],
   imports: [
     BrowserModule,
