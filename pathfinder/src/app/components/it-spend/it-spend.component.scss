@@ -1,0 +1,23 @@
+.accordion-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.accordion-header button {
+  padding: 10px !important;
+  font-size: 0.75rem !important;
+}
+.accordion-header :focus {
+  box-shadow: none !important;
+}
+mat-card {
+  min-height: calc(100vh - 69px);
+}
+mat-select {
+  height: 20px !important;
+}
+::ng-deep {
+  .mat-select-trigger {
+    height: 20px !important;
+  }
+}
