@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BenchmarksComponent implements OnInit {
   select: any;
+  currentYear = new Date().getFullYear();
+
   constructor() {}
 
   ngOnInit(): void {}

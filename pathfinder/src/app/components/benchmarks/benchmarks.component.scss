@@ -1,5 +1,5 @@
 mat-card {
-  height: fit-content;
+  min-height: calc(30vh - 69px);
 }
 .inputs {
   gap: 15px;
@@ -8,6 +8,8 @@ mat-card {
 tr td {
   border: 1px solid lightgray !important;
 }
-mat-form-field {
-  width: 100%;
+mat-select {
+  height: 20px !important;
 }
+
+

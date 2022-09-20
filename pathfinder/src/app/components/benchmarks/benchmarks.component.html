@@ -1,13 +1,15 @@
 <mat-card>
   <h2>IT spend Categories</h2>
+  <div class="d-flex">
   <mat-form-field appearance="outline">
-    <mat-label>Select Year</mat-label>
+    <mat-label>Select</mat-label>
     <mat-select [(ngModel)]="select">
-      <mat-option value="2022">2022</mat-option>
-      <mat-option value="2021">2021</mat-option>
-      <mat-option value="2020">2020</mat-option>
+      <mat-option value="2022">{{currentYear}}</mat-option>
+      <mat-option value="2021">{{currentYear-1}}</mat-option>
+      <mat-option value="2020">{{currentYear-2}}</mat-option>
     </mat-select>
   </mat-form-field>
+  </div>
 </mat-card>
 <br />
 <h4>Selected Year {{ select }}</h4>
