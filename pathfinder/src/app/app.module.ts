@@ -18,6 +18,7 @@ import { ItPartnerComponent } from './components/it-partner/it-partner.component
 import { BenchmarksComponent } from './components/benchmarks/benchmarks.component';
 import { TableComponent } from './components/table/table.component';
 import { ItSpendComponent } from './components/it-spend/it-spend.component';
+import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ItSpendComponent } from './components/it-spend/it-spend.component';
     BenchmarksComponent,
     TableComponent,
     ItSpendComponent,
+    ItFunctionsComponent,
   ],
   imports: [
     BrowserModule,

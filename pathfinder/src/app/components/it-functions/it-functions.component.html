@@ -1,0 +1,233 @@
+<mat-card>
+  <form  [formGroup]="itFunctions" action="">
+    <div class="result-tabel">
+      <table class="table" cellspacing="" cellpadding="0">
+        <tbody>
+          <tr>
+            <th>IT FUNCTIONS(RUN BUSINESS)</th>
+            <th class="text-center">IT SPEND RUN</th>
+            <th class="text-center">IT SPEND RUN</th>
+            <th class="text-center">FTE SPREAD</th>
+            <th class="text-center">FTE SPREAD</th>
+          </tr>
+          <!--1. Data Center -->
+          <tr class="data__center">
+            <th>Data Center</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="dcItspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">$ It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="dcftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">$ Fte spread output</td>
+          </tr>
+          <!-- Data Center End -->
+
+          <!-- End User Computing  Starts -->
+          <tr class="end__user__computing">
+            <th>End User Computing</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="eucitpend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">$ It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="eucftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">$ Fte spread output</td>
+          </tr>
+          <!-- End User Computing Ends -->
+
+          <!-- IT Service Desk Starts -->
+          <tr class="it__service__desk">
+            <th>IT Service Desk</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="sditspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="sdftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">Fte spread output</td>
+          </tr>
+          <!-- IT Service Desk Ends -->
+          <!-- Network Starts -->
+
+          <tr class="network">
+            <th>Network</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="nitspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="nftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">Fte spread output</td>
+          </tr>
+          <!-- Network Ends -->
+
+          <!-- Application Enhancements Starts -->
+          <tr class="application__enhancements">
+            <th>Application Enhancements</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="aeitspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="aeftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">Fte spread output</td>
+          </tr>
+          <!-- Application Enhancements Ends -->
+
+          <!-- Application Support Starts -->
+          <tr class="application__support">
+            <th>Application Support</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="asitspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="asftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">Fte spread output</td>
+          </tr>
+          <!-- Application Support Ends -->
+
+          <!-- IT Mgmt, Finance & Admin Starts -->
+          <tr class="it__mgmt__finance__admin">
+            <th>IT Mgmt, Finance & Admin</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>IT SPEND RUN </mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="imfaitspend"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">It spend Output</td>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>FTE SPREAD</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="imfaftespread"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+              </mat-form-field>
+            </td>
+            <td class="text-center">Fte spread output</td>
+          </tr>
+          <!-- IT Mgmt, Finance & Admin Ends -->
+          <tr>
+            <th>Total</th>
+            <td></td>
+            <td>Total It Spend</td>
+            <td></td>
+            <td>Total Fte Spread</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</mat-card>
