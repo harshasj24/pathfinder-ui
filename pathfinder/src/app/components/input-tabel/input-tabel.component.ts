@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Chart } from 'chart.js';
 import { ClaculationService } from 'src/app/claculation.service';
 import { StoreService } from 'src/app/store.service';
@@ -12,7 +12,36 @@ import { StoreService } from 'src/app/store.service';
 export class InputTabelComponent implements OnInit {
   constructor(public cal: ClaculationService, private store: StoreService) {}
   submitted = false;
+  max = 4;
+  industryPercentiles: any = {
+    bfs: {
+      min: 4.4,
+      max: 11.4,
+    },
+    highTech: {
+      min: 2.6,
+      max: 4.7,
+    },
+    rcg: {
+      min: 1.2,
+      max: 3,
+    },
+    hc_ls: {
+      min: 3,
+      max: 5.9,
+    },
+    manlog: {
+      min: 1.4,
+      max: 3.2,
+    },
+  };
+  minMax = {
+    min: 0,
+    max: 0,
+  };
+
   inputTabel = new FormGroup({
+    industryBased: new FormControl('', [Validators.required]),
     annualRevenue: new FormControl(''),
     itSpend: new FormControl(''),
     run: new FormControl(''),
@@ -34,9 +63,37 @@ export class InputTabelComponent implements OnInit {
   get transform() {
     return this.inputTabel?.get('transform');
   }
+  get industryBased() {
+    return this.inputTabel?.get('industryBased');
+  }
 
   caluclatedItSpend: number = 0;
+
+  controls = Object.keys(this.inputTabel.value).slice(1);
+  disableEnable(disable: boolean) {
+    this.controls.map((control) => {
+      if (disable) {
+        this.inputTabel.get(control)?.disable();
+      } else {
+        this.inputTabel.get(control)?.enable();
+      }
+    });
+  }
+
   ngOnInit(): void {
+    console.log(this.inputTabel);
+    this.disableEnable(true);
+    this.industryBased?.valueChanges.subscribe((val) => {
+      console.log(this.industryPercentiles[val]);
+      this.itSpend?.addValidators([
+        Validators.max(this.industryPercentiles[val]?.max),
+        Validators.min(this.industryPercentiles[val]?.min),
+      ]);
+      this.minMax = { ...this.minMax, ...this.industryPercentiles[val] };
+      console.log(this.minMax);
+      this.disableEnable(false);
+    });
+
     this.inputTabel.valueChanges.subscribe((val) => {
       this.caluclatedItSpend = this.cal.caluclatePercentage(
         val?.annualRevenue,
@@ -48,12 +105,7 @@ export class InputTabelComponent implements OnInit {
       };
       this.store.setStore(values);
     });
-    // this.itSpend?.valueChanges.subscribe((val) => {
-    //   this.caluclatedItSpend = this.cal.caluclatePercentage(
-    //     this.annualRevenue?.value,
-    //     val
-    //   );
-    // });
+
     // this.transform?.valueChanges.subscribe((val) => {
     //   const values = {
     //     ...this.inputTabel.value,
