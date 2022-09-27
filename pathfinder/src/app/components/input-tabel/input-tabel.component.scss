@@ -11,3 +11,12 @@ tr td {
 mat-form-field {
   width: 100%;
 }
+
+mat-select {
+  // width: 200px;
+  height: 8px !important;
+}
+.select {
+  display: flex;
+  flex-direction: column;
+}

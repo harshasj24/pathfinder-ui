@@ -2,6 +2,22 @@
   <form [formGroup]="inputTabel" action="">
     <div class="d-flex">
       <div><h1>Input IT Spend</h1></div>
+      <div class="select ms-auto">
+        <mat-form-field appearance="outline">
+          <mat-select
+            placeholder="INDUSTRY BASED IT SPEND"
+            formControlName="industryBased"
+          >
+            <mat-option value="bfs">BFS &nbsp; (4.4% - 11.4%)</mat-option>
+            <mat-option value="highTech"
+              >HIGH TECH &nbsp; (2.6% - 4.7%)</mat-option
+            >
+            <mat-option value="rcg">RCG &nbsp; (1.2% - 3%)</mat-option>
+            <mat-option value="hc_ls">HC/LS &nbsp; (3% - 5.9%)</mat-option>
+            <mat-option value="manlog">MANLOG &nbsp; (1.4% - 3.2%)</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <div class="inputs d-flex">
       <mat-form-field appearance="outline" class="">
@@ -12,6 +28,7 @@
           matInput
           placeholder="Annual Revenue"
         />
+        <mat-error>hello</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="">
         <mat-label>It Spend</mat-label>
@@ -21,7 +38,12 @@
           matInput
           placeholder="It Spend"
         />
+        <mat-error *ngIf="industryBased?.touched && itSpend?.invalid"
+          >value should be in range from {{ minMax.min }} to
+          {{ minMax.max }}</mat-error
+        >
       </mat-form-field>
+
       <mat-form-field appearance="outline" class="">
         <mat-label>Run It Spend</mat-label>
         <input
@@ -51,7 +73,7 @@
       </mat-form-field>
     </div>
   </form>
-  <h2>
+  <h2 class="mt-5">
     Annual revenue:{{ annualRevenue?.value || 0 | currency: "USD":true:"1.0" }}
   </h2>
   <div class="result-tabel">
@@ -96,5 +118,5 @@
     </table>
   </div>
 
-  <app-charts ></app-charts>
+  <app-charts></app-charts>
 </mat-card>
