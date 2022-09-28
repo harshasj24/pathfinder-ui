@@ -85,10 +85,12 @@ export class InputTabelComponent implements OnInit {
     this.disableEnable(true);
     this.industryBased?.valueChanges.subscribe((val) => {
       console.log(this.industryPercentiles[val]);
-      this.itSpend?.addValidators([
+      this.itSpend?.setValidators([
         Validators.max(this.industryPercentiles[val]?.max),
         Validators.min(this.industryPercentiles[val]?.min),
       ]);
+      console.log(this.itSpend);
+
       this.minMax = { ...this.minMax, ...this.industryPercentiles[val] };
       console.log(this.minMax);
       this.disableEnable(false);
