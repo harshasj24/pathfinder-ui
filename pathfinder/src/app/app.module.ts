@@ -19,6 +19,7 @@ import { BenchmarksComponent } from './components/benchmarks/benchmarks.componen
 import { TableComponent } from './components/table/table.component';
 import { ItSpendComponent } from './components/it-spend/it-spend.component';
 import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
+import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ItFunctionsComponent } from './components/it-functions/it-functions.com
     TableComponent,
     ItSpendComponent,
     ItFunctionsComponent,
+    ItSpendRunComponent,
   ],
   imports: [
     BrowserModule,

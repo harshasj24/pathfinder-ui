@@ -1,0 +1,18 @@
+tbody tr td,
+thead tr th {
+  padding: 0.5rem 0.5rem !important;
+}
+thead tr th {
+  font-size: 0.75rem;
+  background-color: #4472c4;
+  color: white;
+  border-left: 0.5px solid white;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+@for $var from 0 to 9 {
+  .text-#{$var} {
+    font-size: #{$var}+ "rem";
+  }
+}

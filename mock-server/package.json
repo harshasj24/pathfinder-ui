@@ -1,0 +1,12 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server -p 4300 -w db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,29 @@
+{
+  "inputTable": {
+    "annual_revenue_for_client": 11170000000,
+    "it_spent_perc": 2.5,
+    "it_spent_value": 279250000,
+    "run_business_perc": 65.0,
+    "run_business_value": 181512500,
+    "grow_business_perc": 23.0,
+    "grow_business_value": 64227500,
+    "transform_it_perc": 12.0,
+    "transform_it_value": 33510000,
+    "annual_inflation_perc": 3.0
+  },
+  "itPersonnel": {
+    "id": "633a5b869a494d0bb409d184",
+    "it_spend_on_personal_perc": 67.0,
+    "it_spend_outsource": 187097500,
+    "avr_ctc_per_fte": 150000,
+    "avr_ctc_final": 1247,
+    "run_fte_personal": 121613375,
+    "run_fte_outsource": 811,
+    "grow_fte_personal": 43032425,
+    "grow_fte_outsource": 287,
+    "transform_fte_personal": 22451700,
+    "transform_fte_outsource": 150,
+    "perc_eligible_forpersonal": 85.0,
+    "eligible_outsource": 689
+  }
+}
