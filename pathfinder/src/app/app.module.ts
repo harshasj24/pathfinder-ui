@@ -20,7 +20,7 @@ import { TableComponent } from './components/table/table.component';
 import { ItSpendComponent } from './components/it-spend/it-spend.component';
 import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
 import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
-
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -44,6 +44,7 @@ import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
