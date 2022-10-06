@@ -19,15 +19,20 @@ import { HttpService } from 'src/app/core/services/http.service';
   styleUrls: ['./ip-personel.component.scss'],
 })
 export class IpPersonelComponent implements OnInit, AfterViewInit {
-  constructor(public cal: ClaculationService, private store: StoreService,private apiservice:ApiService,private http:HttpService) {}
+  constructor(
+    public cal: ClaculationService,
+    private store: StoreService,
+    private apiservice: ApiService,
+    private http: HttpService
+  ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
-itPersonelData:any
+  itPersonelData: any;
   itPersonel = new FormGroup({
-    itSpend: new FormControl('',Validators.required),
-    ctc: new FormControl('',Validators.required),
-    maxOutsourcing: new FormControl('',Validators.required),
+    itSpend: new FormControl('', [Validators.required]),
+    ctc: new FormControl('', [Validators.required]),
+    maxOutsourcing: new FormControl('', [Validators.required]),
   });
 
   get itSpend() {
@@ -59,16 +64,16 @@ itPersonelData:any
 
   handleSubmit() {
     this.isLoaded = true;
-    this.apiservice.getitpersonnel().subscribe((val)=>{
-      this.itPersonelData=val;
+    this.apiservice.getitpersonnel().subscribe((val) => {
+      this.itPersonelData = val;
       console.log(val);
-      
-       this.isLoaded = false;
-    })
+
+      this.isLoaded = false;
+    });
     // this.http.get('/inputTable').subscribe((val) => {
     //   this.inputTableData = val;
     //   console.log(val);
-      // this.isLoaded = false;
+    // this.isLoaded = false;
     // });
   }
 

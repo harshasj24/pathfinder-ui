@@ -25,5 +25,51 @@
     "transform_fte_outsource": 150,
     "perc_eligible_forpersonal": 85.0,
     "eligible_outsource": 689
+  },
+
+  "itPersonnelCost": {
+    "id": "633a5c419a494d0bb409d185",
+    "partnerCtcOnsite": 115000,
+    "partnerCtcOffshore": 20000,
+    "onsitRatio": 20.0,
+    "offshoreRatio": 80.0,
+    "yearBseCalculations": [
+      {
+        "yearLine": 1,
+        "takeOverPlan": 25.0,
+        "infteCumulative": 172,
+        "ppImprovement": 3.0,
+        "fteSavingsCumulative": 5,
+        "netPartnerFte": 167,
+        "onsiteRatio": 80.0,
+        "inFteOnsite": 134,
+        "offshoreRatio": 20.0,
+        "inFteOffshore": 33
+      },
+      {
+        "yearLine": 2,
+        "takeOverPlan": 50.0,
+        "infteCumulative": 517,
+        "ppImprovement": 5.0,
+        "fteSavingsCumulative": 31,
+        "netPartnerFte": 486,
+        "onsiteRatio": 50.0,
+        "inFteOnsite": 243,
+        "offshoreRatio": 50.0,
+        "inFteOffshore": 243
+      },
+      {
+        "yearLine": 3,
+        "takeOverPlan": 25.0,
+        "infteCumulative": 689,
+        "ppImprovement": 2.0,
+        "fteSavingsCumulative": 45,
+        "netPartnerFte": 644,
+        "onsiteRatio": 20.0,
+        "inFteOnsite": 129,
+        "offshoreRatio": 80.0,
+        "inFteOffshore": 515
+      }
+    ]
   }
 }
