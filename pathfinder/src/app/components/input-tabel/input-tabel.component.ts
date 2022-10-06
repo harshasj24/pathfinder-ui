@@ -2,17 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Chart } from 'chart.js';
 import { ClaculationService } from 'src/app/claculation.service';
+import { HttpService } from 'src/app/core/services/http.service';
 import { StoreService } from 'src/app/store.service';
-
+import { Observable } from 'rxjs';
+import { inputTable } from 'src/app/core/models/tables';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
   styleUrls: ['./input-tabel.component.scss'],
 })
 export class InputTabelComponent implements OnInit {
-  constructor(public cal: ClaculationService, private store: StoreService) {}
+  constructor(
+    public cal: ClaculationService,
+    private store: StoreService,
+    private http: HttpService
+  ) {}
+  inputTableData: any;
   submitted = false;
   max = 4;
+  isLoaded: boolean = false;
   industryPercentiles: any = {
     bfs: {
       min: 4.4,
@@ -42,11 +50,11 @@ export class InputTabelComponent implements OnInit {
 
   inputTabel = new FormGroup({
     industryBased: new FormControl('', [Validators.required]),
-    annualRevenue: new FormControl(''),
-    itSpend: new FormControl(''),
-    run: new FormControl(''),
-    grow: new FormControl(''),
-    transform: new FormControl(''),
+    annualRevenue: new FormControl('', [Validators.required]),
+    itSpend: new FormControl('', [Validators.required]),
+    run: new FormControl('', [Validators.required]),
+    grow: new FormControl('', [Validators.required]),
+    transform: new FormControl('', [Validators.required]),
   });
   get annualRevenue() {
     return this.inputTabel.get('annualRevenue');
@@ -80,14 +88,23 @@ export class InputTabelComponent implements OnInit {
     });
   }
 
+  handleSubmit() {
+    this.isLoaded = true;
+    this.http.get('/inputTable').subscribe((val) => {
+      this.inputTableData = val;
+      console.log(val);
+      this.isLoaded = false;
+    });
+  }
+
   ngOnInit(): void {
-    console.log(this.inputTabel);
     this.disableEnable(true);
     this.industryBased?.valueChanges.subscribe((val) => {
       console.log(this.industryPercentiles[val]);
       this.itSpend?.setValidators([
         Validators.max(this.industryPercentiles[val]?.max),
         Validators.min(this.industryPercentiles[val]?.min),
+        Validators.required,
       ]);
       console.log(this.itSpend);
 

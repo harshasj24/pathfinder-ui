@@ -18,6 +18,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
   constructor() {}
   @ViewChild('myChart') myChart: ElementRef;
   @ViewChild('myChart2') myChart2: ElementRef;
+  toggle: boolean = true;
   ngAfterViewInit() {
     const myChart = new Chart(this.myChart.nativeElement, {
       type: 'bar',
@@ -72,4 +73,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
     });
   }
   ngOnInit(): void {}
+  toggleChats() {
+    this.toggle = !this.toggle;
+  }
 }
