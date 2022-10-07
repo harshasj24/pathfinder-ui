@@ -2,9 +2,17 @@ mat-card {
   height: fit-content;
 }
 .inputs {
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 12px;
+  width: 60%;
+  // flex-wrap: wrap
 }
 tr td {
   border: 1px solid lightgray !important;
+}
+mat-form-field {
+  width: 100%
+}
+.form__action {
+  margin-top: 10px;
+  margin-left: 10px;
 }

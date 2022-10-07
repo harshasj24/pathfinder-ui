@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-costoftransform',
@@ -10,9 +10,9 @@ export class CostoftransformComponent implements OnInit {
 
   constructor() { }
 COT = new FormGroup({
-    cot: new FormControl(''),
-    clientshare: new FormControl(''),
-    partnershare: new FormControl(''),
+    cot: new FormControl('',Validators.required),
+    clientshare: new FormControl('',Validators.required),
+    partnershare: new FormControl('',Validators.required),
   });
   get cot() {
     return this.COT.get('cot');
@@ -22,6 +22,9 @@ COT = new FormGroup({
   }
   get partnershare() {
     return this.COT.get('partnershare');
+  }
+  handleSubmit(){
+
   }
   ngOnInit(): void {
   }

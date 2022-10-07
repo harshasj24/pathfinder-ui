@@ -1,0 +1,25 @@
+mat-card {
+    height: fit-content;
+}
+
+.inputs {
+    gap: 15px;
+    width: 60%;
+}
+
+tr td {
+    border: 1px solid lightgray !important;
+}
+
+mat-form-field {
+    width: 100%
+}
+
+mat-select {
+    // width: 200px;
+    height: 8px !important;
+}
+.form__action {
+    margin-top: 20px;
+    // margin-left: 10px;
+}

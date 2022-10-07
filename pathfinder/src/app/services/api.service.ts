@@ -7,4 +7,9 @@ import { HttpService } from '../core/services/http.service';
 })
 export class ApiService {
   constructor(private http: HttpService) {}
+  getitpersonnel(){
+    return this.http.get('/itPersonnel')
+  }
+
+  
 }

@@ -21,6 +21,7 @@ import { ItSpendComponent } from './components/it-spend/it-spend.component';
 import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
 import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 import { CoreModule } from './core/core.module';
+import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CoreModule } from './core/core.module';
     ItSpendComponent,
     ItFunctionsComponent,
     ItSpendRunComponent,
+    ItRunSpendComponent,
   ],
   imports: [
     BrowserModule,
