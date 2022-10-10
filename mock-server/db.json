@@ -71,5 +71,37 @@
         "inFteOffshore": 515
       }
     ]
-  }
+  },
+    "cost" :{
+    "id": "633a5db296c81f3efa45b90b",
+    "cot_perc": 10.0,
+    "cot_value": 18151250,
+    "client_perc": 55.0,
+    "client_value": 9983188,
+    "partner_perc": 45.0,
+    "partner_value": 8168063,
+    "yearBaseCostCalculations": [
+        {
+            "year": 1,
+            "cot_spread_perc": 30.0,
+            "client_share_value": 3084805,
+            "partner_share_value": 2523931,
+            "total_with_inflation": 5608736
+        },
+        {
+            "year": 2,
+            "cot_spread_perc": 50.0,
+            "client_share_value": 5141342,
+            "partner_share_value": 4206552,
+            "total_with_inflation": 9347894
+        },
+        {
+            "year": 3,
+            "cot_spread_perc": 20.0,
+            "client_share_value": 2056537,
+            "partner_share_value": 1682621,
+            "total_with_inflation": 3739158
+        }
+    ]
+}
 }
