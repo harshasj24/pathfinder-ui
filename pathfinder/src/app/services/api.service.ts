@@ -7,12 +7,13 @@ import { HttpService } from '../core/services/http.service';
 })
 export class ApiService {
   constructor(private http: HttpService) {}
-  getitpersonnel(){
-    return this.http.get('/itPersonnel')
+  getitpersonnel() {
+    return this.http.get('/itPersonnel');
   }
-  getcostoftransform(){
-    return this.http.get('/cost')
+  getitpersonnelcost() {
+    return this.http.get('/itPersonnelCost');
   }
-
-  
+  getcostoftransform() {
+    return this.http.get('/cost');
+  }
 }

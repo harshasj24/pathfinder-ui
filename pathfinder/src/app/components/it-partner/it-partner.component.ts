@@ -1,6 +1,14 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClaculationService } from 'src/app/claculation.service';
+import { HttpService } from 'src/app/core/services/http.service';
+import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
 @Component({
@@ -9,25 +17,33 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./it-partner.component.scss'],
 })
 export class ItPartnerComponent implements OnInit {
-  constructor(private store: StoreService, public calc: ClaculationService) {}
-
+  constructor(
+    private store: StoreService,
+    public calc: ClaculationService,
+    private apiservice: ApiService,
+    private http: HttpService
+  ) {}
+  @ViewChild('myChart') char: ElementRef;
+  @ViewChild('myChart1') char1: ElementRef;
+  isLoaded: boolean = false;
+  itPersonelCostData: any;
   itPartner = new FormGroup({
-    partnerCtcOnsite: new FormControl(''),
-    partnerCtcOffshore: new FormControl(''),
-    offshoreRatioTobe: new FormControl(''),
-    onsiteRatioTobe: new FormControl(''),
-    takeoverYear1: new FormControl(''),
-    takeoverYear2: new FormControl(''),
-    takeoverYear3: new FormControl(''),
-    ppiYear1: new FormControl(''),
-    ppiYear2: new FormControl(''),
-    ppiYear3: new FormControl(''),
-    onsiteYear1: new FormControl(''),
-    onsiteYear2: new FormControl(''),
-    onsiteYear3: new FormControl(''),
-    offshoreYear1: new FormControl(''),
-    offshoreYear2: new FormControl(''),
-    offshoreYear3: new FormControl(''),
+    partnerCtcOnsite: new FormControl('', [Validators.required]),
+    partnerCtcOffshore: new FormControl('', [Validators.required]),
+    offshoreRatioTobe: new FormControl('', [Validators.required]),
+    onsiteRatioTobe: new FormControl('', [Validators.required]),
+    takeoverYear1: new FormControl('', [Validators.required]),
+    takeoverYear2: new FormControl('', [Validators.required]),
+    takeoverYear3: new FormControl('', [Validators.required]),
+    ppiYear1: new FormControl('', [Validators.required]),
+    ppiYear2: new FormControl('', [Validators.required]),
+    ppiYear3: new FormControl('', [Validators.required]),
+    onsiteYear1: new FormControl('', [Validators.required]),
+    onsiteYear2: new FormControl('', [Validators.required]),
+    onsiteYear3: new FormControl('', [Validators.required]),
+    offshoreYear1: new FormControl('', [Validators.required]),
+    offshoreYear2: new FormControl('', [Validators.required]),
+    offshoreYear3: new FormControl('', [Validators.required]),
   });
   getFieldValue(fieldName: string) {
     return this.itPartner.get(fieldName)?.value;
@@ -50,7 +66,17 @@ export class ItPartnerComponent implements OnInit {
       addition + this.calc.caluclatePercentage(fieldValue, fieldValue2);
   }
   claculateValue() {}
+  ngAfterViewInit() {}
 
+  handleSubmit() {
+    this.isLoaded = true;
+    this.apiservice.getitpersonnel().subscribe((val) => {
+      this.itPersonelCostData = val;
+      console.log(val);
+
+      this.isLoaded = false;
+    });
+  }
   ngOnInit(): void {
     this.itPartner.valueChanges.subscribe((values) => {
       if (values?.takeoverYear1) {

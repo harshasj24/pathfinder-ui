@@ -1,5 +1,10 @@
+<app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
-  <form [formGroup]="itPartner" action="">
+  <form
+    [formGroup]="itPartner"
+    action=""
+    (ngSubmit)="itPartner.valid && handleSubmit()"
+  >
     <h2>IT -Personnel Cost(Partner)</h2>
     <div class="mat-card__body">
       <div class="mat-card__body__inputs">
@@ -11,6 +16,7 @@
             placeholder="Annual Revenue"
             formControlName="partnerCtcOnsite"
           />
+          <mat-error>Partner CTC (Onsite) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Partner CTC (Offshore)</mat-label>
@@ -20,6 +26,7 @@
             matInput
             placeholder="Annual Revenue"
           />
+          <mat-error>Partner CTC (Offshore) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Onsite Ratio (to be)</mat-label>
@@ -29,6 +36,7 @@
             matInput
             placeholder="Annual Revenue"
           />
+          <mat-error>Onsite Ratio (to be) is required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Offshore Ratio (to be)</mat-label>
@@ -38,7 +46,13 @@
             matInput
             placeholder="Annual Revenue"
           />
+          <mat-error>Offshore Ratio (to be) is required</mat-error>
         </mat-form-field>
+        <div class="form__action">
+          <button mat-raised-button color="primary" type="submit">
+            submit
+          </button>
+        </div>
       </div>
     </div>
     <div class="result-tabel">
@@ -68,6 +82,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -79,6 +94,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -90,6 +106,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -119,6 +136,10 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error
+                  >Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error
+                >
               </mat-form-field>
             </td>
             <td>
@@ -132,6 +153,10 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error
+                  >Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error
+                >
               </mat-form-field>
             </td>
             <td>
@@ -145,6 +170,10 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error
+                  >Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error
+                >
               </mat-form-field>
             </td>
           </tr>
@@ -172,6 +201,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -183,6 +213,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -194,6 +225,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -214,6 +246,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -225,6 +258,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
@@ -236,6 +270,7 @@
                   matInput
                   placeholder="Year -1"
                 />
+                <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>
           </tr>
