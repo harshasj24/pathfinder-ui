@@ -10,6 +10,9 @@ export class ApiService {
   getitpersonnel(){
     return this.http.get('/itPersonnel')
   }
+  getcostoftransform(){
+    return this.http.get('/cost')
+  }
 
   
 }
