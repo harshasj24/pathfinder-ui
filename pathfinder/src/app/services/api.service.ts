@@ -29,13 +29,46 @@ export class ApiService {
         })
       );
   }
-  getitpersonnelcost() {
-    return this.http.get('/itPersonnelCost');
+  getitpersonnelcost(payload: any) {
+    return this.http
+      .post(
+        `/inputtables/itpersonelcost/${this.store.getId('itPersonnelId')}`,
+        payload
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('itpersonelcost', res.id);
+        })
+      );
   }
-  getcostoftransform() {
-    return this.http.get('/cost');
+  getcostoftransform(payload: any) {
+    return this.http
+      .post(`/inputtables/cost/${this.store.getId('inputTableID')}`, payload)
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('COT_Id', res.id);
+        })
+      );
   }
   getItRunSpend() {
-    return this.http.get('/assertRunItSpend');
+    return this.http.get(`/inputtables/itrun/${this.store.getId(
+      'itPersonnelId'
+    )}/${this.store.getId('inputTableID')}/${this.store.getId('COT_Id')}
+    `);
+  }
+
+  getItFunctions(payload: any) {
+    return this.http
+      .post(
+        `/input/${this.store.getId('inputTableID')}/${this.store.getId(
+          'itPersonnelId'
+        )}`,
+        payload
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('itFunctionId', res.id);
+        })
+      );
   }
 }

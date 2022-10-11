@@ -11,6 +11,14 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
+export interface YearBaseCaluclation {
+  yearLine: number;
+  takeOverPlan: number;
+  ppImprovement: number;
+  onsiteRatio: number;
+  offshoreRatio: number;
+}
+
 @Component({
   selector: 'app-it-partner',
   templateUrl: './it-partner.component.html',
@@ -26,11 +34,12 @@ export class ItPartnerComponent implements OnInit {
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
-  itPersonelCostData: any;
+  itPersonelCostData: any = [];
+  isSubmitted: boolean = false;
   itpersonelcost = new FormGroup({
     partnerCtcOnsite: new FormControl('', [Validators.required]),
     partnerCtcOffshore: new FormControl('', [Validators.required]),
-   onsitRatio: new FormControl('', [Validators.required]),
+    onsitRatio: new FormControl('', [Validators.required]),
     offshoreRatio: new FormControl('', [Validators.required]),
     takeOverPlany1: new FormControl('', [Validators.required]),
     takeOverPlany2: new FormControl('', [Validators.required]),
@@ -45,6 +54,7 @@ export class ItPartnerComponent implements OnInit {
     offshoreRatioy2: new FormControl('', [Validators.required]),
     offshoreRatioy3: new FormControl('', [Validators.required]),
   });
+  outsourcings: any = {};
   getFieldValue(fieldName: string) {
     return this.itpersonelcost.get(fieldName)?.value;
   }
@@ -65,86 +75,116 @@ export class ItPartnerComponent implements OnInit {
     this.clalculatedValue[fieldName] =
       addition + this.calc.caluclatePercentage(fieldValue, fieldValue2);
   }
-  claculateValue() {}
+  getValue(key: string): any {
+    this.itPersonelCostData?.yearBseCalculations?.map((el: any) => el[key]);
+  }
   ngAfterViewInit() {}
 
+  getcalucatedVal() {}
   handleSubmit() {
-    // this.isLoaded = true;
-    // this.apiservice.getitpersonnel().subscribe((val) => {
-    //   this.itPersonelCostData = val;
-    //   console.log(val);
-    //   this.isLoaded = false;
-    // });
+    let yearBseCalculations: any = [];
+    for (let i = 1; i < 4; i++) {
+      let obj: YearBaseCaluclation = {
+        yearLine: i,
+        takeOverPlan: this.itpersonelcost.value[`takeOverPlany${i}`],
+        ppImprovement: this.itpersonelcost.value[`ppImprovementy${i}`],
+        offshoreRatio: this.itpersonelcost.value[`offshoreRatioy${i}`],
+        onsiteRatio: this.itpersonelcost.value[`onsiteRatioy${i}`],
+      };
+      yearBseCalculations.push(obj);
+    }
+    let payload = {
+      offshoreRatio: this.itpersonelcost.value['offshoreRatio'],
+      onsitRatio: this.itpersonelcost.value['onsitRatio'],
+      partnerCtcOnsite: this.itpersonelcost.value['partnerCtcOnsite'],
+      partnerCtcOffshore: this.itpersonelcost.value['partnerCtcOffshore'],
+      yearBseCalculations,
+    };
+    console.log(payload);
+    this.apiservice.getitpersonnelcost(payload).subscribe((val) => {
+      console.log(val);
+      this.itPersonelCostData = val;
+      [
+        'infteCumulative',
+        'fteSavingsCumulative',
+        'netPartnerFte',
+        'inFteOnsite',
+        'inFteOffshore',
+      ].forEach((el) => {
+        this.outsourcings[el] = val.yearBseCalculations.map(
+          (val: any) => val[el]
+        );
+      });
+    });
   }
   ngOnInit(): void {
-    this.itpersonelcost.valueChanges.subscribe((values) => {
-      if (values?.takeoverYear1) {
-        this.claculateFieldPrecentage(
-          'takeoverYear1',
-          values?.takeoverYear1,
-          this.maxOutsourcing,
-          0
-        );
-      }
-      if (values?.takeoverYear2) {
-        this.claculateFieldPrecentage(
-          'takeoverYear2',
-          values?.takeoverYear2,
-          this.maxOutsourcing,
-          this.clalculatedValue?.takeoverYear1
-        );
-      }
-      if (values?.takeoverYear3) {
-        this.claculateFieldPrecentage(
-          'takeoverYear3',
-          values?.takeoverYear3,
-          this.maxOutsourcing,
-          this.clalculatedValue?.takeoverYear2
-        );
-      }
-
-      if (values?.ppiYear1) {
-        this.claculateFieldPrecentage(
-          'ppiYear1',
-          values.ppiYear1,
-          this.clalculatedValue?.takeoverYear1,
-          0
-        );
-        this.clalculatedValue.netFteYear1 = this.calc.substraction(
-          this.clalculatedValue?.takeoverYear1,
-          this.clalculatedValue.ppiYear1
-        );
-      }
-      if (values?.ppiYear2) {
-        this.claculateFieldPrecentage(
-          'ppiYear2',
-          values.ppiYear2,
-          this.clalculatedValue?.takeoverYear2,
-          this.clalculatedValue?.ppiYear1
-        );
-        this.clalculatedValue.netFteYear2 = this.calc.substraction(
-          this.clalculatedValue?.takeoverYear2,
-          this.clalculatedValue.ppiYear2
-        );
-      }
-      if (values?.ppiYear3) {
-        this.claculateFieldPrecentage(
-          'ppiYear3',
-          values.ppiYear3,
-          this.clalculatedValue?.takeoverYear3,
-          this.clalculatedValue?.ppiYear2
-        );
-        this.clalculatedValue.netFteYear3 = this.calc.substraction(
-          this.clalculatedValue?.takeoverYear3,
-          this.clalculatedValue.ppiYear3
-        );
-      }
-    });
-    this.store.maxEle.subscribe((val) => {
-      this.maxOutsourcing = val;
-    });
-    this.itpersonelcost.valueChanges.subscribe((val) => {
-      console.log(val);
-    });
+    //   this.itpersonelcost.valueChanges.subscribe((values) => {
+    //     if (values?.takeoverYear1) {
+    //       this.claculateFieldPrecentage(
+    //         'takeoverYear1',
+    //         values?.takeoverYear1,
+    //         this.maxOutsourcing,
+    //         0
+    //       );
+    //     }
+    //     if (values?.takeoverYear2) {
+    //       this.claculateFieldPrecentage(
+    //         'takeoverYear2',
+    //         values?.takeoverYear2,
+    //         this.maxOutsourcing,
+    //         this.clalculatedValue?.takeoverYear1
+    //       );
+    //     }
+    //     if (values?.takeoverYear3) {
+    //       this.claculateFieldPrecentage(
+    //         'takeoverYear3',
+    //         values?.takeoverYear3,
+    //         this.maxOutsourcing,
+    //         this.clalculatedValue?.takeoverYear2
+    //       );
+    //     }
+    //     if (values?.ppiYear1) {
+    //       this.claculateFieldPrecentage(
+    //         'ppiYear1',
+    //         values.ppiYear1,
+    //         this.clalculatedValue?.takeoverYear1,
+    //         0
+    //       );
+    //       this.clalculatedValue.netFteYear1 = this.calc.substraction(
+    //         this.clalculatedValue?.takeoverYear1,
+    //         this.clalculatedValue.ppiYear1
+    //       );
+    //     }
+    //     if (values?.ppiYear2) {
+    //       this.claculateFieldPrecentage(
+    //         'ppiYear2',
+    //         values.ppiYear2,
+    //         this.clalculatedValue?.takeoverYear2,
+    //         this.clalculatedValue?.ppiYear1
+    //       );
+    //       this.clalculatedValue.netFteYear2 = this.calc.substraction(
+    //         this.clalculatedValue?.takeoverYear2,
+    //         this.clalculatedValue.ppiYear2
+    //       );
+    //     }
+    //     if (values?.ppiYear3) {
+    //       this.claculateFieldPrecentage(
+    //         'ppiYear3',
+    //         values.ppiYear3,
+    //         this.clalculatedValue?.takeoverYear3,
+    //         this.clalculatedValue?.ppiYear2
+    //       );
+    //       this.clalculatedValue.netFteYear3 = this.calc.substraction(
+    //         this.clalculatedValue?.takeoverYear3,
+    //         this.clalculatedValue.ppiYear3
+    //       );
+    //     }
+    //   });
+    //   this.store.maxEle.subscribe((val) => {
+    //     this.maxOutsourcing = val;
+    //   });
+    //   this.itpersonelcost.valueChanges.subscribe((val) => {
+    //     console.log(val);
+    //   });
   }
 }

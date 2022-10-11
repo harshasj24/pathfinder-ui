@@ -1,5 +1,9 @@
 <mat-card>
-  <form [formGroup]="itFunctions" action="" (ngSubmit)="itFunctions.valid && handleSubmit()">
+  <form
+    [formGroup]="itFunctions"
+    action=""
+    (ngSubmit)="itFunctions.valid && handleSubmit()"
+  >
     <div class="result-tabel">
       <table class="table" cellspacing="" cellpadding="0">
         <tbody>
@@ -16,19 +20,33 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="data_center_itspend_run_perc " matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="data_center_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>Data center IT spend is required</mat-error>
               </mat-form-field>
-              <mat-error>Data center IT spend is required</mat-error>
             </td>
-            <td class="text-center">$ It spend Output</td>
+            <td class="text-center">
+              $ {{ itFunctionsData?.data_center_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="data_center_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="data_center_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>Data center fte spread is required</mat-error>
               </mat-form-field>
-              <mat-error>Data center fte  spread is required</mat-error>
             </td>
-            <td class="text-center">$ Fte spread output</td>
+            <td class="text-center">
+              $ {{ itFunctionsData?.data_center_fte_spread_value }}
+            </td>
           </tr>
           <!-- Data Center End -->
 
@@ -38,19 +56,34 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="end_user_computing_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="end_user_computing_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>End user computing is required</mat-error>
               </mat-form-field>
-              <mat-error>End user computing is required</mat-error>
             </td>
-            <td class="text-center">$ It spend Output</td>
+            <td class="text-center">
+              $ {{ itFunctionsData?.end_user_computing_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD </mat-label>
-                <input autocomplete="off" formControlName="end_user_computing_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="end_user_computing_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>End user computing is required</mat-error>
               </mat-form-field>
-              <mat-error>End user computing is required</mat-error>
             </td>
-            <td class="text-center">$ Fte spread output</td>
+            {{
+              itFunctionsData?.end_user_computing_fte_spread_value
+            }}
+            <td class="text-center">$</td>
           </tr>
           <!-- End User Computing Ends -->
 
@@ -60,19 +93,33 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="it_service_desk_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="it_service_desk_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>IT service desk is required</mat-error>
               </mat-form-field>
-              <mat-error>IT service desk is required</mat-error>
             </td>
-            <td class="text-center">It spend Output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.it_service_desk_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="it_service_desk_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="it_service_desk_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>IT service desk is required</mat-error>
               </mat-form-field>
-              <mat-error>IT service desk is required</mat-error>
             </td>
-            <td class="text-center">Fte spread output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.it_service_desk_fte_spread_value }}
+            </td>
           </tr>
           <!-- IT Service Desk Ends -->
           <!-- Network Starts -->
@@ -82,19 +129,33 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="network_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="network_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>Network itspend is required</mat-error>
               </mat-form-field>
-              <mat-error>Network itspend is required</mat-error>
             </td>
-            <td class="text-center">It spend Output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.network_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="network_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="network_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>Network itspend is required</mat-error>
               </mat-form-field>
-              <mat-error>Network itspend is required</mat-error>
             </td>
-            <td class="text-center">Fte spread output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.network_fte_spread_value }}
+            </td>
           </tr>
           <!-- Network Ends -->
 
@@ -104,19 +165,33 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="application_enhance_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="application_enhance_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>Application enchance is required</mat-error>
               </mat-form-field>
-              <mat-error>Application enchance is required</mat-error>
             </td>
-            <td class="text-center">It spend Output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.application_enhance_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="application_enhance_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="application_enhance_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>Application enchance is required</mat-error>
               </mat-form-field>
-              <mat-error>Application enchance is required</mat-error>
             </td>
-            <td class="text-center">Fte spread output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.application_enhance_fte_spread_value }}
+            </td>
           </tr>
           <!-- Application Enhancements Ends -->
 
@@ -126,19 +201,33 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="application_support_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="application_support_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>Application support is required</mat-error>
               </mat-form-field>
-              <mat-error>Application support is required</mat-error>
             </td>
-            <td class="text-center">It spend Output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.application_support_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="application_support_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="application_support_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>Application support is required</mat-error>
               </mat-form-field>
-              <mat-error>Application support is required</mat-error>
             </td>
-            <td class="text-center">Fte spread output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.application_support_fte_spread_value }}
+            </td>
           </tr>
           <!-- Application Support Ends -->
 
@@ -148,30 +237,47 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>IT SPEND RUN </mat-label>
-                <input autocomplete="off" formControlName="it_management_itspend_run_perc" matInput placeholder="It Spend run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="it_management_itspend_run_perc"
+                  matInput
+                  placeholder="It Spend run %"
+                />
+                <mat-error>IT management is required</mat-error>
               </mat-form-field>
-              <mat-error>IT management is required</mat-error>
             </td>
-            <td class="text-center">It spend Output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.it_management_itspend_run_value }}
+            </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>FTE SPREAD</mat-label>
-                <input autocomplete="off" formControlName="it_management_fte_spread_perc" matInput placeholder="FTE Spread run %" />
+                <input
+                  autocomplete="off"
+                  formControlName="it_management_fte_spread_perc"
+                  matInput
+                  placeholder="FTE Spread run %"
+                />
+                <mat-error>IT management is required</mat-error>
               </mat-form-field>
-              <mat-error>IT management is required</mat-error>
             </td>
-            <td class="text-center">Fte spread output</td>
+            <td class="text-center">
+              {{ itFunctionsData?.it_management_fte_spread_value }}
+            </td>
           </tr>
           <!-- IT Mgmt, Finance & Admin Ends -->
           <tr>
             <th>Total</th>
             <td></td>
-            <td>Total It Spend</td>
+            <td>{{ itFunctionsData?.total_itspend_run_value }}</td>
             <td></td>
-            <td>Total Fte Spread</td>
+            <td>{{ itFunctionsData?.total_fte_spread_value }}</td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="form-action d-flex justify-content-end">
+      <button mat-raised-button color="primary">Submit</button>
     </div>
   </form>
 </mat-card>

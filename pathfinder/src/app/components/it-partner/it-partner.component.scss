@@ -16,7 +16,14 @@ tr td,
 th {
   border: 1px solid lightgray;
 }
-.form__action{
-  margin-top:10px;
-    // margin-left: 10px;
+.form__action {
+  margin-top: 10px;
+  // margin-left: 10px;
+}
+.mat-card__body__inputs {
+  display: flex;
+  gap: 10px;
+  mat-form-field {
+    margin-left: 10px;
+  }
 }
