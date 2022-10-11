@@ -6,6 +6,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { StoreService } from 'src/app/store.service';
 import { Observable } from 'rxjs';
 import { inputTable } from 'src/app/core/models/tables';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
@@ -15,7 +16,8 @@ export class InputTabelComponent implements OnInit {
   constructor(
     public cal: ClaculationService,
     private store: StoreService,
-    private http: HttpService
+    private http: HttpService,
+    private api: ApiService
   ) {}
   inputTableData: any;
   submitted = false;
@@ -98,16 +100,10 @@ export class InputTabelComponent implements OnInit {
 
   handleSubmit() {
     this.isLoaded = true;
-    // this.http.get('/inputTable').subscribe((val) => {
-    //   this.inputTableData = val;
-    //   console.log(val);
-    //   this.isLoaded = false;
-    // });
     let { industryBased, ...payload } = this.inputTabel.value;
-    this.http.post('/inputtables/input', payload).subscribe((val) => {
+    this.api.getInputTable(payload).subscribe((val: any) => {
       this.inputTableData = val;
       this.isLoaded = false;
-      // this.store.storeId()
     });
 
     console.log(this.inputTabel?.value);

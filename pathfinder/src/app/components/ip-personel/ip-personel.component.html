@@ -1,6 +1,10 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
-  <form [formGroup]="itPersonel" action="" (ngSubmit)="itPersonel.valid && handleSubmit()">
+  <form
+    [formGroup]="itPersonel"
+    action=""
+    (ngSubmit)="itPersonel.valid && handleSubmit()"
+  >
     <div class="d-flex">
       <div>
         <h1>IT Personnel</h1>
@@ -11,7 +15,7 @@
         <mat-label>IT spend on personnel & outsourcing (67-72%)</mat-label>
         <input
           autocomplete="off"
-          formControlName="itSpend"
+          formControlName="it_spend_on_personal_perc"
           matInput
           placeholder="Annual Revenue"
         />
@@ -21,7 +25,7 @@
         <mat-label>Avg. CTC per FTE of client (persumed Onsite)</mat-label>
         <input
           autocomplete="off"
-          formControlName="ctc"
+          formControlName="avr_ctc_per_fte"
           matInput
           placeholder="It Spend"
         />
@@ -31,7 +35,7 @@
         <mat-label>Max. % eligible for outsourcing</mat-label>
         <input
           autocomplete="off"
-          formControlName="maxOutsourcing"
+          formControlName="perc_eligible_forpersonal"
           matInput
           placeholder="It Spend"
         />
@@ -58,36 +62,51 @@
           <td class="w-50">IT spend on personnel & outsourcing (67-72%)</td>
           <!-- <td>% {{ itSpend?.value || 0 }}</td>
           <td>{{ claculatedVal.outSourcing | currency: "USD":true:"1.0" }}</td> -->
-          <td>{{itPersonelData?.it_spend_on_personal_perc || 0}}%</td>
-          <td>{{itPersonelData?.it_spend_outsource |currency: "USD":true:"1.0"}}</td>
+          <td>{{ itPersonelData?.it_spend_on_personal_perc || 0 }}%</td>
+          <td>
+            {{
+              itPersonelData?.it_spend_outsource | currency: "USD":true:"1.0"
+            }}
+          </td>
         </tr>
         <tr>
           <td>Avg. CTC per FTE of client (persumed Onsite)</td>
           <!-- <td>{{ ctc?.value || 0 | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.outSourcing }}</td> -->
-          <td>{{itPersonelData?.avr_ctc_per_fte  | currency: "USD":true:"1.0"}}</td>
-          <td>{{itPersonelData?.avr_ctc_final}}</td>
+          <td>
+            {{ itPersonelData?.avr_ctc_per_fte | currency: "USD":true:"1.0" }}
+          </td>
+          <td>{{ itPersonelData?.avr_ctc_final }}</td>
         </tr>
         <tr>
           <td>RUN FTE</td>
           <!-- <td>{{ claculatedVal.run | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.run }}</td> -->
-          <td>{{itPersonelData?.run_fte_personal | currency: "USD":true:"1.0"}}</td>
-          <td>{{itPersonelData?.run_fte_outsource}}</td>
+          <td>
+            {{ itPersonelData?.run_fte_personal | currency: "USD":true:"1.0" }}
+          </td>
+          <td>{{ itPersonelData?.run_fte_outsource }}</td>
         </tr>
         <tr>
           <td>GROW FTE</td>
           <!-- <td>{{ claculatedVal.grow | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.grow }}</td> -->
-          <td>{{itPersonelData?.grow_fte_personal | currency: "USD":true:"1.0"}}</td>
-          <td>{{itPersonelData?.grow_fte_outsource}}</td>
+          <td>
+            {{ itPersonelData?.grow_fte_personal | currency: "USD":true:"1.0" }}
+          </td>
+          <td>{{ itPersonelData?.grow_fte_outsource }}</td>
         </tr>
         <tr>
           <td>TRANSFORM FTE</td>
           <!-- <td>{{ claculatedVal.transform | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.transform }}</td> -->
-          <td>{{itPersonelData?.transform_fte_personal | currency: "USD":true:"1.0"}}</td>
-          <td>{{itPersonelData?.transform_fte_outsource}}</td>
+          <td>
+            {{
+              itPersonelData?.transform_fte_personal
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+          <td>{{ itPersonelData?.transform_fte_outsource }}</td>
         </tr>
         <tr>
           <td>Max. % eligible for outsourcing</td>
@@ -97,8 +116,8 @@
               cal.caluclatePercentage(maxOutsourcing?.value, dividedVals.run)
             }}
           </td> -->
-          <td>{{itPersonelData?.perc_eligible_forpersonal|| 0}}%</td>
-          <td>{{itPersonelData?.eligible_outsource}}</td>
+          <td>{{ itPersonelData?.perc_eligible_forpersonal || 0 }}%</td>
+          <td>{{ itPersonelData?.eligible_outsource }}</td>
         </tr>
       </tbody>
     </table>

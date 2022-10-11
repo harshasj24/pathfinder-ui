@@ -69,13 +69,12 @@ export class ItPartnerComponent implements OnInit {
   ngAfterViewInit() {}
 
   handleSubmit() {
-    this.isLoaded = true;
-    this.apiservice.getitpersonnel().subscribe((val) => {
-      this.itPersonelCostData = val;
-      console.log(val);
-
-      this.isLoaded = false;
-    });
+    // this.isLoaded = true;
+    // this.apiservice.getitpersonnel().subscribe((val) => {
+    //   this.itPersonelCostData = val;
+    //   console.log(val);
+    //   this.isLoaded = false;
+    // });
   }
   ngOnInit(): void {
     this.itPartner.valueChanges.subscribe((values) => {

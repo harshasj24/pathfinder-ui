@@ -30,19 +30,19 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   isLoaded: boolean = false;
   itPersonelData: any;
   itPersonel = new FormGroup({
-    itSpend: new FormControl('', [Validators.required]),
-    ctc: new FormControl('', [Validators.required]),
-    maxOutsourcing: new FormControl('', [Validators.required]),
+    it_spend_on_personal_perc: new FormControl('', [Validators.required]),
+    avr_ctc_per_fte: new FormControl('', [Validators.required]),
+    perc_eligible_forpersonal: new FormControl('', [Validators.required]),
   });
 
-  get itSpend() {
-    return this.itPersonel.get('itSpend');
+  get it_spend_on_personal_perc() {
+    return this.itPersonel.get('it_spend_on_personal_perc');
   }
-  get ctc() {
-    return this.itPersonel.get('ctc');
+  get avr_ctc_per_fte() {
+    return this.itPersonel.get('avr_ctc_per_fte');
   }
-  get maxOutsourcing() {
-    return this.itPersonel.get('maxOutsourcing');
+  get perc_eligible_forpersonal() {
+    return this.itPersonel.get('perc_eligible_forpersonal');
   }
   claculatedVal = {
     outSourcing: 0,
@@ -64,26 +64,21 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
 
   handleSubmit() {
     this.isLoaded = true;
-    this.apiservice.getitpersonnel().subscribe((val) => {
+    this.apiservice.getitpersonnel(this.itPersonel.value).subscribe((val) => {
       this.itPersonelData = val;
       console.log(val);
-
       this.isLoaded = false;
     });
-    // this.http.get('/inputTable').subscribe((val) => {
-    //   this.inputTableData = val;
-    //   console.log(val);
-    // this.isLoaded = false;
-    // });
+    console.log(this.itPersonel?.value);
   }
 
   ngOnInit(): void {
     this.store.store.subscribe((data: any) => {
       this.inputTabelVal = data;
     });
-    this.itSpend?.valueChanges.subscribe((val) => {
+    this.it_spend_on_personal_perc?.valueChanges.subscribe((val) => {
       this.claculatedVal.outSourcing = this.cal.caluclatePercentage(
-        this.itSpend?.value,
+        this.it_spend_on_personal_perc?.value,
         this.inputTabelVal?.caluclatedItSpend
       );
       this.claculatedVal.grow = this.cal.caluclatePercentage(
@@ -99,7 +94,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
         this.claculatedVal.outSourcing
       );
     });
-    this.ctc?.valueChanges.subscribe((val) => {
+    this.avr_ctc_per_fte?.valueChanges.subscribe((val) => {
       this.dividedVals.outSourcing = this.cal.division(
         this.claculatedVal.outSourcing,
         val
@@ -112,7 +107,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
       );
     });
 
-    this.maxOutsourcing?.valueChanges.subscribe((val) => {
+    this.perc_eligible_forpersonal?.valueChanges.subscribe((val) => {
       console.log(val);
 
       this.store.setMaxEle(
