@@ -50,26 +50,34 @@ export class InputTabelComponent implements OnInit {
 
   inputTabel = new FormGroup({
     industryBased: new FormControl('', [Validators.required]),
-    annualRevenue: new FormControl('', [Validators.required]),
-    itSpend: new FormControl('', [Validators.required]),
-    run: new FormControl('', [Validators.required]),
-    grow: new FormControl('', [Validators.required]),
-    transform: new FormControl('', [Validators.required]),
+    annual_revenue_for_client: new FormControl('', [Validators.required]),
+    it_spent_perc: new FormControl('', [Validators.required]),
+    run_business_perc: new FormControl('', [Validators.required]),
+    grow_business_perc: new FormControl('', [Validators.required]),
+    transform_it_perc: new FormControl('', [Validators.required]),
+    annual_inflation_perc: new FormControl('', [
+      Validators.required,
+      Validators.min(1.5),
+      Validators.max(3),
+    ]),
   });
-  get annualRevenue() {
-    return this.inputTabel.get('annualRevenue');
+  get annual_revenue_for_client() {
+    return this.inputTabel.get('annual_revenue_for_client');
   }
-  get itSpend() {
-    return this.inputTabel.get('itSpend');
+  get it_spent_perc() {
+    return this.inputTabel.get('it_spent_perc');
   }
-  get run() {
-    return this.inputTabel.get('run');
+  get run_business_perc() {
+    return this.inputTabel.get('run_business_perc');
   }
-  get grow() {
-    return this.inputTabel.get('grow');
+  get grow_business_perc() {
+    return this.inputTabel.get('grow_business_perc');
   }
-  get transform() {
-    return this.inputTabel?.get('transform');
+  get transform_it_perc() {
+    return this.inputTabel?.get('transform_it_perc');
+  }
+  get annual_inflation_perc() {
+    return this.inputTabel?.get('annual_inflation_perc');
   }
   get industryBased() {
     return this.inputTabel?.get('industryBased');
@@ -90,23 +98,31 @@ export class InputTabelComponent implements OnInit {
 
   handleSubmit() {
     this.isLoaded = true;
-    this.http.get('/inputTable').subscribe((val) => {
+    // this.http.get('/inputTable').subscribe((val) => {
+    //   this.inputTableData = val;
+    //   console.log(val);
+    //   this.isLoaded = false;
+    // });
+    let { industryBased, ...payload } = this.inputTabel.value;
+    this.http.post('/inputtables/input', payload).subscribe((val) => {
       this.inputTableData = val;
-      console.log(val);
       this.isLoaded = false;
+      // this.store.storeId()
     });
+
+    console.log(this.inputTabel?.value);
   }
 
   ngOnInit(): void {
     this.disableEnable(true);
     this.industryBased?.valueChanges.subscribe((val) => {
       console.log(this.industryPercentiles[val]);
-      this.itSpend?.setValidators([
+      this.it_spent_perc?.setValidators([
         Validators.max(this.industryPercentiles[val]?.max),
         Validators.min(this.industryPercentiles[val]?.min),
         Validators.required,
       ]);
-      console.log(this.itSpend);
+      console.log(this.it_spent_perc);
 
       this.minMax = { ...this.minMax, ...this.industryPercentiles[val] };
       console.log(this.minMax);
@@ -115,8 +131,8 @@ export class InputTabelComponent implements OnInit {
 
     this.inputTabel.valueChanges.subscribe((val) => {
       this.caluclatedItSpend = this.cal.caluclatePercentage(
-        val?.annualRevenue,
-        val?.itSpend
+        val?.annual_revenue_for_client,
+        val?.it_spent_perc
       );
       const values = {
         ...val,

@@ -26,62 +26,82 @@
       </div>
     </div>
     <div class="inputs d-flex">
-      <mat-form-field appearance="outline" class="">
+      <mat-form-field appearance="outline" class="inp">
         <mat-label>Annual Revenue</mat-label>
         <input
           autocomplete="off"
-          formControlName="annualRevenue"
+          formControlName="annual_revenue_for_client"
           matInput
           placeholder="Annual Revenue"
         />
         <mat-error>Annual revenue is required </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="">
+      <mat-form-field appearance="outline" class="inp">
         <mat-label>It Spend</mat-label>
         <input
           autocomplete="off"
-          formControlName="itSpend"
+          formControlName="it_spent_perc"
           matInput
           placeholder="It Spend"
         />
-        <mat-error *ngIf="itSpend?.hasError('required')"
+        <mat-error *ngIf="it_spent_perc?.hasError('required')"
           >It spend is required
         </mat-error>
-        <mat-error *ngIf="itSpend?.hasError('min') || itSpend?.hasError('max')"
+        <mat-error
+          *ngIf="
+            it_spent_perc?.hasError('min') || it_spent_perc?.hasError('max')
+          "
           >value should be in range from {{ minMax.min }} to
           {{ minMax.max }}</mat-error
         >
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="">
+      <mat-form-field appearance="outline" class="inp">
         <mat-label>Run It Spend</mat-label>
         <input
           autocomplete="off"
-          formControlName="run"
+          formControlName="run_business_perc"
           matInput
           placeholder="Run It Spend"
         />
         <mat-error>Run it spend is required </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="">
+      <mat-form-field appearance="outline" class="inp">
         <mat-label>Grow It Spend</mat-label>
         <input
           autocomplete="off"
-          formControlName="grow"
+          formControlName="grow_business_perc"
           matInput
           placeholder="Run It Spend"
         />
         <mat-error>Grow it spend is required </mat-error>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="">
+      <mat-form-field appearance="outline" class="inp">
         <mat-label>Transform It Spend</mat-label>
         <input
           autocomplete="off"
-          formControlName="transform"
+          formControlName="transform_it_perc"
           matInput
           placeholder="Run It Spend"
         />
         <mat-error>Transform it spend is required </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="inp">
+        <mat-label>Annual avg. inflation</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="annual_inflation_perc"
+          matInput
+          placeholder="Run It Spend"
+        />
+        <mat-error>Annual avg. inflation it spend is required </mat-error>
+        <mat-error
+          *ngIf="
+            annual_inflation_perc?.hasError('min') ||
+            annual_inflation_perc?.hasError('max')
+          "
+          >value should be in the range 1.5 to 3</mat-error
+        >
       </mat-form-field>
     </div>
     <div class="form__action">
@@ -89,7 +109,9 @@
     </div>
   </form>
   <h2 class="mt-5">
-    Annual revenue:{{ annualRevenue?.value || 0 | currency: "USD":true:"1.0" }}
+    Annual revenue:{{
+      annual_revenue_for_client?.value || 0 | currency: "USD":true:"1.0"
+    }}
   </h2>
   <div class="result-tabel">
     <table class="table">

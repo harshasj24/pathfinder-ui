@@ -2,8 +2,9 @@ mat-card {
   height: fit-content;
 }
 .inputs {
-  gap: 15px;
+  gap: 35px;
   width: 100%;
+  flex-wrap: wrap;
 }
 tr td {
   border: 1px solid lightgray !important;
@@ -23,4 +24,8 @@ mat-select {
 .form__action {
   display: flex;
   justify-content: flex-end;
+}
+mat-form-field.inp {
+  width: 20%;
+  margin-left: 10px;
 }
