@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'it-functions',
@@ -9,66 +9,73 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ItFunctionsComponent implements OnInit {
   constructor() {}
   itFunctions = new FormGroup({
-    dcItspend: new FormControl(''),
-    dcftespread: new FormControl(''),
-    eucitpend: new FormControl(''),
-    eucftespread: new FormControl(''),
-    sditspend: new FormControl(''),
-    sdftespread: new FormControl(''),
-    nitspend: new FormControl(''),
-    nftespread: new FormControl(''),
-    aeitspend: new FormControl(''),
-    aeftespread: new FormControl(''),
-    asitspend: new FormControl(''),
-    asftespread: new FormControl(''),
-    imfaitspend: new FormControl(''),
-    imfaftespread: new FormControl(''),
+    data_center_itspend_run_perc: new FormControl('',Validators.required),
+    data_center_fte_spread_perc: new FormControl('',Validators.required),
+    end_user_computing_itspend_run_perc: new FormControl('',Validators.required),
+    end_user_computing_fte_spread_perc: new FormControl('',Validators.required),
+    it_service_desk_itspend_run_perc: new FormControl('',Validators.required),
+    it_service_desk_fte_spread_perc: new FormControl('',Validators.required),
+    network_itspend_run_perc: new FormControl('',Validators.required),
+    network_fte_spread_perc: new FormControl('',Validators.required),
+    application_enhance_itspend_run_perc: new FormControl('',Validators.required),
+    application_enhance_fte_spread_perc: new FormControl('',Validators.required),
+    application_support_itspend_run_perc: new FormControl('',Validators.required),
+    application_support_fte_spread_perc: new FormControl('',Validators.required),
+    it_management_itspend_run_perc: new FormControl('',Validators.required),
+    it_management_fte_spread_perc: new FormControl('',Validators.required),
   });
-  get dcItspend() {
-    return this.itFunctions.get('dcItspend');
+  get data_center_itspend_run_perc() {
+    return this.itFunctions.get('data_center_itspend_run_perc');
   }
-  get dcftespread(){
-    return this.itFunctions.get('dcItspread');
-  }
-
-  get eucitpend(){
-    return this.itFunctions.get('eucitpend');
-  }
-  get eucftespread() {
-    return this.itFunctions.get('eucitpread');
-  }
-  get sditspend() {
-    return this.itFunctions.get('sditspend');
+  get data_center_fte_spread_perc(){
+    return this.itFunctions.get('data_center_fte_spread_perc');
   }
 
-  get sdftespread() {
-    return this.itFunctions.get('sditspread');
+  get end_user_computing_itspend_run_perc(){
+    return this.itFunctions.get('end_user_computing_itspend_run_perc');
+  }
+  get end_user_computing_fte_spread_perc() {
+    return this.itFunctions.get('end_user_computing_fte_spread_perc');
+  }
+  get it_service_desk_itspend_run_perc() {
+    return this.itFunctions.get('it_service_desk_itspend_run_perc');
   }
 
-  get nitspend() {
-    return this.itFunctions.get('nitspend');
-  }
-  get nftespread() {
-    return this.itFunctions.get('nftespread');
+  get it_service_desk_fte_spread_perc() {
+    return this.itFunctions.get('it_service_desk_fte_spread_perc');
   }
 
-  get aeitspend(){
-    return this.itFunctions.get('aeitspend');
+  get network_itspend_run_perc() {
+    return this.itFunctions.get('network_itspend_run_perc');
   }
-  get aeftespread() {
-    return this.itFunctions.get('aeitspread');
+  get network_fte_spread_perc() {
+    return this.itFunctions.get('network_fte_spread_perc');
   }
-  get asitspend() {
-    return this.itFunctions.get('asitspend');
+
+  get application_enhance_itspend_run_perc(){
+    return this.itFunctions.get('application_enhance_itspend_run_perc');
   }
-  get asftespread() {
-    return this.itFunctions.get('asftespread');
+  get application_enhance_fte_spread_perc() {
+    return this.itFunctions.get('application_enhance_fte_spread_perc');
   }
-  get imfaitspend() {
-    return this.itFunctions.get('imfaitspend');
+  get application_support_itspend_run_perc() {
+    return this.itFunctions.get('application_support_itspend_run_perc');
   }
-  get imfaftespread(){
-    return this.itFunctions.get('imfaftespread');
+  get application_support_fte_spread_perc() {
+    return this.itFunctions.get('application_support_fte_spread_perc');
+  }
+  get it_management_itspend_run_perc() {
+    return this.itFunctions.get('it_management_itspend_run_perc');
+  }
+  get it_management_fte_spread_perc(){
+    return this.itFunctions.get('it_management_fte_spread_perc');
   }
   ngOnInit(): void {}
+
+  handleSubmit(){
+    console.log("hi");
+    
+  }
+
+
 }

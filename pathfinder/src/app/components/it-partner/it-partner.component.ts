@@ -27,31 +27,31 @@ export class ItPartnerComponent implements OnInit {
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
   itPersonelCostData: any;
-  itPartner = new FormGroup({
+  itpersonelcost = new FormGroup({
     partnerCtcOnsite: new FormControl('', [Validators.required]),
     partnerCtcOffshore: new FormControl('', [Validators.required]),
-    offshoreRatioTobe: new FormControl('', [Validators.required]),
-    onsiteRatioTobe: new FormControl('', [Validators.required]),
-    takeoverYear1: new FormControl('', [Validators.required]),
-    takeoverYear2: new FormControl('', [Validators.required]),
-    takeoverYear3: new FormControl('', [Validators.required]),
-    ppiYear1: new FormControl('', [Validators.required]),
-    ppiYear2: new FormControl('', [Validators.required]),
-    ppiYear3: new FormControl('', [Validators.required]),
-    onsiteYear1: new FormControl('', [Validators.required]),
-    onsiteYear2: new FormControl('', [Validators.required]),
-    onsiteYear3: new FormControl('', [Validators.required]),
-    offshoreYear1: new FormControl('', [Validators.required]),
-    offshoreYear2: new FormControl('', [Validators.required]),
-    offshoreYear3: new FormControl('', [Validators.required]),
+   onsitRatio: new FormControl('', [Validators.required]),
+    offshoreRatio: new FormControl('', [Validators.required]),
+    takeOverPlany1: new FormControl('', [Validators.required]),
+    takeOverPlany2: new FormControl('', [Validators.required]),
+    takeOverPlany3: new FormControl('', [Validators.required]),
+    ppImprovementy1: new FormControl('', [Validators.required]),
+    ppImprovementy2: new FormControl('', [Validators.required]),
+    ppImprovementy3: new FormControl('', [Validators.required]),
+    onsiteRatioy1: new FormControl('', [Validators.required]),
+    onsiteRatioy2: new FormControl('', [Validators.required]),
+    onsiteRatioy3: new FormControl('', [Validators.required]),
+    offshoreRatioy1: new FormControl('', [Validators.required]),
+    offshoreRatioy2: new FormControl('', [Validators.required]),
+    offshoreRatioy3: new FormControl('', [Validators.required]),
   });
   getFieldValue(fieldName: string) {
-    return this.itPartner.get(fieldName)?.value;
+    return this.itpersonelcost.get(fieldName)?.value;
   }
   maxOutsourcing: any;
 
   clalculatedValue = {
-    ...this.itPartner.value,
+    ...this.itpersonelcost.value,
     netFteYear1: 0,
     netFteYear2: 0,
     netFteYear3: 0,
@@ -78,7 +78,7 @@ export class ItPartnerComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.itPartner.valueChanges.subscribe((values) => {
+    this.itpersonelcost.valueChanges.subscribe((values) => {
       if (values?.takeoverYear1) {
         this.claculateFieldPrecentage(
           'takeoverYear1',
@@ -144,7 +144,7 @@ export class ItPartnerComponent implements OnInit {
     this.store.maxEle.subscribe((val) => {
       this.maxOutsourcing = val;
     });
-    this.itPartner.valueChanges.subscribe((val) => {
+    this.itpersonelcost.valueChanges.subscribe((val) => {
       console.log(val);
     });
   }
