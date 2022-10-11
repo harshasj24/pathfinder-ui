@@ -1,5 +1,5 @@
 <mat-card>
-    <form [formGroup]="COT" action="" (ngSubmit)="COT.valid && handleSubmit()">
+    <form [formGroup]="costtransformation" action="" (ngSubmit)="costtransformation.valid && handleSubmit()">
         <div class="d-flex">
             <div>
                 <h1>Cost of Transformation</h1>
@@ -8,32 +8,32 @@
         <div class="inputs d-flex">
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>COT%</mat-label>
-                <input autocomplete="off" formControlName="cot" matInput placeholder="COT%" />
-                <mat-error>cost of transform is required</mat-error>
+                <input autocomplete="off" formControlName="cot_perc" matInput placeholder="COT%" />
+                <mat-error>Cost Of Transform is required</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>Client Share</mat-label>
-                <input autocomplete="off" formControlName="clientshare" matInput placeholder="Client Share" />
+                <input autocomplete="off" formControlName="client_perc" matInput placeholder="Client Share" />
                 <mat-error>Client Share is required </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>Partner/Client Share</mat-label>
-                <input autocomplete="off" formControlName="partnershare" matInput placeholder="Partner/Client Share" />
+                <input autocomplete="off" formControlName="partner_perc" matInput placeholder="Partner/Client Share" />
                 <mat-error>Partner/Client Share is required </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>COT Spread Year1</mat-label>
-                <input autocomplete="off" formControlName="cosy1" matInput placeholder="COT Spread Y1" />
+                <input autocomplete="off" formControlName="cot_spread_percy1" matInput placeholder="COT Spread Y1" />
                 <mat-error>COT Spread Year1 Share is required </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>COT Spread Year2</mat-label>
-                <input autocomplete="off" formControlName="cosy2" matInput placeholder="COT Spread Y2" />
+                <input autocomplete="off" formControlName="cot_spread_percy2" matInput placeholder="COT Spread Y2" />
                 <mat-error>COT Spread Year2 Share is required </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="p-2">
                 <mat-label>COT Spread Year3</mat-label>
-                <input autocomplete="off" formControlName="cosy3" matInput placeholder="COT Spread Y3" />
+                <input autocomplete="off" formControlName="cot_spread_percy3" matInput placeholder="COT Spread Y3" />
                 <mat-error>COT Spread Year3 Share is required </mat-error>
             </mat-form-field>
             <div class="form__action">

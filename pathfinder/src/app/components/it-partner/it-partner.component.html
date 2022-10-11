@@ -1,51 +1,27 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
-  <form
-    [formGroup]="itPartner"
-    action=""
-    (ngSubmit)="itPartner.valid && handleSubmit()"
-  >
+  <form [formGroup]="itpersonelcost" action="" (ngSubmit)="itpersonelcost.valid && handleSubmit()">
     <h2>IT -Personnel Cost(Partner)</h2>
     <div class="mat-card__body">
       <div class="mat-card__body__inputs">
         <mat-form-field appearance="outline" class="">
           <mat-label>Partner CTC (Onsite)</mat-label>
-          <input
-            autocomplete="off"
-            matInput
-            placeholder="Annual Revenue"
-            formControlName="partnerCtcOnsite"
-          />
+          <input autocomplete="off" matInput placeholder="Annual Revenue" formControlName="partnerCtcOnsite" />
           <mat-error>Partner CTC (Onsite) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Partner CTC (Offshore)</mat-label>
-          <input
-            autocomplete="off"
-            formControlName="partnerCtcOffshore"
-            matInput
-            placeholder="Annual Revenue"
-          />
+          <input autocomplete="off" formControlName="partnerCtcOffshore" matInput placeholder="Annual Revenue" />
           <mat-error>Partner CTC (Offshore) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Onsite Ratio (to be)</mat-label>
-          <input
-            autocomplete="off"
-            formControlName="onsiteRatioTobe"
-            matInput
-            placeholder="Annual Revenue"
-          />
+          <input autocomplete="off" formControlName="onsitRatio" matInput placeholder="Annual Revenue" />
           <mat-error>Onsite Ratio (to be) is required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
           <mat-label>Offshore Ratio (to be)</mat-label>
-          <input
-            autocomplete="off"
-            formControlName="offshoreRatioTobe"
-            matInput
-            placeholder="Annual Revenue"
-          />
+          <input autocomplete="off" formControlName="offshoreRatio" matInput placeholder="Annual Revenue" />
           <mat-error>Offshore Ratio (to be) is required</mat-error>
         </mat-form-field>
         <div class="form__action">
@@ -76,36 +52,21 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Take over plan</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="takeoverYear1"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="takeOverPlany1" matInput placeholder="Year -1" />
                 <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Take over plan</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="takeoverYear2"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="takeOverPlany2" matInput placeholder="Year -1" />
                 <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Take over plan</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="takeoverYear3"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="takeOverPlany3" matInput placeholder="Year -1" />
                 <mat-error>Take over plan is required.</mat-error>
               </mat-form-field>
             </td>
@@ -127,53 +88,26 @@
             <th>Partner Productivity Improvement (In FTE %)</th>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
-                >
-                <input
-                  autocomplete="off"
-                  formControlName="ppiYear1"
-                  matInput
-                  placeholder="Year -1"
-                />
-                <mat-error
-                  >Partner Productivity Improvement (In FTE %) is
-                  required.</mat-error
-                >
+                <mat-label>Partner Productivity Improvement (In FTE %)</mat-label>
+                <input autocomplete="off" formControlName="ppImprovementy1" matInput placeholder="Year -1" />
+                <mat-error>Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
-                >
-                <input
-                  autocomplete="off"
-                  formControlName="ppiYear2"
-                  matInput
-                  placeholder="Year -1"
-                />
-                <mat-error
-                  >Partner Productivity Improvement (In FTE %) is
-                  required.</mat-error
-                >
+                <mat-label>Partner Productivity Improvement (In FTE %)</mat-label>
+                <input autocomplete="off" formControlName="ppImprovementy2" matInput placeholder="Year -1" />
+                <mat-error>Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
-                >
-                <input
-                  autocomplete="off"
-                  formControlName="ppiYear3"
-                  matInput
-                  placeholder="Year -1"
-                />
-                <mat-error
-                  >Partner Productivity Improvement (In FTE %) is
-                  required.</mat-error
-                >
+                <mat-label>Partner Productivity Improvement (In FTE %)</mat-label>
+                <input autocomplete="off" formControlName="ppImprovementy3" matInput placeholder="Year -1" />
+                <mat-error>Partner Productivity Improvement (In FTE %) is
+                  required.</mat-error>
               </mat-form-field>
             </td>
           </tr>
@@ -195,36 +129,21 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Onsite ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="onsiteYear1"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="onsiteRatioy1" matInput placeholder="Year -1" />
                 <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Onsite ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="onsiteYear2"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="onsiteRatioy2" matInput placeholder="Year -1" />
                 <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Onsite ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="onsiteYear3"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="onsiteRatioy3" matInput placeholder="Year -1" />
                 <mat-error>Onsite ratio is required.</mat-error>
               </mat-form-field>
             </td>
@@ -240,36 +159,21 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Offshore Ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="offshoreYear1"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="offshoreRatioy1" matInput placeholder="Year -1" />
                 <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Offshore Ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="offshoreYear2"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="offshoreRatioy2" matInput placeholder="Year -1" />
                 <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Offshore Ratio</mat-label>
-                <input
-                  autocomplete="off"
-                  formControlName="offshoreYear3"
-                  matInput
-                  placeholder="Year -1"
-                />
+                <input autocomplete="off" formControlName="offshoreRatioy3" matInput placeholder="Year -1" />
                 <mat-error>Offshore is required.</mat-error>
               </mat-form-field>
             </td>

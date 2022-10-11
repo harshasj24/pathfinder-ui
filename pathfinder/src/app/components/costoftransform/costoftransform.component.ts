@@ -13,31 +13,31 @@ export class CostoftransformComponent implements OnInit {
   isLoaded: boolean = false;
   costData: any;
   costDataYear:any
-COT = new FormGroup({
-    cot: new FormControl('',Validators.required),
-    clientshare: new FormControl('',Validators.required),
-    partnershare: new FormControl('',Validators.required),
-    cosy1:new FormControl('',Validators.required),
-    cosy2:new FormControl('',Validators.required),
-    cosy3:new FormControl('',Validators.required),
+costtransformation= new FormGroup({
+    cot_perc: new FormControl('',Validators.required),
+    client_perc: new FormControl('',Validators.required),
+    partner_perc: new FormControl('',Validators.required),
+    cot_spread_percy1:new FormControl('',Validators.required),
+    cot_spread_percy2:new FormControl('',Validators.required),
+    cot_spread_percy3:new FormControl('',Validators.required),
   });
-  get cot() {
-    return this.COT.get('cot');
+  get cot_perc() {
+    return this.costtransformation.get('cot_perc');
   }
-  get clientshare() {
-    return this.COT.get('clientshare');
+  get client_perc() {
+    return this.costtransformation.get('client_perc');
   }
-  get partnershare() {
-    return this.COT.get('partnershare');
+  get partner_perc() {
+    return this.costtransformation.get('partner_perc');
   }
-  get cosy1(){
-    return this.COT.get('cosy1')
+  get cot_spread_percy1(){
+    return this.costtransformation.get('cot_spread_percy1')
   }
-  get cosy2(){
-    return this.COT.get('cosy2')
+  get cot_spread_percy2(){
+    return this.costtransformation.get('cot_spread_percy2')
   }
-  get cosy3(){
-    return this.COT.get('cosy3')
+  get cot_spread_percy3(){
+    return this.costtransformation.get('cot_spread_percy3')
   }
   handleSubmit(){
     this.isLoaded = true;
