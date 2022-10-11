@@ -16,6 +16,14 @@ export class ItSpendComponent implements OnInit {
       leverh2: 'Eliminate',
       leverh3: 'Consolidate',
       leverh4: 'Rationalise',
+      actvites: [
+        {
+          title: 'Redundancy Elimination',
+          year1: true,
+          year2: true,
+          year3: false,
+        },
+      ],
       activitiesh1: 'Redundancy Elimination',
       activitiesh2: 'Retire & Decommision ',
       activitiesh3: 'Realign & Redistribute',

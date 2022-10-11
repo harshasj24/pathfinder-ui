@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { inputTable } from '../core/models/tables';
 import { HttpService } from '../core/services/http.service';
 @Injectable({
@@ -15,5 +15,8 @@ export class ApiService {
   }
   getcostoftransform() {
     return this.http.get('/cost');
+  }
+  getItRunSpend() {
+    return this.http.get('/assertRunItSpend');
   }
 }
