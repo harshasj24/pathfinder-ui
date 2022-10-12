@@ -19,12 +19,12 @@ import { BenchmarksComponent } from './components/benchmarks/benchmarks.componen
 import { TableComponent } from './components/table/table.component';
 import { ItSpendComponent } from './components/it-spend/it-spend.component';
 import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
-import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 import { CoreModule } from './core/core.module';
 import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshoring/itpersoneel-fitshoring.component';
 import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
 import { AssetFormComponent } from './components/asset-form/asset-form.component';
+import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +38,11 @@ import { AssetFormComponent } from './components/asset-form/asset-form.component
     TableComponent,
     ItSpendComponent,
     ItFunctionsComponent,
-    ItSpendRunComponent,
     ItRunSpendComponent,
     ItpersoneelFitshoringComponent,
     RunitspendOutsourceComponent,
     AssetFormComponent,
+    ItspendrunComponent
   ],
   imports: [
     BrowserModule,
