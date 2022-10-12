@@ -1,19 +1,36 @@
 <mat-card>
+  <h1 class="me-2">IT Spend Category</h1>
   <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Hardware">
-      <button mat-button color="primary" (click)="openDailog()">Get</button>
+      <button mat-button color="primary" (click)="openDailog('hardware')">
+        Get
+      </button>
       <app-table *ngFor="let item of hardware" [inputData]="item"></app-table>
     </mat-tab>
     <mat-tab label="Software">
+      <button mat-button color="primary" (click)="openDailog('software')">
+        Get
+      </button>
       <app-table *ngFor="let item of software" [inputData]="item"></app-table
     ></mat-tab>
     <mat-tab label="Managed Services">
+      <button
+        mat-button
+        color="primary"
+        (click)="openDailog('managedServices')"
+      >
+        Get
+      </button>
+
       <app-table
         *ngFor="let item of managedServices"
         [inputData]="item"
       ></app-table
     ></mat-tab>
     <mat-tab label="Hosted">
+      <button mat-button color="primary" (click)="openDailog('hosted')">
+        Get
+      </button>
       <app-table
         *ngFor="let item of hosted"
         [inputData]="item"
@@ -21,8 +38,7 @@
       ></app-table
     ></mat-tab>
   </mat-tab-group>
-  <h1 class="me-2">IT Spend Category</h1>
-  <div class="d-flex">
+  <!-- <div class="d-flex">
     <mat-form-field appearance="outline">
       <mat-label>Select</mat-label>
       <mat-select>
@@ -31,7 +47,7 @@
         <mat-option value="three">{{ currentYear - 2 }}</mat-option>
       </mat-select>
     </mat-form-field>
-  </div>
+  </div> -->
   <!--
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">

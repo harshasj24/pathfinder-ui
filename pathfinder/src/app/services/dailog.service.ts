@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DailogService {
-
-  constructor() { }
+  dailogData = new Subject<any>();
+  addDailogData(data: any) {
+    this.dailogData.next('data');
+  }
+  constructor() {}
 }

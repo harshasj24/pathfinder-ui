@@ -1,1 +1,32 @@
-<p>asset-form works!</p>
+<form [formGroup]="dailogForm" (ngSubmit)="handleSubmit()" action="">
+  <h1>Provide The Asset values for three years</h1>
+  <div
+    formArrayName="calculations"
+    *ngFor="let data of calculations?.controls; let i = index"
+    class="form-group"
+  >
+    <h3>year {{ i + 1 }}</h3>
+    <div [formGroupName]="i" class="fields">
+      <mat-form-field
+        *ngFor="let control of formControls"
+        appearance="outline"
+        class=""
+      >
+        <mat-label>{{ control }}</mat-label>
+        <input
+          autocomplete="off"
+          [formControlName]="control"
+          matInput
+          placeholder=" IT-Spend"
+        />
+        <mat-error>Hardware is required </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="form-actions d-flex justify-content-end">
+    <button mat-raised-button type="button" mat-dialog-close="" color="primary">
+      Close
+    </button>
+    <button mat-raised-button class="ms-3" color="primary">Submit</button>
+  </div>
+</form>
