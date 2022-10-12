@@ -1,22 +1,23 @@
 <mat-card>
   <h2>IT spend Categories</h2>
-  <div class="d-flex">
-    <mat-form-field appearance="outline">
-      <mat-label>Select</mat-label>
-      <mat-select [(ngModel)]="select">
-        <mat-option value="2022">{{currentYear}}</mat-option>
-        <mat-option value="2021">{{currentYear-1}}</mat-option>
-        <mat-option value="2020">{{currentYear-2}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-error> year is required </mat-error>
-  </div>
-</mat-card>
-<br />
-<h4>Selected Year {{ select }}</h4>
-<mat-card *ngIf="select">
-  <div class="result-tabel">
-    <form action="" [formGroup]="itspendcategories" (ngSubmit)="itspendcategories.valid && handleSubmit()">
+  <form
+    action=""
+    [formGroup]="itspendcategories"
+    (ngSubmit)="itspendcategories.valid && handleSubmit()"
+  >
+    <div class="d-flex">
+      <mat-form-field appearance="outline">
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="year">
+          <mat-option value="2022">{{ currentYear }}</mat-option>
+          <mat-option value="2021">{{ currentYear - 1 }}</mat-option>
+          <mat-option value="2020">{{ currentYear - 2 }}</mat-option>
+        </mat-select>
+        <mat-error> year is required </mat-error>
+      </mat-form-field>
+    </div>
+    <h4>Selected Year {{ year?.value }}</h4>
+    <div class="result-table">
       <table class="table">
         <tbody>
           <tr>
@@ -24,7 +25,98 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Hardware</mat-label>
-                <input autocomplete="off" formControlName="hardware" matInput placeholder=" IT-Spend" />
+                <input
+                  autocomplete="off"
+                  formControlName="hardware"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Hardware is required </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>SOFTWARE</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Software</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="software"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Software is required </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>HOSTED / CLOUD BASED SERVICES</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Hosted / Cloud Based Services</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="hosted_cbs"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Hosted/Cloud based services is required </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <th>MANAGED SERVICES</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Managed Services</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="managedServices"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Managed services is required </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button mat-raised-button class="ml-auto" color="primary" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+<!-- <h2>IT spend Categories</h2>
+  <div class="d-flex">
+    <mat-form-field appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select [(ngModel)]="select">
+        <mat-option value="2022">{{ currentYear }}</mat-option>
+        <mat-option value="2021">{{ currentYear - 1 }}</mat-option>
+        <mat-option value="2020">{{ currentYear - 2 }}</mat-option>
+      </mat-select>
+      <mat-error> year is required </mat-error>
+    </mat-form-field>
+  </div>
+
+<h4>Selected Year {{ select }}</h4>
+  <div class="result-tabel"  *ngIf="select">
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>HARDWARE</th>
+            <td>
+              <mat-form-field appearance="outline" class="">
+                <mat-label>Hardware</mat-label>
+                <input
+                  autocomplete="off"
+                  formControlName="hardware"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
               </mat-form-field>
               <mat-error>Hardware is required </mat-error>
             </td>
@@ -34,9 +126,14 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Software</mat-label>
-                <input autocomplete="off" formControlName="software" matInput placeholder=" IT-Spend" />
+                <input
+                  autocomplete="off"
+                  formControlName="software"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Software is required </mat-error>
               </mat-form-field>
-              <mat-error>Software is required </mat-error>
             </td>
           </tr>
           <tr>
@@ -44,9 +141,14 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Hosted / Cloud Based Services</mat-label>
-                <input autocomplete="off" formControlName="hosted_cbs" matInput placeholder=" IT-Spend" />
+                <input
+                  autocomplete="off"
+                  formControlName="hosted_cbs"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Hosted/Cloud based services is required </mat-error>
               </mat-form-field>
-              <mat-error>Hosted/Cloud based services is required </mat-error>
             </td>
           </tr>
           <tr>
@@ -54,16 +156,22 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label>Managed Services</mat-label>
-                <input autocomplete="off" formControlName="managedServices" matInput placeholder=" IT-Spend" />
+                <input
+                  autocomplete="off"
+                  formControlName="managedServices"
+                  matInput
+                  placeholder=" IT-Spend"
+                />
+                <mat-error>Managed services is required </mat-error>
               </mat-form-field>
-              <mat-error>Managed services is required </mat-error>
             </td>
           </tr>
         </tbody>
       </table>
+      <button mat-raised-button class="ml-auto" color="primary" type="submit">
+        Submit
+      </button>
     </form>
   </div>
-  <button mat-raised-button class="ml-auto" color="primary" type="submit">
-   Submit
-  </button>
-</mat-card>
+
+ -->

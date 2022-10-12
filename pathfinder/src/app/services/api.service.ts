@@ -71,4 +71,8 @@ export class ApiService {
         })
       );
   }
+
+  itspendCat(payload: any) {
+    return this.http.post('/inputtables/itspendcat', payload);
+  }
 }

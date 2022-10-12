@@ -1,4 +1,25 @@
 <mat-card>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Hardware">
+      <app-table *ngFor="let item of hardware" [inputData]="item"></app-table>
+    </mat-tab>
+    <mat-tab label="Software">
+      <app-table *ngFor="let item of software" [inputData]="item"></app-table
+    ></mat-tab>
+    <mat-tab label="Managed Services">
+      <app-table
+        *ngFor="let item of managedServices"
+        [inputData]="item"
+      ></app-table
+    ></mat-tab>
+    <mat-tab label="Hosted">
+      <app-table
+        *ngFor="let item of hosted"
+        [inputData]="item"
+        [inputData]="item"
+      ></app-table
+    ></mat-tab>
+  </mat-tab-group>
   <h1 class="me-2">IT Spend Category</h1>
   <div class="d-flex">
     <mat-form-field appearance="outline">
@@ -10,7 +31,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-
+  <!--
   <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h3 class="accordion-header" id="headingOne">
@@ -118,7 +139,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- <div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">

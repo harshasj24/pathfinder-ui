@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'benchmarks',
@@ -10,13 +11,14 @@ export class BenchmarksComponent implements OnInit {
   select: any;
   currentYear = new Date().getFullYear();
 
-  constructor() {}
+  constructor(private api: ApiService) {}
 
-  itspendcategories= new FormGroup({
-   hardware: new FormControl('',Validators.required),
-    software: new FormControl('',Validators.required),
-    hosted_cbs: new FormControl('',Validators.required),
-    managedServices:new FormControl('',Validators.required)
+  itspendcategories = new FormGroup({
+    hardware: new FormControl('', Validators.required),
+    software: new FormControl('', Validators.required),
+    hosted_cbs: new FormControl('', Validators.required),
+    managedServices: new FormControl('', Validators.required),
+    year: new FormControl('', Validators.required),
   });
   get hardware() {
     return this.itspendcategories.get('hardware');
@@ -30,6 +32,9 @@ export class BenchmarksComponent implements OnInit {
   get managedServices() {
     return this.itspendcategories.get('managedServices');
   }
+  get year() {
+    return this.itspendcategories.get('year');
+  }
 
   ngOnInit(): void {}
 
@@ -37,8 +42,10 @@ export class BenchmarksComponent implements OnInit {
     console.log(e.target.value);
   }
 
-  handleSubmit(){
-    console.log("hi");
-    
+  handleSubmit() {
+    this.api.itspendCat(this.itspendcategories.value).subscribe((val) => {
+      console.log(val);
+    });
+    console.log('hi');
   }
 }
