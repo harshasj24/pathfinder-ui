@@ -1,0 +1,87 @@
+<app-loader *ngIf="isLoaded"></app-loader>
+
+<mat-card>
+    <h1>IT Personnel Fit-Shoring model</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Asset classificatio</th>
+                <th>Baseline year</th>
+                <th>Year1</th>
+                <th>Year2</th>
+                <th>Year3</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>CLIENT</th>
+                <td>123</td>
+                <td>231</td>
+                <td>132</td>
+                <td>231</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Client FTE Spend</th>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>PARTNER FTEs TOTAL</th>
+                <td>123</td>
+                <td>231</td>
+                <td>132</td>
+                <td>231</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">Onsite</td>
+                <td >231</td>
+                <td>132</td>
+                <td>231</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td  colspan="2">Offshore</td>
+                <td >231</td>
+                <td>132</td>
+                <td>231</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>PARTNER Bill TOTAL</th>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Onsite</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">Offshore</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>TOTAL SPEND for original scope</th>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+                <td>{{0| currency: "USD":true:"1.0"}}</td>
+            </tr>
+        </tbody>
+    </table>
+</mat-card>
