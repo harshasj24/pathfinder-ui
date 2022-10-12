@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class RunitspendOutsourceComponent implements OnInit {
   constructor() {}
   isLoaded: boolean = false;
-  runitspendfteresult: any;
-  runitspendcostsresult: any;
+  runitspendftedata: any;
+  runitspendftedatayear:any
+  runitspendcostsdata: any;
+  runitspendcostsdatayear:any
   runitspendfte = {
     id: '634550f8fa84cf0075f15dcb',
     client_exist_baseyear: 811,
@@ -70,5 +72,10 @@ export class RunitspendOutsourceComponent implements OnInit {
       },
     ],
   };
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.runitspendftedata=this.runitspendfte
+    this.runitspendftedatayear=this.runitspendftedata.runfteCalc
+    this.runitspendcostsdata=this.runitspendcosts
+    this.runitspendcostsdatayear=this.runitspendcostsdata.runCostsCalc
+  }
 }
