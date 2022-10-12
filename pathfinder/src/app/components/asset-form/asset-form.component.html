@@ -1,5 +1,5 @@
 <form [formGroup]="dailogForm" (ngSubmit)="handleSubmit()" action="">
-  <h1>Provide The Asset values for three years</h1>
+  <h1 class="header">Provide {{ data.title }} values for three years</h1>
   <div
     formArrayName="calculations"
     *ngFor="let data of calculations?.controls; let i = index"

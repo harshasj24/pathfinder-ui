@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
 export class DailogService {
   dailogData = new Subject<any>();
   addDailogData(data: any) {
-    this.dailogData.next('data');
+    this.dailogData.next(data);
   }
   constructor() {}
 }

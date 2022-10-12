@@ -15,12 +15,19 @@
   <tbody>
     <tr>
       <td>{{ inputData.asset }}</td>
-      <td>{{ inputData.type === "spendOnRun" ? "" : "31%" }}</td>
       <td>
         {{
           inputData.type === "spendOnRun"
             ? ""
-            : (0 | currency: "USD":true:"1.0")
+            : calucatedData[calucatedDataKey[1]]
+        }}
+      </td>
+      <td>
+        {{
+          inputData.type === "spendOnRun"
+            ? ""
+            : (calucatedData[calucatedDataKey[2]]
+              | currency: "USD":"symbol":"1.0")
         }}
       </td>
       <td></td>
@@ -29,9 +36,7 @@
           inputData.type === "spendOnRun" ? "" : "Spend increase with inflation"
         }}
       </td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      <td *ngFor="let activity of activites['activity1']">{{ activity }}</td>
       <td></td>
     </tr>
     <tr>
@@ -41,10 +46,11 @@
 
       <td>{{ inputData.leverh1 }}</td>
       <td>{{ inputData.activitiesh1 }}</td>
+      <td *ngFor="let activity of activites['activity2']">{{ activity }}</td>
+      <!-- <td>0%</td>
       <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
+      <td>0%</td> -->
+      <td>{{ total.total1 }}</td>
     </tr>
     <tr>
       <td colspan="">{{ inputData?.asset2 }}</td>
@@ -53,36 +59,28 @@
       <!-- <td></td> -->
       <td>{{ inputData.leverh2 }}</td>
       <td>{{ inputData.activitiesh2 }}</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
+      <td *ngFor="let activity of activites['activity3']">{{ activity }}</td>
+      <td>{{ total.total2 }}</td>
     </tr>
     <tr>
       <td colspan="3">{{ inputData?.asset3 }}</td>
       <td>{{ inputData.leverh3 }}</td>
       <td>{{ inputData.activitiesh3 }}</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
+      <td *ngFor="let activity of activites['activity4']">{{ activity }}</td>
+      <td>{{ total.total3 }}</td>
     </tr>
     <tr>
       <td colspan="3">{{ inputData?.asset4 }}</td>
       <td>{{ inputData.leverh4 }}</td>
       <td>{{ inputData.activitiesh4 }}</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
+      <td *ngFor="let activity of activites['activity5']">{{ activity }}</td>
+      <td>{{ total.total4 }}</td>
     </tr>
     <tr>
       <td colspan="4"></td>
       <td>Subtotal</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
-      <td>0%</td>
+      <td *ngFor="let activity of activites['activity6']">{{ activity }}</td>
+      <td>{{ total.total5 }}</td>
     </tr>
     <tr>
       <td></td>
@@ -90,10 +88,8 @@
       <td></td>
       <td></td>
       <td></td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-      <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      <td *ngFor="let activity of activites['activity7']">{{ activity }}</td>
+      <td>{{ total.total6 | currency: "USD":"symbol":"1.0" }}</td>
     </tr>
   </tbody>
 </table>

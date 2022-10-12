@@ -1,11 +1,28 @@
 <mat-card>
   <h1 class="me-2">IT Spend Category</h1>
   <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Hardware">
+    <mat-tab *ngFor="let asset of assets" [label]="asset.lable">
+      <button
+        mat-button
+        color="primary"
+        (click)="openDailog(asset.dailogTitle)"
+      >
+        Get
+      </button>
+      <app-table
+        [calucatedData]="asset.claculatedData"
+        [inputData]="asset.assetDetail"
+      ></app-table>
+    </mat-tab>
+    <!-- <mat-tab label="Hardware">
       <button mat-button color="primary" (click)="openDailog('hardware')">
         Get
       </button>
-      <app-table *ngFor="let item of hardware" [inputData]="item"></app-table>
+      <app-table
+        [calucatedData]="cal"
+        *ngFor="let item of hardware"
+        [inputData]="item"
+      ></app-table>
     </mat-tab>
     <mat-tab label="Software">
       <button mat-button color="primary" (click)="openDailog('software')">
@@ -36,7 +53,7 @@
         [inputData]="item"
         [inputData]="item"
       ></app-table
-    ></mat-tab>
+    ></mat-tab> -->
   </mat-tab-group>
   <!-- <div class="d-flex">
     <mat-form-field appearance="outline">

@@ -51,10 +51,18 @@ export class ApiService {
       );
   }
   getItRunSpend() {
-    return this.http.get(`/inputtables/itrun/${this.store.getId(
-      'itPersonnelId'
-    )}/${this.store.getId('inputTableID')}/${this.store.getId('COT_Id')}
-    `);
+    return this.http
+      .get(
+        `/inputtables/itrun/${this.store.getId(
+          'itPersonnelId'
+        )}/${this.store.getId('inputTableID')}/${this.store.getId('COT_Id')}
+    `
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('itRunSpend', res.id);
+        })
+      );
   }
 
   getItFunctions(payload: any) {
@@ -73,6 +81,27 @@ export class ApiService {
   }
 
   itspendCat(payload: any) {
-    return this.http.post('/inputtables/itspendcat', payload);
+    return this.http.post('/inputtables/itspendcat', payload).pipe(
+      tap((res: any) => {
+        this.store.storeId('itSpendCatId', res.id);
+      })
+    );
+  }
+
+  assetClacification(assetName: string, payload: any) {
+    return this.http
+      .post(
+        `/asset/${assetName}/${this.store.getId(
+          'itRunSpend'
+        )}/${this.store.getId('inputTableID')}/${this.store.getId(
+          'itSpendCatId'
+        )}`,
+        payload
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId(assetName, res.id);
+        })
+      );
   }
 }
