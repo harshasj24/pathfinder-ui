@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DailogService } from 'src/app/services/dailog.service';
 import { AssetFormComponent } from '../asset-form/asset-form.component';
 
 @Component({
@@ -8,12 +9,48 @@ import { AssetFormComponent } from '../asset-form/asset-form.component';
   styleUrls: ['./it-spend.component.scss'],
 })
 export class ItSpendComponent implements OnInit {
-  constructor(private dailog: MatDialog) {}
+  constructor(
+    private dailog: MatDialog,
+    private dailogService: DailogService
+  ) {}
   currentYear = new Date().getFullYear();
   ngOnInit(): void {}
-
-  openDailog() {
-    this.dailog.open(AssetFormComponent, { disableClose: true });
+  assetsSpend: any = {
+    hardware: {
+      eliminate_reducdancyElimination: [],
+      eliminate_retireDecommision: [],
+      consolidate_realignRedistribute: [],
+      rationalize_automateMl: [],
+    },
+    software: {
+      rationalize_refactor: [],
+      std_platform: [],
+      transform_distributed_agile: [],
+      eliminate_redundancy: [],
+    },
+    managedServices: {
+      industrialize_shiftleft: [],
+      industrialize_automate: [],
+      industrialize_realtime: [],
+      synergize_selfservice: [],
+    },
+    hosted: {
+      industrialize_shiftleft: [],
+      industrialize_automate: [],
+      industrialize_realtime: [],
+      synergize_selfservice: [],
+    },
+  };
+  openDailog(type: string) {
+    console.log(type);
+    this.dailogService.addDailogData('harsha');
+    this.dailog.open(AssetFormComponent, {
+      disableClose: true,
+      data: {
+        title: type,
+        data: this.assetsSpend[type],
+      },
+    });
   }
   hardware = [
     {
