@@ -50,7 +50,7 @@ export class TableComponent implements OnInit, OnChanges {
     this.calucalations =
       this.calucatedData[
         this.calucatedDataKey[this.calucatedDataKey.length - 1]
-      ];
+      ] || [];
 
     console.log(this.calucalations);
 

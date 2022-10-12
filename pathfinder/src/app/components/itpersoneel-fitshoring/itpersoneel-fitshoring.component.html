@@ -1,82 +1,114 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 
 <mat-card>
+  <div class="header d-flex">
     <h1>IT Personnel Fit-Shoring model</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Asset classificatio</th>
-                <th>Baseline year</th>
-                <th>Year1</th>
-                <th>Year2</th>
-                <th>Year3</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>CLIENT</th>
-                <td>{{itpersonneldata.client_baseyear}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.client_year|currency:
-                    "USD":true:"1.0"}}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>Client FTE Spend</th>
-                <td>{{itpersonneldata.client_fte_baseyear| currency: "USD":true:"1.0"}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.client_fte_year|currency:
-                    "USD":true:"1.0"}}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>PARTNER FTEs TOTAL</th>
-                <td>{{itpersonneldata.partner_fte_baseyear}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.partner_fte_total|currency:
-                    "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td>Onsite</td>
-                <td>{{itpersonneldata.fte_onsite_baseyear}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.fte_onsite|currency:
-                    "USD":true:"1.0"}}</td>
-
-            </tr>
-            <tr>
-                <td>Offshore</td>
-                <td>{{itpersonneldata.fte_offshore_baseyear}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.fte_offshore|currency:
-                    "USD":true:"1.0"}}</td>
-
-            </tr>
-            <tr>
-                <th>PARTNER Bill TOTAL</th>
-                <td>{{itpersonneldata.partner_bill_baseyear| currency: "USD":true:"1.0"}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.partner_bill_total|currency:
-                    "USD":true:"1.0"}}</td>
-                    <td>{{0|currency:"USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td>Onsite</td>
-                <td>{{itpersonneldata.bill_onsite_baseyear| currency: "USD":true:"1.0"}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.bill_onsite|currency:
-                    "USD":true:"1.0"}}</td>
-
-            </tr>
-            <tr>
-                <td>Offshore</td>
-                <td>{{itpersonneldata.bill_offshore_baseyear| currency: "USD":true:"1.0"}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">{{itpersonnelyear?.bill_offshore|currency:
-                    "USD":true:"1.0"}}</td>
-
-            </tr>
-            <tr>
-                <th>TOTAL SPEND for original scope</th>
-                <td>{{itpersonneldata.total_spend_baseyear| currency: "USD":true:"1.0"}}</td>
-                <td *ngFor="let itpersonnelyear of itpersonneldatayear">
-                    {{itpersonnelyear?.total_spend_for_original|currency:
-                    "USD":true:"1.0"}}</td>
-                    <td>{{0|currency:"USD":true:"1.0"}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <button class="" (click)="getData()" mat-raised-button color="primary">
+      Get
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Asset classificatio</th>
+        <th>Baseline year</th>
+        <th>Year1</th>
+        <th>Year2</th>
+        <th>Year3</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>CLIENT</th>
+        <td>{{ itpersonneldata?.client_baseyear }}</td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.client_year | currency: "USD":true:"1.0" }}
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Client FTE Spend</th>
+        <td>
+          {{
+            itpersonneldata?.client_fte_baseyear | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.client_fte_year | currency: "USD":true:"1.0" }}
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>PARTNER FTEs TOTAL</th>
+        <td>{{ itpersonneldata?.partner_fte_baseyear }}</td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.partner_fte_total | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td>Onsite</td>
+        <td>{{ itpersonneldata?.fte_onsite_baseyear }}</td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.fte_onsite | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td>Offshore</td>
+        <td>{{ itpersonneldata?.fte_offshore_baseyear }}</td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.fte_offshore | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <th>PARTNER Bill TOTAL</th>
+        <td>
+          {{
+            itpersonneldata?.partner_bill_baseyear | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.partner_bill_total | currency: "USD":true:"1.0" }}
+        </td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      </tr>
+      <tr>
+        <td>Onsite</td>
+        <td>
+          {{
+            itpersonneldata?.bill_onsite_baseyear | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.bill_onsite | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td>Offshore</td>
+        <td>
+          {{
+            itpersonneldata?.bill_offshore_baseyear | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{ itpersonnelyear?.bill_offshore | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <th>TOTAL SPEND for original scope</th>
+        <td>
+          {{
+            itpersonneldata?.total_spend_baseyear | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let itpersonnelyear of itpersonneldatayear">
+          {{
+            itpersonnelyear?.total_spend_for_original
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      </tr>
+    </tbody>
+  </table>
 </mat-card>

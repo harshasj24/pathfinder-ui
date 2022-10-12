@@ -14,6 +14,7 @@
         [inputData]="asset.assetDetail"
       ></app-table>
     </mat-tab>
+
     <!-- <mat-tab label="Hardware">
       <button mat-button color="primary" (click)="openDailog('hardware')">
         Get
@@ -55,6 +56,31 @@
       ></app-table
     ></mat-tab> -->
   </mat-tab-group>
+  <table class="table" border="2">
+    <tbody>
+      <tr>
+        <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      </tr>
+      <tr>
+        <th>Cost of Transformation Partner share</th>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      </tr>
+      <tr>
+        <th>1. TOTAL SAVINGS WITH ASSET ONLY MODEL</th>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      </tr>
+    </tbody>
+  </table>
   <!-- <div class="d-flex">
     <mat-form-field appearance="outline">
       <mat-label>Select</mat-label>

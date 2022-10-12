@@ -104,4 +104,20 @@ export class ApiService {
         })
       );
   }
+
+  getRunItOutsourceFte() {
+    return this.http
+      .get(
+        `/outsource/runpersonnel/${this.store.getId(
+          'inputTableID'
+        )}/${this.store.getId('itPersonnelId')}/${this.store.getId(
+          'itpersonelcost'
+        )}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('runItOutsourcingFte', res.id);
+        })
+      );
+  }
 }
