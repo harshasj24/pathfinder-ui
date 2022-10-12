@@ -204,3 +204,34 @@
     </div>
   </div> -->
 </mat-card>
+<mat-card>
+  <table class="table" border="2">
+    <tbody>
+      <tr>
+        <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
+        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.saving_levers | currency:
+          "USD":true:"1.0"}}</td>
+        <td>{{savingoptdata?.total_saving_levers | currency: "USD":true:"1.0"}}</td>
+      </tr>
+      <tr>
+        <th>Cost of Transformation Partner share</th>
+        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.cot_partner_share | currency:
+          "USD":true:"1.0"}}</td>
+        <td>{{savingoptdata?.total_cot_partner | currency: "USD":true:"1.0"}}</td>
+      </tr>
+      <tr>
+        <th>1. TOTAL SAVINGS WITH ASSET ONLY MODEL</th>
+      <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.total_savings_model | currency:
+        "USD":true:"1.0"}}</td>
+      <td>{{savingoptdata?.sum_total_savings | currency: "USD":true:"1.0"}}</td>
+      </tr>
+      <tr>
+        <th>RUN BUSINESS IT ASSET RUN RATE WITH PARTNER (no personnel model)</th>
+        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.run_businessit | currency:
+          "USD":true:"1.0"}}</td>
+        <td>{{savingoptdata?.total_run_businessit | currency: "USD":true:"1.0"}}</td>
+        <td>{{savingoptdata?.main_total_run_businessit | currency: "USD":true:"1.0"}}</td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card>
