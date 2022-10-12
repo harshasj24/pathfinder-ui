@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
 import { AssetFormComponent } from '../asset-form/asset-form.component';
 
@@ -11,23 +12,23 @@ import { AssetFormComponent } from '../asset-form/asset-form.component';
 export class ItSpendComponent implements OnInit {
   constructor(
     private dailog: MatDialog,
-    private dailogService: DailogService
+    private dailogService: DailogService,
+    private api: ApiService
   ) {}
-  savingoptdata:any
-savingoptdatayear:any
+  savingoptdata: any;
+  savingoptdatayear: any;
   currentYear = new Date().getFullYear();
   ngOnInit(): void {
-    this.savingoptdata=this.savingopt
-      console.log(this.savingoptdata);
-      
-      this.savingoptdatayear=this.savingoptdata.savingsoptimizationcalculation
-      console.log(this.savingoptdatayear);
+    // this.savingoptdata = this.savingopt;
+    // console.log(this.savingoptdata);
+
+    // this.savingoptdatayear = this.savingoptdata.savingsoptimizationcalculation;
+    // console.log(this.savingoptdatayear);
     this.dailogService.dailogData.subscribe((val: any) => {
       let { title, claculatedData } = val;
       let index = this.assets.findIndex((el) => el.dailogTitle == title);
       this.assets[index].claculatedData = claculatedData;
       console.log(claculatedData);
-
     });
   }
 
@@ -186,6 +187,12 @@ savingoptdatayear:any
       },
     });
   }
+  optimizationLevrs() {
+    this.api.getOptimizationLevers().subscribe((res: any) => {
+      this.savingoptdata = res;
+      this.savingoptdatayear = res.savingsoptimizationcalculation;
+    });
+  }
   hardware = [
     {
       asset: 'Hardware',
@@ -247,37 +254,37 @@ savingoptdatayear:any
       activitiesh4: '',
     },
   ];
-// SAVING THROUGHT OPTIMISATION TABLE CODE
+  // SAVING THROUGHT OPTIMISATION TABLE CODE
 
-savingopt={
-    "id": "6346f031e79a93735af873d2",
-    "total_saving_levers": 5902277,
-    "sum_total_savings": 2824534,
-    "total_run_businessit": 59889551,
-    "main_total_run_businessit": 2824534,
-    "total_cot_partner": 2776323,
-    "savingsoptimizationcalculation": [
-        {
-            "year": 1,
-            "saving_levers": 1227753,
-            "cot_partner_share": 832897,
-            "total_savings_model": 2060650,
-            "run_businessit": 60653435
-        },
-        {
-            "year": 2,
-            "saving_levers": 2405254,
-            "cot_partner_share": 1388162,
-            "total_savings_model": 3793416,
-            "run_businessit": 61450209
-        },
-        {
-            "year": 3,
-            "saving_levers": 2269270,
-            "cot_partner_share": 555264,
-            "total_savings_model": 2824534,
-            "run_businessit": 63307514
-        }
-    ]
-}
+  savingopt = {
+    id: '6346f031e79a93735af873d2',
+    total_saving_levers: 5902277,
+    sum_total_savings: 2824534,
+    total_run_businessit: 59889551,
+    main_total_run_businessit: 2824534,
+    total_cot_partner: 2776323,
+    savingsoptimizationcalculation: [
+      {
+        year: 1,
+        saving_levers: 1227753,
+        cot_partner_share: 832897,
+        total_savings_model: 2060650,
+        run_businessit: 60653435,
+      },
+      {
+        year: 2,
+        saving_levers: 2405254,
+        cot_partner_share: 1388162,
+        total_savings_model: 3793416,
+        run_businessit: 61450209,
+      },
+      {
+        year: 3,
+        saving_levers: 2269270,
+        cot_partner_share: 555264,
+        total_savings_model: 2824534,
+        run_businessit: 63307514,
+      },
+    ],
+  };
 }

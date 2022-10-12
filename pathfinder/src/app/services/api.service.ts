@@ -4,7 +4,9 @@ import { inputTable } from '../core/models/tables';
 import { HttpService } from '../core/services/http.service';
 import { LocalStorageService } from '../core/services/local-storage.service';
 import { StoreService } from '../store.service';
-
+let handleResponce = (res: any) => {
+  alert(JSON.stringify(res));
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -117,6 +119,96 @@ export class ApiService {
       .pipe(
         tap((res: any) => {
           this.store.storeId('runItOutsourcingFte', res.id);
+        })
+      );
+  }
+  getRunItOutsourceCosts() {
+    return this.http
+      .get(
+        `/outsource/runcosts/${this.store.getId(
+          'inputTableID'
+        )}/${this.store.getId('itPersonnelId')}/${this.store.getId(
+          'itpersonelcost'
+        )}/${this.store.getId('runItOutsourcingFte')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('runItOutsourcingCosts', res.id);
+        })
+      );
+  }
+  getRunItOutsourceFitModal() {
+    return this.http
+      .get(
+        `/outsource/fitmodel/${this.store.getId(
+          'inputTableID'
+        )}/${this.store.getId('itpersonelcost')}/${this.store.getId(
+          'runItOutsourcingFte'
+        )}/${this.store.getId('runItOutsourcingCosts')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('runItOutsourcingFitModal', res.id);
+        })
+      );
+  }
+  getItSpendOnRunPersonnel() {
+    return this.http
+      .get(
+        `/asset/runpersonnel/${this.store.getId(
+          'itPersonnelId'
+        )}/${this.store.getId('inputTableID')}/${this.store.getId('COT_Id')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('itSpendOnRunPersonnel', res.id);
+        })
+      );
+  }
+  getOutsourcingOnsite() {
+    return this.http
+      .get(
+        `/outsource/outsourceonsite/${this.store.getId(
+          'itPersonnelId'
+        )}/${this.store.getId('COT_Id')}/${this.store.getId(
+          'itSpendOnRunPersonnel'
+        )}/${this.store.getId('runItOutsourcingCosts')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('outsourcingOnsite', res.id);
+        })
+      );
+  }
+  getOutsourcingFitShore() {
+    return this.http
+      .get(
+        `/outsource/outsourcefit/${this.store.getId(
+          'itPersonnelId'
+        )}/${this.store.getId('COT_Id')}/${this.store.getId(
+          'runItOutsourcingFitModal'
+        )}/${this.store.getId('itSpendOnRunPersonnel')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('outsourcingFitShore', res.id);
+        })
+      );
+  }
+  getOptimizationLevers() {
+    return this.http
+      .get(
+        `/asset/savinglevers/${this.store.getId('hardware')}/${this.store.getId(
+          'software'
+        )}/${this.store.getId('managed')}/${this.store.getId(
+          'hosted'
+        )}/${this.store.getId('itPersonnelId')}/${this.store.getId(
+          'COT_Id'
+        )}/${this.store.getId('itRunSpend')}`
+      )
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('optimizationLevers', res.id);
         })
       );
   }

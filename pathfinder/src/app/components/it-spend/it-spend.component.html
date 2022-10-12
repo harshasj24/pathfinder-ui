@@ -2,61 +2,20 @@
   <h1 class="me-2">IT Spend Category</h1>
   <mat-tab-group mat-align-tabs="start">
     <mat-tab *ngFor="let asset of assets" [label]="asset.lable">
-      <button
-        mat-button
-        color="primary"
-        (click)="openDailog(asset.dailogTitle)"
-      >
-        Get
-      </button>
       <app-table
         [calucatedData]="asset.claculatedData"
         [inputData]="asset.assetDetail"
       ></app-table>
-    </mat-tab>
-
-    <!-- <mat-tab label="Hardware">
-      <button mat-button color="primary" (click)="openDailog('hardware')">
-        Get
-      </button>
-      <app-table
-        [calucatedData]="cal"
-        *ngFor="let item of hardware"
-        [inputData]="item"
-      ></app-table>
-    </mat-tab>
-    <mat-tab label="Software">
-      <button mat-button color="primary" (click)="openDailog('software')">
-        Get
-      </button>
-      <app-table *ngFor="let item of software" [inputData]="item"></app-table
-    ></mat-tab>
-    <mat-tab label="Managed Services">
       <button
-        mat-button
+        mat-raised-button
         color="primary"
-        (click)="openDailog('managedServices')"
+        (click)="openDailog(asset.dailogTitle)"
       >
-        Get
+        Get Spend Category
       </button>
-
-      <app-table
-        *ngFor="let item of managedServices"
-        [inputData]="item"
-      ></app-table
-    ></mat-tab>
-    <mat-tab label="Hosted">
-      <button mat-button color="primary" (click)="openDailog('hosted')">
-        Get
-      </button>
-      <app-table
-        *ngFor="let item of hosted"
-        [inputData]="item"
-        [inputData]="item"
-      ></app-table
-    ></mat-tab> -->
+    </mat-tab>
   </mat-tab-group>
-  <table class="table" border="2">
+  <!-- <table class="table" border="2">
     <tbody>
       <tr>
         <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
@@ -80,184 +39,68 @@
         <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
       </tr>
     </tbody>
-  </table>
-  <!-- <div class="d-flex">
-    <mat-form-field appearance="outline">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="one">{{ currentYear }}</mat-option>
-        <mat-option value="two">{{ currentYear - 1 }}</mat-option>
-        <mat-option value="three">{{ currentYear - 2 }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div> -->
-  <!--
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h3 class="accordion-header" id="headingOne">
-        <button
-          class="accordion-button"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
-          aria-expanded="true"
-          aria-controls="collapseOne"
-        >
-          Hardware
-        </button>
-      </h3>
-      <div
-        id="collapseOne"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-table
-            *ngFor="let item of hardware"
-            [inputData]="item"
-          ></app-table>
-        </div>
-        <button color="primary" mat-raised-button>Get</button>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseTwo"
-          aria-expanded="false"
-          aria-controls="collapseTwo"
-        >
-          Software
-        </button>
-      </h2>
-      <div
-        id="collapseTwo"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingTwo"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-table
-            *ngFor="let item of software"
-            [inputData]="item"
-          ></app-table>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseThree"
-          aria-expanded="false"
-          aria-controls="collapseThree"
-        >
-          Managed Services
-        </button>
-      </h2>
-      <div
-        id="collapseThree"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingThree"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-table
-            *ngFor="let item of managedServices"
-            [inputData]="item"
-          ></app-table>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseFour"
-          aria-expanded="false"
-          aria-controls="collapseFour"
-        >
-          HOSTED / CLOUD BASED SERVICES
-        </button>
-      </h2>
-      <div
-        id="collapseFour"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingFour"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-table *ngFor="let item of hosted" [inputData]="item"></app-table>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseTwo"
-          aria-expanded="false"
-          aria-controls="collapseTwo"
-        >
-          Software
-        </button>
-      </h2>
-      <div
-        id="collapseTwo"
-        class="accordion-collapse collapse"
-        aria-labelledby="headingTwo"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-table
-            *ngFor="let item of software"
-            [inputData]="item"
-          ></app-table>
-        </div>
-      </div>
-    </div>
-  </div> -->
+  </table> -->
+  <div class="optimzation mt-4">
+    <table class="table" border="2">
+      <tbody>
+        <tr>
+          <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
+          <td *ngFor="let savingoptdatayear of savingoptdatayear">
+            {{ savingoptdatayear?.saving_levers | currency: "USD":true:"1.0" }}
+          </td>
+          <td>
+            {{
+              savingoptdata?.total_saving_levers | currency: "USD":true:"1.0"
+            }}
+          </td>
+        </tr>
+        <tr>
+          <th>Cost of Transformation Partner share</th>
+          <td *ngFor="let savingoptdatayear of savingoptdatayear">
+            {{
+              savingoptdatayear?.cot_partner_share | currency: "USD":true:"1.0"
+            }}
+          </td>
+          <td>
+            {{ savingoptdata?.total_cot_partner | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+        <tr>
+          <th>1. TOTAL SAVINGS WITH ASSET ONLY MODEL</th>
+          <td *ngFor="let savingoptdatayear of savingoptdatayear">
+            {{
+              savingoptdatayear?.total_savings_model
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+          <td>
+            {{ savingoptdata?.sum_total_savings | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            RUN BUSINESS IT ASSET RUN RATE WITH PARTNER (no personnel model)
+          </th>
+          <td *ngFor="let savingoptdatayear of savingoptdatayear">
+            {{ savingoptdatayear?.run_businessit | currency: "USD":true:"1.0" }}
+          </td>
+          <td>
+            {{
+              savingoptdata?.total_run_businessit | currency: "USD":true:"1.0"
+            }}
+          </td>
+          <td>
+            {{
+              savingoptdata?.main_total_run_businessit
+                | currency: "USD":true:"1.0"
+            }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="optimizationLevrs()" mat-raised-button color="primary">
+      Get Optimization Levers
+    </button>
+  </div>
 </mat-card>
-<mat-card>
-  <table class="table" border="2">
-    <tbody>
-      <tr>
-        <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
-        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.saving_levers | currency:
-          "USD":true:"1.0"}}</td>
-        <td>{{savingoptdata?.total_saving_levers | currency: "USD":true:"1.0"}}</td>
-      </tr>
-      <tr>
-        <th>Cost of Transformation Partner share</th>
-        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.cot_partner_share | currency:
-          "USD":true:"1.0"}}</td>
-        <td>{{savingoptdata?.total_cot_partner | currency: "USD":true:"1.0"}}</td>
-      </tr>
-      <tr>
-        <th>1. TOTAL SAVINGS WITH ASSET ONLY MODEL</th>
-      <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.total_savings_model | currency:
-        "USD":true:"1.0"}}</td>
-      <td>{{savingoptdata?.sum_total_savings | currency: "USD":true:"1.0"}}</td>
-      </tr>
-      <tr>
-        <th>RUN BUSINESS IT ASSET RUN RATE WITH PARTNER (no personnel model)</th>
-        <td *ngFor="let savingoptdatayear of savingoptdatayear">{{savingoptdatayear?.run_businessit | currency:
-          "USD":true:"1.0"}}</td>
-        <td>{{savingoptdata?.total_run_businessit | currency: "USD":true:"1.0"}}</td>
-        <td>{{savingoptdata?.main_total_run_businessit | currency: "USD":true:"1.0"}}</td>
-      </tr>
-    </tbody>
-  </table>
-</mat-card>
+<mat-card> </mat-card>

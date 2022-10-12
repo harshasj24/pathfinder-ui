@@ -66,9 +66,9 @@ export class ItpersoneelFitshoringComponent implements OnInit {
   };
 
   getData() {
-    this.api.getRunItOutsourceFte().subscribe((val: any) => {
+    this.api.getRunItOutsourceFitModal().subscribe((val: any) => {
       this.itpersonneldata = val;
-      this.itpersonneldatayear = val.runfteCalc;
+      this.itpersonneldatayear = val.fitcalc;
     });
   }
   ngOnInit(): void {

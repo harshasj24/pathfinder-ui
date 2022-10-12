@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'runitspend-outsource',
@@ -6,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./runitspend-outsource.component.scss'],
 })
 export class RunitspendOutsourceComponent implements OnInit {
-  constructor() {}
+  constructor(private api: ApiService) {}
   isLoaded: boolean = false;
   runitspendftedata: any;
-  runitspendftedatayear:any
+  runitspendftedatayear: any;
   runitspendcostsdata: any;
-  runitspendcostsdatayear:any
+  runitspendcostsdatayear: any;
   runitspendfte = {
     id: '634550f8fa84cf0075f15dcb',
     client_exist_baseyear: 811,
@@ -72,10 +73,22 @@ export class RunitspendOutsourceComponent implements OnInit {
       },
     ],
   };
+  getRunPer() {
+    this.api.getRunItOutsourceFte().subscribe((res) => {
+      this.runitspendftedata = res;
+      this.runitspendftedatayear = res.runfteCalc;
+    });
+  }
+  getRunCost() {
+    this.api.getRunItOutsourceCosts().subscribe((res) => {
+      this.runitspendcostsdata = res;
+      this.runitspendcostsdatayear = res.runCostsCalc;
+    });
+  }
   ngOnInit(): void {
-    this.runitspendftedata=this.runitspendfte
-    this.runitspendftedatayear=this.runitspendftedata.runfteCalc
-    this.runitspendcostsdata=this.runitspendcosts
-    this.runitspendcostsdatayear=this.runitspendcostsdata.runCostsCalc
+    // this.runitspendftedata = this.runitspendfte;
+    // this.runitspendftedatayear = this.runitspendftedata.runfteCalc;
+    // this.runitspendcostsdata = this.runitspendcosts;
+    // this.runitspendcostsdatayear = this.runitspendcostsdata.runCostsCalc;
   }
 }

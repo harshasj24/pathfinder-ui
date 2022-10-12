@@ -2,7 +2,7 @@
 
 <mat-card>
   <h1>RUN IT Personnela with 85% Outsourcing (all Onsite model)</h1>
-  <table class="table" >
+  <table class="table">
     <thead>
       <tr>
         <th>FTE</th>
@@ -17,26 +17,40 @@
     <tbody>
       <tr>
         <th>Client Exit Load</th>
-        <td>{{runitspendftedata?.client_exist_baseyear}}</td>
-        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">{{runitspendftedatayear?.client_exit_load}}</td>
-        <td ></td>
+        <td>{{ runitspendftedata?.client_exist_baseyear }}</td>
+        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">
+          {{ runitspendftedatayear?.client_exit_load }}
+        </td>
+        <td></td>
         <td></td>
       </tr>
       <tr>
         <th>Partner / Collabera Exit Load</th>
-        <td>{{runitspendftedata?.partner_exist_baseyear}}</td>
-        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">{{runitspendftedatayear?.partner_exit_load}}</td>
+        <td>{{ runitspendftedata?.partner_exist_baseyear }}</td>
+        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">
+          {{ runitspendftedatayear?.partner_exit_load }}
+        </td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <th>Scope</th>
-        <td>{{runitspendftedata?.net_fte_scope_baseyear}}</td>
-        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">{{runitspendftedatayear?.net_fte_original}}</td>
-        <td>{{runitspendftedata?.total_savings_in_fte}}</td>
+        <td>{{ runitspendftedata?.net_fte_scope_baseyear }}</td>
+        <td *ngFor="let runitspendftedatayear of runitspendftedatayear">
+          {{ runitspendftedatayear?.net_fte_original }}
+        </td>
+        <td>{{ runitspendftedata?.total_savings_in_fte }}</td>
         <td></td>
       </tr>
+      <tr>
+        <td colspan="7">
+          <button (click)="getRunPer()" mat-raised-button color="primary">
+            Get Run It Personal
+          </button>
+        </td>
+      </tr>
     </tbody>
+
     <thead>
       <tr>
         <th>COSTS</th>
@@ -51,27 +65,67 @@
     <tbody>
       <tr>
         <th>Client Spend</th>
-        <td>{{runitspendcostsdata?.client_spend_baseyear | currency: "USD":true:"1.0"}}</td>
-        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">{{runitspendcostsdatayear?.client_spend | currency: "USD":true:"1.0"}}</td>
-        <td>{{runitspendcostsdata?.total_client_spend | currency: "USD":true:"1.0"}}</td>
+        <td>
+          {{
+            runitspendcostsdata?.client_spend_baseyear
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">
+          {{
+            runitspendcostsdatayear?.client_spend | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td>
+          {{
+            runitspendcostsdata?.total_client_spend | currency: "USD":true:"1.0"
+          }}
+        </td>
       </tr>
       <tr>
         <th>Partner Bill</th>
-        <td>{{runitspendcostsdata?.partner_bill_baseyear}}</td>
-        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">{{runitspendcostsdatayear?.partner_bill | currency:
-          "USD":true:"1.0"}}</td>
-        <td>{{runitspendcostsdata?.total_partner_bill_spend| currency: "USD":true:"1.0"}}</td>
+        <td>{{ runitspendcostsdata?.partner_bill_baseyear }}</td>
+        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">
+          {{
+            runitspendcostsdatayear?.partner_bill | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td>
+          {{
+            runitspendcostsdata?.total_partner_bill_spend
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
       </tr>
       <tr>
         <th>Total Spend</th>
-        <td>{{runitspendcostsdata?.total_spend_baseyear| currency: "USD":true:"1.0"}}</td>
-        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">{{runitspendcostsdatayear?.total_spend | currency:
-          "USD":true:"1.0"}}</td>
-        <td>{{runitspendcostsdata?.total_sum_spend | currency: "USD":true:"1.0"}}</td>
-        <td>{{runitspendcostsdata?.net_run_rate | currency: "USD":true:"1.0"}}</td>
+        <td>
+          {{
+            runitspendcostsdata?.total_spend_baseyear
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td *ngFor="let runitspendcostsdatayear of runitspendcostsdatayear">
+          {{
+            runitspendcostsdatayear?.total_spend | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td>
+          {{
+            runitspendcostsdata?.total_sum_spend | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td>
+          {{ runitspendcostsdata?.net_run_rate | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="7">
+          <button (click)="getRunCost()" mat-raised-button color="primary">
+            Get Run It Cost
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 </mat-card>
-
-

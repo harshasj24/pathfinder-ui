@@ -1,96 +1,201 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 
 <mat-card>
-    <table class="table">
-        <thead>
-            <tr>
-                <td>2. IT SPEND ON RUN PERSONNEL</td>
-                <td colspan="3">{{itspenddata.itspend_baseline|currency: "USD":true:"1.0"}}</td>
-                <td>Yearly Run Rate</td>
-            <td *ngFor="let itspenddatayear of itspenddatayear">{{itspenddatayear?.yearlyRunRate|currency:
-                "USD":true:"1.0"}}</td>
-                <td colspan="2">{{itspenddata.total_yearlyRunRate|currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td>IT personnal spend with Inflation</td>
-                <td *ngFor="let itspenddatayear of itspenddatayear">{{itspenddatayear?.itSpendWithInflation|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{itspenddata.total_itSpendWithInflation|currency: "USD":true:"1.0"}}</td>
-                
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td>Cost of Transformation Client Share</td>
-                <td *ngFor="let itspenddatayear of itspenddatayear">{{itspenddatayear?.cotClientShare|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{itspenddata.total_cotClientShare|currency: "USD":true:"1.0"}}</td>
-                
-            </tr>
-            <tr>
-                <th>Asset classificatio</th>
-                <th>%Split</th>
-                <th>Baseline year</th>
-                <th>Levers</th>
-                <th>Activities</th>
-                <th>Year1</th>
-                <th>Year2</th>
-                <th>Year3</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th colspan="5">2.A. OUTSOURCING ONSITE ONLY</th>
-                <th *ngFor="let outsourcingdatayear of outsourcingdatayear">{{outsourcingdatayear?.outsource_onsite_only|currency:
-                    "USD":true:"1.0"}}</th>
-                <th colspan="2">{{outsourcingdata.sum_outsource_onsite_only |currency: "USD":true:"1.0"}}</th>
-            </tr>
-            <tr>
-                <td colspan="3">85% Outsourcing - Onsite Only</td>
-                <td colspan="2">Total IT Spend with PARTNER take over</td>
-                <td *ngFor="let outsourcingdatayear of outsourcingdatayear">{{outsourcingdatayear?.total_it_spend|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{outsourcingdata.sum_total_it_spend |currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td colspan="5">Cost of Transformation Partner share</td>
-                <td *ngFor="let outsourcingdatayear of outsourcingdatayear">{{outsourcingdatayear?.cot_partner_share|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{outsourcingdata.sum_cot_partner_share |currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td colspan="5">Total savings YOY</td>
-                <td *ngFor="let outsourcingdatayear of outsourcingdatayear">{{outsourcingdatayear?.total_savings_yoy|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{outsourcingdata.sum_total_savings_yoy |currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <th colspan="5">2.B. TOTAL OUTSOURCING / FITSHORE</th>
-                <th *ngFor="let totaloutsourcingyear of totaloutsourcingyear">{{totaloutsourcingyear?.totoal_outsource_fit|currency:
-                    "USD":true:"1.0"}}</th>
-                <th colspan="2">{{totaloutsourcingdata.sum_totoal_outsource_fit |currency: "USD":true:"1.0"}}</th>
-            </tr>
-            <tr>
-                <td colspan="3">Onsite / Offshore Model</td>
-                <td colspan="2">Fit-shoring</td>
-                <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">{{totaloutsourcingyear?.onsite_offshore_model|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{totaloutsourcingdata.sum_onsite_offshore_model |currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td colspan="5">Cost of Transformation Partner share</td>
-                <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">{{totaloutsourcingyear?.cot_partner_share|currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{totaloutsourcingdata.sum_cot_partner_share |currency: "USD":true:"1.0"}}</td>
-            </tr>
-            <tr>
-                <td colspan="5">Total savings YOY</td>
-                <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">{{totaloutsourcingyear?.total_savings_yoy |currency:
-                    "USD":true:"1.0"}}</td>
-                <td colspan="2">{{totaloutsourcingdata.sum_total_savings_yoy |currency: "USD":true:"1.0"}}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>2. IT SPEND ON RUN PERSONNEL</td>
+        <td colspan="3">
+          {{ itspenddata?.itspend_baseline | currency: "USD":true:"1.0" }}
+        </td>
+        <td>Yearly Run Rate</td>
+        <td *ngFor="let itspenddatayear of itspenddatayear">
+          {{ itspenddatayear?.yearlyRunRate | currency: "USD":true:"1.0" }}
+        </td>
+        <td colspan="2">
+          {{ itspenddata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4"></td>
+        <td>IT personnal spend with Inflation</td>
+        <td *ngFor="let itspenddatayear of itspenddatayear">
+          {{
+            itspenddatayear?.itSpendWithInflation | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            itspenddata?.total_itSpendWithInflation | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4"></td>
+        <td>Cost of Transformation Client Share</td>
+        <td *ngFor="let itspenddatayear of itspenddatayear">
+          {{ itspenddatayear?.cotClientShare | currency: "USD":true:"1.0" }}
+        </td>
+        <td colspan="2">
+          {{ itspenddata?.total_cotClientShare | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            (click)="getSpendPersonnel()"
+            mat-raised-button
+            color="accent"
+          >
+            Get It Run Personnel
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <th>Asset classificatio</th>
+        <th>%Split</th>
+        <th>Baseline year</th>
+        <th>Levers</th>
+        <th>Activities</th>
+        <th>Year1</th>
+        <th>Year2</th>
+        <th>Year3</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="5">2.A. OUTSOURCING ONSITE ONLY</th>
+        <th *ngFor="let outsourcingdatayear of outsourcingdatayear">
+          {{
+            outsourcingdatayear?.outsource_onsite_only
+              | currency: "USD":true:"1.0"
+          }}
+        </th>
+        <th colspan="2">
+          {{
+            outsourcingdata?.sum_outsource_onsite_only
+              | currency: "USD":true:"1.0"
+          }}
+        </th>
+      </tr>
+      <tr>
+        <td colspan="3">85% Outsourcing - Onsite Only</td>
+        <td colspan="2">Total IT Spend with PARTNER take over</td>
+        <td *ngFor="let outsourcingdatayear of outsourcingdatayear">
+          {{ outsourcingdatayear?.total_it_spend | currency: "USD":true:"1.0" }}
+        </td>
+        <td colspan="2">
+          {{ outsourcingdata?.sum_total_it_spend | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">Cost of Transformation Partner share</td>
+        <td *ngFor="let outsourcingdatayear of outsourcingdatayear">
+          {{
+            outsourcingdatayear?.cot_partner_share | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            outsourcingdata?.sum_cot_partner_share | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">Total savings YOY</td>
+        <td *ngFor="let outsourcingdatayear of outsourcingdatayear">
+          {{
+            outsourcingdatayear?.total_savings_yoy | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            outsourcingdata?.sum_total_savings_yoy | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            (click)="outsourcingOnsite()"
+            color="primary"
+            mat-raised-button
+          >
+            Get Outsourcing Onsite
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="5">2.B. TOTAL OUTSOURCING / FITSHORE</th>
+        <th *ngFor="let totaloutsourcingyear of totaloutsourcingyear">
+          {{
+            totaloutsourcingyear?.totoal_outsource_fit
+              | currency: "USD":true:"1.0"
+          }}
+        </th>
+        <th colspan="2">
+          {{
+            totaloutsourcingdata?.sum_totoal_outsource_fit
+              | currency: "USD":true:"1.0"
+          }}
+        </th>
+      </tr>
+      <tr>
+        <td colspan="3">Onsite / Offshore Model</td>
+        <td colspan="2">Fit-shoring</td>
+        <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">
+          {{
+            totaloutsourcingyear?.onsite_offshore_model
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            totaloutsourcingdata?.sum_onsite_offshore_model
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">Cost of Transformation Partner share</td>
+        <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">
+          {{
+            totaloutsourcingyear?.cot_partner_share | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            totaloutsourcingdata?.sum_cot_partner_share
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">Total savings YOY</td>
+        <td *ngFor="let totaloutsourcingyear of totaloutsourcingyear">
+          {{
+            totaloutsourcingyear?.total_savings_yoy | currency: "USD":true:"1.0"
+          }}
+        </td>
+        <td colspan="2">
+          {{
+            totaloutsourcingdata?.sum_total_savings_yoy
+              | currency: "USD":true:"1.0"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            color="primary"
+            (click)="outsourcingOffshore()"
+            mat-raised-button
+          >
+            Get FitShore
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </mat-card>
-
