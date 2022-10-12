@@ -1,6 +1,7 @@
 <mat-card>
   <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Hardware">
+      <button mat-button color="primary" (click)="openDailog()">Get</button>
       <app-table *ngFor="let item of hardware" [inputData]="item"></app-table>
     </mat-tab>
     <mat-tab label="Software">

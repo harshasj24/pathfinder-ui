@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AssetFormComponent } from '../asset-form/asset-form.component';
 
 @Component({
   selector: 'app-it-spend',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./it-spend.component.scss'],
 })
 export class ItSpendComponent implements OnInit {
-  constructor() {}
+  constructor(private dailog: MatDialog) {}
   currentYear = new Date().getFullYear();
   ngOnInit(): void {}
+
+  openDailog() {
+    this.dailog.open(AssetFormComponent, { disableClose: true });
+  }
   hardware = [
     {
       asset: 'Hardware',

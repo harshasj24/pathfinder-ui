@@ -23,6 +23,7 @@ import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 import { CoreModule } from './core/core.module';
 import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshoring/itpersoneel-fitshoring.component';
+import { AssetFormComponent } from './components/asset-form/asset-form.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshor
     ItSpendRunComponent,
     ItRunSpendComponent,
     ItpersoneelFitshoringComponent,
+    AssetFormComponent,
   ],
   imports: [
     BrowserModule,
