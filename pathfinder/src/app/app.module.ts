@@ -19,10 +19,10 @@ import { BenchmarksComponent } from './components/benchmarks/benchmarks.componen
 import { TableComponent } from './components/table/table.component';
 import { ItSpendComponent } from './components/it-spend/it-spend.component';
 import { ItFunctionsComponent } from './components/it-functions/it-functions.component';
-import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 import { CoreModule } from './core/core.module';
 import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshoring/itpersoneel-fitshoring.component';
+import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
 
 @NgModule({
   declarations: [
@@ -36,9 +36,9 @@ import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshor
     TableComponent,
     ItSpendComponent,
     ItFunctionsComponent,
-    ItSpendRunComponent,
     ItRunSpendComponent,
     ItpersoneelFitshoringComponent,
+    ItspendrunComponent,
   ],
   imports: [
     BrowserModule,

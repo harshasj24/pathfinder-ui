@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ItSpendRunComponent } from './it-spend-run.component';
+import { ItspendrunComponent } from './itspendrun.component';
 
-describe('ItSpendRunComponent', () => {
-  let component: ItSpendRunComponent;
-  let fixture: ComponentFixture<ItSpendRunComponent>;
+describe('ItspendrunComponent', () => {
+  let component: ItspendrunComponent;
+  let fixture: ComponentFixture<ItspendrunComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItSpendRunComponent ]
+      declarations: [ ItspendrunComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItSpendRunComponent);
+    fixture = TestBed.createComponent(ItspendrunComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
