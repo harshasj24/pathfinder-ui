@@ -23,6 +23,7 @@ import { ItSpendRunComponent } from './it-spend-run/it-spend-run.component';
 import { CoreModule } from './core/core.module';
 import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshoring/itpersoneel-fitshoring.component';
+import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
 import { AssetFormComponent } from './components/asset-form/asset-form.component';
 
 @NgModule({
@@ -40,6 +41,7 @@ import { AssetFormComponent } from './components/asset-form/asset-form.component
     ItSpendRunComponent,
     ItRunSpendComponent,
     ItpersoneelFitshoringComponent,
+    RunitspendOutsourceComponent,
     AssetFormComponent,
   ],
   imports: [
