@@ -22,6 +22,8 @@ import { ItFunctionsComponent } from './components/it-functions/it-functions.com
 import { CoreModule } from './core/core.module';
 import { ItRunSpendComponent } from './components/it-run-spend/it-run-spend.component';
 import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshoring/itpersoneel-fitshoring.component';
+import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
+import { AssetFormComponent } from './components/asset-form/asset-form.component';
 import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
 
 @NgModule({
@@ -38,7 +40,9 @@ import { ItspendrunComponent } from './components/itspendrun/itspendrun.componen
     ItFunctionsComponent,
     ItRunSpendComponent,
     ItpersoneelFitshoringComponent,
-    ItspendrunComponent,
+    RunitspendOutsourceComponent,
+    AssetFormComponent,
+    ItspendrunComponent
   ],
   imports: [
     BrowserModule,
