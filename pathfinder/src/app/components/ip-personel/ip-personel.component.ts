@@ -122,6 +122,11 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   }
 
   // get one request
+  handleUpdate() {
+    this.apiservice.updatePersonnel(this.itPersonel.value).subscribe((val) => {
+      console.log(val);
+    });
+  }
   handleGet() {
     this.apiservice
       .getOneRecord(

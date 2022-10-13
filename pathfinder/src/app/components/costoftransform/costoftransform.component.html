@@ -1,115 +1,162 @@
 <mat-card>
-    <form [formGroup]="costtransformation" action="" (ngSubmit)="costtransformation.valid && handleSubmit()">
-        <div class="d-flex">
-            <div>
-                <h1>Cost of Transformation</h1>
-            </div>
-        </div>
-        <div class="inputs">
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>COT%</mat-label>
-                <input autocomplete="off" formControlName="cot_perc" matInput placeholder="COT%" />
-                <mat-error>Cost Of Transform is required</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>Client Share</mat-label>
-                <input autocomplete="off" formControlName="client_perc" matInput placeholder="Client Share" />
-                <mat-error>Client Share is required </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>Partner/Client Share</mat-label>
-                <input autocomplete="off" formControlName="partner_perc" matInput placeholder="Partner/Client Share" />
-                <mat-error>Partner/Client Share is required </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>COT Spread Year1</mat-label>
-                <input autocomplete="off" formControlName="cot_spread_percy1" matInput placeholder="COT Spread Y1" />
-                <mat-error>COT Spread Year1 Share is required </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>COT Spread Year2</mat-label>
-                <input autocomplete="off" formControlName="cot_spread_percy2" matInput placeholder="COT Spread Y2" />
-                <mat-error>COT Spread Year2 Share is required </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="p-2">
-                <mat-label>COT Spread Year3</mat-label>
-                <input autocomplete="off" formControlName="cot_spread_percy3" matInput placeholder="COT Spread Y3" />
-                <mat-error>COT Spread Year3 Share is required </mat-error>
-            </mat-form-field>
-            <div class="form__action d-flex">
-                <button mat-raised-button color="primary" (click)="handleGet()" type="button">
-                    Get
-                </button>
-                <button [disabled]="!canUpdate" mat-raised-button color="primary" class="mx-3" type="button">
-                    Update
-                </button>
-                <button mat-raised-button color="primary" type="submit">Add</button>
-            </div>
-        </div>
-    </form>
-    <div class="result-tabel">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td class="w-50">COT % </td>
-                    <!-- <td>{{ cot?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
-                    <td>{{costData?.cot_perc}}</td>
-                    <td>{{costData?.cot_value |currency: "USD":true:"1.0"}}</td>
-
-                </tr>
-                <tr>
-                    <td>Client Share</td>
-                    <!-- <td>{{ clientshare?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
-                    <td>{{costData?.client_perc}}</td>
-                    <td>{{costData?.client_value |currency: "USD":true:"1.0"}}</td>
-
-                </tr>
-                <tr>
-                    <td>Partner/ Client share</td>
-                    <!-- <td>{{ partnershare?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
-                    <td>{{costData?.partner_perc}}</td>
-                    <td>{{costData?.partner_value}}</td>
-
-                </tr>
-            </tbody>
-        </table>
+  <form
+    [formGroup]="costtransformation"
+    action=""
+    (ngSubmit)="costtransformation.valid && handleSubmit()"
+  >
+    <div class="d-flex">
+      <div>
+        <h1>Cost of Transformation</h1>
+      </div>
     </div>
-    <div>
-        <h2 style="text-align:bold ;">Cost of Spread</h2>
+    <div class="inputs">
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>COT%</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="cot_perc"
+          matInput
+          placeholder="COT%"
+        />
+        <mat-error>Cost Of Transform is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>Client Share</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="client_perc"
+          matInput
+          placeholder="Client Share"
+        />
+        <mat-error>Client Share is required </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>Partner/Client Share</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="partner_perc"
+          matInput
+          placeholder="Partner/Client Share"
+        />
+        <mat-error>Partner/Client Share is required </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>COT Spread Year1</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="cot_spread_percy1"
+          matInput
+          placeholder="COT Spread Y1"
+        />
+        <mat-error>COT Spread Year1 Share is required </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>COT Spread Year2</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="cot_spread_percy2"
+          matInput
+          placeholder="COT Spread Y2"
+        />
+        <mat-error>COT Spread Year2 Share is required </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="p-2">
+        <mat-label>COT Spread Year3</mat-label>
+        <input
+          autocomplete="off"
+          formControlName="cot_spread_percy3"
+          matInput
+          placeholder="COT Spread Y3"
+        />
+        <mat-error>COT Spread Year3 Share is required </mat-error>
+      </mat-form-field>
+      <div class="form__action d-flex">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="handleGet()"
+          type="button"
+        >
+          Get
+        </button>
+        <button
+          (click)="handleUpdate()"
+          [disabled]="!canUpdate"
+          mat-raised-button
+          color="primary"
+          class="mx-3"
+          type="button"
+        >
+          Update
+        </button>
+        <button mat-raised-button color="primary" type="submit">Add</button>
+      </div>
     </div>
-    <div class="result-tabel">
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th></th>
-                    <th>year 1</th>
-                    <th>year2</th>
-                    <th>year3</th>
-                </tr>
-                <tr>
-                    <th class="w-50">COT Spread</th>
-                    <td *ngFor="let costyear of costDataYear">{{costyear?.cot_spread_perc |currency: "USD":true:"1.0"}}
-                    </td>
-                </tr>
-                <tr>
-                    <th>Client Share</th>
-                    <td *ngFor="let costyear of costDataYear">{{costyear?.client_share_value|currency:
-                        "USD":true:"1.0"}}</td>
-                </tr>
-                <tr>
-                    <th>Partner/ Client share</th>
-                    <td *ngFor="let costyear of costDataYear">{{costyear?.partner_share_value|currency:
-                        "USD":true:"1.0"}}</td>
-                </tr>
-                <tr>
-                     <th>Total_with_inflation</th>
-                    <td *ngFor="let costyear of costDataYear">{{costyear?.total_with_inflation|currency:
-                        "USD":true:"1.0"}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  </form>
+  <div class="result-tabel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="w-50">COT %</td>
+          <!-- <td>{{ cot?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+          <td>{{ costData?.cot_perc }}</td>
+          <td>{{ costData?.cot_value | currency: "USD":true:"1.0" }}</td>
+        </tr>
+        <tr>
+          <td>Client Share</td>
+          <!-- <td>{{ clientshare?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+          <td>{{ costData?.client_perc }}</td>
+          <td>{{ costData?.client_value | currency: "USD":true:"1.0" }}</td>
+        </tr>
+        <tr>
+          <td>Partner/ Client share</td>
+          <!-- <td>{{ partnershare?.value || 0 }} %</td>
+                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+          <td>{{ costData?.partner_perc }}</td>
+          <td>{{ costData?.partner_value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h2 style="text-align: bold">Cost of Spread</h2>
+  </div>
+  <div class="result-tabel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th></th>
+          <th>year 1</th>
+          <th>year2</th>
+          <th>year3</th>
+        </tr>
+        <tr>
+          <th class="w-50">COT Spread</th>
+          <td *ngFor="let costyear of costDataYear">
+            {{ costyear?.cot_spread_perc | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+        <tr>
+          <th>Client Share</th>
+          <td *ngFor="let costyear of costDataYear">
+            {{ costyear?.client_share_value | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+        <tr>
+          <th>Partner/ Client share</th>
+          <td *ngFor="let costyear of costDataYear">
+            {{ costyear?.partner_share_value | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+        <tr>
+          <th>Total_with_inflation</th>
+          <td *ngFor="let costyear of costDataYear">
+            {{ costyear?.total_with_inflation | currency: "USD":true:"1.0" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </mat-card>

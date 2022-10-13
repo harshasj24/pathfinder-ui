@@ -81,5 +81,26 @@ export class CostoftransformComponent implements OnInit {
         this.costtransformation.patchValue({ ...res, ...obj });
       });
   }
+  handleUpdate() {
+    let yearBaseCostCalculations: any = [];
+
+    for (let i = 1; i < 4; i++) {
+      let obj = {
+        year: i,
+        cot_spread_perc: this.costtransformation.value[`cot_spread_percy${i}`],
+      };
+      yearBaseCostCalculations.push(obj);
+    }
+    let payload: any = {
+      cot_perc: this.costtransformation.value['cot_perc'],
+      client_perc: this.costtransformation.value['client_perc'],
+      partner_perc: this.costtransformation.value['partner_perc'],
+      yearBaseCostCalculations,
+    };
+    this.apiservice.updateCostoftransform(payload).subscribe((val) => {
+      console.log(val);
+      this.handleGet();
+    });
+  }
   ngOnInit(): void {}
 }
