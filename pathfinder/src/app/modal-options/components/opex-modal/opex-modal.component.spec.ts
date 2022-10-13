@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Demo1Component } from './demo1.component';
+import { OpexModalComponent } from './opex-modal.component';
 
-describe('Demo1Component', () => {
-  let component: Demo1Component;
-  let fixture: ComponentFixture<Demo1Component>;
+describe('OpexModalComponent', () => {
+  let component: OpexModalComponent;
+  let fixture: ComponentFixture<OpexModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Demo1Component ]
+      declarations: [ OpexModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Demo1Component);
+    fixture = TestBed.createComponent(OpexModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
