@@ -222,4 +222,39 @@ export class ApiService {
       payload
     );
   }
+  updatePersonnel(payload: any) {
+    return this.http.put(
+      `/inputtables/updateitpersonel/${this.store.getId('itPersonnelId')}`,
+      payload
+    );
+  }
+  updatePersonnelCost(payload: any) {
+    return this.http.put(
+      `/inputtables/updateitpersonelcost/${this.store.getId('itpersonelcost')}/${this.store.getId('itPersonnelId')}`,
+      payload
+    );
+  }
+  updateCostoftransform(payload: any) {
+    return this.http.put(
+      `/inputtables/updatecost/${this.store.getId('COT_Id')}/${this.store.getId('inputTableID')}`,
+      payload
+    );
+  }
+
+  updateITspendcat(payload: any) {
+    return this.http.put(
+      `/inputtables/updateitspendcat${this.store.getId(
+          'itSpendCatId'
+        )}`,
+      payload
+    );
+  }
+  updateITfunction(payload: any) {
+    return this.http.put(
+      `/inputtables/updateitfunction/${this.store.getId('itFunctionId')}/${this.store.getId('inputTableID')}/${this.store.getId('itPersonnelId')}`,
+      payload
+    );
+  }
+  
+  
 }
