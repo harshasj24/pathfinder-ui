@@ -1,0 +1,124 @@
+<div class="header d-flex">
+    <h1>IT Personnel Fit-Shoring model</h1>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Asset classificatio</th>
+            <th></th>
+            <th>Baseline Year $ spend</th>
+            <th>Year1</th>
+            <th>Year2</th>
+            <th>Year3</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Hardware/Software</td>
+            <td>CLIENT SPEND WITHOUT PARTNER</td>
+            <td >
+                {{ savingmodeldata?.baseline_year_hdsf | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.without_patnerhs | currency: "USD":true:"1.0" }}
+            </td>
+            <td colspan="2">
+                {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>CLIENT SPEND WITH PARTNER</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.with_partnerhs| currency: "USD":true:"1.0" }}
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>COST REDUCTION</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.cost_reductionhs | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td>PERSONNEL / OUTSOURCING</td>
+            <td>CLIENT SPEND WITHOUT PARTNER</td>
+            <td >
+                {{ savingmodeldata?.baseline_yaer_perout | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.without_patnerpo | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ savingmodeldata?.total_perout | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>CLIENT SPEND WITH PARTNER</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.with_partnerpo| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>CLIENT SPEND WITH PARTNER</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.cost_reductionpo | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td>Totals</td>
+            <td>CLIENT SPEND WITHOUT PARTNER</td>
+            <td>
+                {{ savingmodeldata?.baseline_yaer_totals | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.without_patnertoatl | currency: "USD":true:"1.0" }}
+            </td>
+            <td >
+                {{ savingmodeldata?.total_total | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>CLIENT SPEND WITH PARTNER</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.with_partnertoatl | currency: "USD":true:"1.0" }}
+            </td>
+            <td >
+                {{ savingmodeldata?.total_total | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>CLIENT SPEND WITH PARTNER</td>
+            <td></td>
+            <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
+                {{ savingmodeldatayear?.cost_reductionhstotal | currency: "USD":true:"1.0" }}
+            </td>
+            <td >
+                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="" (click)="getData()" mat-raised-button color="primary">
+    Get 
+</button>
