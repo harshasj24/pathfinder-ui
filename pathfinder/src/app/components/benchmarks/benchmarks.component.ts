@@ -59,9 +59,9 @@ export class BenchmarksComponent implements OnInit {
         this.store.getId('itSpendCatId')
       )
       .subscribe((res: any) => {
-        this.itspenddata = res;
+        this.itspendcategories = res;
         this.canUpdate = true;
-        this.itspenddata.patchValue({ ...res });
+        this.itspendcategories.patchValue({ ...res });
        });
   }
         

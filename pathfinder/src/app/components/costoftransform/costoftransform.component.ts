@@ -73,10 +73,9 @@ export class CostoftransformComponent implements OnInit {
         this.store.getId('inputTableID')
       )
       .subscribe((res: any) => {
-        this.costData = res;
-        this.costDataYear=res.yearBaseCostCalculations
+        this.costtransformation = res;
         this.canUpdate = true;
-        this.costData.patchValue({ ...res });
+        this.costtransformation.patchValue({ ...res });
       });
   }
   ngOnInit(): void {}
