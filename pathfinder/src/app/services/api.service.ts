@@ -214,4 +214,12 @@ export class ApiService {
   getOneRecord(path: string, id: string) {
     return this.http.get(`${path}/${id}`);
   }
+  // put requests
+
+  updateInputTables(payload: any) {
+    return this.http.put(
+      `/inputtables/updateinputtables/${this.store.getId('inputTableID')}`,
+      payload
+    );
+  }
 }
