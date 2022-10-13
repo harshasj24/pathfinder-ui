@@ -128,7 +128,7 @@ export class ItPartnerComponent implements OnInit {
       .subscribe((res: any) => {
         this.itPersonelCostData = res;
         this.canUpdate = true;
-        this.itPersonelCostData.patchValue({ ...res });
+        this.itpersonelcost.patchValue({ ...res });
         // this.disableEnable(false);
       });
   }

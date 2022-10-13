@@ -118,7 +118,8 @@ export class InputTabelComponent implements OnInit {
     let { industryBased, ...payload } = this.inputTabel.value;
     this.api.updateInputTables(payload).subscribe((val) => {
       console.log(val);
-      this.handleGet();
+      console.log(payload);
+      // this.handleGet();
     });
   }
 
