@@ -110,7 +110,7 @@ export class ApiService {
   getRunItOutsourceFte() {
     return this.http
       .get(
-        `/outsource/runpersonnel/${this.store.getId(
+        `/outsource/runfte/${this.store.getId(
           'inputTableID'
         )}/${this.store.getId('itPersonnelId')}/${this.store.getId(
           'itpersonelcost'

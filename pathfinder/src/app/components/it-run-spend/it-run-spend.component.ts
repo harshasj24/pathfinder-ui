@@ -10,7 +10,7 @@ export class ItRunSpendComponent implements OnInit {
   constructor(private apiS: ApiService) {}
   runSpendDetails: any[] = [];
   isLoaded: boolean = false;
-  ngOnInit(): void {
+  handleClick() {
     this.isLoaded = true;
     this.apiS.getItRunSpend().subscribe((val: any) => {
       // this.runSpendDetails = val;
@@ -43,4 +43,5 @@ export class ItRunSpendComponent implements OnInit {
       this.isLoaded = false;
     });
   }
+  ngOnInit(): void {}
 }
