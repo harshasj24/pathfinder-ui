@@ -29,7 +29,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
   itPersonelData: any;
-   canUpdate: boolean = false;
+  canUpdate: boolean = false;
   itPersonel = new FormGroup({
     it_spend_on_personal_perc: new FormControl('', [Validators.required]),
     avr_ctc_per_fte: new FormControl('', [Validators.required]),
@@ -129,9 +129,9 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
         this.store.getId('itPersonnelId')
       )
       .subscribe((res: any) => {
-        this.itPersonel  = res;
+        this.itPersonelData = res;
         this.canUpdate = true;
-        this.itPersonel .patchValue({ ...res });
+        this.itPersonel.patchValue({ ...res });
       });
   }
 }

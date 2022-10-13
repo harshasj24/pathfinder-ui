@@ -9,7 +9,7 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./costoftransform.component.scss'],
 })
 export class CostoftransformComponent implements OnInit {
-  constructor(private apiservice: ApiService,private store: StoreService,) {}
+  constructor(private apiservice: ApiService, private store: StoreService) {}
   isLoaded: boolean = false;
   canUpdate: boolean = false;
   costData: any;
@@ -68,14 +68,17 @@ export class CostoftransformComponent implements OnInit {
   // get one request
   handleGet() {
     this.apiservice
-      .getOneRecord(
-        '/inputtables/cost',
-        this.store.getId('inputTableID')
-      )
+      .getOneRecord('/inputtables/getcost', this.store.getId('COT_Id'))
       .subscribe((res: any) => {
-        this.costtransformation = res;
+        this.costData = res;
+        this.costDataYear = res.yearBaseCostCalculations;
         this.canUpdate = true;
-        this.costtransformation.patchValue({ ...res });
+        let { yearBaseCostCalculations } = res;
+        let obj: any = {};
+        yearBaseCostCalculations.map((el: any, i: any) => {
+          obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+        });
+        this.costtransformation.patchValue({ ...res, ...obj });
       });
   }
   ngOnInit(): void {}

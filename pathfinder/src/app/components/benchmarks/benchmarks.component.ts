@@ -11,9 +11,9 @@ import { StoreService } from 'src/app/store.service';
 export class BenchmarksComponent implements OnInit {
   select: any;
   currentYear = new Date().getFullYear();
-   canUpdate: boolean = false;
-   itspenddata:any
-  constructor(private api: ApiService, private store: StoreService,) {}
+  canUpdate: boolean = false;
+  itspenddata: any;
+  constructor(private api: ApiService, private store: StoreService) {}
 
   itspendcategories = new FormGroup({
     hardware: new FormControl('', Validators.required),
@@ -59,11 +59,10 @@ export class BenchmarksComponent implements OnInit {
         this.store.getId('itSpendCatId')
       )
       .subscribe((res: any) => {
-        this.itspendcategories = res;
         this.canUpdate = true;
+        console.log(res);
         this.itspendcategories.patchValue({ ...res });
-       });
+        this.year?.patchValue(2011);
+      });
   }
-        
-     
 }

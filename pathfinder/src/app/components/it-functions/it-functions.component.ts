@@ -9,7 +9,7 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./it-functions.component.scss'],
 })
 export class ItFunctionsComponent implements OnInit {
-  constructor(private api: ApiService,private store: StoreService,) {}
+  constructor(private api: ApiService, private store: StoreService) {}
   canUpdate: boolean = false;
   itFunctions = new FormGroup({
     data_center_itspend_run_perc: new FormControl('', Validators.required),
@@ -102,7 +102,7 @@ export class ItFunctionsComponent implements OnInit {
     console.log('hi');
   }
 
-   // get one request
+  // get one request
   handleGet() {
     this.api
       .getOneRecord(
@@ -110,8 +110,8 @@ export class ItFunctionsComponent implements OnInit {
         this.store.getId('itFunctionId')
       )
       .subscribe((res: any) => {
-        this.itFunctions = res;
         this.canUpdate = true;
+        this.itFunctionsData = res;
         this.itFunctions.patchValue({ ...res });
       });
   }

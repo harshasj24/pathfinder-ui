@@ -218,7 +218,7 @@ export class ApiService {
 
   updateInputTables(payload: any) {
     return this.http.put(
-      `/inputtables/updateinputtables/6345a6797feb6d5b2b98520d`,
+      `/inputtables/updateinputtables/${this.store.getId('inputTableID')}`,
       payload
     );
   }
