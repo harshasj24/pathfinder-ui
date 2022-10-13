@@ -1,0 +1,14 @@
+mat-toolbar {
+  //   padding: 10px !important;
+  height: 50px !important;
+  background-color: white !important;
+  margin-bottom: 10px;
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+}
+.router-active {
+  color: #673ab7 !important;
+}
