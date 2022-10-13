@@ -110,9 +110,9 @@ export class ItFunctionsComponent implements OnInit {
         this.store.getId('itFunctionId')
       )
       .subscribe((res: any) => {
-        this.itFunctionsData = res;
+        this.itFunctions = res;
         this.canUpdate = true;
-        this.itFunctionsData.patchValue({ ...res });
+        this.itFunctions.patchValue({ ...res });
       });
   }
 }

@@ -129,9 +129,9 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
         this.store.getId('itPersonnelId')
       )
       .subscribe((res: any) => {
-        this.itPersonelData = res;
+        this.itPersonel  = res;
         this.canUpdate = true;
-        this.itPersonelData.patchValue({ ...res });
+        this.itPersonel .patchValue({ ...res });
       });
   }
 }
