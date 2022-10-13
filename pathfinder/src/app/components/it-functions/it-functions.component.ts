@@ -9,7 +9,8 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./it-functions.component.scss'],
 })
 export class ItFunctionsComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService,private store: StoreService,) {}
+  canUpdate: boolean = false;
   itFunctions = new FormGroup({
     data_center_itspend_run_perc: new FormControl('', Validators.required),
     data_center_fte_spread_perc: new FormControl('', Validators.required),
@@ -99,5 +100,19 @@ export class ItFunctionsComponent implements OnInit {
       this.itFunctionsData = val;
     });
     console.log('hi');
+  }
+
+   // get one request
+  handleGet() {
+    this.api
+      .getOneRecord(
+        '/itfunctions/getitfunctioninput',
+        this.store.getId('itFunctionId')
+      )
+      .subscribe((res: any) => {
+        this.itFunctionsData = res;
+        this.canUpdate = true;
+        this.itFunctionsData.patchValue({ ...res });
+      });
   }
 }

@@ -41,9 +41,15 @@
         />
         <mat-error>Outsourcing is required </mat-error>
       </mat-form-field>
-      <div class="form__action">
-        <button mat-raised-button color="primary" type="submit">submit</button>
-      </div>
+    <div class="form__action d-flex">
+      <button mat-raised-button color="primary" (click)="handleGet()" type="button">
+        Get
+      </button>
+      <button [disabled]="!canUpdate" mat-raised-button color="primary" class="mx-3" type="button">
+        Update
+      </button>
+      <button mat-raised-button color="primary" type="submit">Add</button>
+    </div>
       <!-- <mat-form-field appearance="outline" class="">
         <mat-label>Run It Spend</mat-label>
         <input

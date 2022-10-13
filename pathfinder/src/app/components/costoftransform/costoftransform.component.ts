@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { StoreService } from 'src/app/store.service';
 
 @Component({
   selector: 'app-costoftransform',
@@ -8,8 +9,9 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./costoftransform.component.scss'],
 })
 export class CostoftransformComponent implements OnInit {
-  constructor(private apiservice: ApiService) {}
+  constructor(private apiservice: ApiService,private store: StoreService,) {}
   isLoaded: boolean = false;
+  canUpdate: boolean = false;
   costData: any;
   costDataYear: any;
   costtransformation = new FormGroup({
@@ -59,9 +61,23 @@ export class CostoftransformComponent implements OnInit {
       this.costData = val;
       console.log(this.costData);
       console.log(this.costData.yearBaseCostCalculations);
-      this.costDataYear = this.costData.yearBaseCostCalculations;
+      this.costDataYear = val.yearBaseCostCalculations;
       console.log(this.costDataYear);
     });
+  }
+  // get one request
+  handleGet() {
+    this.apiservice
+      .getOneRecord(
+        '/inputtables/cost',
+        this.store.getId('inputTableID')
+      )
+      .subscribe((res: any) => {
+        this.costData = res;
+        this.costDataYear=res.yearBaseCostCalculations
+        this.canUpdate = true;
+        this.costData.patchValue({ ...res });
+      });
   }
   ngOnInit(): void {}
 }
