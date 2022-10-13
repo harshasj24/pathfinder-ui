@@ -187,6 +187,7 @@ export class ItSpendComponent implements OnInit {
         title: type,
         data: this.assetsSpend[type],
         patchValue: action === 'update' && this.pathchValue,
+        action,
       },
     });
   }

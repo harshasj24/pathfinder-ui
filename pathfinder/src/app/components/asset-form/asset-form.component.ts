@@ -48,15 +48,19 @@ export class AssetFormComponent implements OnInit {
       [this.assetDetail[this.data.title].payloadKey]:
         this.dailogForm.value.calculations,
     };
-    this.api
-      .assetClacification(this.assetDetail[this.data.title].path, payload)
-      .subscribe((val) => {
-        this.dailogServices.addDailogData({
-          title: this.data.title,
-          claculatedData: val,
+    if (this.data.action == 'add') {
+      this.api
+        .assetClacification(this.assetDetail[this.data.title].path, payload)
+        .subscribe((val) => {
+          this.dailogServices.addDailogData({
+            title: this.data.title,
+            claculatedData: val,
+          });
+          this.dilog.closeAll();
         });
-        this.dilog.closeAll();
-      });
+    } else if (this.data.action === 'update') {
+      // update logic
+    }
   }
   ngOnInit(): void {
     this.formControls = Object.keys(this.data.data);
