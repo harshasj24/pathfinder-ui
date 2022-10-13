@@ -35,6 +35,7 @@ export class ItPartnerComponent implements OnInit {
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
   itPersonelCostData: any = [];
+  canUpdate: boolean = false;
   isSubmitted: boolean = false;
   itpersonelcost = new FormGroup({
     partnerCtcOnsite: new FormControl('', [Validators.required]),
@@ -116,6 +117,20 @@ export class ItPartnerComponent implements OnInit {
         );
       });
     });
+  }
+  // get one request
+  handleGet() {
+    this.apiservice
+      .getOneRecord(
+        '/inputtables/getitpersonelcost',
+        this.store.getId('itpersonelcost')
+      )
+      .subscribe((res: any) => {
+        this.itPersonelCostData = res;
+        this.canUpdate = true;
+        this.itPersonelCostData.patchValue({ ...res });
+        // this.disableEnable(false);
+      });
   }
   ngOnInit(): void {
     //   this.itpersonelcost.valueChanges.subscribe((values) => {

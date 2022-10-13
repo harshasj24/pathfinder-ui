@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { StoreService } from 'src/app/store.service';
 
 @Component({
   selector: 'benchmarks',
@@ -10,8 +11,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class BenchmarksComponent implements OnInit {
   select: any;
   currentYear = new Date().getFullYear();
-
-  constructor(private api: ApiService) {}
+   canUpdate: boolean = false;
+   itspenddata:any
+  constructor(private api: ApiService, private store: StoreService,) {}
 
   itspendcategories = new FormGroup({
     hardware: new FormControl('', Validators.required),
@@ -48,4 +50,20 @@ export class BenchmarksComponent implements OnInit {
     });
     console.log('hi');
   }
+
+  // get one request
+  handleGet() {
+    this.api
+      .getOneRecord(
+        '/inputtables/getitspendcat',
+        this.store.getId('itSpendCatId')
+      )
+      .subscribe((res: any) => {
+        this.itspenddata = res;
+        this.canUpdate = true;
+        this.itspenddata.patchValue({ ...res });
+       });
+  }
+        
+     
 }

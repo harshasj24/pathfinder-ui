@@ -29,6 +29,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
   itPersonelData: any;
+   canUpdate: boolean = false;
   itPersonel = new FormGroup({
     it_spend_on_personal_perc: new FormControl('', [Validators.required]),
     avr_ctc_per_fte: new FormControl('', [Validators.required]),
@@ -114,8 +115,23 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
         this.cal.caluclatePercentage(val, this.dividedVals.run)
       );
     });
+
     // sample
 
     // charts code
+  }
+
+  // get one request
+  handleGet() {
+    this.apiservice
+      .getOneRecord(
+        '/inputtables/getitpersonel',
+        this.store.getId('itPersonnelId')
+      )
+      .subscribe((res: any) => {
+        this.itPersonelData = res;
+        this.canUpdate = true;
+        this.itPersonelData.patchValue({ ...res });
+      });
   }
 }
