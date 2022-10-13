@@ -4,6 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
+import { StoreService } from 'src/app/store.service';
 @Component({
   selector: 'app-asset-form',
   templateUrl: './asset-form.component.html',
@@ -15,7 +16,8 @@ export class AssetFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
     private api: ApiService,
-    private dilog: MatDialog
+    private dilog: MatDialog,
+    private store: StoreService
   ) {}
   formControls: any[];
   dailogForm: FormGroup;
@@ -27,19 +29,27 @@ export class AssetFormComponent implements OnInit {
   assetDetail: any = {
     hardware: {
       path: 'hardware',
+      updatePath: 'updatehardware',
       payloadKey: 'hardwareCalculations',
+      id: this.store.getId('hardware'),
     },
     software: {
       path: 'software',
+      updatePath: 'updatesoftware',
       payloadKey: 'softwareCalculations',
+      id: this.store.getId('software'),
     },
     managedServices: {
       path: 'managed',
+      updatePath: 'updatemanagedservices',
       payloadKey: 'managed_servicesCalculations',
+      id: this.store.getId('managed'),
     },
     hosted: {
       path: 'hosted',
+      updatePath: 'updatehostedcbs',
       payloadKey: 'hosted_cbsCalculations',
+      id: this.store.getId('hosted'),
     },
   };
   handleSubmit() {
@@ -56,15 +66,24 @@ export class AssetFormComponent implements OnInit {
             title: this.data.title,
             claculatedData: val,
           });
-          this.dilog.closeAll();
         });
     } else if (this.data.action === 'update') {
       // update logic
-    
-       this.api.UpadateassetClacification(this.assetDetail[this.data.title].path, payload).subscribe((val) => {
-      console.log(val);
-       });
+      this.api
+        .UpadateassetClacification(
+          this.assetDetail[this.data.title].updatePath,
+          payload,
+          this.assetDetail[this.data.title].id
+        )
+        .subscribe((val) => {
+          console.log(val);
+          this.dailogServices.addDailogData({
+            title: this.data.title,
+            claculatedData: val,
+          });
+        });
     }
+    this.dilog.closeAll();
   }
   ngOnInit(): void {
     this.formControls = Object.keys(this.data.data);

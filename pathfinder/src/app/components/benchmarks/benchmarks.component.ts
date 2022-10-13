@@ -62,11 +62,11 @@ export class BenchmarksComponent implements OnInit {
         this.canUpdate = true;
         console.log(res);
         this.itspendcategories.patchValue({ ...res });
-        this.year?.patchValue(2011);
+        this.year?.patchValue(res.year);
       });
   }
   // handle update
-   handleUpdate() {
+  handleUpdate() {
     this.api.updateITspendcat(this.itspendcategories.value).subscribe((val) => {
       console.log(val);
       this.handleGet();

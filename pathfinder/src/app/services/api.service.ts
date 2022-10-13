@@ -230,42 +230,46 @@ export class ApiService {
   }
   updatePersonnelCost(payload: any) {
     return this.http.put(
-      `/inputtables/updateitpersonelcost/${this.store.getId('itpersonelcost')}/${this.store.getId('itPersonnelId')}`,
+      `/inputtables/updateitpersonelcost/${this.store.getId(
+        'itpersonelcost'
+      )}/${this.store.getId('itPersonnelId')}`,
       payload
     );
   }
   updateCostoftransform(payload: any) {
     return this.http.put(
-      `/inputtables/updatecost/${this.store.getId('COT_Id')}/${this.store.getId('inputTableID')}`,
+      `/inputtables/updatecost/${this.store.getId('COT_Id')}/${this.store.getId(
+        'inputTableID'
+      )}`,
       payload
     );
   }
 
   updateITspendcat(payload: any) {
     return this.http.put(
-      `/inputtables/updateitspendcat${this.store.getId(
-          'itSpendCatId'
-        )}`,
+      `/inputtables/updateitspendcat/${this.store.getId('itSpendCatId')}`,
       payload
     );
   }
   updateITfunction(payload: any) {
     return this.http.put(
-      `/inputtables/updateitfunction/${this.store.getId('itFunctionId')}/${this.store.getId('inputTableID')}/${this.store.getId('itPersonnelId')}`,
+      `/itfunctions/updateitfunction/${this.store.getId(
+        'itFunctionId'
+      )}/${this.store.getId('inputTableID')}/${this.store.getId(
+        'itPersonnelId'
+      )}`,
       payload
     );
   }
-  
-  UpadateassetClacification(assetName: string, payload: any) {
-    return this.http
-      .put(
-        `/asset/${assetName}/${this.store.getId(
-          'itRunSpend'
-        )}/${this.store.getId('inputTableID')}/${this.store.getId(
-          'itSpendCatId'
-        )}`,
-        payload
-      )
+
+  UpadateassetClacification(assetName: string, payload: any, id: any) {
+    return this.http.put(
+      `/asset/${assetName}/${id}/${this.store.getId(
+        'itRunSpend'
+      )}/${this.store.getId('inputTableID')}/${this.store.getId(
+        'itSpendCatId'
+      )}`,
+      payload
+    );
   }
-  
 }
