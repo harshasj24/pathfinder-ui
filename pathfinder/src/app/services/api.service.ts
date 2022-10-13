@@ -4,9 +4,6 @@ import { inputTable } from '../core/models/tables';
 import { HttpService } from '../core/services/http.service';
 import { LocalStorageService } from '../core/services/local-storage.service';
 import { StoreService } from '../store.service';
-let handleResponce = (res: any) => {
-  alert(JSON.stringify(res));
-};
 @Injectable({
   providedIn: 'root',
 })
@@ -70,9 +67,9 @@ export class ApiService {
   getItFunctions(payload: any) {
     return this.http
       .post(
-        `/input/${this.store.getId('inputTableID')}/${this.store.getId(
-          'itPersonnelId'
-        )}`,
+        `/itfunctions/input/${this.store.getId(
+          'inputTableID'
+        )}/${this.store.getId('itPersonnelId')}`,
         payload
       )
       .pipe(
@@ -211,5 +208,10 @@ export class ApiService {
           this.store.storeId('optimizationLevers', res.id);
         })
       );
+  }
+
+  // get requests
+  getOneRecord(path: string, id: string) {
+    return this.http.get(`${path}/${id}`);
   }
 }

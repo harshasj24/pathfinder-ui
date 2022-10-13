@@ -21,6 +21,7 @@ export class InputTabelComponent implements OnInit {
   ) {}
   inputTableData: any;
   submitted = false;
+  canUpdate: boolean = false;
   max = 4;
   isLoaded: boolean = false;
   industryPercentiles: any = {
@@ -96,6 +97,21 @@ export class InputTabelComponent implements OnInit {
         this.inputTabel.get(control)?.enable();
       }
     });
+  }
+
+  // get one request
+  handleGet() {
+    this.api
+      .getOneRecord(
+        '/inputtables/getinputtables',
+        this.store.getId('inputTableID')
+      )
+      .subscribe((res: any) => {
+        this.inputTableData = res;
+        this.canUpdate = true;
+        this.inputTabel.patchValue({ ...res });
+        this.disableEnable(false);
+      });
   }
 
   handleSubmit() {
