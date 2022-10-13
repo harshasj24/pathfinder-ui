@@ -272,4 +272,7 @@ export class ApiService {
       payload
     );
   }
+  getsavingmodel(){
+    return this.http.get('/savingmodela');
+  }
 }

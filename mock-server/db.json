@@ -172,5 +172,52 @@
         "savingSubtotal_value_h": 507264.0
       }
     ]
+  },
+  "savingmodela": {
+    "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_hdsf": 5900000,
+    "total_hdsf": 8168063,
+    "baseline_yaer_perout": 5900000,
+    "total_perout": 8168063,
+    "baseline_yaer_totals": 5900000,
+    "total_total": 8168063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "with_partnerhs": 3084805,
+        "without_patnerhs": 2523931,
+        "cost_reductionhs": 5608736,
+         "with_partnerpo": 3084805,
+        "without_patnerpo": 2523931,
+        "cost_reductionpo": 5608736,
+         "with_partnertoatl": 3084805,
+        "without_patnertoatl": 2523931,
+        "cost_reductionhstotal": 5608736
+      },
+      {
+        "year": 2,
+      "with_partnerhs": 308,
+        "without_patnerhs": 25,
+        "cost_reductionhs": 560,
+         "with_partnerpo": 308,
+        "without_patnerpo": 25,
+        "cost_reductionpo": 566,
+         "with_partnertoatl": 3805,
+        "without_patnertoatl": 2931,
+        "cost_reductionhstotal": 5636
+      },
+      {
+        "year": 3,
+        "with_partnerhs": 30805,
+        "without_patnerhs": 2931,
+        "cost_reductionhs": 5736,
+         "with_partnerpo": 4805,
+        "without_patnerpo": 3931,
+        "cost_reductionpo": 8736,
+         "with_partnertoatl": 3805,
+        "without_patnertoatl": 23931,
+        "cost_reductionhstotal": 8736
+      }
+    ]
   }
 }
