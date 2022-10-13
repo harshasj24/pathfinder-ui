@@ -5,6 +5,7 @@ import { HomeModalOptionsComponent } from './home-modal-options.component';
 import { SavingmodalBComponent } from './components/savingmodal-b/savingmodal-b.component';
 import { MaterialModule } from '../material';
 import { OpexModalComponent } from './components/opex-modal/opex-modal.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     SavingmodalBComponent,
     OpexModalComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MaterialModule,
+    SharedModule,
+  ],
 })
 export class ModalOptionsModule {}
