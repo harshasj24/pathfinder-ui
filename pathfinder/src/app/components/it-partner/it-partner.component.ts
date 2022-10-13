@@ -153,6 +153,32 @@ export class ItPartnerComponent implements OnInit {
         // this.disableEnable(false);
       });
   }
+
+  // handleupdate
+  handleUpdate() {
+    let yearBseCalculations: any = [];
+    for (let i = 1; i < 4; i++) {
+      let obj: YearBaseCaluclation = {
+        yearLine: i,
+        takeOverPlan: this.itpersonelcost.value[`takeOverPlany${i}`],
+        ppImprovement: this.itpersonelcost.value[`ppImprovementy${i}`],
+        offshoreRatio: this.itpersonelcost.value[`offshoreRatioy${i}`],
+        onsiteRatio: this.itpersonelcost.value[`onsiteRatioy${i}`],
+      };
+      yearBseCalculations.push(obj);
+    }
+    let payload = {
+      offshoreRatio: this.itpersonelcost.value['offshoreRatio'],
+      onsitRatio: this.itpersonelcost.value['onsitRatio'],
+      partnerCtcOnsite: this.itpersonelcost.value['partnerCtcOnsite'],
+      partnerCtcOffshore: this.itpersonelcost.value['partnerCtcOffshore'],
+      yearBseCalculations,
+    };
+    this.apiservice. updatePersonnelCost(payload).subscribe((val) => {
+      console.log(val);
+      this.handleGet();
+    });
+  }
   ngOnInit(): void {
     //   this.itpersonelcost.valueChanges.subscribe((values) => {
     //     if (values?.takeoverYear1) {

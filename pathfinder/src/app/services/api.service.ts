@@ -256,5 +256,16 @@ export class ApiService {
     );
   }
   
+  UpadateassetClacification(assetName: string, payload: any) {
+    return this.http
+      .put(
+        `/asset/${assetName}/${this.store.getId(
+          'itRunSpend'
+        )}/${this.store.getId('inputTableID')}/${this.store.getId(
+          'itSpendCatId'
+        )}`,
+        payload
+      )
+  }
   
 }

@@ -115,4 +115,11 @@ export class ItFunctionsComponent implements OnInit {
         this.itFunctions.patchValue({ ...res });
       });
   }
+  // update code
+  handleUpdate() {
+    this.api.updateITfunction(this.itFunctions.value).subscribe((val) => {
+      console.log(val);
+      this.handleGet();
+    });
+  }
 }

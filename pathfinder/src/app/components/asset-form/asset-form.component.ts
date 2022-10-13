@@ -60,6 +60,10 @@ export class AssetFormComponent implements OnInit {
         });
     } else if (this.data.action === 'update') {
       // update logic
+    
+       this.api.UpadateassetClacification(this.assetDetail[this.data.title].path, payload).subscribe((val) => {
+      console.log(val);
+       });
     }
   }
   ngOnInit(): void {
