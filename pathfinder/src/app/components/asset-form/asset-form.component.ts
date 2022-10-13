@@ -66,5 +66,12 @@ export class AssetFormComponent implements OnInit {
     for (let i = 1; i < this.year + 1; i++) {
       this.calculations.push(this.fb.group({ ...this.data.data }));
     }
+    if (this.data.patchValue) {
+      this.data.patchValue.claculations.map((val: any, i: any) => {
+        this.calculations.at(i).patchValue({ ...val });
+      });
+    } else {
+      this.dailogForm.reset();
+    }
   }
 }

@@ -9,9 +9,23 @@
       <button
         mat-raised-button
         color="primary"
-        (click)="openDailog(asset.dailogTitle)"
+        (click)="handleGet(asset.dailogTitle)"
       >
-        Get Spend Category
+        Get Levers
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openDailog(asset.dailogTitle, 'update')"
+      >
+        Update Levers
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openDailog(asset.dailogTitle, 'add')"
+      >
+        Add Spend Category
       </button>
     </mat-tab>
   </mat-tab-group>
@@ -98,6 +112,7 @@
         </tr>
       </tbody>
     </table>
+
     <button (click)="optimizationLevrs()" mat-raised-button color="primary">
       Get Optimization Levers
     </button>

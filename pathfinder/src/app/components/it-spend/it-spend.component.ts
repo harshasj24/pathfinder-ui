@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
+import { StoreService } from 'src/app/store.service';
 import { AssetFormComponent } from '../asset-form/asset-form.component';
 
 @Component({
@@ -13,7 +14,8 @@ export class ItSpendComponent implements OnInit {
   constructor(
     private dailog: MatDialog,
     private dailogService: DailogService,
-    private api: ApiService
+    private api: ApiService,
+    private store: StoreService
   ) {}
   savingoptdata: any;
   savingoptdatayear: any;
@@ -176,16 +178,53 @@ export class ItSpendComponent implements OnInit {
     ],
   };
 
-  openDailog(type: string) {
-    console.log(type);
-    this.dailogService.addDailogData('harsha');
+  pathchValue: any = null;
+
+  openDailog(type: string, action: string) {
     this.dailog.open(AssetFormComponent, {
       disableClose: true,
       data: {
         title: type,
         data: this.assetsSpend[type],
+        patchValue: action === 'update' && this.pathchValue,
       },
     });
+  }
+
+  paths: any = {
+    hardware: {
+      path: 'gethardware',
+      id: this.store.getId('hardware'),
+      payloadArr: 'hardwareCalculations',
+    },
+    software: {
+      path: 'getsoftware',
+      id: this.store.getId('software'),
+      payloadArr: 'softwareCalculations',
+    },
+    managedServices: {
+      path: 'getmanagedservices',
+      id: this.store.getId('managed'),
+      payloadArr: 'managed_servicesCalculationss',
+    },
+    hosted: {
+      path: 'gethostedcbs',
+      id: this.store.getId('hosted'),
+      payloadArr: 'hosted_cbsCalculationss',
+    },
+  };
+
+  handleGet(type: string) {
+    console.log(this.paths[type].id);
+    this.api
+      .getOneRecord(`/asset/${this.paths[type].path}`, this.paths[type].id)
+      .subscribe((res: any) => {
+        let index = this.assets.findIndex((el) => el.dailogTitle == type);
+        this.assets[index].claculatedData = res;
+        this.pathchValue = {
+          claculations: res[this.paths[type].payloadArr],
+        };
+      });
   }
   optimizationLevrs() {
     this.api.getOptimizationLevers().subscribe((res: any) => {

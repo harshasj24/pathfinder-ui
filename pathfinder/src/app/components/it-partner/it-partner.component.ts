@@ -126,9 +126,30 @@ export class ItPartnerComponent implements OnInit {
         this.store.getId('itpersonelcost')
       )
       .subscribe((res: any) => {
-        this.itpersonelcost = res;
+        let obj: any = {};
+        res.yearBseCalculations.map((el: any, i: any) => {
+          obj.yearLine = i;
+          obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
+          obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
+          obj[`offshoreRatioy${i + 1}`] = el.offshoreRatio;
+          obj[`onsiteRatioy${i + 1}`] = el.onsiteRatio;
+        });
         this.canUpdate = true;
-        this.itpersonelcost.patchValue({ ...res });
+        this.itPersonelCostData = res;
+        console.log(obj);
+        [
+          'infteCumulative',
+          'fteSavingsCumulative',
+          'netPartnerFte',
+          'inFteOnsite',
+          'inFteOffshore',
+        ].forEach((el) => {
+          this.outsourcings[el] = res.yearBseCalculations.map(
+            (val: any) => val[el]
+          );
+        });
+
+        this.itpersonelcost.patchValue({ ...res, ...obj });
         // this.disableEnable(false);
       });
   }
