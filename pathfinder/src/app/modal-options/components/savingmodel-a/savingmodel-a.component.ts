@@ -18,7 +18,7 @@ export class SavingmodelAComponent implements OnInit {
 getData(){
  this.api.getsavingmodel().subscribe((res)=>{
   this.savingmodeldata=res
-  this.savingmodeldatayear=this.savingmodeldata.yearBaseCostCalculations
+  this.savingmodeldatayear=this.savingmodeldata.model2acalculation
  })
   
 }

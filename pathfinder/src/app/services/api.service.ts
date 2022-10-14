@@ -292,7 +292,29 @@ export class ApiService {
         `/model/runfitshore/${this.store.getId(
           'totalsavingbID')}`).pipe(
         tap((res: any) => {
+          this.store.storeId('runopexfitbID', res.id);
+        })
+      );
+  }
+  getrunopexmodelB() {
+    return this.http
+      .get(
+        `/model/runopex/${this.store.getId(
+          'runopexfitbID')}`).pipe(
+        tap((res: any) => {
           this.store.storeId('runopexbID', res.id);
+        })
+      );
+  }
+  gettotalsavingA() {
+    return this.http
+      .get(
+        `/model/totalmodel2a/${this.store.getId(
+          'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingOnsite')}/${this.store.getId('totalsavingbID')}
+    `
+      ).pipe(
+        tap((res: any) => {
+          this.store.storeId('totalsavingaID', res.id);
         })
       );
   }

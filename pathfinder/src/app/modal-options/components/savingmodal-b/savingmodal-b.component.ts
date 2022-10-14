@@ -15,7 +15,7 @@ export class SavingmodalBComponent implements OnInit {
 getData(){
  this.api.gettotalsavingB().subscribe((res)=>{
   this.savingmodelbdata=res
-  this.savingmodelbdatayear=this.savingmodelbdata.yearBaseCostCalculations
+  this.savingmodelbdatayear=this.savingmodelbdata.model2bcalculation
  })
 }
 }

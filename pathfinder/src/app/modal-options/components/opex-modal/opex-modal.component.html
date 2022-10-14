@@ -1,6 +1,5 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 
-<app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
   <h2>RUN OPEX MODELING (with fitshoring)</h2>
   <table class="table table-striped table-bordered table-hover">
@@ -94,39 +93,61 @@
     <tbody>
       <tr>
         <td>CLIENT DRIVES RUN BUSINESS (NO PARTNER)</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>
+          {{ runopexdata?.client_drives_baseyear | currency: "USD":true:"1.0" }}
+        </td>
+        <td *ngFor="let runopexdatayear of runopexdatayear">
+          {{ runopexdatayear?.client_drives| currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ runopexdata?.total_client_drives | currency: "USD":true:"1.0" }}
+        </td>
+        <td></td>
       </tr>
       <tr>
         <td>WITH PARTNER H/W-S/W ASSETS (NO PERSONNEL)</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>
+          {{ runopexdata?.with_partner_hs_baseyear | currency: "USD":true:"1.0" }}
+        </td>
+        <td *ngFor="let runopexdatayear of runopexdatayear">
+          {{ runopexdatayear?.with_partner_hs| currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ runopexdata?.total_with_partner_hs | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ runopexdata?.with_partner_hs_cumulative | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td>WITH PARTNER PERSONNEL (CLIENT OWNED ASSETS)</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      <td>
+        {{ runopexdata?.with_partner_personnel_baseyear | currency: "USD":true:"1.0" }}
+      </td>
+      <td *ngFor="let runopexdatayear of runopexdatayear">
+        {{ runopexdatayear?.with_partner_personnel| currency: "USD":true:"1.0" }}
+      </td>
+      <td>
+        {{ runopexdata?.total_with_partner_personnel | currency: "USD":true:"1.0" }}
+      </td>
+    <td>
+      {{ runopexdata?.with_partner_personnel_cumulative | currency: "USD":true:"1.0" }}
+    </td>
       </tr>
       <tr>
         <td>TOTAL PARTNER SAVINGS MODEL</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+      <td>
+        {{ runopexdata?.total_partner_baseyear| currency: "USD":true:"1.0" }}
+      </td>
+      <td *ngFor="let runopexdatayear of runopexdatayear">
+        {{ runopexdatayear?.total_partner| currency: "USD":true:"1.0" }}
+      </td>
+      <td>
+        {{ runopexdata?.sum_total_partner | currency: "USD":true:"1.0" }}
+      </td>
+      <td>
+        {{ runopexdata?.total_partner_cumulative | currency: "USD":true:"1.0" }}
+      </td>
       </tr>
     </tbody>
   </table>
