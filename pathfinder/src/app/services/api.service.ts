@@ -275,6 +275,16 @@ export class ApiService {
       payload
     );
   }
+  // 2nd excel sheet services
+  gettotalsavingB() {
+    return this.http
+      .get(
+        `/model/totalmodel2b/${this.store.getId(
+          'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingFitShore')}
+    `
+      );
+  }
+// mock_server
   getsavingmodel(){
     return this.http.get('/savingmodela');
   }

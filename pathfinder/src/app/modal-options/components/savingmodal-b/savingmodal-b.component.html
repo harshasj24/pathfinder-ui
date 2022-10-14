@@ -5,101 +5,132 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Asset Classification</th>
+        <th>Asset classificatio</th>
         <th></th>
         <th>Baseline Year $ spend</th>
-        <th>Year -1</th>
-        <th>Year-2</th>
-        <th>Year-3</th>
+        <th>Year1</th>
+        <th>Year2</th>
+        <th>Year3</th>
         <th>Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>HARDWARE/SOFTWARE</td>
-        <th>CLIENT SPEND WITHOUT PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>
+          {{ savingmodelbdata?.hardware_software_baseyear | currency: "USD":true:"1.0" }}
+        </td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.hardware_software_client_spend_without_partner | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_hardware_software_client_spend_without_partner| currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>CLIENT SPEND WITH PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>CLIENT SPEND WITH PARTNER</td>
+        <td></td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.hardware_software_client_spend_with_partner| currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_hardware_software_client_spend_with_partner | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>COST REDUCTION</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>COST REDUCTION</td>
+        <td></td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.hardware_software_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_hardware_software_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
-    </tbody>
-    <tbody>
       <tr>
         <td>PERSONNEL / OUTSOURCING</td>
-        <th>CLIENT SPEND WITHOUT PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+  
+        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>
+          {{ savingmodelbdata?.personnel_outsourcing_baseyear | currency: "USD":true:"1.0" }}
+        </td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.personnel_outsourcing_client_spend_without_partner | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_personnel_outsourcing_client_spend_without_partner | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>CLIENT SPEND WITH PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>CLIENT SPEND WITH PARTNER</td>
+        <td></td>
+        <td *ngFor="let savingmodeldatayear of savingmodelbdatayear">
+          {{ savingmodeldatayear?.personnel_outsourcing_client_spend_with_partner| currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_personnel_outsourcing_client_spend_with_partner | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>COST REDUCTION</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>COST REDUCTION</td>
+        <td></td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.personnel_outsourcing_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.total_personnel_outsourcing_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
-    </tbody>
-    <tbody>
       <tr>
-        <td>TOTALS</td>
-        <th>CLIENT SPEND WITHOUT PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>Totals</td>
+        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>
+          {{ savingmodelbdata?.totals_baseyear| currency: "USD":true:"1.0" }}
+        </td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.totals_client_spend_without_partner | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.sum_totals_client_spend_without_partner | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>CLIENT SPEND WITH PARTNER</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>CLIENT SPEND WITH PARTNER</td>
+        <td></td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.totals_client_spend_with_partner | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.sum_totals_client_spend_with_partner | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
       <tr>
         <td></td>
-        <th>CUMULATIVE - SAVINGS</th>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-        <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+        <td>COST REDUCTION</td>
+        <td></td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.totals_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
+        <td>
+          {{ savingmodelbdata?.totals_cost_reduction | currency: "USD":true:"1.0" }}
+        </td>
+      </tr>
+      <tr>
+        <td>CUMULATIVE SAVING</td>
+        <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
+          {{ savingmodelbdatayear?.cumulative_savings | currency: "USD":true:"1.0" }}
+        </td>
       </tr>
     </tbody>
   </table>
+  <button class="" (click)="getData()" mat-raised-button color="primary">
+    Get
+  </button>
 </mat-card>
 <app-charts></app-charts>
