@@ -10,12 +10,15 @@ import { StoreService } from '../store.service';
 export class ApiService {
   constructor(private http: HttpService, private store: StoreService) {}
   getInputTable(payload: any) {
-    return this.http.post('/inputtables/input', payload).pipe(
+    return this.http.post('/inputtables/inputvalues', payload).pipe(
       tap((res: any) => {
         this.store.storeId('inputTableID', res.id);
       })
     );
   }
+//post   
+///pathfinder/inputtables/itpersonel
+//{inputtablesid}
   getitpersonnel(payload: any) {
     return this.http
       .post(
