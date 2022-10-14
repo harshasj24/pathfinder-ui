@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-waterfalls-tabel',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaterfallsTabelComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private api:ApiService) { }
+waterfallsdata:any
   ngOnInit(): void {
   }
   getData(){
+    this.api.getwaterfalls().subscribe((res)=>{
+      this.waterfallsdata=res
+    })
     
   }
 }

@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>Hardware/Software</td>
+            <td>HARDWARE/SOFTWARE</td>
             <td>CLIENT SPEND WITHOUT PARTNER</td>
             <td >
                 {{ savingmodeldata?.baseline_year_hdsf | currency: "USD":true:"1.0" }}
@@ -23,7 +23,7 @@
             <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
                 {{ savingmodeldatayear?.without_patnerhs | currency: "USD":true:"1.0" }}
             </td>
-            <td colspan="2">
+            <td >
                 {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
             </td>
         </tr>
@@ -34,7 +34,9 @@
             <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
                 {{ savingmodeldatayear?.with_partnerhs| currency: "USD":true:"1.0" }}
             </td>
-            <td></td>
+        <td>
+            {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
+        </td>
         </tr>
         <tr>
             <td></td>
@@ -44,11 +46,12 @@
                 {{ savingmodeldatayear?.cost_reductionhs | currency: "USD":true:"1.0" }}
             </td>
             <td>
-                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+                {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
             </td>
         </tr>
         <tr>
             <td>PERSONNEL / OUTSOURCING</td>
+            
             <td>CLIENT SPEND WITHOUT PARTNER</td>
             <td >
                 {{ savingmodeldata?.baseline_yaer_perout | currency: "USD":true:"1.0" }}
@@ -68,7 +71,7 @@
                 {{ savingmodeldatayear?.with_partnerpo| currency: "USD":true:"1.0" }}
             </td>
             <td>
-                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+                {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
             </td>
         </tr>
         <tr>
@@ -79,7 +82,7 @@
                 {{ savingmodeldatayear?.cost_reductionpo | currency: "USD":true:"1.0" }}
             </td>
             <td>
-                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+                {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
             </td>
         </tr>
         <tr>
@@ -113,8 +116,8 @@
             <td *ngFor="let savingmodeldatayear of savingmodeldatayear">
                 {{ savingmodeldatayear?.cost_reductionhstotal | currency: "USD":true:"1.0" }}
             </td>
-            <td >
-                {{ savingmodeldata?.total_yearlyRunRate | currency: "USD":true:"1.0" }}
+            <td>
+                {{ savingmodeldata?.total_hdsf | currency: "USD":true:"1.0" }}
             </td>
         </tr>
     </tbody>

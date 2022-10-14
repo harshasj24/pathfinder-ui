@@ -276,9 +276,12 @@ export class ApiService {
     return this.http.get('/savingmodela');
   }
   getrunopexonsite(){
-    return this.http.get('/runpoex_onsite_a');
+    return this.http.get('/runopexonsitea');
   }
   getrunopex(){
     return this.http.get('/runopex_a');
+  }
+  getwaterfalls(){
+    return this.http.get('/waterfall')
   }
 }
