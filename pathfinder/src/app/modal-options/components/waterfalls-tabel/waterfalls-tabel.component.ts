@@ -10,6 +10,7 @@ export class WaterfallsTabelComponent implements OnInit {
 
   constructor(private api:ApiService) { }
 waterfallsdata:any
+isLoaded: boolean = false;
   ngOnInit(): void {
   }
   getData(){

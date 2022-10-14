@@ -99,21 +99,21 @@
         <tr>
           <td class="w-50">COT %</td>
           <!-- <td>{{ cot?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+                    <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
           <td>{{ costData?.cot_perc }}</td>
-          <td>{{ costData?.cot_value | currency: "USD":true:"1.0" }}</td>
+          <td>{{ costData?.cot_value | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
           <td>Client Share</td>
           <!-- <td>{{ clientshare?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+                    <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
           <td>{{ costData?.client_perc }}</td>
-          <td>{{ costData?.client_value | currency: "USD":true:"1.0" }}</td>
+          <td>{{ costData?.client_value | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
           <td>Partner/ Client share</td>
           <!-- <td>{{ partnershare?.value || 0 }} %</td>
-                    <td>{{0|currency: "USD":true:"1.0"}}</td> -->
+                    <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
           <td>{{ costData?.partner_perc }}</td>
           <td>{{ costData?.partner_value }}</td>
         </tr>
@@ -135,25 +135,25 @@
         <tr>
           <th class="w-50">COT Spread</th>
           <td *ngFor="let costyear of costDataYear">
-            {{ costyear?.cot_spread_perc | currency: "USD":true:"1.0" }}
+            {{ costyear?.cot_spread_perc | currency: "USD":"symbol":"1.0" }}
           </td>
         </tr>
         <tr>
           <th>Client Share</th>
           <td *ngFor="let costyear of costDataYear">
-            {{ costyear?.client_share_value | currency: "USD":true:"1.0" }}
+            {{ costyear?.client_share_value | currency: "USD":"symbol":"1.0" }}
           </td>
         </tr>
         <tr>
           <th>Partner/ Client share</th>
           <td *ngFor="let costyear of costDataYear">
-            {{ costyear?.partner_share_value | currency: "USD":true:"1.0" }}
+            {{ costyear?.partner_share_value | currency: "USD":"symbol":"1.0" }}
           </td>
         </tr>
         <tr>
           <th>Total_with_inflation</th>
           <td *ngFor="let costyear of costDataYear">
-            {{ costyear?.total_with_inflation | currency: "USD":true:"1.0" }}
+            {{ costyear?.total_with_inflation | currency: "USD":"symbol":"1.0" }}
           </td>
         </tr>
       </tbody>

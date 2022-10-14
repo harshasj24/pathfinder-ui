@@ -1,3 +1,5 @@
+<app-loader *ngIf="isLoaded"></app-loader>
+<mat-card>
 <table class="table">
     <thead>
         <tr>
@@ -14,34 +16,34 @@
     <tbody>
         <tr>
             <td>Baseline year</td>
-            <td>{{ waterfallsdata?.baseline_year_withpatner| currency: "USD":true:"1.0" }}</td>
-            <td>{{ waterfallsdata?.baseline_year_withoutpatner | currency: "USD":true:"1.0" }}</td>
+            <td>{{ waterfallsdata?.baseline_year_withpatner| currency: "USD":"symbol":"1.0" }}</td>
+            <td>{{ waterfallsdata?.baseline_year_withoutpatner | currency: "USD":"symbol":"1.0" }}</td>
            
         </tr>
         <tr>
             <td>year1</td>
-            <td>{{ waterfallsdata?.year1withpatner | currency: "USD":true:"1.0" }}</td>
-            <td>{{ waterfallsdata?.year1withoutpatner | currency: "USD":true:"1.0" }}</td>
+            <td>{{ waterfallsdata?.year1withpatner | currency: "USD":"symbol":"1.0" }}</td>
+            <td>{{ waterfallsdata?.year1withoutpatner | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
             <td>year2</td>
-            <td>{{ waterfallsdata?.year2withpatner | currency: "USD":true:"1.0" }}</td>
-            <td>{{ waterfallsdata?.year2withoutpatner | currency: "USD":true:"1.0" }}</td>
+            <td>{{ waterfallsdata?.year2withpatner | currency: "USD":"symbol":"1.0" }}</td>
+            <td>{{ waterfallsdata?.year2withoutpatner | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
             <td>year3</td>
-            <td>{{ waterfallsdata?.year3withpatner | currency: "USD":true:"1.0" }}</td>
-            <td>{{ waterfallsdata?.year3withoutpatner | currency: "USD":true:"1.0" }}</td>
+            <td>{{ waterfallsdata?.year3withpatner | currency: "USD":"symbol":"1.0" }}</td>
+            <td>{{ waterfallsdata?.year3withoutpatner | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
             <td>EXIT RUN RATE</td>
-            <td>{{ waterfallsdata?.runexitwithpatner| currency: "USD":true:"1.0" }}</td>
-            <td>{{ waterfallsdata?.runexitwithoutpatner | currency: "USD":true:"1.0" }}</td>
+            <td>{{ waterfallsdata?.runexitwithpatner| currency: "USD":"symbol":"1.0" }}</td>
+            <td>{{ waterfallsdata?.runexitwithoutpatner | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
             <td>RUNRATE REDUCTION</td>
-            <th>{{ waterfallsdata?.runratewithpatner| currency: "USD":true:"1.0" }}</th>
-            <td>{{ waterfallsdata?.runratewithoutpatner | currency: "USD":true:"1.0" }}</td>
+            <th>{{ waterfallsdata?.runratewithpatner| currency: "USD":"symbol":"1.0" }}</th>
+            <td>{{ waterfallsdata?.runratewithoutpatner | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
             <td></td>
@@ -50,7 +52,7 @@
         </tr>
         <tr>
             <td>3 YEAR CUMULATIVE SAVINGS</td>
-            <th>{{ waterfallsdata?.runratewithoutpatner | currency: "USD":true:"1.0" }}</th>
+            <th>{{ waterfallsdata?.runratewithoutpatner | currency: "USD":"symbol":"1.0" }}</th>
             <td></td>
         </tr>
     </tbody>
@@ -58,3 +60,4 @@
 <button class="" (click)="getData()" mat-raised-button color="primary">
     Get
 </button>
+</mat-card>

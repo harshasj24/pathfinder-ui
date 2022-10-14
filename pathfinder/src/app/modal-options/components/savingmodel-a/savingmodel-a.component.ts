@@ -10,6 +10,7 @@ export class SavingmodelAComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   ngOnInit(): void {}
+  isLoaded: boolean = false;
   savingmodeldata: any;
   savingmodeldatayear: any;
   getData() {

@@ -328,16 +328,25 @@ export class ApiService {
         })
       );
   }
+  getrunopexA() {
+    return this.http
+      .get(`/model/runoutsource/${this.store.getId('totalsavingaID')}/${this.store.getId('totalsavingbID')}`)
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('runopexoutsourceaID', res.id);
+        })
+      );
+  }
+  getrunopexmodelA() {
+    return this.http
+      .get(`/model/runopex2a/${this.store.getId('runopexoutsourceaID')}`)
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('runopexfitaID', res.id);
+        })
+      );
+  }
   // mock_server
-  getsavingmodel() {
-    return this.http.get('/savingmodela');
-  }
-  getrunopexonsite() {
-    return this.http.get('/runopexonsitea');
-  }
-  getrunopex() {
-    return this.http.get('/runopex_a');
-  }
   getwaterfalls() {
     return this.http.get('/waterfall');
   }
