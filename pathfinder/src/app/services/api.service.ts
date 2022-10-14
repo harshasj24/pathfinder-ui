@@ -280,6 +280,42 @@ export class ApiService {
         `/model/totalmodel2b/${this.store.getId(
           'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingFitShore')}
     `
+      ).pipe(
+        tap((res: any) => {
+          this.store.storeId('totalsavingbID', res.id);
+        })
+      );
+  }
+  getrunopexB() {
+    return this.http
+      .get(
+        `/model/runfitshore/${this.store.getId(
+          'totalsavingbID')}`).pipe(
+        tap((res: any) => {
+          this.store.storeId('runopexfitbID', res.id);
+        })
+      );
+  }
+  getrunopexmodelB() {
+    return this.http
+      .get(
+        `/model/runopex/${this.store.getId(
+          'runopexfitbID')}`).pipe(
+        tap((res: any) => {
+          this.store.storeId('runopexbID', res.id);
+        })
+      );
+  }
+  gettotalsavingA() {
+    return this.http
+      .get(
+        `/model/totalmodel2a/${this.store.getId(
+          'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingOnsite')}/${this.store.getId('totalsavingbID')}
+    `
+      ).pipe(
+        tap((res: any) => {
+          this.store.storeId('totalsavingaID', res.id);
+        })
       );
   }
 // mock_server
