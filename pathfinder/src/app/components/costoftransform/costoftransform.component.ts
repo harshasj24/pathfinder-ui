@@ -68,7 +68,7 @@ export class CostoftransformComponent implements OnInit {
   // get one request
   handleGet() {
     this.apiservice
-      .getOneRecord('/inputtables/getcost', this.store.getId('COT_Id'))
+      .getOneRecord('/inputtables/cost', this.store.getId('COT_Id'))
       .subscribe((res: any) => {
         this.costData = res;
         this.costDataYear = res.yearBaseCostCalculations;

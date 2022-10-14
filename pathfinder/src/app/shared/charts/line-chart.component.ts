@@ -72,6 +72,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
             // pointBorderColor: 'darkorange',
             // pointRadius: 5,
             // pointHoverRadius: 5,
+
             showLine: true,
             fill: false,
             lineTension: 0,
@@ -80,6 +81,10 @@ export class LineChartComponent implements OnInit, AfterViewInit {
       },
 
       options: {
+        legend: {
+          display: false,
+          labels: {},
+        },
         scales: {
           xAxes: [
             {
@@ -88,6 +93,7 @@ export class LineChartComponent implements OnInit, AfterViewInit {
                 max: 25,
                 stepSize: 5,
                 // display: false,
+
                 callback: function (value, index, ticks) {
                   return (value = 'baseline year');
                 },

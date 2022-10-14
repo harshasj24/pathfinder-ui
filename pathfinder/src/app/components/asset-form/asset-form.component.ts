@@ -71,7 +71,7 @@ export class AssetFormComponent implements OnInit {
       // update logic
       this.api
         .UpadateassetClacification(
-          this.assetDetail[this.data.title].updatePath,
+          this.assetDetail[this.data.title].path,
           payload,
           this.assetDetail[this.data.title].id
         )
@@ -95,6 +95,7 @@ export class AssetFormComponent implements OnInit {
     }
     if (this.data.patchValue) {
       this.data.patchValue.claculations.map((val: any, i: any) => {
+        console.log(val);
         this.calculations.at(i).patchValue({ ...val });
       });
     } else {

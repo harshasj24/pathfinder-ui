@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
+import { LineChartComponent } from 'src/app/shared/charts/line-chart.component';
 
 @Component({
   selector: 'opex-modal',
@@ -7,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./opex-modal.component.scss'],
 })
 export class OpexModalComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private dailog: MatDialog) {}
   isLoaded: boolean = false;
   ngOnInit(): void {}
   runopexfitdata: any;
@@ -20,6 +22,9 @@ export class OpexModalComponent implements OnInit {
       this.runopexfitdatayear = this.runopexfitdata.runfitshorecalculation;
       // console.log(res);
     });
+  }
+  openDailog() {
+    this.dailog.open(LineChartComponent);
   }
   getdata() {
     this.api.getrunopexmodelB().subscribe((res) => {

@@ -54,10 +54,7 @@ export class BenchmarksComponent implements OnInit {
   // get one request
   handleGet() {
     this.api
-      .getOneRecord(
-        '/inputtables/getitspendcat',
-        this.store.getId('itSpendCatId')
-      )
+      .getOneRecord('/inputtables/itspendcat', this.store.getId('itSpendCatId'))
       .subscribe((res: any) => {
         this.canUpdate = true;
         console.log(res);

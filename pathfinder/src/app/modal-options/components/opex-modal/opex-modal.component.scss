@@ -14,3 +14,10 @@ thead tr th {
   font-weight: 500;
   vertical-align: middle;
 }
+
+.header {
+  display: flex;
+  h2 {
+    flex-grow: 1;
+  }
+}

@@ -121,7 +121,7 @@ export class InputTabelComponent implements OnInit {
     this.api.updateInputTables(payload).subscribe((val) => {
       console.log(val);
       console.log(payload);
-      // this.handleGet();
+      this.handleGet();
     });
   }
 

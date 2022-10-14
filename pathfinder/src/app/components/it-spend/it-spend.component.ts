@@ -129,10 +129,10 @@ export class ItSpendComponent implements OnInit {
       synergize_selfservice: [],
     },
     hosted: {
-      industrialize_shiftleft: [],
-      industrialize_automate: [],
-      industrialize_realtime: [],
-      synergize_selfservice: [],
+      spendIncreaseWithInflation_host: [],
+      transform_cloud: [],
+      savingSubtotal_perc_host: [],
+      savingSubtotal_value_host: [],
     },
   };
   cal = {
@@ -194,24 +194,24 @@ export class ItSpendComponent implements OnInit {
 
   paths: any = {
     hardware: {
-      path: 'gethardware',
+      path: 'hardware',
       id: this.store.getId('hardware'),
       payloadArr: 'hardwareCalculations',
     },
     software: {
-      path: 'getsoftware',
+      path: 'software',
       id: this.store.getId('software'),
       payloadArr: 'softwareCalculations',
     },
     managedServices: {
-      path: 'getmanagedservices',
+      path: 'managedservices',
       id: this.store.getId('managed'),
-      payloadArr: 'managed_servicesCalculationss',
+      payloadArr: 'managed_servicesCalculations',
     },
     hosted: {
-      path: 'gethostedcbs',
+      path: 'hostedcbs',
       id: this.store.getId('hosted'),
-      payloadArr: 'hosted_cbsCalculationss',
+      payloadArr: 'hosted_cbsCalculations',
     },
   };
 
@@ -222,6 +222,7 @@ export class ItSpendComponent implements OnInit {
       .subscribe((res: any) => {
         let index = this.assets.findIndex((el) => el.dailogTitle == type);
         this.assets[index].claculatedData = res;
+        console.log(res);
         this.pathchValue = {
           claculations: res[this.paths[type].payloadArr],
         };

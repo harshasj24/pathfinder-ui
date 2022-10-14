@@ -106,7 +106,7 @@ export class ItFunctionsComponent implements OnInit {
   handleGet() {
     this.api
       .getOneRecord(
-        '/itfunctions/getitfunctioninput',
+        '/itfunctions/inputfunctions',
         this.store.getId('itFunctionId')
       )
       .subscribe((res: any) => {

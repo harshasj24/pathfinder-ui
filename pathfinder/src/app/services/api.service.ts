@@ -241,7 +241,7 @@ export class ApiService {
   }
   updateCostoftransform(payload: any) {
     return this.http.put(
-      `/inputtables/updatecost/${this.store.getId('COT_Id')}/${this.store.getId(
+      `/inputtables/cost/${this.store.getId('COT_Id')}/${this.store.getId(
         'inputTableID'
       )}`,
       payload
@@ -250,13 +250,13 @@ export class ApiService {
 
   updateITspendcat(payload: any) {
     return this.http.put(
-      `/inputtables/updateitspendcat/${this.store.getId('itSpendCatId')}`,
+      `/inputtables/itspendcat/${this.store.getId('itSpendCatId')}`,
       payload
     );
   }
   updateITfunction(payload: any) {
     return this.http.put(
-      `/itfunctions/updateitfunction/${this.store.getId(
+      `/itfunctions/inputfunctions/${this.store.getId(
         'itFunctionId'
       )}/${this.store.getId('inputTableID')}/${this.store.getId(
         'itPersonnelId'
@@ -330,7 +330,11 @@ export class ApiService {
   }
   getrunopexA() {
     return this.http
-      .get(`/model/runoutsource/${this.store.getId('totalsavingaID')}/${this.store.getId('totalsavingbID')}`)
+      .get(
+        `/model/runoutsource/${this.store.getId(
+          'totalsavingaID'
+        )}/${this.store.getId('totalsavingbID')}`
+      )
       .pipe(
         tap((res: any) => {
           this.store.storeId('runopexoutsourceaID', res.id);
