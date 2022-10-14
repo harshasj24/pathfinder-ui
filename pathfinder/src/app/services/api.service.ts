@@ -350,8 +350,15 @@ export class ApiService {
         })
       );
   }
-  // mock_server
   getwaterfalls() {
-    return this.http.get('/waterfall');
-  }
+    return this.http
+      .get(`/waterfalltables/waterfall/${this.store.getId('totalsavingbID')}/${this.store.getId(
+          'totalsavingaID'
+        )}`)
+      .pipe(
+        tap((res: any) => {
+          this.store.storeId('waterfallsID', res.id);
+        })
+      );
+  } 
 }
