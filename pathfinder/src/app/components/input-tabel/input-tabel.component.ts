@@ -103,7 +103,7 @@ export class InputTabelComponent implements OnInit {
   handleGet() {
     this.api
       .getOneRecord(
-        '/inputtables/getinputtables',
+        '/inputtables/inputvalues',
         this.store.getId('inputTableID')
       )
       .subscribe((res: any) => {
