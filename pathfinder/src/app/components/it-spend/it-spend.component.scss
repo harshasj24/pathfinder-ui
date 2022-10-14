@@ -12,12 +12,21 @@
 }
 mat-card {
   min-height: calc(100vh - 69px);
-mat-select {
-  height: 20px !important;
-}
+  mat-select {
+    height: 20px !important;
+  }
 }
 ::ng-deep {
   .mat-select-trigger {
     height: 20px !important;
   }
+}
+.title {
+  width: 289px;
+}
+.gap {
+  width: 345px;
+}
+.baseline-year {
+  width: 657px;
 }
