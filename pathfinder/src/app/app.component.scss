@@ -15,6 +15,15 @@ mat-toolbar {
 }
 .router-active {
   color: #673ab7 !important;
+  &::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #673ab7;
+    height: 2px;
+  }
 }
 a::before {
   content: " ";

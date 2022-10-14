@@ -25,6 +25,7 @@ import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshor
 import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
 import { AssetFormComponent } from './components/asset-form/asset-form.component';
 import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ItspendrunComponent } from './components/itspendrun/itspendrun.componen
     ItpersoneelFitshoringComponent,
     RunitspendOutsourceComponent,
     AssetFormComponent,
-    ItspendrunComponent
+    ItspendrunComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

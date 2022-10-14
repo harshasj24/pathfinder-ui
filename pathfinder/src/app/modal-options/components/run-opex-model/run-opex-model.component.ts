@@ -9,17 +9,26 @@ import { ApiService } from 'src/app/services/api.service';
 export class RunOpexModelComponent implements OnInit {
 
   constructor(private api:ApiService) { }
-
+  runopexonsitedata:any
+  runopexonsitedatayear:any
+  runopexdata:any
+  runopexdatayear:any
   ngOnInit(): void {
   }
 getData(){
   this.api.getrunopexonsite().subscribe((res)=>{
+    this.runopexonsitedata=res;
+    this.runopexonsitedatayear=this.runopexonsitedata.yearBaseCostCalculations
     console.log(res);
-    });
-    this.api.getrunopex().subscribe((res)=>{
-    console.log(res);
+    }); 
+}
+getdata(){
+   this.api.getrunopex().subscribe((res)=>{
+    this.runopexdata=res
+    this.runopexdatayear=this.runopexdata.yearBaseCostCalculations
+    // console.log(res);
     
   });
-  
+
 }
 }

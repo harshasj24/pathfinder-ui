@@ -13,39 +13,63 @@
     <tbody>
         <tr>
             <td>CLIENT DRIVES RUN BUSINESS (NO PARTNER)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexonsitedata?.baseline_year_runbuss_onsite | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexonsitedatayear of runopexonsitedatayear">
+                {{ runopexonsitedatayear?.runbuss_onsite| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexonsitedata?.total_runbus_onsite | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexonsitedata?.total_saving_onsite| currency: "USD":true:"1.0" }}
+            </td>
         </tr>
         <tr>
             <td>WITH PARTNER H/W-S/W ASSETS (NO PERSONNEL)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexonsitedata?.baseline_year_asset_onsite | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexonsitedatayear of runopexonsitedatayear">
+                {{ runopexonsitedatayear?.runbuss_onsite| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexonsitedata?.total_asset_onsite | currency: "USD":true:"1.0" }}
+                </td>
+                <td>
+                    {{ runopexonsitedata?.total_saving_onsite| currency: "USD":true:"1.0" }}
+                </td>
         </tr>
         <tr>
             <td>WITH PARTNER PERSONNEL (CLIENT OWNED ASSETS)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexonsitedata?.baseline_year_per_onsite | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexonsitedatayear of runopexonsitedatayear">
+                {{ runopexonsitedatayear?.per_onsite| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexonsitedata?.total_per_onsite| currency: "USD":true:"1.0" }}
+                </td>
+                <td>
+                    {{ runopexonsitedata?.total_saving_onsite| currency: "USD":true:"1.0" }}
+                </td>
         </tr>
         <tr>
             <td>TOTAL PARTNER SAVINGS MODEL</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexonsitedata?.baseline_year_saving_onsite | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexonsitedatayear of runopexonsitedatayear">
+                {{ runopexonsitedatayear?.saving_onsite| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexonsitedata?.total_saving_onsite| currency: "USD":true:"1.0" }}
+                </td>
+                <td>
+                    {{ runopexonsitedata?.total_saving_onsite| currency: "USD":true:"1.0" }}
+                </td>
         </tr>
     </tbody>
 </table>
@@ -67,42 +91,66 @@
     <tbody>
         <tr>
             <td>CLIENT DRIVES RUN BUSINESS (NO PARTNER)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexdata?.baseline_year_runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexdatayear of runopexdatayear">
+                {{ runopexdatayear?.runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
         </tr>
         <tr>
             <td>WITH PARTNER H/W-S/W ASSETS (NO PERSONNEL)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexdata?.baseline_year_runbuss | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexdatayear of runopexdatayear">
+                {{ runopexdatayear?.runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
         </tr>
         <tr>
             <td>WITH PARTNER PERSONNEL (CLIENT OWNED ASSETS)</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexdata?.baseline_year_runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexdatayear of runopexdatayear">
+                {{ runopexdatayear?.runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
         </tr>
         <tr>
             <td>TOTAL PARTNER SAVINGS MODEL</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
-            <td>{{ 0 | currency: "USD":true:"1.0" }}</td>
+            <td>
+                {{ runopexdata?.baseline_year_runbuss | currency: "USD":true:"1.0" }}
+            </td>
+            <td *ngFor="let runopexdatayear of runopexdatayear">
+                {{ runopexdatayear?.runbuss| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus| currency: "USD":true:"1.0" }}
+            </td>
+            <td>
+                {{ runopexdata?.total_runbus | currency: "USD":true:"1.0" }}
+            </td>
         </tr>
     </tbody>
 </table>
-<button class="" (click)="getData()" mat-raised-button color="primary">
+<button class="" (click)="getdata()" mat-raised-button color="primary">
     Get
 </button>

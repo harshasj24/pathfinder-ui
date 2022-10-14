@@ -1,9 +1,19 @@
-<mat-toolbar class="mat-elevation-z2">
-  <a class="logo" href="" routerLinkActive="router-active" routerLink="/"
+<mat-toolbar *ngIf="pathName !== '/pathfinder'" class="mat-elevation-z2">
+  <a
+    class="logo"
+    href=""
+    routerLinkActive="router-active"
+    routerLink="/pathfinder"
     >Pathfinder</a
   >
 
-  <a class="ms-auto" href="">Cost Optimization</a>
+  <a
+    routerLink="costOptimization"
+    routerLinkActive="router-active"
+    class="ms-auto"
+    href=""
+    >Cost Optimization</a
+  >
   <a
     routerLink="/modalOptions"
     routerLinkActive="router-active"
