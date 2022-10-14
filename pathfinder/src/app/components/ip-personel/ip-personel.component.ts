@@ -132,7 +132,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   handleGet() {
     this.apiservice
       .getOneRecord(
-        '/inputtables/getitpersonel',
+        '/inputtables/itpersonel',
         this.store.getId('itPersonnelId')
       )
       .subscribe((res: any) => {

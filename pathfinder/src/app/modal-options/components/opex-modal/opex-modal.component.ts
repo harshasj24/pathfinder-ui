@@ -10,22 +10,22 @@ export class OpexModalComponent implements OnInit {
   constructor(private api: ApiService) {}
   isLoaded: boolean = false;
   ngOnInit(): void {}
-  runopexfitdata:any
-  runopexfitdatayear:any
-  runopexdata:any
-  runopexdatayear:any
-  getData(){
-  this.api.getrunopexonsite().subscribe((res)=>{
-    this.runopexfitdata=res;
-    this.runopexfitdatayear=this.runopexfitdata.runfitshorecalculation
-    // console.log(res);
-    }); 
-}
-getdata(){
-   this.api.getrunopexmodelB().subscribe((res)=>{
-    this.runopexdata=res
-    this.runopexdatayear=this.runopexdata.runOpexCalc
-    // console.log(res);
-  });
-}
+  runopexfitdata: any;
+  runopexfitdatayear: any;
+  runopexdata: any;
+  runopexdatayear: any;
+  getData() {
+    this.api.getrunopexB().subscribe((res) => {
+      this.runopexfitdata = res;
+      this.runopexfitdatayear = this.runopexfitdata.runfitshorecalculation;
+      // console.log(res);
+    });
+  }
+  getdata() {
+    this.api.getrunopexmodelB().subscribe((res) => {
+      this.runopexdata = res;
+      this.runopexdatayear = this.runopexdata.runOpexCalc;
+      // console.log(res);
+    });
+  }
 }

@@ -124,7 +124,7 @@ export class ItPartnerComponent implements OnInit {
   handleGet() {
     this.apiservice
       .getOneRecord(
-        '/inputtables/getitpersonelcost',
+        '/inputtables/itpersonelcost',
         this.store.getId('itpersonelcost')
       )
       .subscribe((res: any) => {

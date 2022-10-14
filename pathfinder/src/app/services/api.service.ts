@@ -219,19 +219,21 @@ export class ApiService {
 
   updateInputTables(payload: any) {
     return this.http.put(
-      `/inputtables/updateinputtables/${this.store.getId('inputTableID')}`,
+      `/inputtables/inputvalues/${this.store.getId('inputTableID')}`,
       payload
     );
   }
   updatePersonnel(payload: any) {
     return this.http.put(
-      `/inputtables/updateitpersonel/${this.store.getId('itPersonnelId')}`,
+      `/inputtables/itpersonel/${this.store.getId(
+        'itPersonnelId'
+      )}/${this.store.getId('inputTableID')}`,
       payload
     );
   }
   updatePersonnelCost(payload: any) {
     return this.http.put(
-      `/inputtables/updateitpersonelcost/${this.store.getId(
+      `/inputtables/itpersonelcost/${this.store.getId(
         'itpersonelcost'
       )}/${this.store.getId('itPersonnelId')}`,
       payload
@@ -278,9 +280,13 @@ export class ApiService {
     return this.http
       .get(
         `/model/totalmodel2b/${this.store.getId(
-          'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingFitShore')}
+          'itRunSpend'
+        )}/${this.store.getId('optimizationLevers')}/${this.store.getId(
+          'itSpendOnRunPersonnel'
+        )}/${this.store.getId('outsourcingFitShore')}
     `
-      ).pipe(
+      )
+      .pipe(
         tap((res: any) => {
           this.store.storeId('totalsavingbID', res.id);
         })
@@ -288,9 +294,8 @@ export class ApiService {
   }
   getrunopexB() {
     return this.http
-      .get(
-        `/model/runfitshore/${this.store.getId(
-          'totalsavingbID')}`).pipe(
+      .get(`/model/runfitshore/${this.store.getId('totalsavingbID')}`)
+      .pipe(
         tap((res: any) => {
           this.store.storeId('runopexfitbID', res.id);
         })
@@ -298,9 +303,8 @@ export class ApiService {
   }
   getrunopexmodelB() {
     return this.http
-      .get(
-        `/model/runopex/${this.store.getId(
-          'runopexfitbID')}`).pipe(
+      .get(`/model/runopex/${this.store.getId('runopexfitbID')}`)
+      .pipe(
         tap((res: any) => {
           this.store.storeId('runopexbID', res.id);
         })
@@ -310,25 +314,31 @@ export class ApiService {
     return this.http
       .get(
         `/model/totalmodel2a/${this.store.getId(
-          'itRunSpend')}/${this.store.getId('optimizationLevers')}/${this.store.getId('itSpendCatId')}/${this.store.getId('outsourcingOnsite')}/${this.store.getId('totalsavingbID')}
+          'itRunSpend'
+        )}/${this.store.getId('optimizationLevers')}/${this.store.getId(
+          'itSpendOnRunPersonnel'
+        )}/${this.store.getId('outsourcingOnsite')}/${this.store.getId(
+          'totalsavingbID'
+        )}
     `
-      ).pipe(
+      )
+      .pipe(
         tap((res: any) => {
           this.store.storeId('totalsavingaID', res.id);
         })
       );
   }
-// mock_server
-  getsavingmodel(){
+  // mock_server
+  getsavingmodel() {
     return this.http.get('/savingmodela');
   }
-  getrunopexonsite(){
+  getrunopexonsite() {
     return this.http.get('/runopexonsitea');
   }
-  getrunopex(){
+  getrunopex() {
     return this.http.get('/runopex_a');
   }
-  getwaterfalls(){
-    return this.http.get('/waterfall')
+  getwaterfalls() {
+    return this.http.get('/waterfall');
   }
 }
