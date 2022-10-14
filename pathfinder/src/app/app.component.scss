@@ -3,12 +3,30 @@ mat-toolbar {
   height: 50px !important;
   background-color: white !important;
   margin-bottom: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   a {
     color: black;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    position: relative;
   }
 }
 .router-active {
   color: #673ab7 !important;
+}
+a::before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #673ab7;
+  height: 2px;
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover::before {
+  width: 100%;
 }
