@@ -5,7 +5,17 @@
     action=""
     (ngSubmit)="itpersonelcost.valid && handleSubmit()"
   >
-    <h2>IT -Personnel Cost(Partner)</h2>
+    <div class="header">
+      <h2>IT -Personnel Cost(Partner)</h2>
+      <button
+        type="button"
+        color="primary"
+        (click)="core.openChartsDailog()"
+        mat-button
+      >
+        View Chart
+      </button>
+    </div>
     <div class="mat-card__body">
       <div class="mat-card__body__inputs">
         <mat-form-field appearance="outline" class="">
@@ -449,15 +459,25 @@
       </table>
     </div>
     <div class="form__action d-flex">
-      <button mat-raised-button color="primary" (click)="handleGet()" type="button">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="handleGet()"
+        type="button"
+      >
         Get
       </button>
-      <button [disabled]="!canUpdate" (click)="handleUpdate()" mat-raised-button color="primary" class="mx-3" type="button">
+      <button
+        [disabled]="!canUpdate"
+        (click)="handleUpdate()"
+        mat-raised-button
+        color="primary"
+        class="mx-3"
+        type="button"
+      >
         Update
       </button>
       <button mat-raised-button color="primary" type="submit">Add</button>
     </div>
   </form>
-  <h2 id="chart">Chart</h2>
-  <app-charts></app-charts>
 </mat-card>

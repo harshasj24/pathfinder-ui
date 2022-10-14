@@ -29,3 +29,9 @@ mat-form-field.inp {
   width: 20%;
   margin-left: 10px;
 }
+.header {
+  display: flex;
+}
+.header h2 {
+  flex-grow: 1;
+}

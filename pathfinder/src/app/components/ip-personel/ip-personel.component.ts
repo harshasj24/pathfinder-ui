@@ -13,6 +13,7 @@ import { StoreService } from 'src/app/store.service';
 import { ClaculationService } from 'src/app/claculation.service';
 import { ApiService } from 'src/app/services/api.service';
 import { HttpService } from 'src/app/core/services/http.service';
+import { CoreServices } from 'src/app/core/services/core.service';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',
@@ -23,7 +24,8 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     public cal: ClaculationService,
     private store: StoreService,
     private apiservice: ApiService,
-    private http: HttpService
+    private http: HttpService,
+    public core: CoreServices
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;

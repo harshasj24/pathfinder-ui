@@ -16,9 +16,7 @@ export class ApiService {
       })
     );
   }
-//post   
-///pathfinder/inputtables/itpersonel
-//{inputtablesid}
+
   getitpersonnel(payload: any) {
     return this.http
       .post(
