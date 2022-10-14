@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-run-opex-model',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RunOpexModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit(): void {
   }
 getData(){
-  console.log("hi");
+  this.api.getrunopexonsite().subscribe((res)=>{
+    console.log(res);
+    });
+    this.api.getrunopex().subscribe((res)=>{
+    console.log(res);
+    
+  });
   
 }
 }

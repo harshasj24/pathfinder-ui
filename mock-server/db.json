@@ -219,5 +219,213 @@
         "cost_reductionhstotal": 8736
       }
     ]
+  },
+
+  "savingmodel_b": {
+    "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_hdsf": 5900000,
+    "total_hdsf": 8168063,
+    "baseline_yaer_perout": 5900000,
+    "total_perout": 8168063,
+    "baseline_yaer_totals": 5900000,
+    "total_total": 8168063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "with_partnerhs": 3084805,
+        "without_patnerhs": 2523931,
+        "cost_reductionhs": 5608736,
+         "with_partnerpo": 3084805,
+        "without_patnerpo": 2523931,
+        "cost_reductionpo": 5608736,
+         "with_partnertoatl": 3084805,
+        "without_patnertoatl": 2523931,
+        "cost_reductionhstotal": 5608736
+      },
+      {
+        "year": 2,
+      "with_partnerhs": 308,
+        "without_patnerhs": 25,
+        "cost_reductionhs": 560,
+         "with_partnerpo": 308,
+        "without_patnerpo": 25,
+        "cost_reductionpo": 566,
+         "with_partnertoatl": 3805,
+        "without_patnertoatl": 2931,
+        "cost_reductionhstotal": 5636
+      },
+      {
+        "year": 3,
+        "with_partnerhs": 30805,
+        "without_patnerhs": 2931,
+        "cost_reductionhs": 5736,
+         "with_partnerpo": 4805,
+        "without_patnerpo": 3931,
+        "cost_reductionpo": 8736,
+         "with_partnertoatl": 3805,
+        "without_patnertoatl": 23931,
+        "cost_reductionhstotal": 8736
+      }
+    ]
+  },
+  "runopex_onsite_a":{
+     "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_run_onsite": 59000002345,
+    "total_run_onsite": 816802363,
+    "baseline_year_runbuss_onsite": 5900234000,
+    "total_runbus_onsite": 8163458063,
+    "baseline_year_asset_onsite": 590230000,
+    "total_asset_onsite": 8134568063,
+    "baseline_year_per_onsite": 59012340000,
+    "total_per_onsite": 816348063,
+     "baseline_year_saving_onsite": 590340000,
+    "total_saving_onsite": 8163458063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      },
+      {
+        "year": 2,
+     "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      },
+      {
+        "year": 3,
+         "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      }
+    ]
+
+  },
+  "runopex_a":{
+     "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_run": 59000002345,
+    "total_run": 816802363,
+    "baseline_year_runbuss": 5900234000,
+    "total_runbus": 8163458063,
+    "baseline_year_asset": 590230000,
+    "total_asset": 8134568063,
+    "baseline_year_per": 59012340000,
+    "total_per": 816348063,
+     "baseline_year_saving": 590340000,
+    "total_saving": 8163458063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      },
+      {
+        "year": 2,
+     "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      },
+      {
+        "year": 3,
+         "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      }
+    ]
+
+  },
+  "runopex_onsite_b":{
+     "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_run_onsite": 59000002345,
+    "total_run_onsite": 816802363,
+    "baseline_year_runbuss_onsite": 5900234000,
+    "total_runbus_onsite": 8163458063,
+    "baseline_year_asset_onsite": 590230000,
+    "total_asset_onsite": 8134568063,
+    "baseline_year_per_onsite": 59012340000,
+    "total_per_onsite": 816348063,
+     "baseline_year_saving_onsite": 590340000,
+    "total_saving_onsite": 8163458063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      },
+      {
+        "year": 2,
+     "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      },
+      {
+        "year": 3,
+         "run_onsite": 3084805,
+        "runbuss_onsite": 2523931,
+        "asset_onsite": 5608736,
+         "per_onsite": 3084805,
+        "saving_onsite": 2523931
+      }
+    ]
+
+  },
+  "runopex_b":{
+     "id": "633a5db296c81f3efa45b90b",
+    "baseline_year_run": 59000002345,
+    "total_run": 816802363,
+    "baseline_year_runbuss": 5900234000,
+    "total_runbus": 8163458063,
+    "baseline_year_asset": 590230000,
+    "total_asset": 8134568063,
+    "baseline_year_per": 59012340000,
+    "total_per": 816348063,
+     "baseline_year_saving": 590340000,
+    "total_saving": 8163458063,
+    "yearBaseCostCalculations": [
+      {
+        "year": 1,
+        "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      },
+      {
+        "year": 2,
+     "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      },
+      {
+        "year": 3,
+         "run": 3084805,
+        "runbuss": 2523931,
+        "asset": 5608736,
+         "per": 3084805,
+        "saving": 2523931
+      }
+    ]
+
   }
 }

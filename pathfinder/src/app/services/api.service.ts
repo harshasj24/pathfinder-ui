@@ -275,4 +275,10 @@ export class ApiService {
   getsavingmodel(){
     return this.http.get('/savingmodela');
   }
+  getrunopexonsite(){
+    return this.http.get('/runpoex_onsite_a');
+  }
+  getrunopex(){
+    return this.http.get('/runopex_a');
+  }
 }
