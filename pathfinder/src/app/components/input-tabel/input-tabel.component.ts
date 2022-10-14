@@ -7,6 +7,7 @@ import { StoreService } from 'src/app/store.service';
 import { Observable } from 'rxjs';
 import { inputTable } from 'src/app/core/models/tables';
 import { ApiService } from 'src/app/services/api.service';
+import { CoreServices } from 'src/app/core/services/core.service';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
@@ -17,7 +18,8 @@ export class InputTabelComponent implements OnInit {
     public cal: ClaculationService,
     private store: StoreService,
     private http: HttpService,
-    private api: ApiService
+    private api: ApiService,
+    public core: CoreServices
   ) {}
   inputTableData: any;
   submitted = false;

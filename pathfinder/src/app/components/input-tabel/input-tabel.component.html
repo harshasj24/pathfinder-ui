@@ -128,75 +128,81 @@
       <button mat-raised-button color="primary" type="submit">Add</button>
     </div>
   </form>
-  <h2 class="mt-5">
-    Annual revenue:{{
-      annual_revenue_for_client?.value || 0 | currency: "USD":true:"1.0"
-    }}
-  </h2>
-  <div class="result-tabel">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td class="w-50">IT spend as % of revenue (~1.2-3%)</td>
-          <!-- <td>{{ itSpend?.value || 0 }} %</td> -->
-          <td>{{ inputTableData?.it_spent_perc }}</td>
-          <!-- <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td> -->
-          <td>
-            {{ inputTableData?.it_spent_value | currency: "USD":true:"1.0" }}
-          </td>
-        </tr>
-        <tr>
-          <td>RUN the business IT spend</td>
-          <!-- <td>{{ run?.value || 0 }} %</td> -->
-          <td>{{ inputTableData?.run_business_perc }}</td>
-          <!-- <td>
+  <div class="card-body mt-5">
+    <div class="header">
+      <h2 class="">
+        Annual revenue:{{
+          annual_revenue_for_client?.value || 0 | currency: "USD":true:"1.0"
+        }}
+      </h2>
+      <button (click)="core.openChartsDailog()" mat-button color="primary">
+        Vew Chart
+      </button>
+    </div>
+    <div class="result-tabel">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="w-50">IT spend as % of revenue (~1.2-3%)</td>
+            <!-- <td>{{ itSpend?.value || 0 }} %</td> -->
+            <td>{{ inputTableData?.it_spent_perc }}</td>
+            <!-- <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td> -->
+            <td>
+              {{ inputTableData?.it_spent_value | currency: "USD":true:"1.0" }}
+            </td>
+          </tr>
+          <tr>
+            <td>RUN the business IT spend</td>
+            <!-- <td>{{ run?.value || 0 }} %</td> -->
+            <td>{{ inputTableData?.run_business_perc }}</td>
+            <!-- <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, run?.value)
                 | currency: "USD":true:"1.0"
             }}
           </td> -->
-          <td>
-            {{
-              inputTableData?.run_business_value | currency: "USD":true:"1.0"
-            }}
-          </td>
-        </tr>
-        <tr>
-          <td>Grow the business IT spend</td>
-          <!-- <td>{{ grow?.value || 0 }} %</td> -->
-          <td>{{ inputTableData?.grow_business_perc }}</td>
+            <td>
+              {{
+                inputTableData?.run_business_value | currency: "USD":true:"1.0"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td>Grow the business IT spend</td>
+            <!-- <td>{{ grow?.value || 0 }} %</td> -->
+            <td>{{ inputTableData?.grow_business_perc }}</td>
 
-          <!-- <td>
+            <!-- <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, grow?.value)
                 | currency: "USD":true:"1.0"
             }}
           </td> -->
-          <td>
-            {{
-              inputTableData?.grow_business_value | currency: "USD":true:"1.0"
-            }}
-          </td>
-        </tr>
-        <tr>
-          <td>Transform the business IT spend</td>
-          <!-- <td>{{ transform?.value || 0 }} %</td> -->
-          <td>{{ inputTableData?.transform_it_perc }}</td>
+            <td>
+              {{
+                inputTableData?.grow_business_value | currency: "USD":true:"1.0"
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td>Transform the business IT spend</td>
+            <!-- <td>{{ transform?.value || 0 }} %</td> -->
+            <td>{{ inputTableData?.transform_it_perc }}</td>
 
-          <!-- <td>
+            <!-- <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, transform?.value)
                 | currency: "USD":true:"1.0"
             }}
           </td> -->
-          <td>
-            {{
-              inputTableData?.transform_it_value | currency: "USD":true:"1.0"
-            }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td>
+              {{
+                inputTableData?.transform_it_value | currency: "USD":true:"1.0"
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <app-charts></app-charts>
 </mat-card>

@@ -74,6 +74,16 @@
     </div>
   </form>
   <div class="result-table">
+    <div class="header d-flex">
+      <button
+        class="ms-auto"
+        (click)="core.openChartsDailog()"
+        mat-button
+        color="primary"
+      >
+        View Chart
+      </button>
+    </div>
     <table class="table mt-4">
       <tbody>
         <tr>
@@ -140,5 +150,4 @@
       </tbody>
     </table>
   </div>
-  <app-charts></app-charts>
 </mat-card>

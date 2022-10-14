@@ -27,3 +27,9 @@ th {
     margin-left: 10px;
   }
 }
+.header {
+  display: flex;
+}
+.header h2 {
+  flex-grow: 1;
+}

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClaculationService } from 'src/app/claculation.service';
+import { CoreServices } from 'src/app/core/services/core.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
@@ -29,7 +30,8 @@ export class ItPartnerComponent implements OnInit {
     private store: StoreService,
     public calc: ClaculationService,
     private apiservice: ApiService,
-    private http: HttpService
+    private http: HttpService,
+    public core: CoreServices
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -174,7 +176,7 @@ export class ItPartnerComponent implements OnInit {
       partnerCtcOffshore: this.itpersonelcost.value['partnerCtcOffshore'],
       yearBseCalculations,
     };
-    this.apiservice. updatePersonnelCost(payload).subscribe((val) => {
+    this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
       console.log(val);
       this.handleGet();
     });

@@ -9,9 +9,11 @@ const routes: Routes = [
   {
     path: 'costOptimization',
     component: HomeComponent,
-    data: {
-      navbar: false,
-    },
+  },
+  {
+    path: '',
+    redirectTo: 'pathfinder',
+    pathMatch: 'full',
   },
   {
     path: 'modalOptions',
