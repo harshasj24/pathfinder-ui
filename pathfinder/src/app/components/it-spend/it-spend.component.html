@@ -30,18 +30,33 @@
       </button>
     </mat-tab>
   </mat-tab-group>
-  <table class="table" border="2">
-    <tbody>
-      <tr>
-        <td class="title border">Total IT spends on assets</td>
-        <td class="baseline-year border">59,899,125</td>
 
-        <td class="border year">0</td>
-        <td class="border year">0</td>
-        <td class="border year">0</td>
-      </tr>
-    </tbody>
-  </table>
+  <div *ngIf="store.showTotal | async" class="total-assets">
+    <table class="table mt-3" border="2">
+      <tbody>
+        <tr>
+          <td class="title border">Total IT spends on assets</td>
+          <td class="baseline-year border">
+            {{ totalAssets?.itspendonassets_baseline }}
+          </td>
+          <td
+            *ngFor="let asset of totalAssets?.itspendcalc"
+            class="border year"
+          >
+            {{ asset?.itspendonassets_year }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      mat-raised-button
+      color="primary"
+      class="mt-3"
+      (click)="handleGetTotal()"
+    >
+      Get Total Assets
+    </button>
+  </div>
   <div class="optimzation mt-4">
     <table class="table" border="2">
       <tbody>

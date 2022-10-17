@@ -352,13 +352,23 @@ export class ApiService {
   }
   getwaterfalls() {
     return this.http
-      .get(`/waterfalltables/waterfall/${this.store.getId('totalsavingbID')}/${this.store.getId(
-          'totalsavingaID'
-        )}`)
+      .get(
+        `/waterfalltables/waterfall/${this.store.getId(
+          'totalsavingbID'
+        )}/${this.store.getId('totalsavingaID')}`
+      )
       .pipe(
         tap((res: any) => {
           this.store.storeId('waterfallsID', res.id);
         })
       );
-  } 
+  }
+
+  getTotalAssets() {
+    return this.http.get(
+      `/asset/itspendasset/${this.store.getId('hardware')}/${this.store.getId(
+        'software'
+      )}/${this.store.getId('managed')}/${this.store.getId('hosted')}`
+    );
+  }
 }

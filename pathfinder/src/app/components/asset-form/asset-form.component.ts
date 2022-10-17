@@ -66,6 +66,7 @@ export class AssetFormComponent implements OnInit {
             title: this.data.title,
             claculatedData: val,
           });
+          this.data.title === 'hosted' && this.store.setShowTotal(true);
         });
     } else if (this.data.action === 'update') {
       // update logic
@@ -83,6 +84,7 @@ export class AssetFormComponent implements OnInit {
           });
         });
     }
+
     this.dilog.closeAll();
   }
   ngOnInit(): void {

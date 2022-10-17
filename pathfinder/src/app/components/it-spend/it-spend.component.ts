@@ -15,11 +15,12 @@ export class ItSpendComponent implements OnInit {
     private dailog: MatDialog,
     private dailogService: DailogService,
     private api: ApiService,
-    private store: StoreService
+    public store: StoreService
   ) {}
   savingoptdata: any;
   savingoptdatayear: any;
   currentYear = new Date().getFullYear();
+
   ngOnInit(): void {
     // this.savingoptdata = this.savingopt;
     // console.log(this.savingoptdata);
@@ -226,12 +227,20 @@ export class ItSpendComponent implements OnInit {
         this.pathchValue = {
           claculations: res[this.paths[type].payloadArr],
         };
+        type === 'hosted' && this.store.setShowTotal(true);
       });
   }
   optimizationLevrs() {
     this.api.getOptimizationLevers().subscribe((res: any) => {
       this.savingoptdata = res;
       this.savingoptdatayear = res.savingsoptimizationcalculation;
+    });
+  }
+
+  totalAssets: any;
+  handleGetTotal() {
+    this.api.getTotalAssets().subscribe((res: any) => {
+      this.totalAssets = res;
     });
   }
   hardware = [

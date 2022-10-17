@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { LocalStorageService } from './core/services/local-storage.service';
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,10 @@ export class StoreService {
   maxEle = new Subject();
   setStore(data: any) {
     this.store.next(data);
+  }
+  showTotal = new BehaviorSubject<boolean>(false);
+  setShowTotal(flag: boolean) {
+    this.showTotal.next(flag);
   }
   setMaxEle(data: any) {
     this.maxEle.next(data);
