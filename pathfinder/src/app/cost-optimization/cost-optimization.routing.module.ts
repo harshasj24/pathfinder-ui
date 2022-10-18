@@ -22,6 +22,11 @@ export const cost_routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'spend',
+        pathMatch: 'full',
+      },
+      {
         path: 'spend',
         component: InputTabelComponent,
       },
