@@ -1,4 +1,4 @@
-<div class="home-tab">
+<!-- <div class="home-tab">
   <mat-tab-group class="home-tab__group" animationDuration="0ms">
     <mat-tab label="Input Table">
       <div class="tab-content">
@@ -56,4 +56,21 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-</div>
+</div> -->
+<app-layout-side-nav>
+  <div id="sidenav">
+    <mat-selection-list multiple="false">
+      <mat-list-option
+        *ngFor="let nav of sideNavRoutes"
+        routerLinkActive="active"
+        [routerLink]="['/costOptimization', nav.path]"
+        class="mt-1"
+      >
+        {{ nav.title }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div id="contents">
+    <router-outlet></router-outlet>
+  </div>
+</app-layout-side-nav>

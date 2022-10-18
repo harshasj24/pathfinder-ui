@@ -17,6 +17,14 @@ import { ItspendrunComponent } from './components/itspendrun/itspendrun.componen
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CostOptimizationRoutingModule } from './cost-optimization.routing.module';
+import { CoreModule } from '../core/core.module';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -34,6 +42,18 @@ import { RouterModule } from '@angular/router';
     AssetFormComponent,
     ItspendrunComponent,
   ],
-  imports: [CommonModule, SharedModule, MaterialModule, RouterModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    MaterialModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CostOptimizationRoutingModule,
+    SharedModule,
+    CoreModule,
+  ],
+  providers: [],
+  bootstrap: [HomeComponent],
 })
 export class CostOptimizationModule {}

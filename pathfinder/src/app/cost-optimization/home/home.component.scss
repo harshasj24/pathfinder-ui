@@ -1,35 +1,41 @@
-.tab-content {
-  padding: 10px 20px;
-  // background-color: #f6f6f6;
-  height: calc(100vh - 55px);
-  overflow-y: scroll;
-}
-mat-tab-group.home-tab__group {
-  flex-direction: row !important;
-}
-::ng-deep {
-  .mat-tab-labels {
-    flex-direction: column !important;
-    text-align: end !important;
-  }
-  .mat-tab-label {
-    justify-content: start !important;
-  }
-  .mat-ink-bar {
-    display: none !important;
-  }
-  .mat-tab-label-container {
-    margin: 10px;
-    // border: solid !important;
-    // @extend .mat-elevation-z2 !optional;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-      0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-    border-radius: 4px;
-    background-color: #ffff;
-  }
-}
-.home-tab {
-  height: calc(100vh - 50px) !important;
-  overflow: hidden;
-  background-color: rgb(237, 236, 236);
+// .tab-content {
+//   padding: 10px 20px;
+//   // background-color: #f6f6f6;
+//   height: calc(100vh - 55px);
+//   overflow-y: scroll;
+// }
+// mat-tab-group.home-tab__group {
+//   flex-direction: row !important;
+// }
+// ::ng-deep {
+//   .mat-tab-labels {
+//     flex-direction: column !important;
+//     text-align: end !important;
+//   }
+//   .mat-tab-label {
+//     justify-content: start !important;
+//   }
+//   .mat-ink-bar {
+//     display: none !important;
+//   }
+//   .mat-tab-label-container {
+//     margin: 10px;
+//     // border: solid !important;
+//     // @extend .mat-elevation-z2 !optional;
+//     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+//       0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+//     border-radius: 4px;
+//     background-color: #ffff;
+//   }
+// }
+// .home-tab {
+//   height: calc(100vh - 50px) !important;
+//   overflow: hidden;
+//   background-color: rgb(237, 236, 236);
+// }
+
+.active {
+  background-color: #673ab7 !important;
+  color: white;
+  border-radius: 4px;
 }

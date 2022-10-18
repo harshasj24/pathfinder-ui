@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { cost_routes } from './cost-optimization/cost-optimization.routing.module';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { SharedModule } from './shared/shared.module';
 // import { HomeComponent } from './home/home.component';
@@ -12,10 +13,13 @@ const routes: Routes = [
         (m) => m.LandingPageModule
       ),
   },
-  // {
-  //   path: 'costOptimization',
-  //   component: HomeComponent,
-  // },
+  {
+    path: 'costOptimization',
+    loadChildren: () =>
+      import('./cost-optimization/cost-optimization.module').then(
+        (m) => m.CostOptimizationModule
+      ),
+  },
   {
     path: '',
     redirectTo: 'pathfinder',
@@ -29,8 +33,8 @@ const routes: Routes = [
       ),
   },
   {
-    path:'**',
-    component:PagenotfoundComponent
+    path: '**',
+    component: PagenotfoundComponent,
   },
 ];
 

@@ -10,6 +10,14 @@ export class AppComponent implements OnInit {
   constructor(private route: Router) {}
   pathName: any = false;
   ngOnInit(): void {
+    //-----------------------------------------------------------------------------//
+    // setting the cookie-------
+    // document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    // getting the cookie-------
+    // console.log(document.cookie);
+    //-----------------------------------------------------------------------------//
+
+    // hiding the navbar based on the route
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         this.pathName = val.url;
