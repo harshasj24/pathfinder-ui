@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
+import { SharedModule } from './shared/shared.module';
 // import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
@@ -26,10 +28,14 @@ const routes: Routes = [
         (m) => m.ModalOptionsModule
       ),
   },
+  {
+    path:'**',
+    component:PagenotfoundComponent
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule, SharedModule],
 })
 export class AppRoutingModule {}

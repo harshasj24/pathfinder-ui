@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black !important;
+  margin-top: 20px;
+}
+
+h2 {
+  color: red;
+  font-weight: bold;
+}
+.page__not__found {
+  transition: 1s all;
+}
+
+// .page__not__found:hover {
+//   transform: translatex(20px);
+
+//   transform: translatey(-20px);
+// }
+
+@media screen and (min-width: 750px) {
+  .page__not__found:hover {
+    transition: all 0.5s;
+    transform: translatex(20px);
+    transform: translatey(-20px);
+  }
+}

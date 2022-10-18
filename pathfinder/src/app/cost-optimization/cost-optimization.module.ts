@@ -14,8 +14,9 @@ import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshor
 import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
 import { AssetFormComponent } from './components/asset-form/asset-form.component';
 import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
-import { Routes } from '@angular/router';
-
+import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -33,6 +34,6 @@ import { Routes } from '@angular/router';
     AssetFormComponent,
     ItspendrunComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule, MaterialModule, RouterModule],
 })
 export class CostOptimizationModule {}

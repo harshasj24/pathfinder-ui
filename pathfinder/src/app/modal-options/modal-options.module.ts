@@ -9,13 +9,17 @@ import { SharedModule } from '../shared/shared.module';
 import { SavingmodelAComponent } from './components/savingmodel-a/savingmodel-a.component';
 import { RunOpexModelComponent } from './components/run-opex-model/run-opex-model.component';
 import { WaterfallsTabelComponent } from './components/waterfalls-tabel/waterfalls-tabel.component';
+import { PagenotfoundComponent } from '../shared/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeModalOptionsComponent,
   },
- 
+ {
+  path:'**', 
+  component:PagenotfoundComponent
+ }
 ];
 
 @NgModule({

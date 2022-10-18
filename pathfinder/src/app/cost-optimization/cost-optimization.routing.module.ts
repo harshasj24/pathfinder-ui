@@ -14,15 +14,65 @@ import { ItpersoneelFitshoringComponent } from './components/itpersoneel-fitshor
 import { RunitspendOutsourceComponent } from './components/runitspend-outsource/runitspend-outsource.component';
 import { AssetFormComponent } from './components/asset-form/asset-form.component';
 import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
+import { PagenotfoundComponent } from '../shared/pagenotfound/pagenotfound.component';
 const routes: Routes = [
   {
     path: 'spend',
     component: InputTabelComponent,
   },
+  {
+    path: 'itpesonal',
+    component: IpPersonelComponent,
+  },
+  {
+    path: 'itpartner',
+    component: ItPartnerComponent,
+  },
+  {
+    path: 'cot',
+    component: CostoftransformComponent,
+  },
+  {
+    path: 'benchmark',
+    component: BenchmarksComponent,
+  },
+  {
+    path: 'table',
+    component: TableComponent,
+  },
+  {
+    path: 'itspend',
+    component: ItSpendComponent,
+  },
+  {
+    path: 'Itfunction',
+    component: ItFunctionsComponent,
+  },
+  {
+    path: 'itrunspend',
+    component: ItRunSpendComponent,
+  },
+  {
+    path: 'itfitshore',
+    component: ItpersoneelFitshoringComponent,
+  },
+  {
+    path: 'itoutsource',
+    component: RunitspendOutsourceComponent,
+  },
+  {
+    path: 'asset',
+    component: AssetFormComponent,
+  },
+  {
+    path: 'itspendrun',
+    component: ItspendrunComponent,
+  },
+  { path: '**', component: PagenotfoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class CostOptimizationRoutingModule {}

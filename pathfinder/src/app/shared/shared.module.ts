@@ -5,6 +5,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { MaterialModule } from '../material';
 import { BarChartComponent } from './charts/bar-chart.component';
 import { LineChartComponent } from './charts/line-chart.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { LineChartComponent } from './charts/line-chart.component';
     LoaderComponent,
     BarChartComponent,
     LineChartComponent,
+    PagenotfoundComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
@@ -19,6 +21,7 @@ import { LineChartComponent } from './charts/line-chart.component';
     LoaderComponent,
     BarChartComponent,
     LineChartComponent,
+    PagenotfoundComponent,
   ],
 })
 export class SharedModule {}
