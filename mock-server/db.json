@@ -1,226 +1,227 @@
 {
-  "inputTable": {
-    "annual_revenue_for_client": 11170000000,
-    "it_spent_perc": 2.5,
-    "it_spent_value": 279250000,
-    "run_business_perc": 65.0,
-    "run_business_value": 181512500,
-    "grow_business_perc": 23.0,
-    "grow_business_value": 64227500,
-    "transform_it_perc": 12.0,
-    "transform_it_value": 33510000,
-    "annual_inflation_perc": 3.0
-  },
-  "itPersonnel": {
-    "id": "633a5b869a494d0bb409d184",
-    "it_spend_on_personal_perc": 67.0,
-    "it_spend_outsource": 187097500,
-    "avr_ctc_per_fte": 150000,
-    "avr_ctc_final": 1247,
-    "run_fte_personal": 121613375,
-    "run_fte_outsource": 811,
-    "grow_fte_personal": 43032425,
-    "grow_fte_outsource": 287,
-    "transform_fte_personal": 22451700,
-    "transform_fte_outsource": 150,
-    "perc_eligible_forpersonal": 85.0,
-    "eligible_outsource": 689
-  },
+  "sahana's_proect": {
+    "inputTable": {
+      "annual_revenue_for_client": 11170000000,
+      "it_spent_perc": 2.5,
+      "it_spent_value": 279250000,
+      "run_business_perc": 65.0,
+      "run_business_value": 181512500,
+      "grow_business_perc": 23.0,
+      "grow_business_value": 64227500,
+      "transform_it_perc": 12.0,
+      "transform_it_value": 33510000,
+      "annual_inflation_perc": 3.0
+    },
+    "itPersonnel": {
+      "id": "633a5b869a494d0bb409d184",
+      "it_spend_on_personal_perc": 67.0,
+      "it_spend_outsource": 187097500,
+      "avr_ctc_per_fte": 150000,
+      "avr_ctc_final": 1247,
+      "run_fte_personal": 121613375,
+      "run_fte_outsource": 811,
+      "grow_fte_personal": 43032425,
+      "grow_fte_outsource": 287,
+      "transform_fte_personal": 22451700,
+      "transform_fte_outsource": 150,
+      "perc_eligible_forpersonal": 85.0,
+      "eligible_outsource": 689
+    },
 
-  "itPersonnelCost": {
-    "id": "633a5c419a494d0bb409d185",
-    "partnerCtcOnsite": 115000,
-    "partnerCtcOffshore": 20000,
-    "onsitRatio": 20.0,
-    "offshoreRatio": 80.0,
-    "yearBseCalculations": [
-      {
-        "yearLine": 1,
-        "takeOverPlan": 25.0,
-        "infteCumulative": 172,
-        "ppImprovement": 3.0,
-        "fteSavingsCumulative": 5,
-        "netPartnerFte": 167,
-        "onsiteRatio": 80.0,
-        "inFteOnsite": 134,
-        "offshoreRatio": 20.0,
-        "inFteOffshore": 33
-      },
-      {
-        "yearLine": 2,
-        "takeOverPlan": 50.0,
-        "infteCumulative": 517,
-        "ppImprovement": 5.0,
-        "fteSavingsCumulative": 31,
-        "netPartnerFte": 486,
-        "onsiteRatio": 50.0,
-        "inFteOnsite": 243,
-        "offshoreRatio": 50.0,
-        "inFteOffshore": 243
-      },
-      {
-        "yearLine": 3,
-        "takeOverPlan": 25.0,
-        "infteCumulative": 689,
-        "ppImprovement": 2.0,
-        "fteSavingsCumulative": 45,
-        "netPartnerFte": 644,
-        "onsiteRatio": 20.0,
-        "inFteOnsite": 129,
-        "offshoreRatio": 80.0,
-        "inFteOffshore": 515
-      }
-    ]
+    "itPersonnelCost": {
+      "id": "633a5c419a494d0bb409d185",
+      "partnerCtcOnsite": 115000,
+      "partnerCtcOffshore": 20000,
+      "onsitRatio": 20.0,
+      "offshoreRatio": 80.0,
+      "yearBseCalculations": [
+        {
+          "yearLine": 1,
+          "takeOverPlan": 25.0,
+          "infteCumulative": 172,
+          "ppImprovement": 3.0,
+          "fteSavingsCumulative": 5,
+          "netPartnerFte": 167,
+          "onsiteRatio": 80.0,
+          "inFteOnsite": 134,
+          "offshoreRatio": 20.0,
+          "inFteOffshore": 33
+        },
+        {
+          "yearLine": 2,
+          "takeOverPlan": 50.0,
+          "infteCumulative": 517,
+          "ppImprovement": 5.0,
+          "fteSavingsCumulative": 31,
+          "netPartnerFte": 486,
+          "onsiteRatio": 50.0,
+          "inFteOnsite": 243,
+          "offshoreRatio": 50.0,
+          "inFteOffshore": 243
+        },
+        {
+          "yearLine": 3,
+          "takeOverPlan": 25.0,
+          "infteCumulative": 689,
+          "ppImprovement": 2.0,
+          "fteSavingsCumulative": 45,
+          "netPartnerFte": 644,
+          "onsiteRatio": 20.0,
+          "inFteOnsite": 129,
+          "offshoreRatio": 80.0,
+          "inFteOffshore": 515
+        }
+      ]
+    },
+    "cost": {
+      "id": "633a5db296c81f3efa45b90b",
+      "cot_perc": 10.0,
+      "cot_value": 18151250,
+      "client_perc": 55.0,
+      "client_value": 9983188,
+      "partner_perc": 45.0,
+      "partner_value": 8168063,
+      "yearBaseCostCalculations": [
+        {
+          "year": 1,
+          "cot_spread_perc": 30.0,
+          "client_share_value": 3084805,
+          "partner_share_value": 2523931,
+          "total_with_inflation": 5608736
+        },
+        {
+          "year": 2,
+          "cot_spread_perc": 50.0,
+          "client_share_value": 5141342,
+          "partner_share_value": 4206552,
+          "total_with_inflation": 9347894
+        },
+        {
+          "year": 3,
+          "cot_spread_perc": 20.0,
+          "client_share_value": 2056537,
+          "partner_share_value": 1682621,
+          "total_with_inflation": 3739158
+        }
+      ]
+    },
+    "assertRunItSpend": {
+      "id": "633a5dea96c81f3efa45b90c",
+      "baseLineYearSpend": 59899125,
+      "total_itSpendWithInflation": 190696472,
+      "total_cotClientShare": 3393286.0,
+      "total_yearlyRunRate": 194089758,
+      "runCalc": [
+        {
+          "year": 1,
+          "itSpendWithInflation": 6.1696099e7,
+          "cotClientShare": 1017986.0,
+          "yearlyRunRate": 6.2714085e7
+        },
+        {
+          "year": 2,
+          "itSpendWithInflation": 6.3546982e7,
+          "cotClientShare": 1696643.0,
+          "yearlyRunRate": 6.5243625e7
+        },
+        {
+          "year": 3,
+          "itSpendWithInflation": 6.5453391e7,
+          "cotClientShare": 678657.0,
+          "yearlyRunRate": 6.6132048e7
+        }
+      ]
+    },
+    "hardware": {
+      "perc_split_hardware": 31.0,
+      "baseLine_hardware": 18568729,
+      "total_eliminateReduc": 0.25,
+      "total_eliminateRetire": 0.5,
+      "total_consolidate": 0.7,
+      "total_rationalize": 5.0,
+      "total_perc_h": 6.45,
+      "total_value_h": 1278799.0,
+      "hardwareCalculations": [
+        {
+          "year": 1,
+          "spendIncreaseWithInflation_h": 19125791,
+          "eliminate_reducdancyElimination": 0.15,
+          "eliminate_retireDecommision": 0.3,
+          "consolidate_realignRedistribute": 0.2,
+          "rationalize_automateMl": 0.5,
+          "savingSubtotal_perc_h": 1.1500001,
+          "savingSubtotal_value_h": 219947.0
+        },
+        {
+          "year": 2,
+          "spendIncreaseWithInflation_h": 19699565,
+          "eliminate_reducdancyElimination": 0.1,
+          "eliminate_retireDecommision": 0.2,
+          "consolidate_realignRedistribute": 0.5,
+          "rationalize_automateMl": 2.0,
+          "savingSubtotal_perc_h": 2.8,
+          "savingSubtotal_value_h": 551588.0
+        },
+        {
+          "year": 3,
+          "spendIncreaseWithInflation_h": 20290552,
+          "eliminate_reducdancyElimination": 0.0,
+          "eliminate_retireDecommision": 0.0,
+          "consolidate_realignRedistribute": 0.0,
+          "rationalize_automateMl": 2.5,
+          "savingSubtotal_perc_h": 2.5,
+          "savingSubtotal_value_h": 507264.0
+        }
+      ]
+    },
+    "savingmodela": {
+      "id": "633a5db296c81f3efa45b90b",
+      "baseline_year_hdsf": 5900000,
+      "total_hdsf": 8168063,
+      "baseline_yaer_perout": 5900000,
+      "total_perout": 8168063,
+      "baseline_yaer_totals": 5900000,
+      "total_total": 8168063,
+      "yearBaseCostCalculations": [
+        {
+          "year": 1,
+          "with_partnerhs": 3084805,
+          "without_patnerhs": 2523931,
+          "cost_reductionhs": 5608736,
+          "with_partnerpo": 3084805,
+          "without_patnerpo": 2523931,
+          "cost_reductionpo": 5608736,
+          "with_partnertoatl": 3084805,
+          "without_patnertoatl": 2523931,
+          "cost_reductionhstotal": 5608736
+        },
+        {
+          "year": 2,
+          "with_partnerhs": 308,
+          "without_patnerhs": 25,
+          "cost_reductionhs": 560,
+          "with_partnerpo": 308,
+          "without_patnerpo": 25,
+          "cost_reductionpo": 566,
+          "with_partnertoatl": 3805,
+          "without_patnertoatl": 2931,
+          "cost_reductionhstotal": 5636
+        },
+        {
+          "year": 3,
+          "with_partnerhs": 30805,
+          "without_patnerhs": 2931,
+          "cost_reductionhs": 5736,
+          "with_partnerpo": 4805,
+          "without_patnerpo": 3931,
+          "cost_reductionpo": 8736,
+          "with_partnertoatl": 3805,
+          "without_patnertoatl": 23931,
+          "cost_reductionhstotal": 8736
+        }
+      ]
+    }
   },
-  "cost": {
-    "id": "633a5db296c81f3efa45b90b",
-    "cot_perc": 10.0,
-    "cot_value": 18151250,
-    "client_perc": 55.0,
-    "client_value": 9983188,
-    "partner_perc": 45.0,
-    "partner_value": 8168063,
-    "yearBaseCostCalculations": [
-      {
-        "year": 1,
-        "cot_spread_perc": 30.0,
-        "client_share_value": 3084805,
-        "partner_share_value": 2523931,
-        "total_with_inflation": 5608736
-      },
-      {
-        "year": 2,
-        "cot_spread_perc": 50.0,
-        "client_share_value": 5141342,
-        "partner_share_value": 4206552,
-        "total_with_inflation": 9347894
-      },
-      {
-        "year": 3,
-        "cot_spread_perc": 20.0,
-        "client_share_value": 2056537,
-        "partner_share_value": 1682621,
-        "total_with_inflation": 3739158
-      }
-    ]
-  },
-  "assertRunItSpend": {
-    "id": "633a5dea96c81f3efa45b90c",
-    "baseLineYearSpend": 59899125,
-    "total_itSpendWithInflation": 190696472,
-    "total_cotClientShare": 3393286.0,
-    "total_yearlyRunRate": 194089758,
-    "runCalc": [
-      {
-        "year": 1,
-        "itSpendWithInflation": 6.1696099e7,
-        "cotClientShare": 1017986.0,
-        "yearlyRunRate": 6.2714085e7
-      },
-      {
-        "year": 2,
-        "itSpendWithInflation": 6.3546982e7,
-        "cotClientShare": 1696643.0,
-        "yearlyRunRate": 6.5243625e7
-      },
-      {
-        "year": 3,
-        "itSpendWithInflation": 6.5453391e7,
-        "cotClientShare": 678657.0,
-        "yearlyRunRate": 6.6132048e7
-      }
-    ]
-  },
-  "hardware": {
-    "perc_split_hardware": 31.0,
-    "baseLine_hardware": 18568729,
-    "total_eliminateReduc": 0.25,
-    "total_eliminateRetire": 0.5,
-    "total_consolidate": 0.7,
-    "total_rationalize": 5.0,
-    "total_perc_h": 6.45,
-    "total_value_h": 1278799.0,
-    "hardwareCalculations": [
-      {
-        "year": 1,
-        "spendIncreaseWithInflation_h": 19125791,
-        "eliminate_reducdancyElimination": 0.15,
-        "eliminate_retireDecommision": 0.3,
-        "consolidate_realignRedistribute": 0.2,
-        "rationalize_automateMl": 0.5,
-        "savingSubtotal_perc_h": 1.1500001,
-        "savingSubtotal_value_h": 219947.0
-      },
-      {
-        "year": 2,
-        "spendIncreaseWithInflation_h": 19699565,
-        "eliminate_reducdancyElimination": 0.1,
-        "eliminate_retireDecommision": 0.2,
-        "consolidate_realignRedistribute": 0.5,
-        "rationalize_automateMl": 2.0,
-        "savingSubtotal_perc_h": 2.8,
-        "savingSubtotal_value_h": 551588.0
-      },
-      {
-        "year": 3,
-        "spendIncreaseWithInflation_h": 20290552,
-        "eliminate_reducdancyElimination": 0.0,
-        "eliminate_retireDecommision": 0.0,
-        "consolidate_realignRedistribute": 0.0,
-        "rationalize_automateMl": 2.5,
-        "savingSubtotal_perc_h": 2.5,
-        "savingSubtotal_value_h": 507264.0
-      }
-    ]
-  },
-  "savingmodela": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_hdsf": 5900000,
-    "total_hdsf": 8168063,
-    "baseline_yaer_perout": 5900000,
-    "total_perout": 8168063,
-    "baseline_yaer_totals": 5900000,
-    "total_total": 8168063,
-    "yearBaseCostCalculations": [
-      {
-        "year": 1,
-        "with_partnerhs": 3084805,
-        "without_patnerhs": 2523931,
-        "cost_reductionhs": 5608736,
-         "with_partnerpo": 3084805,
-        "without_patnerpo": 2523931,
-        "cost_reductionpo": 5608736,
-         "with_partnertoatl": 3084805,
-        "without_patnertoatl": 2523931,
-        "cost_reductionhstotal": 5608736
-      },
-      {
-        "year": 2,
-      "with_partnerhs": 308,
-        "without_patnerhs": 25,
-        "cost_reductionhs": 560,
-         "with_partnerpo": 308,
-        "without_patnerpo": 25,
-        "cost_reductionpo": 566,
-         "with_partnertoatl": 3805,
-        "without_patnertoatl": 2931,
-        "cost_reductionhstotal": 5636
-      },
-      {
-        "year": 3,
-        "with_partnerhs": 30805,
-        "without_patnerhs": 2931,
-        "cost_reductionhs": 5736,
-         "with_partnerpo": 4805,
-        "without_patnerpo": 3931,
-        "cost_reductionpo": 8736,
-         "with_partnertoatl": 3805,
-        "without_patnertoatl": 23931,
-        "cost_reductionhstotal": 8736
-      }
-    ]
-  },
-
   "savingmodel_b": {
     "id": "633a5db296c81f3efa45b90b",
     "baseline_year_hdsf": 5900000,
@@ -235,22 +236,22 @@
         "with_partnerhs": 3084805,
         "without_patnerhs": 2523931,
         "cost_reductionhs": 5608736,
-         "with_partnerpo": 3084805,
+        "with_partnerpo": 3084805,
         "without_patnerpo": 2523931,
         "cost_reductionpo": 5608736,
-         "with_partnertoatl": 3084805,
+        "with_partnertoatl": 3084805,
         "without_patnertoatl": 2523931,
         "cost_reductionhstotal": 5608736
       },
       {
         "year": 2,
-      "with_partnerhs": 308,
+        "with_partnerhs": 308,
         "without_patnerhs": 25,
         "cost_reductionhs": 560,
-         "with_partnerpo": 308,
+        "with_partnerpo": 308,
         "without_patnerpo": 25,
         "cost_reductionpo": 566,
-         "with_partnertoatl": 3805,
+        "with_partnertoatl": 3805,
         "without_patnertoatl": 2931,
         "cost_reductionhstotal": 5636
       },
@@ -259,52 +260,51 @@
         "with_partnerhs": 30805,
         "without_patnerhs": 2931,
         "cost_reductionhs": 5736,
-         "with_partnerpo": 4805,
+        "with_partnerpo": 4805,
         "without_patnerpo": 3931,
         "cost_reductionpo": 8736,
-         "with_partnertoatl": 3805,
+        "with_partnertoatl": 3805,
         "without_patnertoatl": 23931,
         "cost_reductionhstotal": 8736
       }
     ]
   },
-  "runopexonsitea":{
-     "id": "633a5db296c81f3efa45b90b",
+  "runopexonsitea": {
+    "id": "633a5db296c81f3efa45b90b",
     "baseline_year_runbuss_onsite": 5900234000,
     "total_runbus_onsite": 8163458063,
     "baseline_year_asset_onsite": 590230000,
     "total_asset_onsite": 8134568063,
     "baseline_year_per_onsite": 59012340000,
     "total_per_onsite": 816348063,
-     "baseline_year_saving_onsite": 590340000,
+    "baseline_year_saving_onsite": 590340000,
     "total_saving_onsite": 8163458063,
     "yearBaseCostCalculations": [
       {
         "year": 1,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       },
       {
         "year": 2,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       },
       {
         "year": 3,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       }
     ]
-
   },
-  "runopex_a":{
-     "id": "633a5db296c81f3efa45b90b",
+  "runopex_a": {
+    "id": "633a5db296c81f3efa45b90b",
     "baseline_year_run": 59000002345,
     "total_run": 816802363,
     "baseline_year_runbuss": 5900234000,
@@ -313,7 +313,7 @@
     "total_asset": 8134568063,
     "baseline_year_per": 59012340000,
     "total_per": 816348063,
-     "baseline_year_saving": 590340000,
+    "baseline_year_saving": 590340000,
     "total_saving": 8163458063,
     "yearBaseCostCalculations": [
       {
@@ -321,30 +321,29 @@
         "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       },
       {
         "year": 2,
-     "run": 3084805,
+        "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       },
       {
         "year": 3,
-         "run": 3084805,
+        "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       }
     ]
-
   },
-  "runopex_onsite_b":{
-     "id": "633a5db296c81f3efa45b90b",
+  "runopex_onsite_b": {
+    "id": "633a5db296c81f3efa45b90b",
     "baseline_year_run_onsite": 59000002345,
     "total_run_onsite": 816802363,
     "baseline_year_runbuss_onsite": 5900234000,
@@ -353,7 +352,7 @@
     "total_asset_onsite": 8134568063,
     "baseline_year_per_onsite": 59012340000,
     "total_per_onsite": 816348063,
-     "baseline_year_saving_onsite": 590340000,
+    "baseline_year_saving_onsite": 590340000,
     "total_saving_onsite": 8163458063,
     "yearBaseCostCalculations": [
       {
@@ -361,30 +360,29 @@
         "run_onsite": 3084805,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       },
       {
         "year": 2,
-     "run_onsite": 3084805,
+        "run_onsite": 3084805,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       },
       {
         "year": 3,
-         "run_onsite": 3084805,
+        "run_onsite": 3084805,
         "runbuss_onsite": 2523931,
         "asset_onsite": 5608736,
-         "per_onsite": 3084805,
+        "per_onsite": 3084805,
         "saving_onsite": 2523931
       }
     ]
-
   },
-  "runopex_b":{
-     "id": "633a5db296c81f3efa45b90b",
+  "runopex_b": {
+    "id": "633a5db296c81f3efa45b90b",
     "baseline_year_run": 59000002345,
     "total_run": 816802363,
     "baseline_year_runbuss": 5900234000,
@@ -393,7 +391,7 @@
     "total_asset": 8134568063,
     "baseline_year_per": 59012340000,
     "total_per": 816348063,
-     "baseline_year_saving": 590340000,
+    "baseline_year_saving": 590340000,
     "total_saving": 8163458063,
     "yearBaseCostCalculations": [
       {
@@ -401,30 +399,29 @@
         "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       },
       {
         "year": 2,
-     "run": 3084805,
+        "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       },
       {
         "year": 3,
-         "run": 3084805,
+        "run": 3084805,
         "runbuss": 2523931,
         "asset": 5608736,
-         "per": 3084805,
+        "per": 3084805,
         "saving": 2523931
       }
     ]
-
   },
-  "waterfall":{
-     "id": "633a5db296c81f3efa45b90b",
+  "waterfall": {
+    "id": "633a5db296c81f3efa45b90b",
     "baseline_year_withpatner": 59000002345,
     "baseline_year_withoutpatner": 816802363,
     "year1withpatner": 5900234000,
@@ -438,5 +435,4 @@
     "runratewithpatner": 59012340000,
     "runratewithoutpatner": 816348063
   }
-
 }
