@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { HomeComponent } from './home/home.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+// import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: 'pathfinder', component: LandingPageComponent },
   {
-    path: 'costOptimization',
-    component: HomeComponent,
+    path: 'pathfinder',
+    loadChildren: () =>
+      import('./landing-page/landing-page.module').then(
+        (m) => m.LandingPageModule
+      ),
   },
+  // {
+  //   path: 'costOptimization',
+  //   component: HomeComponent,
+  // },
   {
     path: '',
     redirectTo: 'pathfinder',

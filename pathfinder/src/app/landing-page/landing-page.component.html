@@ -1,10 +1,13 @@
 <div class="landing-page">
   <div class="greet">
+    <div class="logo-img">
+      <img width="280px" src="../../assets/ascendion-logo-lg.png" alt="" />
+    </div>
     <p class="logo">Pathfinder</p>
     <p>An Ascendion Framework</p>
     <h1>Welcome</h1>
     <div class="actions mt-3">
-      <button routerLink="/costOptimization" mat-raised-button color="primary">
+      <button (click)="openDailog()" mat-raised-button color="primary">
         Get Started
       </button>
     </div>

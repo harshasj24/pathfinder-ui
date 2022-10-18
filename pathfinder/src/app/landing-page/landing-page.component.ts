@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DailogComponent } from './components/dailog/dailog.component';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
+  constructor(private dailog: MatDialog) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  openDailog() {
+    this.dailog.open(DailogComponent, { disableClose: true });
   }
 
+  ngOnInit(): void {}
 }
