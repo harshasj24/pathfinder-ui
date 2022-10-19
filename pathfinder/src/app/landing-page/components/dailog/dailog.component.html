@@ -41,18 +41,48 @@
           />
         </mat-form-field> -->
         <div class="btns container__column--center">
-          <button mat-raised-button color="primary">New Project</button>
+          <button
+            (click)="handleNewProject()"
+            matStepperNext
+            mat-raised-button
+            color="primary"
+          >
+            New Project
+          </button>
           <button
             (click)="getExtstingProject()"
             mat-raised-button
             color="primary"
             class="my-3"
+            matStepperNext
           >
             Existing Project
           </button>
         </div>
 
         <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form [formGroup]="projectDetails">
+        <ng-template matStepLabel>Fill out project details</ng-template>
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input
+            matInput
+            formControlName="secondCtrl"
+            placeholder="Ex. 1 Main St, New York, NY"
+            required
+          />
+        </mat-form-field> -->
+        <div class="btns container__column--center">
+          <div *ngIf="projectType === 'existing'" class="existing-project">
+            Is me existing
+          </div>
+          <div *ngIf="projectType === 'new'" class="new-project">Is me New</div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
         </div>

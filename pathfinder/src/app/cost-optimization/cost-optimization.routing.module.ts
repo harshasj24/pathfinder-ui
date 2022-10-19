@@ -16,6 +16,7 @@ import { AssetFormComponent } from './components/asset-form/asset-form.component
 import { ItspendrunComponent } from './components/itspendrun/itspendrun.component';
 import { PagenotfoundComponent } from '../shared/pagenotfound/pagenotfound.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SummaryComponent } from './components/summary/summary.component';
 export const cost_routes: Routes = [
   {
     path: '',
@@ -23,8 +24,12 @@ export const cost_routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'spend',
+        redirectTo: 'summary',
         pathMatch: 'full',
+      },
+      {
+        path: 'summary',
+        component: SummaryComponent,
       },
       {
         path: 'spend',

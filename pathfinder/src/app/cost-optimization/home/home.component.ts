@@ -9,6 +9,10 @@ export class HomeComponent implements OnInit {
   constructor() {}
   sideNavRoutes = [
     {
+      path: 'summary',
+      title: 'Optimization Summary',
+    },
+    {
       path: 'spend',
       title: 'Spends',
     },

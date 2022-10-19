@@ -1,0 +1,20 @@
+<mat-card>
+  <div class="card__welcome-sections">
+    <h1>Welcome To Pathfinder</h1>
+    <h3>An Ascendion Framework</h3>
+  </div>
+  <div class="card__anual-revenue container__column--center">
+    <mat-form-field appearance="outline" class="inp">
+      <mat-label>Annual Revenue</mat-label>
+      <input autocomplete="off" matInput placeholder="Annual Revenue" />
+      <mat-error>Annual revenue is required </mat-error>
+    </mat-form-field>
+    <button (click)="claculateAndSave()" mat-raised-button color="primary">
+      Claculate and save
+    </button>
+  </div>
+  <div class="card__pre-graphs container__column--center">
+    <h1>Previos Years Graph comparison</h1>
+    <app-charts></app-charts>
+  </div>
+</mat-card>

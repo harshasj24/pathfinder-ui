@@ -1,0 +1,27 @@
+mat-card {
+  min-height: 530px;
+}
+.card__anual-revenue {
+  margin-top: 100px !important;
+}
+.card__pre-graphs {
+  margin-top: 100px;
+}
+mat-form-field {
+  width: 500px;
+}
+.card__welcome-sections {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 5px;
+    color: #673ab7;
+  }
+  h3 {
+    margin: 0 !important;
+  }
+}

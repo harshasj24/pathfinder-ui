@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
 import { StoreService } from 'src/app/store.service';
@@ -15,13 +16,15 @@ export class ItSpendComponent implements OnInit {
     private dailog: MatDialog,
     private dailogService: DailogService,
     private api: ApiService,
-    public store: StoreService
+    public store: StoreService,
+    private localStorage: LocalStorageService
   ) {}
   savingoptdata: any;
   savingoptdatayear: any;
   currentYear = new Date().getFullYear();
 
   ngOnInit(): void {
+    this.handleGet('p');
     // this.savingoptdata = this.savingopt;
     // console.log(this.savingoptdata);
 
@@ -217,18 +220,31 @@ export class ItSpendComponent implements OnInit {
   };
 
   handleGet(type: string) {
-    console.log(this.paths[type].id);
-    this.api
-      .getOneRecord(`/asset/${this.paths[type].path}`, this.paths[type].id)
-      .subscribe((res: any) => {
-        let index = this.assets.findIndex((el) => el.dailogTitle == type);
-        this.assets[index].claculatedData = res;
-        console.log(res);
-        this.pathchValue = {
-          claculations: res[this.paths[type].payloadArr],
-        };
-        type === 'hosted' && this.store.setShowTotal(true);
+    // console.log(this.paths[type].id);
+    // this.api
+    //   .getOneRecord(`/asset/${this.paths[type].path}`, this.paths[type].id)
+    //   .subscribe((res: any) => {
+    //     let index = this.assets.findIndex((el) => el.dailogTitle == type);
+    //     this.assets[index].claculatedData = res;
+    //     console.log(res);
+    //     this.pathchValue = {
+    //       claculations: res[this.paths[type].payloadArr],
+    //     };
+    //     type === 'hosted' && this.store.setShowTotal(true);
+    //   });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let assets = Object.keys(project).filter(
+        (el) =>
+          el === 'hardware' ||
+          el === 'software' ||
+          el === 'managedservices' ||
+          el === 'hostedcbs'
+      );
+      assets.map((asset, i) => {
+        this.assets[i].claculatedData = project[asset];
       });
+    }
   }
   optimizationLevrs() {
     this.api.getOptimizationLevers().subscribe((res: any) => {

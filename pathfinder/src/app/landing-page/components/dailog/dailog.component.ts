@@ -19,13 +19,17 @@ export class DailogComponent implements OnInit {
   ) {}
   projectDetails = new FormGroup({});
   userDetails = new FormGroup({});
-
+  projectType: any = null;
   getExtstingProject() {
-    return this.api.getExistingProject().subscribe((val) => {
-      console.log(val);
-      this.router.navigate(['/costOptimization']);
-      this.dailog.closeAll();
-    });
+    // return this.api.getExistingProject().subscribe((val) => {
+    //   console.log(val);
+    // });
+    // this.router.navigate(['/costOptimization']);
+    // this.dailog.closeAll();
+    this.projectType = 'existing';
+  }
+  handleNewProject() {
+    this.projectType = 'new';
   }
 
   ngOnInit(): void {}

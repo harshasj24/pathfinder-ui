@@ -8,7 +8,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./itspendrun.component.scss'],
 })
 export class ItspendrunComponent implements OnInit {
-  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
+  constructor(
+    private api: ApiService,
+    private localStorage: LocalStorageService
+  ) {}
   isLoaded: boolean = false;
   itspenddata: any;
   itspenddatayear: any;
@@ -114,9 +117,9 @@ export class ItspendrunComponent implements OnInit {
     let project = this.localStorage.get('pathfiner');
     if (project) {
       let { itspendrunpersonnel } = project;
-      this.itspenddata= itspendrunpersonnel;
-      this.itspenddatayear =itspendrunpersonnel.runpersonnelcalculation
-  }
+      this.itspenddata = itspendrunpersonnel;
+      this.itspenddatayear = itspendrunpersonnel.runpersonnelcalculation;
+    }
   }
   outsourcingOnsite() {
     // this.api.getOutsourcingOnsite().subscribe((res: any) => {
@@ -126,21 +129,22 @@ export class ItspendrunComponent implements OnInit {
     let project = this.localStorage.get('pathfiner');
     if (project) {
       let { assetonsourceonsite } = project;
-      console.log( assetonsourceonsite);
-      
-      this.outsourcingdata= assetonsourceonsite;
-      this.outsourcingdatayear =assetonsourceonsite.outsourceOnsiteCalc
-  }
+      ``;
+      console.log(assetonsourceonsite);
+
+      this.outsourcingdata = assetonsourceonsite;
+      this.outsourcingdatayear = assetonsourceonsite.outsourceOnsiteCalc;
+    }
   }
   outsourcingOffshore() {
     let project = this.localStorage.get('pathfiner');
     if (project) {
       let { total_outsource } = project;
-      console.log(total_outsource );
-      
-      this.totaloutsourcingdata= total_outsource;
-      this.totaloutsourcingyear =total_outsource.outsourceFitCalc
-  }
+      console.log(total_outsource);
+
+      this.totaloutsourcingdata = total_outsource;
+      this.totaloutsourcingyear = total_outsource.outsourceFitCalc;
+    }
   }
   ngOnInit(): void {
     this.getSpendPersonnel();

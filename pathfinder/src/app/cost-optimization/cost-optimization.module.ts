@@ -25,6 +25,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { SummaryComponent } from './components/summary/summary.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -41,6 +42,7 @@ import {
     RunitspendOutsourceComponent,
     AssetFormComponent,
     ItspendrunComponent,
+    SummaryComponent,
   ],
   imports: [
     CommonModule,

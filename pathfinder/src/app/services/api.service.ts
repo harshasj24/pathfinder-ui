@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, tap, Observable } from 'rxjs';
 import { inputTable } from '../core/models/tables';
@@ -8,7 +9,12 @@ import { StoreService } from '../store.service';
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpService, private store: StoreService) {}
+  constructor(
+    private http: HttpService,
+    private store: StoreService,
+    private localStorage: LocalStorageService,
+    private http1: HttpClient
+  ) {}
   getInputTable(payload: any) {
     return this.http.post('/inputtables/inputvalues', payload).pipe(
       tap((res: any) => {
@@ -369,6 +375,13 @@ export class ApiService {
       `/asset/itspendasset/${this.store.getId('hardware')}/${this.store.getId(
         'software'
       )}/${this.store.getId('managed')}/${this.store.getId('hosted')}`
+    );
+  }
+  getExistingProject() {
+    return this.http1.get(`http://localhost:4300/harsha's_proect`).pipe(
+      tap((res: any) => {
+        this.localStorage.set(res.projectname, res);
+      })
     );
   }
 }
