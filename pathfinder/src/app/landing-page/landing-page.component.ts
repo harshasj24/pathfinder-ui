@@ -11,7 +11,7 @@ export class LandingPageComponent implements OnInit {
   constructor(private dailog: MatDialog) {}
 
   openDailog() {
-    this.dailog.open(DailogComponent, { disableClose: true });
+    this.dailog.open(DailogComponent, { disableClose: true, });
   }
 
   ngOnInit(): void {}
