@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
@@ -9,7 +10,7 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./costoftransform.component.scss'],
 })
 export class CostoftransformComponent implements OnInit {
-  constructor(private apiservice: ApiService, private store: StoreService) {}
+  constructor(private apiservice: ApiService, private store: StoreService,private  localStorage: LocalStorageService) {}
   isLoaded: boolean = false;
   canUpdate: boolean = false;
   costData: any;
@@ -67,20 +68,66 @@ export class CostoftransformComponent implements OnInit {
   }
   // get one request
   handleGet() {
-    this.apiservice
-      .getOneRecord('/inputtables/cost', this.store.getId('COT_Id'))
-      .subscribe((res: any) => {
-        this.costData = res;
-        this.costDataYear = res.yearBaseCostCalculations;
-        this.canUpdate = true;
-        let { yearBaseCostCalculations } = res;
+    // this.apiservice
+    //   .getOneRecord('/inputtables/cost', this.store.getId('COT_Id'))
+    //   .subscribe((res: any) => {
+    //     this.costData = res;
+    //     this.costDataYear = res.yearBaseCostCalculations;
+        // let { yearBaseCostCalculations } = res;
+        // let obj: any = {};
+        // yearBaseCostCalculations.map((el: any, i: any) => {
+        //   obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+        // });
+        // this.costtransformation.patchValue({ ...res, ...obj });
+      // });
+      let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { cost } = project;
+      console.log(cost);
+      this.costData = cost;
+      this.costDataYear=cost.yearBaseCostCalculations
+      this.canUpdate = true;
+      let { yearBaseCostCalculations } = cost;
+      console.log(yearBaseCostCalculations);
+      
         let obj: any = {};
         yearBaseCostCalculations.map((el: any, i: any) => {
           obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
         });
-        this.costtransformation.patchValue({ ...res, ...obj });
-      });
+        // this.costtransformation.patchValue({ ...res, ...obj });
+         this.costtransformation.patchValue({ ...cost,...obj});
+    
+//         yearBaseCostCalculations.map((el: any, i: any) => {
+//           // obj.yearLine = i;
+//           obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+//            obj[`client_share_value${i + 1}`] = el.client_share_value;
+//            obj[`partner_share_value${i + 1}`] = el.partner_share_value;
+//            obj[`total_with_inflation${i + 1}`] = el.total_with_inflation;
+
+//           // console.log(el.cot_spread_perc);
+//           // console.log(el.client_share_value);
+//           // console.log(el.partner_share_value);
+//           // console.log(el.total_with_inflation);
+//           console.log(obj);
+//           [
+//           'client_share_value',
+//           'partner_share_value',
+//           'total_with_inflation'
+        
+//         ].forEach((el) => {
+//           this.costDataYear[el] = cost.yearBaseCostCalculations.map(
+//             (val: any) => val[el]
+//           );
+//         });
+// console.log(obj);
+
+//          
+          
+//         });
+      
   }
+  
+}
   handleUpdate() {
     let yearBaseCostCalculations: any = [];
 
@@ -102,5 +149,7 @@ export class CostoftransformComponent implements OnInit {
       this.handleGet();
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.handleGet();
+  }
 }

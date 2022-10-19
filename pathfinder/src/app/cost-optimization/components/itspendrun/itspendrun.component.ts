@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./itspendrun.component.scss'],
 })
 export class ItspendrunComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
   isLoaded: boolean = false;
   itspenddata: any;
   itspenddatayear: any;
@@ -106,24 +107,45 @@ export class ItspendrunComponent implements OnInit {
   };
 
   getSpendPersonnel() {
-    this.api.getItSpendOnRunPersonnel().subscribe((res: any) => {
-      this.itspenddata = res;
-      this.itspenddatayear = res.runpersonnelcalculation;
-    });
+    // this.api.getItSpendOnRunPersonnel().subscribe((res: any) => {
+    //   this.itspenddata = res;
+    //   this.itspenddatayear = res.runpersonnelcalculation;
+    // });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { itspendrunpersonnel } = project;
+      this.itspenddata= itspendrunpersonnel;
+      this.itspenddatayear =itspendrunpersonnel.runpersonnelcalculation
+  }
   }
   outsourcingOnsite() {
-    this.api.getOutsourcingOnsite().subscribe((res: any) => {
-      this.outsourcingdata = res;
-      this.outsourcingdatayear = res.outsourceOnsiteCalc;
-    });
+    // this.api.getOutsourcingOnsite().subscribe((res: any) => {
+    //   this.outsourcingdata = res;
+    //   this.outsourcingdatayear = res.outsourceOnsiteCalc;
+    // });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { assetonsourceonsite } = project;
+      console.log( assetonsourceonsite);
+      
+      this.outsourcingdata= assetonsourceonsite;
+      this.outsourcingdatayear =assetonsourceonsite.outsourceOnsiteCalc
+  }
   }
   outsourcingOffshore() {
-    this.api.getOutsourcingFitShore().subscribe((res: any) => {
-      this.totaloutsourcingdata = res;
-      this.totaloutsourcingyear = res.outsourceFitCalc;
-    });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { total_outsource } = project;
+      console.log(total_outsource );
+      
+      this.totaloutsourcingdata= total_outsource;
+      this.totaloutsourcingyear =total_outsource.outsourceFitCalc
+  }
   }
   ngOnInit(): void {
+    this.getSpendPersonnel();
+    this.outsourcingOnsite();
+    this.outsourcingOffshore();
     // this.itspenddata = this.itspendrun;
     // this.itspenddatayear = this.itspenddata.runpersonnelcalculation;
     // this.outsourcingdata = this.outsourceingonsite;

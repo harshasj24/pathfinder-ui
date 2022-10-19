@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./runitspend-outsource.component.scss'],
 })
 export class RunitspendOutsourceComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
   isLoaded: boolean = false;
   runitspendftedata: any;
   runitspendftedatayear: any;
@@ -74,18 +75,32 @@ export class RunitspendOutsourceComponent implements OnInit {
     ],
   };
   getRunPer() {
-    this.api.getRunItOutsourceFte().subscribe((res) => {
-      this.runitspendftedata = res;
-      this.runitspendftedatayear = res.runfteCalc;
-    });
+    // this.api.getRunItOutsourceFte().subscribe((res) => {
+    //   this.runitspendftedata = res;
+    //   this.runitspendftedatayear = res.runfteCalc;
+    // });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { runitoutsource } = project;
+      this. runitspendftedata= runitoutsource;
+      this.runitspendftedatayear=runitoutsource.runfteCalc
+  }
   }
   getRunCost() {
-    this.api.getRunItOutsourceCosts().subscribe((res) => {
-      this.runitspendcostsdata = res;
-      this.runitspendcostsdatayear = res.runCostsCalc;
-    });
+    // this.api.getRunItOutsourceCosts().subscribe((res) => {
+    //   this.runitspendcostsdata = res;
+    //   this.runitspendcostsdatayear = res.runCostsCalc;
+    // });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { runoutsourceitcost } = project;
+      this.runitspendcostsdata= runoutsourceitcost;
+      this.runitspendcostsdatayear =runoutsourceitcost.runCostsCalc
+  }
   }
   ngOnInit(): void {
+    this.getRunPer();
+    this.getRunCost();
     // this.runitspendftedata = this.runitspendfte;
     // this.runitspendftedatayear = this.runitspendftedata.runfteCalc;
     // this.runitspendcostsdata = this.runitspendcosts;

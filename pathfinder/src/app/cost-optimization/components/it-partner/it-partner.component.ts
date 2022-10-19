@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClaculationService } from 'src/app/claculation.service';
 import { CoreServices } from 'src/app/core/services/core.service';
 import { HttpService } from 'src/app/core/services/http.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
@@ -31,7 +32,8 @@ export class ItPartnerComponent implements OnInit {
     public calc: ClaculationService,
     private apiservice: ApiService,
     private http: HttpService,
-    public core: CoreServices
+    public core: CoreServices,
+    private  localStorage: LocalStorageService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -122,14 +124,46 @@ export class ItPartnerComponent implements OnInit {
   }
   // get one request
   handleGet() {
-    this.apiservice
-      .getOneRecord(
-        '/inputtables/itpersonelcost',
-        this.store.getId('itpersonelcost')
-      )
-      .subscribe((res: any) => {
-        let obj: any = {};
-        res.yearBseCalculations.map((el: any, i: any) => {
+    // this.apiservice
+    //   .getOneRecord(
+    //     '/inputtables/itpersonelcost',
+    //     this.store.getId('itpersonelcost')
+    //   )
+    //   .subscribe((res: any) => {
+    //     let obj: any = {};
+    //     res.yearBseCalculations.map((el: any, i: any) => {
+    //       obj.yearLine = i;
+    //       obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
+    //       obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
+    //       obj[`offshoreRatioy${i + 1}`] = el.offshoreRatio;
+    //       obj[`onsiteRatioy${i + 1}`] = el.onsiteRatio;
+    //     });
+    //     this.canUpdate = true;
+    //     this.itPersonelCostData = res;
+    //     console.log(obj);
+    //     [
+    //       'infteCumulative',
+    //       'fteSavingsCumulative',
+    //       'netPartnerFte',
+    //       'inFteOnsite',
+    //       'inFteOffshore',
+    //     ].forEach((el) => {
+    //       this.outsourcings[el] = res.yearBseCalculations.map(
+    //         (val: any) => val[el]
+    //       );
+    //     });
+
+    //     this.itpersonelcost.patchValue({ ...res, ...obj });
+    //     // this.disableEnable(false);
+    //   });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { itPersonnelCost } = project;
+      console.log(project);
+      
+      this.itPersonelCostData = itPersonnelCost;
+       let obj: any = {};
+        itPersonnelCost.yearBseCalculations.map((el: any, i: any) => {
           obj.yearLine = i;
           obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
           obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
@@ -137,8 +171,8 @@ export class ItPartnerComponent implements OnInit {
           obj[`onsiteRatioy${i + 1}`] = el.onsiteRatio;
         });
         this.canUpdate = true;
-        this.itPersonelCostData = res;
-        console.log(obj);
+        // this.itPersonelCostData = res;
+        // console.log(obj);
         [
           'infteCumulative',
           'fteSavingsCumulative',
@@ -146,14 +180,13 @@ export class ItPartnerComponent implements OnInit {
           'inFteOnsite',
           'inFteOffshore',
         ].forEach((el) => {
-          this.outsourcings[el] = res.yearBseCalculations.map(
+          this.outsourcings[el] = itPersonnelCost.yearBseCalculations.map(
             (val: any) => val[el]
           );
         });
 
-        this.itpersonelcost.patchValue({ ...res, ...obj });
-        // this.disableEnable(false);
-      });
+      this.itpersonelcost.patchValue({ ...itPersonnelCost,...obj});
+    }
   }
 
   // handleupdate
@@ -182,6 +215,7 @@ export class ItPartnerComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+     this.handleGet();
     //   this.itpersonelcost.valueChanges.subscribe((values) => {
     //     if (values?.takeoverYear1) {
     //       this.claculateFieldPrecentage(

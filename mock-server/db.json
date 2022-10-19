@@ -554,6 +554,38 @@
     "it_management_fte_spread_value": 97,
     "total_itspend_run_value": 181512500,
     "total_fte_spread_value": 811
-  }
+  },
+  "total_outsource": {
+        "id": "63455370fa84cf0075f15dcf",
+        "sum_totoal_outsource_fit": 233900022,
+        "sum_onsite_offshore_model": 239536800,
+        "sum_cot_partner_share": 5636778,
+        "sum_total_savings_yoy": 160160999,
+        "main_total_savings_yoy": 41.0,
+        "outsourceFitCalc": [
+            {
+                "year": 1,
+                "totoal_outsource_fit": 113586567,
+                "onsite_offshore_model": 115277600,
+                "cot_partner_share": 1691033,
+                "total_savings_yoy": 13742028
+            },
+            {
+                "year": 2,
+                "totoal_outsource_fit": 76548261,
+                "onsite_offshore_model": 79366650,
+                "cot_partner_share": 2818389,
+                "total_savings_yoy": 55916067
+            },
+            {
+                "year": 3,
+                "totoal_outsource_fit": 43765194,
+                "onsite_offshore_model": 44892550,
+                "cot_partner_share": 1127356,
+                "total_savings_yoy": 90502904
+            }
+        ]
+    }
+
 }
 }

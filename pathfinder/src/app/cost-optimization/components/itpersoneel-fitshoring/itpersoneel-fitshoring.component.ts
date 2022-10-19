@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./itpersoneel-fitshoring.component.scss'],
 })
 export class ItpersoneelFitshoringComponent implements OnInit {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
   isLoaded: boolean = false;
   itpersonneldata: any;
   itpersonneldatayear: any;
@@ -66,12 +67,19 @@ export class ItpersoneelFitshoringComponent implements OnInit {
   };
 
   getData() {
-    this.api.getRunItOutsourceFitModal().subscribe((val: any) => {
-      this.itpersonneldata = val;
-      this.itpersonneldatayear = val.fitcalc;
-    });
+    // this.api.getRunItOutsourceFitModal().subscribe((val: any) => {
+    //   this.itpersonneldata = val;
+    //   this.itpersonneldatayear = val.fitcalc;
+    // });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { itpersonnelfit } = project;
+      this. itpersonneldata= itpersonnelfit;
+      this.itpersonneldatayear=itpersonnelfit.fitcalc
   }
+}
   ngOnInit(): void {
+    this.getData()
     // this.itpersonneldata = this.itpersonnelfitshoring;
     // this.itpersonneldatayear = this.itpersonneldata.fitcalc;
   }

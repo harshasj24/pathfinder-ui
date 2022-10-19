@@ -14,6 +14,7 @@ import { ClaculationService } from 'src/app/claculation.service';
 import { ApiService } from 'src/app/services/api.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { CoreServices } from 'src/app/core/services/core.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',
@@ -25,7 +26,8 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     private store: StoreService,
     private apiservice: ApiService,
     private http: HttpService,
-    public core: CoreServices
+    public core: CoreServices,
+    private  localStorage: LocalStorageService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -76,6 +78,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.handleGet();
     this.store.store.subscribe((data: any) => {
       this.inputTabelVal = data;
     });
@@ -130,15 +133,21 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     });
   }
   handleGet() {
-    this.apiservice
-      .getOneRecord(
-        '/inputtables/itpersonel',
-        this.store.getId('itPersonnelId')
-      )
-      .subscribe((res: any) => {
-        this.itPersonelData = res;
-        this.canUpdate = true;
-        this.itPersonel.patchValue({ ...res });
-      });
+    // this.apiservice
+    //   .getOneRecord(
+    //     '/inputtables/itpersonel',
+    //     this.store.getId('itPersonnelId')
+    //   )
+    //   .subscribe((res: any) => {
+    //     this.itPersonelData = res;
+    //     this.canUpdate = true;
+    //     this.itPersonel.patchValue({ ...res });
+    //   });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { itPersonnel } = project;
+      this.itPersonelData = itPersonnel;
+      this.itPersonel.patchValue({ ...itPersonnel});
+    }
   }
 }
