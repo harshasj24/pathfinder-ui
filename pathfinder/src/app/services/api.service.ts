@@ -377,6 +377,10 @@ export class ApiService {
       )}/${this.store.getId('managed')}/${this.store.getId('hosted')}`
     );
   }
+
+  createProject(projectDetails: any) {
+    return this.http.post('/user/input', projectDetails);
+  }
   getExistingProject() {
     return this.http1.get(`http://localhost:4300/harsha's_proect`).pipe(
       tap((res: any) => {
