@@ -15,11 +15,30 @@ const routes: Routes = [
   {
     path: '',
     component: HomeModalOptionsComponent,
+    children: [
+      { path: '', redirectTo: 'savingmodalB', pathMatch: 'full' },
+      {
+        path: 'savingmodalB',
+        component: SavingmodalBComponent,
+      },
+      {
+        path: 'opexmodalB',
+        component: OpexModalComponent,
+      },
+      {
+        path: 'savingmodalA',
+        component: SavingmodelAComponent,
+      },
+      {
+        path: 'runopexA',
+        component: RunOpexModelComponent,
+      },
+      {
+        path: 'waterfall',
+        component: WaterfallsTabelComponent,
+      },
+    ],
   },
- {
-  path:'**', 
-  component:PagenotfoundComponent
- }
 ];
 
 @NgModule({
