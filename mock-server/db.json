@@ -1,438 +1,559 @@
 {
-  "sahana's_proect": {
-    "inputTable": {
-      "annual_revenue_for_client": 11170000000,
-      "it_spent_perc": 2.5,
-      "it_spent_value": 279250000,
-      "run_business_perc": 65.0,
-      "run_business_value": 181512500,
-      "grow_business_perc": 23.0,
-      "grow_business_value": 64227500,
-      "transform_it_perc": 12.0,
-      "transform_it_value": 33510000,
-      "annual_inflation_perc": 3.0
-    },
-    "itPersonnel": {
-      "id": "633a5b869a494d0bb409d184",
-      "it_spend_on_personal_perc": 67.0,
-      "it_spend_outsource": 187097500,
-      "avr_ctc_per_fte": 150000,
-      "avr_ctc_final": 1247,
-      "run_fte_personal": 121613375,
-      "run_fte_outsource": 811,
-      "grow_fte_personal": 43032425,
-      "grow_fte_outsource": 287,
-      "transform_fte_personal": 22451700,
-      "transform_fte_outsource": 150,
-      "perc_eligible_forpersonal": 85.0,
-      "eligible_outsource": 689
-    },
-
-    "itPersonnelCost": {
-      "id": "633a5c419a494d0bb409d185",
-      "partnerCtcOnsite": 115000,
-      "partnerCtcOffshore": 20000,
-      "onsitRatio": 20.0,
-      "offshoreRatio": 80.0,
-      "yearBseCalculations": [
-        {
-          "yearLine": 1,
-          "takeOverPlan": 25.0,
-          "infteCumulative": 172,
-          "ppImprovement": 3.0,
-          "fteSavingsCumulative": 5,
-          "netPartnerFte": 167,
-          "onsiteRatio": 80.0,
-          "inFteOnsite": 134,
-          "offshoreRatio": 20.0,
-          "inFteOffshore": 33
-        },
-        {
-          "yearLine": 2,
-          "takeOverPlan": 50.0,
-          "infteCumulative": 517,
-          "ppImprovement": 5.0,
-          "fteSavingsCumulative": 31,
-          "netPartnerFte": 486,
-          "onsiteRatio": 50.0,
-          "inFteOnsite": 243,
-          "offshoreRatio": 50.0,
-          "inFteOffshore": 243
-        },
-        {
-          "yearLine": 3,
-          "takeOverPlan": 25.0,
-          "infteCumulative": 689,
-          "ppImprovement": 2.0,
-          "fteSavingsCumulative": 45,
-          "netPartnerFte": 644,
-          "onsiteRatio": 20.0,
-          "inFteOnsite": 129,
-          "offshoreRatio": 80.0,
-          "inFteOffshore": 515
-        }
-      ]
-    },
-    "cost": {
-      "id": "633a5db296c81f3efa45b90b",
-      "cot_perc": 10.0,
-      "cot_value": 18151250,
-      "client_perc": 55.0,
-      "client_value": 9983188,
-      "partner_perc": 45.0,
-      "partner_value": 8168063,
-      "yearBaseCostCalculations": [
-        {
-          "year": 1,
-          "cot_spread_perc": 30.0,
-          "client_share_value": 3084805,
-          "partner_share_value": 2523931,
-          "total_with_inflation": 5608736
-        },
-        {
-          "year": 2,
-          "cot_spread_perc": 50.0,
-          "client_share_value": 5141342,
-          "partner_share_value": 4206552,
-          "total_with_inflation": 9347894
-        },
-        {
-          "year": 3,
-          "cot_spread_perc": 20.0,
-          "client_share_value": 2056537,
-          "partner_share_value": 1682621,
-          "total_with_inflation": 3739158
-        }
-      ]
-    },
-    "assertRunItSpend": {
-      "id": "633a5dea96c81f3efa45b90c",
-      "baseLineYearSpend": 59899125,
-      "total_itSpendWithInflation": 190696472,
-      "total_cotClientShare": 3393286.0,
-      "total_yearlyRunRate": 194089758,
-      "runCalc": [
-        {
-          "year": 1,
-          "itSpendWithInflation": 6.1696099e7,
-          "cotClientShare": 1017986.0,
-          "yearlyRunRate": 6.2714085e7
-        },
-        {
-          "year": 2,
-          "itSpendWithInflation": 6.3546982e7,
-          "cotClientShare": 1696643.0,
-          "yearlyRunRate": 6.5243625e7
-        },
-        {
-          "year": 3,
-          "itSpendWithInflation": 6.5453391e7,
-          "cotClientShare": 678657.0,
-          "yearlyRunRate": 6.6132048e7
-        }
-      ]
-    },
-    "hardware": {
-      "perc_split_hardware": 31.0,
-      "baseLine_hardware": 18568729,
-      "total_eliminateReduc": 0.25,
-      "total_eliminateRetire": 0.5,
-      "total_consolidate": 0.7,
-      "total_rationalize": 5.0,
-      "total_perc_h": 6.45,
-      "total_value_h": 1278799.0,
-      "hardwareCalculations": [
-        {
-          "year": 1,
-          "spendIncreaseWithInflation_h": 19125791,
-          "eliminate_reducdancyElimination": 0.15,
-          "eliminate_retireDecommision": 0.3,
-          "consolidate_realignRedistribute": 0.2,
-          "rationalize_automateMl": 0.5,
-          "savingSubtotal_perc_h": 1.1500001,
-          "savingSubtotal_value_h": 219947.0
-        },
-        {
-          "year": 2,
-          "spendIncreaseWithInflation_h": 19699565,
-          "eliminate_reducdancyElimination": 0.1,
-          "eliminate_retireDecommision": 0.2,
-          "consolidate_realignRedistribute": 0.5,
-          "rationalize_automateMl": 2.0,
-          "savingSubtotal_perc_h": 2.8,
-          "savingSubtotal_value_h": 551588.0
-        },
-        {
-          "year": 3,
-          "spendIncreaseWithInflation_h": 20290552,
-          "eliminate_reducdancyElimination": 0.0,
-          "eliminate_retireDecommision": 0.0,
-          "consolidate_realignRedistribute": 0.0,
-          "rationalize_automateMl": 2.5,
-          "savingSubtotal_perc_h": 2.5,
-          "savingSubtotal_value_h": 507264.0
-        }
-      ]
-    },
-    "savingmodela": {
-      "id": "633a5db296c81f3efa45b90b",
-      "baseline_year_hdsf": 5900000,
-      "total_hdsf": 8168063,
-      "baseline_yaer_perout": 5900000,
-      "total_perout": 8168063,
-      "baseline_yaer_totals": 5900000,
-      "total_total": 8168063,
-      "yearBaseCostCalculations": [
-        {
-          "year": 1,
-          "with_partnerhs": 3084805,
-          "without_patnerhs": 2523931,
-          "cost_reductionhs": 5608736,
-          "with_partnerpo": 3084805,
-          "without_patnerpo": 2523931,
-          "cost_reductionpo": 5608736,
-          "with_partnertoatl": 3084805,
-          "without_patnertoatl": 2523931,
-          "cost_reductionhstotal": 5608736
-        },
-        {
-          "year": 2,
-          "with_partnerhs": 308,
-          "without_patnerhs": 25,
-          "cost_reductionhs": 560,
-          "with_partnerpo": 308,
-          "without_patnerpo": 25,
-          "cost_reductionpo": 566,
-          "with_partnertoatl": 3805,
-          "without_patnertoatl": 2931,
-          "cost_reductionhstotal": 5636
-        },
-        {
-          "year": 3,
-          "with_partnerhs": 30805,
-          "without_patnerhs": 2931,
-          "cost_reductionhs": 5736,
-          "with_partnerpo": 4805,
-          "without_patnerpo": 3931,
-          "cost_reductionpo": 8736,
-          "with_partnertoatl": 3805,
-          "without_patnertoatl": 23931,
-          "cost_reductionhstotal": 8736
-        }
-      ]
-    }
+  "harsha's_proect":{
+    "projectname":"pathfiner",
+    "userId":1,
+    "username":"harshasj",
+  "inputTable": {
+    "id": "63454b330a6097068ee5231c",
+    "annual_revenue_for_client": 11170000000,
+    "it_spent_perc": 2.5,
+    "it_spent_value": 279250000,
+    "run_business_perc": 65,
+    "run_business_value": 181512500,
+    "grow_business_perc": 23,
+    "grow_business_value": 64227500,
+    "transform_it_perc": 12,
+    "transform_it_value": 33510000,
+    "annual_inflation_perc": 3
   },
-  "savingmodel_b": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_hdsf": 5900000,
-    "total_hdsf": 8168063,
-    "baseline_yaer_perout": 5900000,
-    "total_perout": 8168063,
-    "baseline_yaer_totals": 5900000,
-    "total_total": 8168063,
-    "yearBaseCostCalculations": [
+  "itPersonnel": {
+    "id": "63454c82fa84cf0075f15dbf",
+    "it_spend_on_personal_perc": 67,
+    "it_spend_outsource": 187097500,
+    "avr_ctc_per_fte": 150000,
+    "avr_ctc_final": 1247,
+    "run_fte_personal": 121613375,
+    "run_fte_outsource": 811,
+    "grow_fte_personal": 43032425,
+    "grow_fte_outsource": 287,
+    "transform_fte_personal": 22451700,
+    "transform_fte_outsource": 150,
+    "perc_eligible_forpersonal": 85,
+    "eligible_outsource": 689
+  },
+  "itPersonnelCost": {
+    "id": "63454cd1fa84cf0075f15dc0",
+    "partnerCtcOnsite": 115000,
+    "partnerCtcOffshore": 20000,
+    "onsitRatio": 20,
+    "offshoreRatio": 80,
+    "yearBseCalculations": [
       {
-        "year": 1,
-        "with_partnerhs": 3084805,
-        "without_patnerhs": 2523931,
-        "cost_reductionhs": 5608736,
-        "with_partnerpo": 3084805,
-        "without_patnerpo": 2523931,
-        "cost_reductionpo": 5608736,
-        "with_partnertoatl": 3084805,
-        "without_patnertoatl": 2523931,
-        "cost_reductionhstotal": 5608736
+        "yearLine": 1,
+        "takeOverPlan": 25,
+        "infteCumulative": 172,
+        "ppImprovement": 3,
+        "fteSavingsCumulative": 5,
+        "netPartnerFte": 167,
+        "onsiteRatio": 80,
+        "inFteOnsite": 134,
+        "offshoreRatio": 20,
+        "inFteOffshore": 33
       },
       {
-        "year": 2,
-        "with_partnerhs": 308,
-        "without_patnerhs": 25,
-        "cost_reductionhs": 560,
-        "with_partnerpo": 308,
-        "without_patnerpo": 25,
-        "cost_reductionpo": 566,
-        "with_partnertoatl": 3805,
-        "without_patnertoatl": 2931,
-        "cost_reductionhstotal": 5636
+        "yearLine": 2,
+        "takeOverPlan": 50,
+        "infteCumulative": 517,
+        "ppImprovement": 5,
+        "fteSavingsCumulative": 31,
+        "netPartnerFte": 486,
+        "onsiteRatio": 50,
+        "inFteOnsite": 243,
+        "offshoreRatio": 50,
+        "inFteOffshore": 243
       },
       {
-        "year": 3,
-        "with_partnerhs": 30805,
-        "without_patnerhs": 2931,
-        "cost_reductionhs": 5736,
-        "with_partnerpo": 4805,
-        "without_patnerpo": 3931,
-        "cost_reductionpo": 8736,
-        "with_partnertoatl": 3805,
-        "without_patnertoatl": 23931,
-        "cost_reductionhstotal": 8736
+        "yearLine": 3,
+        "takeOverPlan": 25,
+        "infteCumulative": 689,
+        "ppImprovement": 2,
+        "fteSavingsCumulative": 45,
+        "netPartnerFte": 644,
+        "onsiteRatio": 20,
+        "inFteOnsite": 129,
+        "offshoreRatio": 80,
+        "inFteOffshore": 515
       }
     ]
   },
-  "runopexonsitea": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_runbuss_onsite": 5900234000,
-    "total_runbus_onsite": 8163458063,
-    "baseline_year_asset_onsite": 590230000,
-    "total_asset_onsite": 8134568063,
-    "baseline_year_per_onsite": 59012340000,
-    "total_per_onsite": 816348063,
-    "baseline_year_saving_onsite": 590340000,
-    "total_saving_onsite": 8163458063,
+  "itspendcategory": {
+    "id": "63454e59fa84cf0075f15dc3",
+    "year": 2021,
+    "hardware": 31,
+    "software": 29,
+    "hosted_cbs": 24,
+    "managedServices": 16
+  },
+  "cost": {
+    "id": "63454d08fa84cf0075f15dc1",
+    "cot_perc": 10,
+    "cot_value": 18151250,
+    "client_perc": 55,
+    "client_value": 9983188,
+    "partner_perc": 45,
+    "partner_value": 8168063,
     "yearBaseCostCalculations": [
       {
         "year": 1,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "cot_spread_perc": 30,
+        "client_share_value": 3084805,
+        "partner_share_value": 2523931,
+        "total_with_inflation": 5608736
       },
       {
         "year": 2,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "cot_spread_perc": 50,
+        "client_share_value": 5141342,
+        "partner_share_value": 4206552,
+        "total_with_inflation": 9347894
       },
       {
         "year": 3,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "cot_spread_perc": 20,
+        "client_share_value": 2056537,
+        "partner_share_value": 1682621,
+        "total_with_inflation": 3739158
       }
     ]
   },
-  "runopex_a": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_run": 59000002345,
-    "total_run": 816802363,
-    "baseline_year_runbuss": 5900234000,
-    "total_runbus": 8163458063,
-    "baseline_year_asset": 590230000,
-    "total_asset": 8134568063,
-    "baseline_year_per": 59012340000,
-    "total_per": 816348063,
-    "baseline_year_saving": 590340000,
-    "total_saving": 8163458063,
-    "yearBaseCostCalculations": [
+  "assertRunItSpend": {
+    "id": "633a5dea96c81f3efa45b90c",
+    "baseLineYearSpend": 59899125,
+    "total_itSpendWithInflation": 190696472,
+    "total_cotClientShare": 3393286,
+    "total_yearlyRunRate": 194089758,
+    "runCalc": [
       {
         "year": 1,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "itSpendWithInflation": 61696099,
+        "cotClientShare": 1017986,
+        "yearlyRunRate": 62714085
       },
       {
         "year": 2,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "itSpendWithInflation": 63546982,
+        "cotClientShare": 1696643,
+        "yearlyRunRate": 65243625
       },
       {
         "year": 3,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "itSpendWithInflation": 65453391,
+        "cotClientShare": 678657,
+        "yearlyRunRate": 66132048
       }
     ]
   },
-  "runopex_onsite_b": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_run_onsite": 59000002345,
-    "total_run_onsite": 816802363,
-    "baseline_year_runbuss_onsite": 5900234000,
-    "total_runbus_onsite": 8163458063,
-    "baseline_year_asset_onsite": 590230000,
-    "total_asset_onsite": 8134568063,
-    "baseline_year_per_onsite": 59012340000,
-    "total_per_onsite": 816348063,
-    "baseline_year_saving_onsite": 590340000,
-    "total_saving_onsite": 8163458063,
-    "yearBaseCostCalculations": [
+  "hardware": {
+    "id": "63454e9efa84cf0075f15dc4",
+    "perc_split_hardware": 31,
+    "baseLine_hardware": 18568729,
+    "total_eliminateReduc": 0.25,
+    "total_eliminateRetire": 0.5,
+    "total_consolidate": 0.7,
+    "total_rationalize": 5,
+    "total_perc_h": 6.45,
+    "total_value_h": 1278799,
+    "hardwareCalculations": [
       {
         "year": 1,
-        "run_onsite": 3084805,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "spendIncreaseWithInflation_h": 19125791,
+        "eliminate_reducdancyElimination": 0.15,
+        "eliminate_retireDecommision": 0.3,
+        "consolidate_realignRedistribute": 0.2,
+        "rationalize_automateMl": 0.5,
+        "savingSubtotal_perc_h": 1.1500001,
+        "savingSubtotal_value_h": 219947
       },
       {
         "year": 2,
-        "run_onsite": 3084805,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "spendIncreaseWithInflation_h": 19699565,
+        "eliminate_reducdancyElimination": 0.1,
+        "eliminate_retireDecommision": 0.2,
+        "consolidate_realignRedistribute": 0.5,
+        "rationalize_automateMl": 2,
+        "savingSubtotal_perc_h": 2.8,
+        "savingSubtotal_value_h": 551588
       },
       {
         "year": 3,
-        "run_onsite": 3084805,
-        "runbuss_onsite": 2523931,
-        "asset_onsite": 5608736,
-        "per_onsite": 3084805,
-        "saving_onsite": 2523931
+        "spendIncreaseWithInflation_h": 20290552,
+        "eliminate_reducdancyElimination": 0,
+        "eliminate_retireDecommision": 0,
+        "consolidate_realignRedistribute": 0,
+        "rationalize_automateMl": 2.5,
+        "savingSubtotal_perc_h": 2.5,
+        "savingSubtotal_value_h": 507264
       }
     ]
   },
-  "runopex_b": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_run": 59000002345,
-    "total_run": 816802363,
-    "baseline_year_runbuss": 5900234000,
-    "total_runbus": 8163458063,
-    "baseline_year_asset": 590230000,
-    "total_asset": 8134568063,
-    "baseline_year_per": 59012340000,
-    "total_per": 816348063,
-    "baseline_year_saving": 590340000,
-    "total_saving": 8163458063,
-    "yearBaseCostCalculations": [
+  "software": {
+    "id": "63454ee5fa84cf0075f15dc5",
+    "perc_split_software": 29,
+    "baseLine_software": 17370746,
+    "total_rationalize": 3.5,
+    "total_std_platform": 4,
+    "total_transform": 1.5,
+    "total_eliminate": 0.25,
+    "total_perc_s": 9.25,
+    "total_value_s": 1698798,
+    "softwareCalculations": [
       {
         "year": 1,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "spendIncreaseWithInflation_s": 17891868,
+        "rationalize_refactor": 1,
+        "std_platform": 1,
+        "transform_distributed_agile": 1,
+        "eliminate_redundancy": 0.15,
+        "savingSubtotal_perc_s": 3.15,
+        "savingSubtotal_value_s": 563594
       },
       {
         "year": 2,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "spendIncreaseWithInflation_s": 18428624,
+        "rationalize_refactor": 1.5,
+        "std_platform": 2,
+        "transform_distributed_agile": 0.5,
+        "eliminate_redundancy": 0.1,
+        "savingSubtotal_perc_s": 4.1,
+        "savingSubtotal_value_s": 755574
       },
       {
         "year": 3,
-        "run": 3084805,
-        "runbuss": 2523931,
-        "asset": 5608736,
-        "per": 3084805,
-        "saving": 2523931
+        "spendIncreaseWithInflation_s": 18981483,
+        "rationalize_refactor": 1,
+        "std_platform": 1,
+        "transform_distributed_agile": 0,
+        "eliminate_redundancy": 0,
+        "savingSubtotal_perc_s": 2,
+        "savingSubtotal_value_s": 379630
       }
     ]
   },
-  "waterfall": {
-    "id": "633a5db296c81f3efa45b90b",
-    "baseline_year_withpatner": 59000002345,
-    "baseline_year_withoutpatner": 816802363,
-    "year1withpatner": 5900234000,
-    "year1withoutpatner": 8163458063,
-    "year2withpatner": 590230000,
-    "year2withoutpatner": 8134568063,
-    "year3withpatner": 59012340000,
-    "year3withoutpatner": 816348063,
-    "runexitwithpatner": 59012340000,
-    "runexitwithoutpatner": 816348063,
-    "runratewithpatner": 59012340000,
-    "runratewithoutpatner": 816348063
+  "managedservices": {
+    "id": "63454f28fa84cf0075f15dc6",
+    "perc_split_managed_services": 16,
+    "baseLine_managed_services": 9583860,
+    "total_ishiftleft": 3,
+    "total_std_iautomate": 3.5,
+    "total_irealtime": 0.5,
+    "total_synergize": 0.5,
+    "total_perc_m": 7.5,
+    "total_value_m": 766358,
+    "managed_servicesCalculations": [
+      {
+        "year": 1,
+        "spendIncreaseWithInflation_m": 9871376,
+        "industrialize_shiftleft": 1,
+        "industrialize_automate": 0.5,
+        "industrialize_realtime": 0,
+        "synergize_selfservice": 0,
+        "savingSubtotal_perc_m": 1.5,
+        "savingSubtotal_value_m": 148071
+      },
+      {
+        "year": 2,
+        "spendIncreaseWithInflation_m": 10167517,
+        "industrialize_shiftleft": 1.5,
+        "industrialize_automate": 1,
+        "industrialize_realtime": 0.5,
+        "synergize_selfservice": 0.3,
+        "savingSubtotal_perc_m": 3.3,
+        "savingSubtotal_value_m": 335528
+      },
+      {
+        "year": 3,
+        "spendIncreaseWithInflation_m": 10472543,
+        "industrialize_shiftleft": 0.5,
+        "industrialize_automate": 2,
+        "industrialize_realtime": 0,
+        "synergize_selfservice": 0.2,
+        "savingSubtotal_perc_m": 2.7,
+        "savingSubtotal_value_m": 282759
+      }
+    ]
+  },
+  "hostedcbs": {
+    "id": "63454f5afa84cf0075f15dc7",
+    "perc_split_hosted_cbs": 24,
+    "baseLine_hosted_cbs": 14375790,
+    "total_transform_cloud": 14,
+    "total_perc_host": 14,
+    "total_value_host": 2158322,
+    "hosted_cbsCalculations": [
+      {
+        "year": 1,
+        "spendIncreaseWithInflation_host": 14807064,
+        "transform_cloud": 2,
+        "savingSubtotal_perc_host": 2,
+        "savingSubtotal_value_host": 296141
+      },
+      {
+        "year": 2,
+        "spendIncreaseWithInflation_host": 15251276,
+        "transform_cloud": 5,
+        "savingSubtotal_perc_host": 5,
+        "savingSubtotal_value_host": 762564
+      },
+      {
+        "year": 3,
+        "spendIncreaseWithInflation_host": 15708814,
+        "transform_cloud": 7,
+        "savingSubtotal_perc_host": 7,
+        "savingSubtotal_value_host": 1099617
+      }
+    ]
+  },
+  "assettotal": {
+    "id": "63454fbcfa84cf0075f15dc8",
+    "itspendonassets_baseline": 59899125,
+    "itspendcalc": [
+      {
+        "year": 1,
+        "itspendonassets_year": 61696099
+      },
+      {
+        "year": 2,
+        "itspendonassets_year": 63546982
+      },
+      {
+        "year": 3,
+        "itspendonassets_year": 65453392
+      }
+    ]
+  },
+  "savingoptimisation": {
+    "id": "6346f031e79a93735af873d2",
+    "total_saving_levers": 5902277,
+    "sum_total_savings": 2824534,
+    "total_run_businessit": 59889551,
+    "main_total_run_businessit": 2824534,
+    "total_cot_partner": 2776323,
+    "savingsoptimizationcalculation": [
+      {
+        "year": 1,
+        "saving_levers": 1227753,
+        "cot_partner_share": 832897,
+        "total_savings_model": 2060650,
+        "run_businessit": 60653435
+      },
+      {
+        "year": 2,
+        "saving_levers": 2405254,
+        "cot_partner_share": 1388162,
+        "total_savings_model": 3793416,
+        "run_businessit": 61450209
+      },
+      {
+        "year": 3,
+        "saving_levers": 2269270,
+        "cot_partner_share": 555264,
+        "total_savings_model": 2824534,
+        "run_businessit": 63307514
+      }
+    ]
+  },
+  "itspendrunpersonnel": {
+    "id": "63455096fa84cf0075f15dca",
+    "itspend_baseline": 121613375,
+    "total_itSpendWithInflation": 387171623,
+    "total_cotClientShare": 6889398,
+    "total_yearlyRunRate": 394061021,
+    "runpersonnelcalculation": [
+      {
+        "year": 1,
+        "itSpendWithInflation": 125261776,
+        "cotClientShare": 2066819,
+        "yearlyRunRate": 127328595
+      },
+      {
+        "year": 2,
+        "itSpendWithInflation": 129019629,
+        "cotClientShare": 3444699,
+        "yearlyRunRate": 132464328
+      },
+      {
+        "year": 3,
+        "itSpendWithInflation": 132890218,
+        "cotClientShare": 1377880,
+        "yearlyRunRate": 134268098
+      }
+    ]
+  },
+  "runitoutsource": {
+    "id": "634550f8fa84cf0075f15dcb",
+    "client_exist_baseyear": 811,
+    "partner_exist_baseyear": 0,
+    "net_fte_scope_baseyear": 811,
+    "total_savings_in_fte": 44,
+    "runfteCalc": [
+      {
+        "year": 1,
+        "client_exit_load": 639,
+        "partner_exit_load": 167,
+        "net_fte_original": 806,
+        "run_it_outsource": 172
+      },
+      {
+        "year": 2,
+        "client_exit_load": 295,
+        "partner_exit_load": 486,
+        "net_fte_original": 781,
+        "run_it_outsource": 344
+      },
+      {
+        "year": 3,
+        "client_exit_load": 123,
+        "partner_exit_load": 644,
+        "net_fte_original": 767,
+        "run_it_outsource": 172
+      }
+    ]
+  },
+  "runoutsourceitcost": {
+    "id": "63455163fa84cf0075f15dcc",
+    "client_spend_baseyear": 121650000,
+    "partner_bill_baseyear": 0,
+    "total_spend_baseyear": 121650000,
+    "total_client_spend": 19003500,
+    "total_partner_bill_spend": 76281800,
+    "total_sum_spend": 95285300,
+    "net_run_rate": 0,
+    "runCostsCalc": [
+      {
+        "year": 1,
+        "client_spend": 98725500,
+        "partner_bill": 19781150,
+        "total_spend": 118506650
+      },
+      {
+        "year": 2,
+        "client_spend": 45577500,
+        "partner_bill": 57566700,
+        "total_spend": 103144200
+      },
+      {
+        "year": 3,
+        "client_spend": 19003500,
+        "partner_bill": 76281800,
+        "total_spend": 95285300
+      }
+    ]
+  },
+  "itpersonnelfit": {
+    "id": "63455221fa84cf0075f15dcd",
+    "client_baseyear": 811,
+    "client_fte_baseyear": 121650000,
+    "partner_fte_baseyear": 0,
+    "fte_onsite_baseyear": 0,
+    "fte_offshore_baseyear": 0,
+    "partner_bill_baseyear": 0,
+    "bill_onsite_baseyear": 0,
+    "bill_offshore_baseyear": 0,
+    "total_spend_baseyear": 121650000,
+    "total_partner": 76230300,
+    "total_sum_spend": 239536800,
+    "fitcalc": [
+      {
+        "year": 1,
+        "client_year": 639,
+        "client_fte_year": 98725500,
+        "partner_fte_total": 167,
+        "fte_onsite": 134,
+        "fte_offshore": 33,
+        "partner_bill_total": 16552100,
+        "bill_onsite": 15872300,
+        "bill_offshore": 679800,
+        "total_spend_for_original": 115277600
+      },
+      {
+        "year": 2,
+        "client_year": 295,
+        "client_fte_year": 45577500,
+        "partner_fte_total": 486,
+        "fte_onsite": 243,
+        "fte_offshore": 243,
+        "partner_bill_total": 33789150,
+        "bill_onsite": 28783350,
+        "bill_offshore": 5005800,
+        "total_spend_for_original": 79366650
+      },
+      {
+        "year": 3,
+        "client_year": 123,
+        "client_fte_year": 19003500,
+        "partner_fte_total": 644,
+        "fte_onsite": 129,
+        "fte_offshore": 515,
+        "partner_bill_total": 25889050,
+        "bill_onsite": 15280050,
+        "bill_offshore": 10609000,
+        "total_spend_for_original": 44892550
+      }
+    ]
+  },
+  "assetonsourceonsite": {
+    "id": "6347ce659cb2b830d33e7cbc",
+    "sum_total_it_spend": 316936150,
+    "sum_cot_partner_share": 5636778,
+    "sum_outsource_onsite_only": 311299372,
+    "sum_total_savings_yoy": 82761649,
+    "main_total_savings_yoy": 21,
+    "outsourceOnsiteCalc": [
+      {
+        "year": 1,
+        "total_it_spend": 118506650,
+        "cot_partner_share": 1691033,
+        "outsource_onsite_only": 116815617,
+        "total_savings_yoy": 10512978
+      },
+      {
+        "year": 2,
+        "total_it_spend": 103144200,
+        "cot_partner_share": 2818389,
+        "outsource_onsite_only": 100325811,
+        "total_savings_yoy": 32138517
+      },
+      {
+        "year": 3,
+        "total_it_spend": 95285300,
+        "cot_partner_share": 1127356,
+        "outsource_onsite_only": 94157944,
+        "total_savings_yoy": 40110154
+      }
+    ]
+  },
+  "itfunction": {
+    "id": "634553acfa84cf0075f15dd0",
+    "data_center_itspend_run_perc": 22,
+    "end_user_computing_itspend_run_perc": 9,
+    "it_service_desk_itspend_run_perc": 5,
+    "network_itspend_run_perc": 11,
+    "application_enhance_itspend_run_perc": 18,
+    "application_support_itspend_run_perc": 25,
+    "it_management_itspend_run_perc": 10,
+    "data_center_itspend_run_value": 39932750,
+    "end_user_computing_itspend_run_value": 16336125,
+    "it_service_desk_itspend_run_value": 9075625,
+    "network_itspend_run_value": 19966375,
+    "application_enhance_itspend_run_value": 32672250,
+    "application_support_itspend_run_value": 45378125,
+    "it_management_itspend_run_value": 18151250,
+    "data_center_fte_spread_perc": 12,
+    "end_user_computing_fte_spread_perc": 8,
+    "it_service_desk_fte_spread_perc": 8,
+    "network_fte_spread_perc": 6,
+    "application_enhance_fte_spread_perc": 24,
+    "application_support_fte_spread_perc": 30,
+    "it_management_fte_spread_perc": 12,
+    "data_center_fte_spread_value": 97,
+    "end_user_computing_fte_spread_value": 65,
+    "it_service_desk_fte_spread_value": 65,
+    "network_fte_spread_value": 49,
+    "application_enhance_fte_spread_value": 195,
+    "application_support_fte_spread_value": 243,
+    "it_management_fte_spread_value": 97,
+    "total_itspend_run_value": 181512500,
+    "total_fte_spread_value": 811
   }
+}
 }
