@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { inputTable } from 'src/app/core/models/tables';
 import { ApiService } from 'src/app/services/api.service';
 import { CoreServices } from 'src/app/core/services/core.service';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
@@ -19,7 +20,8 @@ export class InputTabelComponent implements OnInit {
     private store: StoreService,
     private http: HttpService,
     private api: ApiService,
-    public core: CoreServices
+    public core: CoreServices,
+    private localStorage: LocalStorageService
   ) {}
   inputTableData: any;
   submitted = false;
@@ -103,17 +105,23 @@ export class InputTabelComponent implements OnInit {
 
   // get one request
   handleGet() {
-    this.api
-      .getOneRecord(
-        '/inputtables/inputvalues',
-        this.store.getId('inputTableID')
-      )
-      .subscribe((res: any) => {
-        this.inputTableData = res;
-        this.canUpdate = true;
-        this.inputTabel.patchValue({ ...res });
-        this.disableEnable(false);
-      });
+    // this.api
+    //   .getOneRecord(
+    //     '/inputtables/inputvalues',
+    //     this.store.getId('inputTableID')
+    //   )
+    //   .subscribe((res: any) => {
+    //     this.inputTableData = res;
+    //     this.canUpdate = true;
+    //     this.inputTabel.patchValue({ ...res });
+    //     this.disableEnable(false);
+    //   });
+    let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let { inputTable } = project;
+      this.inputTableData = inputTable;
+      this.inputTabel.patchValue({ ...inputTable });
+    }
   }
 
   handleUpdate() {
@@ -137,6 +145,7 @@ export class InputTabelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.handleGet();
     this.disableEnable(true);
     this.industryBased?.valueChanges.subscribe((val) => {
       console.log(this.industryPercentiles[val]);

@@ -1,7 +1,7 @@
 <div class="stepper">
   <mat-stepper orientation="vertical" #stepper>
     <mat-step>
-      <form>
+      <form [formGroup]="userDetails">
         <ng-template matStepLabel>Fill out your name and Id</ng-template>
         <div class="form-fields d-flex flex-column">
           <mat-form-field appearance="outline">
@@ -29,7 +29,7 @@
       </form>
     </mat-step>
     <mat-step>
-      <form>
+      <form [formGroup]="projectDetails">
         <ng-template matStepLabel>Fill out project details</ng-template>
         <!-- <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
@@ -42,7 +42,12 @@
         </mat-form-field> -->
         <div class="btns container__column--center">
           <button mat-raised-button color="primary">New Project</button>
-          <button mat-raised-button color="primary" class="my-3">
+          <button
+            (click)="getExtstingProject()"
+            mat-raised-button
+            color="primary"
+            class="my-3"
+          >
             Existing Project
           </button>
         </div>
