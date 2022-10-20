@@ -27,7 +27,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     private apiservice: ApiService,
     private http: HttpService,
     public core: CoreServices,
-    private  localStorage: LocalStorageService
+    private localStorage: LocalStorageService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -145,9 +145,9 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     //   });
     let project = this.localStorage.get('pathfiner');
     if (project) {
-      let { itPersonnel } = project;
-      this.itPersonelData = itPersonnel;
-      this.itPersonel.patchValue({ ...itPersonnel});
+      let { itpersonnel } = project;
+      this.itPersonelData = itpersonnel;
+      this.itPersonel.patchValue({ ...itpersonnel });
     }
   }
 }

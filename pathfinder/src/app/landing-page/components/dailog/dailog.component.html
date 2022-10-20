@@ -153,9 +153,13 @@
         <div *ngIf="projectType === 'existing'" class="existing-project">
           <mat-form-field appearance="outline">
             <mat-label>Select your existing project Names</mat-label>
-            <mat-select>
-              <mat-option> "sahana" </mat-option>
-              <mat-option> "Patil" </mat-option>
+            <mat-select [(ngModel)]="selectedProject">
+              <mat-option *ngFor="let project of allProjects">{{
+                project
+              }}</mat-option>
+              <mat-option *ngIf="allProjects.length <= 0"
+                >No Projects</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>

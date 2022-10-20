@@ -19,11 +19,17 @@ export class DailogComponent implements OnInit {
     private dailog: MatDialog,
     private localStorage: LocalStorageService
   ) {}
-  userId: any;
+  // userId: any;
   projectDetails = new FormGroup({});
+  selectedProject: any = '';
+  allProjects: any = [];
   userDetails = new FormGroup({
     userId: new FormControl('', [Validators.required]),
   });
+
+  get userId() {
+    return this.userDetails.get('userId');
+  }
   projectName: any = '';
   projectType: any = null;
   getExtstingProject() {
@@ -33,10 +39,18 @@ export class DailogComponent implements OnInit {
     // this.router.navigate(['/costOptimization']);
     // this.dailog.closeAll();
     this.projectType = 'existing';
+    this.getUserProject();
   }
   handleNewProject() {
     this.projectType = 'new';
   }
+
+  getUserProject() {
+    this.api.getAlluserProject(this.userId?.value).subscribe((res: any) => {
+      this.allProjects = res?.listOfProjectName;
+    });
+  }
+
   handleSubmit() {
     let details = { ...this.userDetails.value, projectName: this.projectName };
     console.log(details);

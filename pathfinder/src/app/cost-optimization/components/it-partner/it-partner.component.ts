@@ -33,7 +33,7 @@ export class ItPartnerComponent implements OnInit {
     private apiservice: ApiService,
     private http: HttpService,
     public core: CoreServices,
-    private  localStorage: LocalStorageService
+    private localStorage: LocalStorageService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -158,34 +158,34 @@ export class ItPartnerComponent implements OnInit {
     //   });
     let project = this.localStorage.get('pathfiner');
     if (project) {
-      let { itPersonnelCost } = project;
+      let { itpersonalcost } = project;
       console.log(project);
-      
-      this.itPersonelCostData = itPersonnelCost;
-       let obj: any = {};
-        itPersonnelCost.yearBseCalculations.map((el: any, i: any) => {
-          obj.yearLine = i;
-          obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
-          obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
-          obj[`offshoreRatioy${i + 1}`] = el.offshoreRatio;
-          obj[`onsiteRatioy${i + 1}`] = el.onsiteRatio;
-        });
-        this.canUpdate = true;
-        // this.itPersonelCostData = res;
-        // console.log(obj);
-        [
-          'infteCumulative',
-          'fteSavingsCumulative',
-          'netPartnerFte',
-          'inFteOnsite',
-          'inFteOffshore',
-        ].forEach((el) => {
-          this.outsourcings[el] = itPersonnelCost.yearBseCalculations.map(
-            (val: any) => val[el]
-          );
-        });
 
-      this.itpersonelcost.patchValue({ ...itPersonnelCost,...obj});
+      this.itPersonelCostData = itpersonalcost;
+      let obj: any = {};
+      itpersonalcost.yearBseCalculations.map((el: any, i: any) => {
+        obj.yearLine = i;
+        obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
+        obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
+        obj[`offshoreRatioy${i + 1}`] = el.offshoreRatio;
+        obj[`onsiteRatioy${i + 1}`] = el.onsiteRatio;
+      });
+      this.canUpdate = true;
+      // this.itPersonelCostData = res;
+      // console.log(obj);
+      [
+        'infteCumulative',
+        'fteSavingsCumulative',
+        'netPartnerFte',
+        'inFteOnsite',
+        'inFteOffshore',
+      ].forEach((el) => {
+        this.outsourcings[el] = itpersonalcost.yearBseCalculations.map(
+          (val: any) => val[el]
+        );
+      });
+
+      this.itpersonelcost.patchValue({ ...itpersonalcost, ...obj });
     }
   }
 
@@ -215,7 +215,7 @@ export class ItPartnerComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-     this.handleGet();
+    this.handleGet();
     //   this.itpersonelcost.valueChanges.subscribe((values) => {
     //     if (values?.takeoverYear1) {
     //       this.claculateFieldPrecentage(
