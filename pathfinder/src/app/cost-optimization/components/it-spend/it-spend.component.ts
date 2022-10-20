@@ -25,6 +25,8 @@ export class ItSpendComponent implements OnInit {
 
   ngOnInit(): void {
     this.handleGet('p');
+    this.handleGetTotal();
+    this.optimizationLevrs();
     // this.savingoptdata = this.savingopt;
     // console.log(this.savingoptdata);
 
@@ -185,6 +187,14 @@ export class ItSpendComponent implements OnInit {
   pathchValue: any = null;
 
   openDailog(type: string, action: string) {
+    let project = this.localStorage.get('project');
+    if (project) {
+      this.pathchValue = {
+        claculations:
+          project[this.paths[type].localPath][this.paths[type].payloadArr],
+      };
+    }
+
     this.dailog.open(AssetFormComponent, {
       disableClose: true,
       data: {
@@ -199,21 +209,25 @@ export class ItSpendComponent implements OnInit {
   paths: any = {
     hardware: {
       path: 'hardware',
+      localPath: 'hardware',
       id: this.store.getId('hardware'),
       payloadArr: 'hardwareCalculations',
     },
     software: {
       path: 'software',
+      localPath: 'software',
       id: this.store.getId('software'),
       payloadArr: 'softwareCalculations',
     },
     managedServices: {
       path: 'managedservices',
+      localPath: 'managed',
       id: this.store.getId('managed'),
       payloadArr: 'managed_servicesCalculations',
     },
     hosted: {
       path: 'hostedcbs',
+      localPath: 'hostedcbs',
       id: this.store.getId('hosted'),
       payloadArr: 'hosted_cbsCalculations',
     },
@@ -232,7 +246,7 @@ export class ItSpendComponent implements OnInit {
     //     };
     //     type === 'hosted' && this.store.setShowTotal(true);
     //   });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let assets = Object.keys(project).filter(
         (el) =>
@@ -251,19 +265,23 @@ export class ItSpendComponent implements OnInit {
     //   this.savingoptdata = res;
     //   this.savingoptdatayear = res.savingsoptimizationcalculation;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { savings } = project;
-      this. savingoptdata= savings;
-      this.savingoptdatayear=savings.savingoptdatayear;
-  }
+      this.savingoptdata = savings;
+      this.savingoptdatayear = savings.savingoptdatayear;
+    }
   }
 
   totalAssets: any;
   handleGetTotal() {
-    this.api.getTotalAssets().subscribe((res: any) => {
-      this.totalAssets = res;
-    });
+    let project = this.localStorage.get('project');
+    if (project) {
+      // this.totalAssets=project.
+    }
+    // this.api.getTotalAssets().subscribe((res: any) => {
+    //   this.totalAssets = res;
+    // });
   }
   hardware = [
     {

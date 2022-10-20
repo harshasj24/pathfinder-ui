@@ -1,12 +1,18 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  constructor() {}
+export class HomeComponent implements OnInit, AfterViewInit {
+  constructor(private common: CommonService) {}
   sideNavRoutes = [
     {
       path: 'summary',
@@ -59,6 +65,12 @@ export class HomeComponent implements OnInit {
       title: 'IT  Functions',
     },
   ];
+  handleClick() {
+    if (this.common.isSmaller) {
+      this.common.closeDrawer();
+    }
+  }
 
   ngOnInit(): void {}
+  ngAfterViewInit(): void {}
 }

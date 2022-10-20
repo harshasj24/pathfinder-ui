@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonService } from './core/services/common.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router, public common: CommonService) {}
   pathName: any = false;
   ngOnInit(): void {
     //-----------------------------------------------------------------------------//

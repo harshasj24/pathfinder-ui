@@ -2,6 +2,13 @@
   *ngIf="pathName !== '/pathfinder' && pathName !== '/'"
   class="mat-elevation-z2"
 >
+  <button
+    *ngIf="common.isSmaller"
+    (click)="common.toggleModalDrawer()"
+    mat-icon-button
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
   <a
     class="logo"
     href=""

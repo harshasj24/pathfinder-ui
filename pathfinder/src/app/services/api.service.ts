@@ -388,4 +388,10 @@ export class ApiService {
       })
     );
   }
+  updateProject(payload: any) {
+    return this.http.put(
+      `/user/input/${this.localStorage.get('project').id}`,
+      payload
+    );
+  }
 }

@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ClaculationService } from 'src/app/claculation.service';
+import { benchmark } from 'src/app/core/constants/benchmarks';
+import { CommonService } from 'src/app/core/services/common.service';
 import { CoreServices } from 'src/app/core/services/core.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
@@ -33,13 +35,15 @@ export class ItPartnerComponent implements OnInit {
     private apiservice: ApiService,
     private http: HttpService,
     public core: CoreServices,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private common: CommonService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
   isLoaded: boolean = false;
   itPersonelCostData: any = [];
   canUpdate: boolean = false;
+
   isSubmitted: boolean = false;
   itpersonelcost = new FormGroup({
     partnerCtcOnsite: new FormControl('', [Validators.required]),
@@ -59,6 +63,7 @@ export class ItPartnerComponent implements OnInit {
     offshoreRatioy2: new FormControl('', [Validators.required]),
     offshoreRatioy3: new FormControl('', [Validators.required]),
   });
+  controls = Object.keys(this.itpersonelcost?.value);
   outsourcings: any = {};
   getFieldValue(fieldName: string) {
     return this.itpersonelcost.get(fieldName)?.value;
@@ -188,6 +193,10 @@ export class ItPartnerComponent implements OnInit {
       this.itpersonelcost.patchValue({ ...itpersonalcost, ...obj });
     }
   }
+  enableEdit() {
+    this.canUpdate = false;
+    this.common.disableEnable(false, this.controls, this.itpersonelcost);
+  }
 
   // handleupdate
   handleUpdate() {
@@ -209,12 +218,20 @@ export class ItPartnerComponent implements OnInit {
       partnerCtcOffshore: this.itpersonelcost.value['partnerCtcOffshore'],
       yearBseCalculations,
     };
-    this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
-      console.log(val);
-      this.handleGet();
+
+    let benchmarks = { ...benchmark };
+    benchmarks.itpersonalcost = payload;
+    // this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
+    //   console.log(val);
+    //   this.handleGet();
+    // });
+    this.apiservice.updateProject(benchmarks).subscribe((res) => {
+      this.localStorage.set('project', res);
     });
   }
+
   ngOnInit(): void {
+    this.common.disableEnable(true, this.controls, this.itpersonelcost);
     this.handleGet();
     //   this.itpersonelcost.valueChanges.subscribe((values) => {
     //     if (values?.takeoverYear1) {

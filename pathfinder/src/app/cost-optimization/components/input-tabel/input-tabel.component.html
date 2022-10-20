@@ -125,7 +125,23 @@
       >
         Update
       </button> -->
-      <button mat-raised-button color="primary" type="submit">Calculate & save</button>
+      <button
+        (click)="enableEdit()"
+        class="mx-2"
+        mat-raised-button
+        color="primary"
+      >
+        Edit
+      </button>
+      <button
+        mat-raised-button
+        [disabled]="!canUpdate"
+        color="primary"
+        (click)="handleUpdate()"
+        type="submit"
+      >
+        Calculate & save
+      </button>
     </div>
   </form>
   <div class="card-body mt-5">

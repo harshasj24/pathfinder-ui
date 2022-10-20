@@ -89,8 +89,27 @@
         >
           Update
         </button> -->
-        <button mat-raised-button color="primary" type="submit">Calculate & save</button>
       </div>
+    </div>
+    <div class="actions d-flex my-3">
+      <button
+        class="ms-auto me-2"
+        (click)="enableEdit()"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Edit
+      </button>
+      <button
+        [disabled]="!canUpdate"
+        (click)="handleUpdate()"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Calculate & save
+      </button>
     </div>
   </form>
   <div class="result-tabel">
@@ -153,7 +172,9 @@
         <tr>
           <th>Total_with_inflation</th>
           <td *ngFor="let costyear of costDataYear">
-            {{ costyear?.total_with_inflation | currency: "USD":"symbol":"1.0" }}
+            {{
+              costyear?.total_with_inflation | currency: "USD":"symbol":"1.0"
+            }}
           </td>
         </tr>
       </tbody>

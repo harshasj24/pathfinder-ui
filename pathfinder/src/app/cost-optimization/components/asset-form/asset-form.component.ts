@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
+import { benchmark } from 'src/app/core/constants/benchmarks';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
 import { StoreService } from 'src/app/store.service';
@@ -17,7 +19,8 @@ export class AssetFormComponent implements OnInit {
     private fb: FormBuilder,
     private api: ApiService,
     private dilog: MatDialog,
-    private store: StoreService
+    private store: StoreService,
+    private localStorage: LocalStorageService
   ) {}
   formControls: any[];
   dailogForm: FormGroup;
@@ -29,24 +32,28 @@ export class AssetFormComponent implements OnInit {
   assetDetail: any = {
     hardware: {
       path: 'hardware',
+      localpath: 'hardware',
       updatePath: 'updatehardware',
       payloadKey: 'hardwareCalculations',
       id: this.store.getId('hardware'),
     },
     software: {
       path: 'software',
+      localpath: 'software',
       updatePath: 'updatesoftware',
       payloadKey: 'softwareCalculations',
       id: this.store.getId('software'),
     },
     managedServices: {
       path: 'managed',
+      localpath: 'managed',
       updatePath: 'updatemanagedservices',
       payloadKey: 'managed_servicesCalculations',
       id: this.store.getId('managed'),
     },
     hosted: {
       path: 'hosted',
+      localpath: 'hostedcbs',
       updatePath: 'updatehostedcbs',
       payloadKey: 'hosted_cbsCalculations',
       id: this.store.getId('hosted'),
@@ -70,19 +77,29 @@ export class AssetFormComponent implements OnInit {
         });
     } else if (this.data.action === 'update') {
       // update logic
-      this.api
-        .UpadateassetClacification(
-          this.assetDetail[this.data.title].path,
-          payload,
-          this.assetDetail[this.data.title].id
-        )
-        .subscribe((val) => {
-          console.log(val);
-          this.dailogServices.addDailogData({
-            title: this.data.title,
-            claculatedData: val,
-          });
+      // this.api
+      //   .UpadateassetClacification(
+      //     this.assetDetail[this.data.title].path,
+      //     payload,
+      //     this.assetDetail[this.data.title].id
+      //   )
+      //   .subscribe((val) => {
+      //     console.log(val);
+      //     this.dailogServices.addDailogData({
+      //       title: this.data.title,
+      //       claculatedData: val,
+      //     });
+      //   });
+
+      let benchmarks: any = { ...benchmark };
+      benchmarks[this.assetDetail[this.data.title].localpath] = payload;
+      this.api.updateProject(benchmarks).subscribe((res: any) => {
+        this.localStorage.set('project', res);
+        this.dailogServices.addDailogData({
+          title: this.data.title,
+          claculatedData: res[this.assetDetail[this.data.title].localpath],
         });
+      });
     }
 
     this.dilog.closeAll();

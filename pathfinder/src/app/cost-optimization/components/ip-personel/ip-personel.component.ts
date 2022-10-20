@@ -15,6 +15,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { CoreServices } from 'src/app/core/services/core.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { CommonService } from 'src/app/core/services/common.service';
+import { benchmark } from 'src/app/core/constants/benchmarks';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',
@@ -27,7 +29,8 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     private apiservice: ApiService,
     private http: HttpService,
     public core: CoreServices,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private common: CommonService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
@@ -76,8 +79,13 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     });
     console.log(this.itPersonel?.value);
   }
-
+  controls = Object.keys(this.itPersonel.value);
+  enableUpdate() {
+    this.canUpdate = true;
+    this.common.disableEnable(false, this.controls, this.itPersonel);
+  }
   ngOnInit(): void {
+    this.common.disableEnable(true, this.controls, this.itPersonel);
     this.handleGet();
     this.store.store.subscribe((data: any) => {
       this.inputTabelVal = data;
@@ -128,8 +136,10 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
 
   // get one request
   handleUpdate() {
-    this.apiservice.updatePersonnel(this.itPersonel.value).subscribe((val) => {
-      this.handleGet();
+    let benchmarks = { ...benchmark };
+    benchmarks.itpersonnel = this.itPersonel.value;
+    this.apiservice.updateProject(benchmarks).subscribe((res) => {
+      this.localStorage.set('project', res);
     });
   }
   handleGet() {

@@ -60,7 +60,6 @@
         >
           Update
         </button> -->
-        <button mat-raised-button color="primary" type="submit">Calculate & save</button>
       </div>
       <!-- <mat-form-field appearance="outline" class="">
         <mat-label>Run It Spend</mat-label>
@@ -71,6 +70,27 @@
           placeholder="Run It Spend"
         />
       </mat-form-field> -->
+    </div>
+    <div class="actions d-flex">
+      <button
+        class="ms-auto"
+        (click)="enableUpdate()"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Edit
+      </button>
+      <button
+        [disabled]="!canUpdate"
+        class="ms-2"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="handleUpdate()"
+      >
+        Calculate & save
+      </button>
     </div>
   </form>
   <div class="result-table">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { benchmark } from 'src/app/core/constants/benchmarks';
+import { CommonService } from 'src/app/core/services/common.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
@@ -10,7 +12,12 @@ import { StoreService } from 'src/app/store.service';
   styleUrls: ['./costoftransform.component.scss'],
 })
 export class CostoftransformComponent implements OnInit {
-  constructor(private apiservice: ApiService, private store: StoreService,private  localStorage: LocalStorageService) {}
+  constructor(
+    private apiservice: ApiService,
+    private store: StoreService,
+    private localStorage: LocalStorageService,
+    private common: CommonService
+  ) {}
   isLoaded: boolean = false;
   canUpdate: boolean = false;
   costData: any;
@@ -41,6 +48,7 @@ export class CostoftransformComponent implements OnInit {
   get cot_spread_percy3() {
     return this.costtransformation.get('cot_spread_percy3');
   }
+  controls = Object.keys(this.costtransformation.value);
   handleSubmit() {
     this.isLoaded = true;
     let yearBaseCostCalculations: any = [];
@@ -73,61 +81,62 @@ export class CostoftransformComponent implements OnInit {
     //   .subscribe((res: any) => {
     //     this.costData = res;
     //     this.costDataYear = res.yearBaseCostCalculations;
-        // let { yearBaseCostCalculations } = res;
-        // let obj: any = {};
-        // yearBaseCostCalculations.map((el: any, i: any) => {
-        //   obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
-        // });
-        // this.costtransformation.patchValue({ ...res, ...obj });
-      // });
-      let project = this.localStorage.get('project');
+    // let { yearBaseCostCalculations } = res;
+    // let obj: any = {};
+    // yearBaseCostCalculations.map((el: any, i: any) => {
+    //   obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+    // });
+    // this.costtransformation.patchValue({ ...res, ...obj });
+    // });
+    let project = this.localStorage.get('project');
     if (project) {
       let { cost } = project;
       // console.log(cost);
       this.costData = cost;
-      this.costDataYear=cost.yearBaseCostCalculations
-      this.canUpdate = true;
+      this.costDataYear = cost.yearBaseCostCalculations;
       let { yearBaseCostCalculations } = cost;
       // console.log(yearBaseCostCalculations);
-      
-        let obj: any = {};
-        yearBaseCostCalculations.map((el: any, i: any) => {
-          obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
-        });
-        // this.costtransformation.patchValue({ ...res, ...obj });
-         this.costtransformation.patchValue({ ...cost,...obj});
-    
-//         yearBaseCostCalculations.map((el: any, i: any) => {
-//           // obj.yearLine = i;
-//           obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
-//            obj[`client_share_value${i + 1}`] = el.client_share_value;
-//            obj[`partner_share_value${i + 1}`] = el.partner_share_value;
-//            obj[`total_with_inflation${i + 1}`] = el.total_with_inflation;
 
-//           // console.log(el.cot_spread_perc);
-//           // console.log(el.client_share_value);
-//           // console.log(el.partner_share_value);
-//           // console.log(el.total_with_inflation);
-//           console.log(obj);
-//           [
-//           'client_share_value',
-//           'partner_share_value',
-//           'total_with_inflation'
-        
-//         ].forEach((el) => {
-//           this.costDataYear[el] = cost.yearBaseCostCalculations.map(
-//             (val: any) => val[el]
-//           );
-//         });
-// console.log(obj);
+      let obj: any = {};
+      yearBaseCostCalculations.map((el: any, i: any) => {
+        obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+      });
+      // this.costtransformation.patchValue({ ...res, ...obj });
+      this.costtransformation.patchValue({ ...cost, ...obj });
 
-//          
-          
-//         });
-      
+      //         yearBaseCostCalculations.map((el: any, i: any) => {
+      //           // obj.yearLine = i;
+      //           obj[`cot_spread_percy${i + 1}`] = el.cot_spread_perc;
+      //            obj[`client_share_value${i + 1}`] = el.client_share_value;
+      //            obj[`partner_share_value${i + 1}`] = el.partner_share_value;
+      //            obj[`total_with_inflation${i + 1}`] = el.total_with_inflation;
+
+      //           // console.log(el.cot_spread_perc);
+      //           // console.log(el.client_share_value);
+      //           // console.log(el.partner_share_value);
+      //           // console.log(el.total_with_inflation);
+      //           console.log(obj);
+      //           [
+      //           'client_share_value',
+      //           'partner_share_value',
+      //           'total_with_inflation'
+
+      //         ].forEach((el) => {
+      //           this.costDataYear[el] = cost.yearBaseCostCalculations.map(
+      //             (val: any) => val[el]
+      //           );
+      //         });
+      // console.log(obj);
+
+      //
+
+      //         });
+    }
   }
-  
-}
+  enableEdit() {
+    this.canUpdate = true;
+    this.common.disableEnable(false, this.controls, this.costtransformation);
+  }
   handleUpdate() {
     let yearBaseCostCalculations: any = [];
 
@@ -144,12 +153,18 @@ export class CostoftransformComponent implements OnInit {
       partner_perc: this.costtransformation.value['partner_perc'],
       yearBaseCostCalculations,
     };
-    this.apiservice.updateCostoftransform(payload).subscribe((val) => {
-      console.log(val);
-      this.handleGet();
+    let benchmarks = { ...benchmark };
+    benchmarks.cost = payload;
+    // this.apiservice.updateCostoftransform(payload).subscribe((val) => {
+    //   console.log(val);
+    //   this.handleGet();
+    // });
+    this.apiservice.updateProject(benchmarks).subscribe((res) => {
+      this.localStorage.set('project', res);
     });
   }
   ngOnInit(): void {
     this.handleGet();
+    this.common.disableEnable(true, this.controls, this.costtransformation);
   }
 }

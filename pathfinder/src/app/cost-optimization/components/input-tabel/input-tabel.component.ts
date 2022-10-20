@@ -9,6 +9,7 @@ import { inputTable } from 'src/app/core/models/tables';
 import { ApiService } from 'src/app/services/api.service';
 import { CoreServices } from 'src/app/core/services/core.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { benchmark } from 'src/app/core/constants/benchmarks';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
@@ -103,6 +104,11 @@ export class InputTabelComponent implements OnInit {
     });
   }
 
+  enableEdit() {
+    this.canUpdate = true;
+    this.disableEnable(false);
+  }
+
   // get one request
   handleGet() {
     // this.api
@@ -126,10 +132,17 @@ export class InputTabelComponent implements OnInit {
 
   handleUpdate() {
     let { industryBased, ...payload } = this.inputTabel.value;
-    this.api.updateInputTables(payload).subscribe((val) => {
-      console.log(val);
-      console.log(payload);
-      this.handleGet();
+    // this.api.updateInputTables(payload).subscribe((val) => {
+    //   console.log(val);
+    //   console.log(payload);
+    //   this.handleGet();
+    // });
+    let benchmarks = { ...benchmark };
+    benchmarks.inputvalues = payload;
+
+    this.api.updateProject(benchmarks).subscribe((res) => {
+      console.log(res);
+      this.localStorage.set('project', res);
     });
   }
 
@@ -147,17 +160,14 @@ export class InputTabelComponent implements OnInit {
   ngOnInit(): void {
     this.handleGet();
     this.disableEnable(true);
+
     this.industryBased?.valueChanges.subscribe((val) => {
-      console.log(this.industryPercentiles[val]);
       this.it_spent_perc?.setValidators([
         Validators.max(this.industryPercentiles[val]?.max),
         Validators.min(this.industryPercentiles[val]?.min),
         Validators.required,
       ]);
-      console.log(this.it_spent_perc);
-
       this.minMax = { ...this.minMax, ...this.industryPercentiles[val] };
-      console.log(this.minMax);
       this.disableEnable(false);
     });
 

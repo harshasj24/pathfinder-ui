@@ -1,5 +1,11 @@
 <mat-sidenav-container>
-  <mat-sidenav class="mat-elevation-z2" opened mode="side">
+  <mat-sidenav
+    [style.width]="common.isSmaller ? '330px' : '250px'"
+    #sideNav
+    class="mat-elevation-z2"
+    opened
+    mode="side"
+  >
     <ng-content select="#sidenav"></ng-content>
   </mat-sidenav>
   <mat-sidenav-content>
