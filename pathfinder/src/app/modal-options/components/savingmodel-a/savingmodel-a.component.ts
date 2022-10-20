@@ -21,7 +21,7 @@ export class SavingmodelAComponent implements OnInit {
     //   this.savingmodeldata = res;
     //   this.savingmodeldatayear = this.savingmodeldata.model2acalculation;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     if (project) {
       let {total2A } = project;
       this.savingmodeldata = total2A;

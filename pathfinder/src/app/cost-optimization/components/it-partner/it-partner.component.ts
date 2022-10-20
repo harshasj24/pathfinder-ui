@@ -156,14 +156,14 @@ export class ItPartnerComponent implements OnInit {
     //     this.itpersonelcost.patchValue({ ...res, ...obj });
     //     // this.disableEnable(false);
     //   });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     if (project) {
-      let { itPersonnelCost } = project;
+      let {itpersonalcost } = project;
       console.log(project);
       
-      this.itPersonelCostData = itPersonnelCost;
+      this.itPersonelCostData = itpersonalcost;
        let obj: any = {};
-        itPersonnelCost.yearBseCalculations.map((el: any, i: any) => {
+        itpersonalcost.yearBseCalculations.map((el: any, i: any) => {
           obj.yearLine = i;
           obj[`takeOverPlany${i + 1}`] = el.takeOverPlan;
           obj[`ppImprovementy${i + 1}`] = el.ppImprovement;
@@ -180,12 +180,12 @@ export class ItPartnerComponent implements OnInit {
           'inFteOnsite',
           'inFteOffshore',
         ].forEach((el) => {
-          this.outsourcings[el] = itPersonnelCost.yearBseCalculations.map(
+          this.outsourcings[el] = itpersonalcost.yearBseCalculations.map(
             (val: any) => val[el]
           );
         });
 
-      this.itpersonelcost.patchValue({ ...itPersonnelCost,...obj});
+      this.itpersonelcost.patchValue({ ...itpersonalcost,...obj});
     }
   }
 

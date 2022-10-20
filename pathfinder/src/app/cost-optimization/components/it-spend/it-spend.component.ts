@@ -232,13 +232,13 @@ export class ItSpendComponent implements OnInit {
     //     };
     //     type === 'hosted' && this.store.setShowTotal(true);
     //   });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
       let assets = Object.keys(project).filter(
         (el) =>
           el === 'hardware' ||
           el === 'software' ||
-          el === 'managedservices' ||
+          el === 'managed' ||
           el === 'hostedcbs'
       );
       assets.map((asset, i) => {
@@ -247,10 +247,16 @@ export class ItSpendComponent implements OnInit {
     }
   }
   optimizationLevrs() {
-    this.api.getOptimizationLevers().subscribe((res: any) => {
-      this.savingoptdata = res;
-      this.savingoptdatayear = res.savingsoptimizationcalculation;
-    });
+    // this.api.getOptimizationLevers().subscribe((res: any) => {
+    //   this.savingoptdata = res;
+    //   this.savingoptdatayear = res.savingsoptimizationcalculation;
+    // });
+    let project = this.localStorage.get("project");
+    if (project) {
+      let { savings } = project;
+      this. savingoptdata= savings;
+      this.savingoptdatayear=savings.savingoptdatayear;
+  }
   }
 
   totalAssets: any;

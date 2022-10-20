@@ -20,7 +20,7 @@ getData(){
 //   this.savingmodelbdata=res
 //   this.savingmodelbdatayear=this.savingmodelbdata.model2bcalculation
 //  })
-let project = this.localStorage.get(`project`)
+let project = this.localStorage.get('project')
     if (project) {
       let {total2B } = project;
       this.savingmodelbdata = total2B;

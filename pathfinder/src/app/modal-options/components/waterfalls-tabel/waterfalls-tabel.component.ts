@@ -20,7 +20,7 @@ isLoaded: boolean = false;
     // this.api.getwaterfalls().subscribe((res)=>{
     //   this.waterfallsdata=res
     // })
-     let project = this.localStorage.get(`project`);
+     let project = this.localStorage.get('project');
     if (project) {
       let {waterfall} = project;
       this.waterfallsdata= waterfall;

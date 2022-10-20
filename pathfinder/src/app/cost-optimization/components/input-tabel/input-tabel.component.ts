@@ -116,11 +116,11 @@ export class InputTabelComponent implements OnInit {
     //     this.inputTabel.patchValue({ ...res });
     //     this.disableEnable(false);
     //   });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     if (project) {
-      let { inputTable } = project;
-      this.inputTableData = inputTable;
-      this.inputTabel.patchValue({ ...inputTable });
+      let { inputvalues } = project;
+      this.inputTableData = inputvalues;
+      this.inputTabel.patchValue({ ...inputvalues });
     }
   }
 

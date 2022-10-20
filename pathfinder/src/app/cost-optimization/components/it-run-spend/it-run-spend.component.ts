@@ -14,7 +14,7 @@ export class ItRunSpendComponent implements OnInit {
   isLoaded: boolean = false;
   handleClick() {
     this.isLoaded = true;
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
       let { assertRunItSpend } = project;
       this.val=assertRunItSpend

@@ -143,11 +143,11 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     //     this.canUpdate = true;
     //     this.itPersonel.patchValue({ ...res });
     //   });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     if (project) {
-      let { itPersonnel } = project;
-      this.itPersonelData = itPersonnel;
-      this.itPersonel.patchValue({ ...itPersonnel});
+      let { itpersonnel } = project;
+      this.itPersonelData = itpersonnel;
+      this.itPersonel.patchValue({ ...itpersonnel});
     }
   }
 }

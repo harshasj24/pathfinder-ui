@@ -71,11 +71,11 @@ export class ItpersoneelFitshoringComponent implements OnInit {
     //   this.itpersonneldata = val;
     //   this.itpersonneldatayear = val.fitcalc;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { itpersonnelfit } = project;
-      this. itpersonneldata= itpersonnelfit;
-      this.itpersonneldatayear=itpersonnelfit.fitcalc
+      let { itpersfit } = project;
+      this. itpersonneldata= itpersfit;
+      this.itpersonneldatayear=itpersfit.fitcalc
   }
 }
   ngOnInit(): void {
