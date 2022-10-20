@@ -27,7 +27,7 @@ export class OpexModalComponent implements OnInit {
     //   this.runopexfitdatayear = this.runopexfitdata.runfitshorecalculation;
       // console.log(res);
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get(`project`);
     if (project) {
       let { runopexfit } = project;
       this.runopexfitdata = runopexfit;
@@ -42,7 +42,7 @@ export class OpexModalComponent implements OnInit {
     //   this.runopexdata = res;
     //   this.runopexdatayear = this.runopexdata.runOpexCalc;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get(`project`)
     if (project) {
       let { model2B} = project;
       this.runopexdata  = model2B;

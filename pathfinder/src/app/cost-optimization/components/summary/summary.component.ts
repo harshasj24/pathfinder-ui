@@ -28,7 +28,7 @@ export class SummaryComponent implements OnInit {
   username: string = '';
 
   ngOnInit(): void {
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get(`project`);
     this.username = project.username;
   }
 }

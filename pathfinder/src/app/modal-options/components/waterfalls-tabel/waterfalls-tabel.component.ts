@@ -20,10 +20,10 @@ isLoaded: boolean = false;
     // this.api.getwaterfalls().subscribe((res)=>{
     //   this.waterfallsdata=res
     // })
-     let project = this.localStorage.get('pathfiner');
+     let project = this.localStorage.get(`project`);
     if (project) {
-      let {waterfalls} = project;
-      this.waterfallsdata= waterfalls;
+      let {waterfall} = project;
+      this.waterfallsdata= waterfall;
     }
     
   }
