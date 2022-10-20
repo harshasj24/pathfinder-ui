@@ -156,7 +156,7 @@ export class ItPartnerComponent implements OnInit {
     //     this.itpersonelcost.patchValue({ ...res, ...obj });
     //     // this.disableEnable(false);
     //   });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     if (project) {
       let { itpersonalcost } = project;
       console.log(project);

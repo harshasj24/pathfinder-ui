@@ -21,14 +21,14 @@ export class SummaryComponent implements OnInit {
     benchMarks.inputvalues.annual_revenue_for_client =
       this.annual_revenue_for_client;
     this.api.createProject(benchMarks).subscribe((val) => {
-      this.localStorage.set('pathfiner', val);
+      this.localStorage.set('project', val);
     });
   }
 
   username: string = '';
 
   ngOnInit(): void {
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get('project');
     this.username = project.username;
   }
 }

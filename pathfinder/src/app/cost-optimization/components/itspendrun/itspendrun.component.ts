@@ -114,11 +114,11 @@ export class ItspendrunComponent implements OnInit {
     //   this.itspenddata = res;
     //   this.itspenddatayear = res.runpersonnelcalculation;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { itspendrunpersonnel } = project;
-      this.itspenddata = itspendrunpersonnel;
-      this.itspenddatayear = itspendrunpersonnel.runpersonnelcalculation;
+      let { itspendrun } = project;
+      this.itspenddata = itspendrun;
+      this.itspenddatayear = itspendrun.runpersonnelcalculation;
     }
   }
   outsourcingOnsite() {
@@ -126,24 +126,24 @@ export class ItspendrunComponent implements OnInit {
     //   this.outsourcingdata = res;
     //   this.outsourcingdatayear = res.outsourceOnsiteCalc;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { assetonsourceonsite } = project;
-      ``;
-      console.log(assetonsourceonsite);
+      let { outsourceonsite } = project;
+     
+      console.log(outsourceonsite);
 
-      this.outsourcingdata = assetonsourceonsite;
-      this.outsourcingdatayear = assetonsourceonsite.outsourceOnsiteCalc;
+      this.outsourcingdata = outsourceonsite;
+      this.outsourcingdatayear = outsourceonsite.outsourceOnsiteCalc;
     }
   }
   outsourcingOffshore() {
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { total_outsource } = project;
-      console.log(total_outsource);
+      let { totalfitshore } = project;
+      console.log(totalfitshore);
 
-      this.totaloutsourcingdata = total_outsource;
-      this.totaloutsourcingyear = total_outsource.outsourceFitCalc;
+      this.totaloutsourcingdata = totalfitshore;
+      this.totaloutsourcingyear = totalfitshore.outsourceFitCalc;
     }
   }
   ngOnInit(): void {

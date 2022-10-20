@@ -80,15 +80,15 @@ export class CostoftransformComponent implements OnInit {
         // });
         // this.costtransformation.patchValue({ ...res, ...obj });
       // });
-      let project = this.localStorage.get('pathfiner');
+      let project = this.localStorage.get('project');
     if (project) {
       let { cost } = project;
-      console.log(cost);
+      // console.log(cost);
       this.costData = cost;
       this.costDataYear=cost.yearBaseCostCalculations
       this.canUpdate = true;
       let { yearBaseCostCalculations } = cost;
-      console.log(yearBaseCostCalculations);
+      // console.log(yearBaseCostCalculations);
       
         let obj: any = {};
         yearBaseCostCalculations.map((el: any, i: any) => {

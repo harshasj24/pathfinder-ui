@@ -79,11 +79,11 @@ export class RunitspendOutsourceComponent implements OnInit {
     //   this.runitspendftedata = res;
     //   this.runitspendftedatayear = res.runfteCalc;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { runitoutsource } = project;
-      this. runitspendftedata= runitoutsource;
-      this.runitspendftedatayear=runitoutsource.runfteCalc
+      let { runitfte } = project;
+      this. runitspendftedata= runitfte;
+      this.runitspendftedatayear=runitfte.runfteCalc;
   }
   }
   getRunCost() {
@@ -91,11 +91,11 @@ export class RunitspendOutsourceComponent implements OnInit {
     //   this.runitspendcostsdata = res;
     //   this.runitspendcostsdatayear = res.runCostsCalc;
     // });
-    let project = this.localStorage.get('pathfiner');
+    let project = this.localStorage.get("project");
     if (project) {
-      let { runoutsourceitcost } = project;
-      this.runitspendcostsdata= runoutsourceitcost;
-      this.runitspendcostsdatayear =runoutsourceitcost.runCostsCalc
+      let { runitcost } = project;
+      this.runitspendcostsdata= runitcost;
+      this.runitspendcostsdatayear =runitcost.runCostsCalc
   }
   }
   ngOnInit(): void {
