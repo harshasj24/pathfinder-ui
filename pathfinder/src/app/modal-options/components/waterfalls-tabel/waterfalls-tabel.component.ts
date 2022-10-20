@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -8,15 +9,22 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class WaterfallsTabelComponent implements OnInit {
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private localStorage:LocalStorageService) { }
 waterfallsdata:any
 isLoaded: boolean = false;
   ngOnInit(): void {
+    this.getData()
   }
+  
   getData(){
-    this.api.getwaterfalls().subscribe((res)=>{
-      this.waterfallsdata=res
-    })
+    // this.api.getwaterfalls().subscribe((res)=>{
+    //   this.waterfallsdata=res
+    // })
+     let project = this.localStorage.get('pathfiner');
+    if (project) {
+      let {waterfalls} = project;
+      this.waterfallsdata= waterfalls;
+    }
     
   }
 }
