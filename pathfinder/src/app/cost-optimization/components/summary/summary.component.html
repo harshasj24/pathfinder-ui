@@ -6,7 +6,12 @@
   <div class="card__anual-revenue container__column--center">
     <mat-form-field appearance="outline" class="inp">
       <mat-label>Annual Revenue</mat-label>
-      <input autocomplete="off" matInput placeholder="Annual Revenue" />
+      <input
+        autocomplete="off"
+        matInput
+        [(ngModel)]="annual_revenue_for_client"
+        placeholder="Annual Revenue"
+      />
       <mat-error>Annual revenue is required </mat-error>
     </mat-form-field>
     <button (click)="claculateAndSave()" mat-raised-button color="primary">

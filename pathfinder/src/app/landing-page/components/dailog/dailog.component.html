@@ -16,7 +16,7 @@
           <mat-form-field appearance="outline">
             <mat-label>User Id</mat-label>
             <input
-              matInput
+              matInput```
               placeholder="User ID"
               formControlName="firstCtrl"
               required
@@ -90,10 +90,10 @@
     </mat-step>
   </mat-stepper> -->
 
-  <mat-stepper linear #stepper>
-    <mat-step [stepControl]="projectDetails">
+  <mat-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="userDetails">
       <div class="steaper-body container__column--center">
-        <form [formGroup]="projectDetails">
+        <form [formGroup]="userDetails">
           <ng-template matStepLabel>Fill out your name</ng-template>
           <div class="header">
             <p class="text-center">Pathfinder</p>
@@ -103,7 +103,7 @@
             <mat-label>User Id</mat-label>
             <input
               matInput
-              formControlName="firstCtrl"
+              formControlName="userId"
               placeholder="User Id"
               required
             />
@@ -121,7 +121,7 @@
         </form>
       </div>
     </mat-step>
-    <mat-step [stepControl]="userDetails">
+    <mat-step>
       <div class="steaper-body container__column--center">
         <div class="btns container__column--center">
           <button
@@ -147,7 +147,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step>
+    <mat-step [stepControl]="userDetails">
       <div class="steaper-body container__column--center">
         <ng-template matStepLabel>Done</ng-template>
         <div *ngIf="projectType === 'existing'" class="existing-project">
@@ -168,7 +168,7 @@
             <mat-label>Project Name</mat-label>
             <input
               matInput
-              formControlName="firstCtrl"
+              [(ngModel)]="projectName"
               placeholder="Project Name"
               required
             />
@@ -177,7 +177,9 @@
       </div>
       <div class="actions">
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button (click)="handleSubmit()" mat-raised-button color="primary">
+          submit
+        </button>
       </div>
     </mat-step>
   </mat-stepper>
