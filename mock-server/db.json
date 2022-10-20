@@ -585,6 +585,285 @@
                 "total_savings_yoy": 90502904
             }
         ]
+    },
+    "runopexfit": {
+        "client_drives_baseyear": 181512551,
+        "with_partner_hs_baseyear": 181512551,
+        "with_partner_personnel_baseyear": 181512551,
+        "total_partner_baseyear": 181512551,
+        "with_partner_hs_cumulative": 8911934,
+        "with_partner_personnel_cumulative": 160161111,
+        "total_partner_cumulative": 169073045,
+        "total_client_drives": 588150941,
+        "total_with_partner_hs": 579239007,
+        "total_with_partner_personnel": 427989830,
+        "sum_total_partner": 419077896,
+        "runfitshorecalculation": [
+            {
+                "year": 1,
+                "client_drives": 190042733,
+                "with_partner_hs": 187748749,
+                "with_partner_personnel": 176300668,
+                "total_partner": 174006684
+            },
+            {
+                "year": 2,
+                "client_drives": 197708007,
+                "with_partner_hs": 193914591,
+                "with_partner_personnel": 141791902,
+                "total_partner": 137998486
+            },
+            {
+                "year": 3,
+                "client_drives": 200400201,
+                "with_partner_hs": 197575667,
+                "with_partner_personnel": 109897260,
+                "total_partner": 107072726
+            }
+        ]
+    },
+    "runopexoutsource": {
+        "client_drives_baseyear": 181512551,
+        "with_partner_hs_baseyear": 181512551,
+        "with_partner_personnel_baseyear": 181512551,
+        "total_partner_baseyear": 181512551,
+        "with_partner_hs_cumulative": 8911934,
+        "with_partner_personnel_cumulative": 82761761,
+        "total_partner_cumulative": 91673695,
+        "total_client_drives": 588150941,
+        "total_with_partner_hs": 579239007,
+        "total_with_partner_personnel": 505389180,
+        "sum_total_partner": 496477246,
+        "runoutsourcecalculation": [
+            {
+                "year": 1,
+                "client_drives": 190042733,
+                "with_partner_hs": 187748749,
+                "with_partner_personnel": 179529718,
+                "total_partner": 177235734
+            },
+            {
+                "year": 2,
+                "client_drives": 197708007,
+                "with_partner_hs": 193914591,
+                "with_partner_personnel": 165569452,
+                "total_partner": 161776036
+            },
+            {
+                "year": 3,
+                "client_drives": 200400201,
+                "with_partner_hs": 197575667,
+                "with_partner_personnel": 160290010,
+                "total_partner": 157465476
+            }
+        ]
+    },
+    "model2A": {
+        "client_drives_baseyear": 181,
+        "with_partner_hs_baseyear": 181,
+        "with_partner_personnel_baseyear": 181,
+        "total_partner_baseyear": 181,
+        "with_partner_hs_cumulative": 9,
+        "with_partner_personnel_cumulative": 83,
+        "total_partner_cumulative": 92,
+        "with_partner_hs_cumulative_perc": 1.0,
+        "with_partner_personnel_cumulative_perc": 14.0,
+        "total_partner_cumulative_perc": 15.0,
+        "total_client_drives": 588,
+        "total_with_partner_hs": 579,
+        "total_with_partner_personnel": 505,
+        "sum_total_partner": 496,
+        "runOpex2aCalculation": [
+            {
+                "year": 1,
+                "client_drives": 190,
+                "with_partner_hs": 187,
+                "with_partner_personnel": 179,
+                "total_partner": 177
+            },
+            {
+                "year": 2,
+                "client_drives": 197,
+                "with_partner_hs": 193,
+                "with_partner_personnel": 165,
+                "total_partner": 161
+            },
+            {
+                "year": 3,
+                "client_drives": 200,
+                "with_partner_hs": 197,
+                "with_partner_personnel": 160,
+                "total_partner": 157
+            }
+        ]
+    },
+    "model2B": {
+        "client_drives_baseyear": 181,
+        "with_partner_hs_baseyear": 181,
+        "with_partner_personnel_baseyear": 181,
+        "total_partner_baseyear": 181,
+        "with_partner_hs_cumulative": 9,
+        "with_partner_personnel_cumulative": 161,
+        "total_partner_cumulative": 169,
+        "with_partner_hs_cumulative_perc": 1.0,
+        "with_partner_personnel_cumulative_perc": 27.0,
+        "total_partner_cumulative_perc": 28.0,
+        "total_client_drives": 588,
+        "total_with_partner_hs": 579,
+        "total_with_partner_personnel": 427,
+        "sum_total_partner": 419,
+        "runOpexCalc": [
+            {
+                "year": 1,
+                "client_drives": 190,
+                "with_partner_hs": 187,
+                "with_partner_personnel": 176,
+                "total_partner": 174
+            },
+            {
+                "year": 2,
+                "client_drives": 197,
+                "with_partner_hs": 193,
+                "with_partner_personnel": 141,
+                "total_partner": 137
+            },
+            {
+                "year": 3,
+                "client_drives": 200,
+                "with_partner_hs": 197,
+                "with_partner_personnel": 109,
+                "total_partner": 107
+            }
+        ]
+    },
+    "total2A": {
+        "hardware_software_baseyear": 59899142,
+        "personnel_outsourcing_baseyear": 121613409,
+        "totals_baseyear": 181512551,
+        "total_hardware_software_client_spend_without_partner": 194089810,
+        "total_hardware_software_client_spend_with_partner": 185177876,
+        "total_hardware_software_cost_reduction": 8911934,
+        "total_personnel_outsourcing_client_spend_without_partner": 394061131,
+        "total_personnel_outsourcing_client_spend_with_partner": 311299370,
+        "total_personnel_outsourcing_cost_reduction": 82761761,
+        "sum_totals_client_spend_without_partner": 588150941,
+        "sum_totals_client_spend_with_partner": 496477246,
+        "sum_totals_cost_reduction": 91673695,
+        "model2acalculation": [
+            {
+                "year": 1,
+                "hardware_software_client_spend_without_partner": 62714102,
+                "hardware_software_client_spend_with_partner": 60420118,
+                "hardware_software_cost_reduction": 2293984,
+                "personnel_outsourcing_client_spend_without_partner": 127328631,
+                "personnel_outsourcing_client_spend_with_partner": 116815616,
+                "personnel_outsourcing_cost_reduction": 10513015,
+                "totals_client_spend_without_partner": 190042733,
+                "totals_client_spend_with_partner": 177235734,
+                "totals_cost_reduction": 12806999,
+                "cumulative_savings": 4276817
+            },
+            {
+                "year": 2,
+                "hardware_software_client_spend_without_partner": 65243642,
+                "hardware_software_client_spend_with_partner": 61450226,
+                "hardware_software_cost_reduction": 3793416,
+                "personnel_outsourcing_client_spend_without_partner": 132464365,
+                "personnel_outsourcing_client_spend_with_partner": 100325810,
+                "personnel_outsourcing_cost_reduction": 32138555,
+                "totals_client_spend_without_partner": 197708007,
+                "totals_client_spend_with_partner": 161776036,
+                "totals_cost_reduction": 35931971,
+                "cumulative_savings": 19736515
+            },
+            {
+                "year": 3,
+                "hardware_software_client_spend_without_partner": 66132066,
+                "hardware_software_client_spend_with_partner": 63307532,
+                "hardware_software_cost_reduction": 2824534,
+                "personnel_outsourcing_client_spend_without_partner": 134268135,
+                "personnel_outsourcing_client_spend_with_partner": 94157944,
+                "personnel_outsourcing_cost_reduction": 40110191,
+                "totals_client_spend_without_partner": 200400201,
+                "totals_client_spend_with_partner": 157465476,
+                "totals_cost_reduction": 42934725,
+                "cumulative_savings": 24047075
+            }
+        ]
+    },
+    "total2B": {
+        "hardware_software_baseyear": 59899142,
+        "personnel_outsourcing_baseyear": 121613409,
+        "totals_baseyear": 181512551,
+        "total_hardware_software_client_spend_without_partner": 194089810,
+        "total_hardware_software_client_spend_with_partner": 185177876,
+        "total_hardware_software_cost_reduction": 8911934,
+        "total_personnel_outsourcing_client_spend_without_partner": 394061131,
+        "total_personnel_outsourcing_client_spend_with_partner": 233900020,
+        "total_personnel_outsourcing_cost_reduction": 160161111,
+        "sum_totals_client_spend_without_partner": 588150941,
+        "sum_totals_client_spend_with_partner": 419077896,
+        "sum_totals_cost_reduction": 169073045,
+        "model2bcalculation": [
+            {
+                "year": 1,
+                "hardware_software_client_spend_without_partner": 62714102,
+                "hardware_software_client_spend_with_partner": 60420118,
+                "hardware_software_cost_reduction": 2293984,
+                "personnel_outsourcing_client_spend_without_partner": 127328631,
+                "personnel_outsourcing_client_spend_with_partner": 113586566,
+                "personnel_outsourcing_cost_reduction": 13742065,
+                "totals_client_spend_without_partner": 190042733,
+                "totals_client_spend_with_partner": 174006684,
+                "totals_cost_reduction": 16036049,
+                "cumulative_savings": 7505867
+            },
+            {
+                "year": 2,
+                "hardware_software_client_spend_without_partner": 65243642,
+                "hardware_software_client_spend_with_partner": 61450226,
+                "hardware_software_cost_reduction": 3793416,
+                "personnel_outsourcing_client_spend_without_partner": 132464365,
+                "personnel_outsourcing_client_spend_with_partner": 76548260,
+                "personnel_outsourcing_cost_reduction": 55916105,
+                "totals_client_spend_without_partner": 197708007,
+                "totals_client_spend_with_partner": 137998486,
+                "totals_cost_reduction": 59709521,
+                "cumulative_savings": 43514065
+            },
+            {
+                "year": 3,
+                "hardware_software_client_spend_without_partner": 66132066,
+                "hardware_software_client_spend_with_partner": 63307532,
+                "hardware_software_cost_reduction": 2824534,
+                "personnel_outsourcing_client_spend_without_partner": 134268135,
+                "personnel_outsourcing_client_spend_with_partner": 43765194,
+                "personnel_outsourcing_cost_reduction": 90502941,
+                "totals_client_spend_without_partner": 200400201,
+                "totals_client_spend_with_partner": 107072726,
+                "totals_cost_reduction": 93327475,
+                "cumulative_savings": 74439825
+            }
+        ]
+    },
+    "waterfalls":{
+    "id": "63499c0c0906a024906b796b",
+    "baseyear_with_partner": 181512500,
+    "baseyear_without_partner": 181512500,
+    "year1_with_partner": 7272498,
+    "year2_with_partner": 36241532,
+    "year3_with_partner": 30925762,
+    "exit_runrate_with_partner": 107072708,
+    "year1_without_partner": 190042680,
+    "year2_without_partner": 7665273,
+    "year3_without_partner": 2692193,
+    "exit_runrate_without_partner": 200400146,
+    "runrate_reduc_with_partner": 74439792,
+    "runrate_reduc_without_partner": 18887646,
+    "runrate_perc_with_partner": 41,
+    "runrate_perc_without_partner": 10,
+    "cumulative_savings_with_partner": 168839599
+
     }
 
 }

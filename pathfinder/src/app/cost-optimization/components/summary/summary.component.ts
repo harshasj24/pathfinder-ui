@@ -15,14 +15,14 @@ export class SummaryComponent implements OnInit {
   ) {}
   annual_revenue_for_client: any = '';
   claculateAndSave() {
-    // this.api.getExistingProject().subscribe();
-    let userDetails = this.localStorage.get('user');
-    let benchMarks = { ...benchmark, ...userDetails };
-    benchMarks.inputvalues.annual_revenue_for_client =
-      this.annual_revenue_for_client;
-    this.api.createProject(benchMarks).subscribe((val) => {
-      console.log(val);
-    });
+    this.api.getExistingProject().subscribe();
+    // let userDetails = this.localStorage.get('user');
+    // let benchMarks = { ...benchmark, ...userDetails };
+    // benchMarks.inputvalues.annual_revenue_for_client =
+    //   this.annual_revenue_for_client;
+    // this.api.createProject(benchMarks).subscribe((val) => {
+    //   console.log(val);
+    // });
   }
 
   username: string = '';
