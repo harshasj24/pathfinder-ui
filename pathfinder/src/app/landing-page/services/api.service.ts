@@ -21,4 +21,7 @@ export class ApiService {
   getAlluserProject(userId: any) {
     return this.http.get(`/user/input/projectname/${userId}`);
   }
+  getByProjectName(projectName: any) {
+    return this.http.get(`/user/input/project/${projectName}`);
+  }
 }

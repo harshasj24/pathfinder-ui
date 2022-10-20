@@ -154,9 +154,11 @@
           <mat-form-field appearance="outline">
             <mat-label>Select your existing project Names</mat-label>
             <mat-select [(ngModel)]="selectedProject">
-              <mat-option *ngFor="let project of allProjects">{{
-                project
-              }}</mat-option>
+              <mat-option
+                [value]="project"
+                *ngFor="let project of allProjects"
+                >{{ project }}</mat-option
+              >
               <mat-option *ngIf="allProjects.length <= 0"
                 >No Projects</mat-option
               >

@@ -29,6 +29,9 @@ export class SummaryComponent implements OnInit {
 
   ngOnInit(): void {
     let project = this.localStorage.get('project');
-    this.username = project.username;
+    if (project) {
+      this.annual_revenue_for_client =
+        project.inputvalues.annual_revenue_for_client || '';
+    }
   }
 }
