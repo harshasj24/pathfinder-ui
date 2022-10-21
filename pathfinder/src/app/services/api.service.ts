@@ -19,8 +19,8 @@ export class ApiService {
 
   benchmarks = {
     ...benchmark,
-    userId: this.localStorage.get('user').userId || ' ',
-    projectName: this.localStorage.get('user').projectName || '',
+    userId: this.localStorage.get('user')?.userId || ' ',
+    projectName: this.localStorage.get('user')?.projectName || '',
   };
   getInputTable(payload: any) {
     return this.http.post('/inputtables/inputvalues', payload).pipe(

@@ -1,21 +1,22 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
+  <h2>Waterfall Model</h2>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>TOTAL Savings Model (With fitshoring)</th>
+        <th>Total Savings Model (With fitshoring)</th>
         <th></th>
         <th></th>
       </tr>
       <tr>
-        <th>RUN RATE</th>
-        <th>WITH PARTNER</th>
-        <th>WITHOUT PARTNER</th>
+        <th>Run Rate</th>
+        <th>With Partner</th>
+        <th>Without Partner</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Baseline year</td>
+        <td>Baseline Year</td>
         <td>
           {{
             waterfallsdata?.baseyear_with_partner
@@ -30,7 +31,7 @@
         </td>
       </tr>
       <tr>
-        <td>year1</td>
+        <td>Year-1</td>
         <td>
           {{ waterfallsdata?.year1_with_partner | currency: "USD":"symbol":"1.0" }}
         </td>
@@ -41,7 +42,7 @@
         </td>
       </tr>
       <tr>
-        <td>year2</td>
+        <td>Year-2</td>
         <td>
           {{ waterfallsdata?.year2_with_partner | currency: "USD":"symbol":"1.0" }}
         </td>
@@ -52,7 +53,7 @@
         </td>
       </tr>
       <tr>
-        <td>year3</td>
+        <td>Year-3</td>
         <td>
           {{ waterfallsdata?.year3_with_partner | currency: "USD":"symbol":"1.0" }}
         </td>
@@ -63,7 +64,7 @@
         </td>
       </tr>
       <tr>
-        <td>EXIT RUN RATE</td>
+        <td>Exit Run Rate</td>
         <td>
           {{
             waterfallsdata?.exit_runrate_with_partner| currency: "USD":"symbol":"1.0"
@@ -77,7 +78,7 @@
         </td>
       </tr>
       <tr>
-        <td>RUNRATE REDUCTION</td>
+        <td>Run Rate Reduction</td>
         <th>
           {{
             waterfallsdata?.runrate_reduc_with_partner | currency: "USD":"symbol":"1.0"
@@ -96,7 +97,7 @@
         <td>{{ waterfallsdata?.runrate_perc_without_partner}}%</td>
       </tr>
       <tr>
-        <td>3 YEAR CUMULATIVE SAVINGS</td>
+        <td>3 Year Cumulative Savings</td>
         <th>
           {{
             waterfallsdata?.cumulative_savings_with_partner
