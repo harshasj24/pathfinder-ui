@@ -12,7 +12,7 @@
     </div>
     <div class="inputs d-flex">
       <mat-form-field appearance="outline" class="">
-        <mat-label>IT spend on personnel & outsourcing (67-72%)</mat-label>
+        <mat-label>IT Spend On Personnel & Outsourcing (67-72%)</mat-label>
         <input
           autocomplete="off"
           formControlName="it_spend_on_personal_perc"
@@ -22,7 +22,7 @@
         <mat-error>IT spend on personnel & outsourcing is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="">
-        <mat-label>Avg. CTC per FTE of client (persumed Onsite)</mat-label>
+        <mat-label>Avg. CTC per FTE Of Client (persumed Onsite)</mat-label>
         <input
           autocomplete="off"
           formControlName="avr_ctc_per_fte"
@@ -32,7 +32,7 @@
         <mat-error>Avg. CTC per FTE of client is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="">
-        <mat-label>Max. % eligible for outsourcing</mat-label>
+        <mat-label>Max. % Eligible For Outsourcing</mat-label>
         <input
           autocomplete="off"
           formControlName="perc_eligible_forpersonal"
@@ -89,7 +89,7 @@
         type="button"
         (click)="handleUpdate()"
       >
-        Calculate & save
+        Calculate & Save
       </button>
     </div>
   </form>
@@ -107,7 +107,7 @@
     <table class="table mt-4 table-striped table-bordered table-hover">
       <tbody>
         <tr>
-          <td class="w-50">IT spend on personnel & outsourcing (67-72%)</td>
+          <td class="w-50">IT Spend On Personnel & Outsourcing (67-72%)</td>
           <!-- <td>% {{ itSpend?.value || 0 }}</td>
           <td>{{ claculatedVal.outSourcing | currency: "USD":true:"1.0" }}</td> -->
           <td>{{ itPersonelData?.it_spend_on_personal_perc || 0 }}%</td>
@@ -118,7 +118,7 @@
           </td>
         </tr>
         <tr>
-          <td>Avg. CTC per FTE of client (persumed Onsite)</td>
+          <td>Avg. CTC per FTE Of Client (persumed Onsite)</td>
           <!-- <td>{{ ctc?.value || 0 | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.outSourcing }}</td> -->
           <td>
@@ -127,7 +127,7 @@
           <td>{{ itPersonelData?.avr_ctc_final }}</td>
         </tr>
         <tr>
-          <td>RUN FTE</td>
+          <td>Run FTE</td>
           <!-- <td>{{ claculatedVal.run | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.run }}</td> -->
           <td>
@@ -136,7 +136,7 @@
           <td>{{ itPersonelData?.run_fte_outsource }}</td>
         </tr>
         <tr>
-          <td>GROW FTE</td>
+          <td>Grow FTE</td>
           <!-- <td>{{ claculatedVal.grow | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.grow }}</td> -->
           <td>
@@ -145,7 +145,7 @@
           <td>{{ itPersonelData?.grow_fte_outsource }}</td>
         </tr>
         <tr>
-          <td>TRANSFORM FTE</td>
+          <td>Transform FTE</td>
           <!-- <td>{{ claculatedVal.transform | currency: "USD":true:"1.0" }}</td>
           <td>{{ dividedVals.transform }}</td> -->
           <td>
@@ -157,7 +157,7 @@
           <td>{{ itPersonelData?.transform_fte_outsource }}</td>
         </tr>
         <tr>
-          <td>Max. % eligible for outsourcing</td>
+          <td>Max. % Eligible For Outsourcing</td>
           <!-- <td>{{ maxOutsourcing?.value || 0 }} %</td>
           <td>
             {{

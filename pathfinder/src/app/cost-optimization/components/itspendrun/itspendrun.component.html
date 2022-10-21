@@ -4,7 +4,7 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <td>2. IT SPEND ON RUN PERSONNEL</td>
+        <td>2. IT Spend On Run Personnel</td>
         <td colspan="3">
           {{ itspenddata?.itspend_baseline | currency: "USD":true:"1.0" }}
         </td>
@@ -18,7 +18,7 @@
       </tr>
       <tr>
         <td colspan="4"></td>
-        <td>IT personnal spend with Inflation</td>
+        <td>IT personnel spend with Inflation</td>
         <td *ngFor="let itspenddatayear of itspenddatayear">
           {{
             itspenddatayear?.itSpendWithInflation | currency: "USD":true:"1.0"
@@ -52,7 +52,7 @@
         </td>
       </tr>
       <tr>
-        <th>Asset classificatio</th>
+        <th>Asset classification</th>
         <th>%Split</th>
         <th>Baseline year</th>
         <th>Levers</th>
@@ -65,7 +65,7 @@
     </thead>
     <tbody>
       <tr>
-        <th colspan="5">2.A. OUTSOURCING ONSITE ONLY</th>
+        <th colspan="5">2.A. Outsourcing Onsite Only</th>
         <th *ngFor="let outsourcingdatayear of outsourcingdatayear">
           {{
             outsourcingdatayear?.outsource_onsite_only
@@ -81,7 +81,7 @@
       </tr>
       <tr>
         <td colspan="3">85% Outsourcing - Onsite Only</td>
-        <td colspan="2">Total IT Spend with PARTNER take over</td>
+        <td colspan="2">Total IT Spend with Partner take over</td>
         <td *ngFor="let outsourcingdatayear of outsourcingdatayear">
           {{ outsourcingdatayear?.total_it_spend | currency: "USD":true:"1.0" }}
         </td>
@@ -127,7 +127,7 @@
         </td>
       </tr>
       <tr>
-        <th colspan="5">2.B. TOTAL OUTSOURCING / FITSHORE</th>
+        <th colspan="5">2.B. Total Outsourcing / Fitshore</th>
         <th *ngFor="let totaloutsourcingyear of totaloutsourcingyear">
           {{
             totaloutsourcingyear?.totoal_outsource_fit

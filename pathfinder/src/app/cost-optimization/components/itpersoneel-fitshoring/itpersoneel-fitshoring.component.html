@@ -7,17 +7,17 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Asset classificatio</th>
+        <th>Asset classification</th>
         <th>Baseline year</th>
-        <th>Year1</th>
-        <th>Year2</th>
-        <th>Year3</th>
+        <th>Year-1</th>
+        <th>Year-2</th>
+        <th>Year-3</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>CLIENT</th>
+        <th>Client</th>
         <td>{{ itpersonneldata?.client_baseyear }}</td>
         <td *ngFor="let itpersonnelyear of itpersonneldatayear">
           {{ itpersonnelyear?.client_year | currency: "USD":true:"1.0" }}
@@ -37,7 +37,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>PARTNER FTEs TOTAL</th>
+        <th>Partner FTEs Total</th>
         <td>{{ itpersonneldata?.partner_fte_baseyear }}</td>
         <td *ngFor="let itpersonnelyear of itpersonneldatayear">
           {{ itpersonnelyear?.partner_fte_total | currency: "USD":true:"1.0" }}
@@ -58,7 +58,7 @@
         </td>
       </tr>
       <tr>
-        <th>PARTNER Bill TOTAL</th>
+        <th>Partner Bill Total</th>
         <td>
           {{
             itpersonneldata?.partner_bill_baseyear | currency: "USD":true:"1.0"
@@ -92,7 +92,7 @@
         </td>
       </tr>
       <tr>
-        <th>TOTAL SPEND for original scope</th>
+        <th>Total Spend for Original Scope</th>
         <td>
           {{
             itpersonneldata?.total_spend_baseyear | currency: "USD":true:"1.0"

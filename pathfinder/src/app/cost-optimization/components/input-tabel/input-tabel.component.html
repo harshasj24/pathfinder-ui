@@ -39,7 +39,7 @@
         <mat-error>Annual revenue is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>It Spend</mat-label>
+        <mat-label>IT Spend</mat-label>
         <input
           autocomplete="off"
           formControlName="it_spent_perc"
@@ -59,7 +59,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Run It Spend</mat-label>
+        <mat-label>Run IT Spend</mat-label>
         <input
           autocomplete="off"
           formControlName="run_business_perc"
@@ -69,7 +69,7 @@
         <mat-error>Run it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Grow It Spend</mat-label>
+        <mat-label>Grow IT Spend</mat-label>
         <input
           autocomplete="off"
           formControlName="grow_business_perc"
@@ -79,7 +79,7 @@
         <mat-error>Grow it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Transform It Spend</mat-label>
+        <mat-label>Transform IT Spend</mat-label>
         <input
           autocomplete="off"
           formControlName="transform_it_perc"
@@ -89,7 +89,7 @@
         <mat-error>Transform it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Annual avg. inflation</mat-label>
+        <mat-label>Annual avg. Inflation</mat-label>
         <input
           autocomplete="off"
           formControlName="annual_inflation_perc"
@@ -140,7 +140,7 @@
         (click)="handleUpdate()"
         type="submit"
       >
-        Calculate & save
+        Calculate & Save
       </button>
     </div>
   </form>
@@ -159,7 +159,7 @@
       <table class="table table-striped table-bordered table-hover">
         <tbody>
           <tr>
-            <td class="w-50">IT spend as % of revenue (~1.2-3%)</td>
+            <td class="w-50">IT Spend as % of Revenue (~1.2-3%)</td>
             <!-- <td>{{ itSpend?.value || 0 }} %</td> -->
             <td>{{ inputTableData?.it_spent_perc }}</td>
             <!-- <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td> -->
@@ -168,7 +168,7 @@
             </td>
           </tr>
           <tr>
-            <td>RUN the business IT spend</td>
+            <td>Run the Business IT Spend</td>
             <!-- <td>{{ run?.value || 0 }} %</td> -->
             <td>{{ inputTableData?.run_business_perc }}</td>
             <!-- <td>
@@ -184,7 +184,7 @@
             </td>
           </tr>
           <tr>
-            <td>Grow the business IT spend</td>
+            <td>Grow the Business IT Spend</td>
             <!-- <td>{{ grow?.value || 0 }} %</td> -->
             <td>{{ inputTableData?.grow_business_perc }}</td>
 
@@ -201,7 +201,7 @@
             </td>
           </tr>
           <tr>
-            <td>Transform the business IT spend</td>
+            <td>Transform the Business IT Spend</td>
             <!-- <td>{{ transform?.value || 0 }} %</td> -->
             <td>{{ inputTableData?.transform_it_perc }}</td>
 

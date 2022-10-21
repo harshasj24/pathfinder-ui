@@ -61,7 +61,7 @@
     <table class="table table-striped table-bordered table-hover">
       <tbody>
         <tr>
-          <th>SAVINGS THROUGH OPTIMIZATION LEVERS</th>
+          <th>Savings Through Optimization Levers</th>
           <td *ngFor="let savingoptdatayear of savingoptdatayear">
             {{ savingoptdatayear?.saving_levers | currency: "USD":true:"1.0" }}
           </td>
@@ -72,7 +72,7 @@
           </td>
         </tr>
         <tr>
-          <th>Cost of Transformation Partner share</th>
+          <th>Cost of Transformation Partner Share</th>
           <td *ngFor="let savingoptdatayear of savingoptdatayear">
             {{
               savingoptdatayear?.cot_partner_share | currency: "USD":true:"1.0"
@@ -83,7 +83,7 @@
           </td>
         </tr>
         <tr>
-          <th>1. TOTAL SAVINGS WITH ASSET ONLY MODEL</th>
+          <th>1. Total Savings With Asset Only Model</th>
           <td *ngFor="let savingoptdatayear of savingoptdatayear">
             {{
               savingoptdatayear?.total_savings_model
@@ -96,7 +96,7 @@
         </tr>
         <tr>
           <th>
-            RUN BUSINESS IT ASSET RUN RATE WITH PARTNER (no personnel model)
+            Run Business IT Asset Run Rate With Partner (no personnel model)
           </th>
           <td *ngFor="let savingoptdatayear of savingoptdatayear">
             {{ savingoptdatayear?.run_businessit | currency: "USD":true:"1.0" }}

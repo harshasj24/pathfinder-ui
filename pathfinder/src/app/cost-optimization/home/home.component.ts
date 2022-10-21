@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
     {
       path: 'itpesonal',
-      title: 'It Personel',
+      title: 'IT Personnel',
     },
     {
       path: 'itpartner',
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
     {
       path: 'itoutsource',
-      title: 'RUN  IT Personnela with  Outsourcing',
+      title: 'Run IT Personnel with  Outsourcing',
     },
     {
       path: 'itfitshore',
