@@ -1,5 +1,6 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
+  <h2>Waterfall Model</h2>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -15,7 +16,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Baseline year</td>
+        <td>Baseline Year</td>
         <td>
           {{
             waterfallsdata?.baseyear_with_partner
@@ -96,7 +97,7 @@
         <td>{{ waterfallsdata?.runrate_perc_without_partner}}%</td>
       </tr>
       <tr>
-        <td>3 YEAR CUMULATIVE SAVINGS</td>
+        <td>3 Year Cumulative Savings</td>
         <th>
           {{
             waterfallsdata?.cumulative_savings_with_partner

@@ -1,23 +1,23 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 
 <mat-card>
-  <h2>TOTAL SAVINGS MODEL COMPARISONS WITH & WITHOUT PARTNER (Models 1+2.B)</h2>
+  <h2>Total Saving Model Comparision With & Without Partner (Models 1+2.B)</h2>
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Asset classificatio</th>
+        <th>Asset Classification</th>
         <th></th>
         <th>Baseline Year $ spend</th>
-        <th>Year1</th>
-        <th>Year2</th>
-        <th>Year3</th>
+        <th>Year-1</th>
+        <th>Year-2</th>
+        <th>Year-3</th>
         <th>Total</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>HARDWARE/SOFTWARE</td>
-        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>Hardware/Software</td>
+        <td>Client Spend Without Partner</td>
         <td>
           {{
             savingmodelbdata?.hardware_software_baseyear
@@ -39,7 +39,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>CLIENT SPEND WITH PARTNER</td>
+        <td>Client Spend With Partner</td>
         <td></td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
@@ -56,7 +56,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>COST REDUCTION</td>
+        <td>Cost Reduction</td>
         <td></td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
@@ -72,9 +72,9 @@
         </td>
       </tr>
       <tr>
-        <td>PERSONNEL / OUTSOURCING</td>
+        <td>Personnel / Outsourcing</td>
 
-        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>Client Spend Without Partner</td>
         <td>
           {{
             savingmodelbdata?.personnel_outsourcing_baseyear
@@ -96,7 +96,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>CLIENT SPEND WITH PARTNER</td>
+        <td>Client Spend With Partner</td>
         <td></td>
         <td *ngFor="let savingmodeldatayear of savingmodelbdatayear">
           {{
@@ -113,7 +113,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>COST REDUCTION</td>
+        <td>Cost Reduction</td>
         <td></td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
@@ -130,7 +130,7 @@
       </tr>
       <tr>
         <td>Totals</td>
-        <td>CLIENT SPEND WITHOUT PARTNER</td>
+        <td>Client Spend Without Partner</td>
         <td>
           {{
             savingmodelbdata?.totals_baseyear | currency: "USD":"symbol":"1.0"
@@ -151,7 +151,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>CLIENT SPEND WITH PARTNER</td>
+        <td>Client Spend With Partner</td>
         <td></td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
@@ -168,7 +168,7 @@
       </tr>
       <tr>
         <td></td>
-        <td>COST REDUCTION</td>
+        <td>Cost Reduction</td>
         <td></td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
@@ -184,7 +184,7 @@
         </td>
       </tr>
       <tr>
-        <td>CUMULATIVE SAVING</td>
+        <td>Cumulative Saving</td>
         <td *ngFor="let savingmodelbdatayear of savingmodelbdatayear">
           {{
             savingmodelbdatayear?.cumulative_savings

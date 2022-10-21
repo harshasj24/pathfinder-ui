@@ -2,7 +2,7 @@
 
 <mat-card>
   <div class="header">
-    <h2>RUN OPEX MODELING (with fitshoring)</h2>
+    <h2>Run Opex Modelling (with fitshoring)</h2>
     <button (click)="openDailog()" mat-button color="primary">View Chart</button>
   </div>
   <table  class="table table-striped table-bordered table-hover">
@@ -13,7 +13,7 @@
         <th>EOY-1</th>
         <th>EOY-2</th>
         <th>EOY-3</th>
-        <th>TOTAL</th>
+        <th>Total</th>
         <th>Cumulative Saving</th>
       </tr>
     </thead>
@@ -116,7 +116,7 @@
         <th>EOY-1</th>
         <th>EOY-2</th>
         <th>EOY-3</th>
-        <th>TOTAL</th>
+        <th>Total</th>
         <th>Cumulative Savings</th>
       </tr>
     </thead>
@@ -135,7 +135,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>WITH PARTNER H/W-S/W ASSETS (NO PERSONNEL)</td>
+        <td>With Partner H/W-S/W Assets (NO PERSONNEL)</td>
         <td>
           {{
             runopexdata?.with_partner_hs_baseyear | currency: "USD":"symbol":"1.0"
@@ -154,7 +154,7 @@
         </td>
       </tr>
       <tr>
-        <td>WITH PARTNER PERSONNEL (CLIENT OWNED ASSETS)</td>
+        <td>With Partner Personnel (CLIENT OWNED ASSETS)</td>
         <td>
           {{
             runopexdata?.with_partner_personnel_baseyear
