@@ -219,7 +219,7 @@ export class ItPartnerComponent implements OnInit {
       yearBseCalculations,
     };
 
-    let benchmarks = { ...benchmark };
+    let benchmarks = { ...this.apiservice.benchmarks };
     benchmarks.itpersonalcost = payload;
     // this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
     //   console.log(val);

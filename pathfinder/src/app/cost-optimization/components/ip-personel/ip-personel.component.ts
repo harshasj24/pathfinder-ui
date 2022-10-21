@@ -136,7 +136,7 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
 
   // get one request
   handleUpdate() {
-    let benchmarks = { ...benchmark };
+    let benchmarks = { ...this.apiservice.benchmarks };
     benchmarks.itpersonnel = this.itPersonel.value;
     this.apiservice.updateProject(benchmarks).subscribe((res) => {
       this.localStorage.set('project', res);
