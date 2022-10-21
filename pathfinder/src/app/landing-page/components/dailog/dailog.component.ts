@@ -52,18 +52,20 @@ export class DailogComponent implements OnInit {
   }
 
   handleSubmit() {
+    let details = {
+      ...this.userDetails.value,
+      projectName: this.projectName,
+    };
+    console.log(details);
     if (this.projectType === 'new') {
-      let details = {
-        ...this.userDetails.value,
-        projectName: this.projectName,
-      };
-      console.log(details);
       this.localStorage.set('user', details);
       this.router.navigate(['/costOptimization']);
       this.dailog.closeAll();
     }
     if (this.projectType === 'existing') {
-      this.api.getByProjectName(this.selectedProject).subscribe((res) => {
+      this.api.getByProjectName(this.selectedProject).subscribe((res: any) => {
+        let userDetails = { ...details, projectName: res.projectName };
+        this.localStorage.set('user', userDetails);
         this.localStorage.set('project', res);
         this.dailog.closeAll();
         this.router.navigate(['/costOptimization']);

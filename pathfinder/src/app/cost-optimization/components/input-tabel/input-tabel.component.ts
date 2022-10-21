@@ -137,7 +137,7 @@ export class InputTabelComponent implements OnInit {
     //   console.log(payload);
     //   this.handleGet();
     // });
-    let benchmarks = { ...benchmark };
+    let benchmarks = { ...this.api.benchmarks };
     benchmarks.inputvalues = payload;
 
     this.api.updateProject(benchmarks).subscribe((res) => {

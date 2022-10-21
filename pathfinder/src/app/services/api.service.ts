@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, tap, Observable } from 'rxjs';
+import { benchmark } from '../core/constants/benchmarks';
 import { inputTable } from '../core/models/tables';
 import { HttpService } from '../core/services/http.service';
 import { LocalStorageService } from '../core/services/local-storage.service';
@@ -15,6 +16,12 @@ export class ApiService {
     private localStorage: LocalStorageService,
     private http1: HttpClient
   ) {}
+
+  benchmarks = {
+    ...benchmark,
+    userId: this.localStorage.get('user').userId || ' ',
+    projectName: this.localStorage.get('user').projectName || '',
+  };
   getInputTable(payload: any) {
     return this.http.post('/inputtables/inputvalues', payload).pipe(
       tap((res: any) => {

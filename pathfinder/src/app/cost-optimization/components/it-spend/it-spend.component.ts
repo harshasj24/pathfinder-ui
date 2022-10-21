@@ -277,7 +277,8 @@ export class ItSpendComponent implements OnInit {
   handleGetTotal() {
     let project = this.localStorage.get('project');
     if (project) {
-      // this.totalAssets=project.
+      let { asset } = project;
+      this.totalAssets = asset;
     }
     // this.api.getTotalAssets().subscribe((res: any) => {
     //   this.totalAssets = res;

@@ -91,7 +91,7 @@ export class AssetFormComponent implements OnInit {
       //     });
       //   });
 
-      let benchmarks: any = { ...benchmark };
+      let benchmarks: any = { ...this.api.benchmarks };
       benchmarks[this.assetDetail[this.data.title].localpath] = payload;
       this.api.updateProject(benchmarks).subscribe((res: any) => {
         this.localStorage.set('project', res);
