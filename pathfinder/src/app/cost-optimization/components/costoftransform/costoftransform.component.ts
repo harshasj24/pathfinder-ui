@@ -153,7 +153,7 @@ export class CostoftransformComponent implements OnInit {
       partner_perc: this.costtransformation.value['partner_perc'],
       yearBaseCostCalculations,
     };
-    let benchmarks = { ...this.apiservice.benchmarks };
+    let benchmarks = { ...this.apiservice.getBenchMarks() };
     benchmarks.cost = payload;
     // this.apiservice.updateCostoftransform(payload).subscribe((val) => {
     //   console.log(val);

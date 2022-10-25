@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DailogComponent } from './components/dailog/dailog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
-import { ApiService } from './services/api.service';
+import { LandingApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
@@ -26,6 +26,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ApiService],
+  providers: [LandingApiService],
 })
 export class LandingPageModule {}

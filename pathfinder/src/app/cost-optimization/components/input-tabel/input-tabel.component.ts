@@ -137,9 +137,9 @@ export class InputTabelComponent implements OnInit {
     //   console.log(payload);
     //   this.handleGet();
     // });
-    let benchmarks = { ...this.api.benchmarks };
-    benchmarks.inputvalues = payload;
 
+    let benchmarks = { ...this.api.getBenchMarks() };
+    benchmarks.inputvalues = payload;
     this.api.updateProject(benchmarks).subscribe((res) => {
       console.log(res);
       this.localStorage.set('project', res);
@@ -149,11 +149,11 @@ export class InputTabelComponent implements OnInit {
 
   handleSubmit() {
     this.isLoaded = true;
-    let { industryBased, ...payload } = this.inputTabel.value;
-    this.api.getInputTable(payload).subscribe((val: any) => {
-      this.inputTableData = val;
-      this.isLoaded = false;
-    });
+    // let { industryBased, ...payload } = this.inputTabel.value;
+    // this.api.getInputTable(payload).subscribe((val: any) => {
+    //   this.inputTableData = val;
+    //   this.isLoaded = false;
+    // });
 
     console.log(this.inputTabel?.value);
   }

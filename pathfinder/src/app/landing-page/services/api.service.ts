@@ -4,7 +4,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 import { tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Injectable()
-export class ApiService {
+export class LandingApiService {
   constructor(
     private http: HttpService,
     private localStorage: LocalStorageService

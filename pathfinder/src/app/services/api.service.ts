@@ -17,11 +17,14 @@ export class ApiService {
     private http1: HttpClient
   ) {}
 
-  benchmarks = {
-    ...benchmark,
-    userId: this.localStorage.get('user')?.userId || ' ',
-    projectName: this.localStorage.get('user')?.projectName || '',
-  };
+  getBenchMarks() {
+    let benchmarks = {
+      ...benchmark,
+      userId: this.localStorage.get('user')?.userId || ' ',
+      projectName: this.localStorage.get('user')?.projectName || '',
+    };
+    return benchmarks;
+  }
   getInputTable(payload: any) {
     return this.http.post('/inputtables/inputvalues', payload).pipe(
       tap((res: any) => {

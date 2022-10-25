@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { ApiService } from '../../services/api.service';
-
+import { ApiService } from 'src/app/services/api.service';
+import { LandingApiService } from '../../services/api.service';
 @Component({
   selector: 'app-dailog',
   templateUrl: './dailog.component.html',
@@ -14,10 +14,11 @@ import { ApiService } from '../../services/api.service';
 export class DailogComponent implements OnInit {
   constructor(
     private http: HttpService,
-    private api: ApiService,
+    private api: LandingApiService,
     private router: Router,
     private dailog: MatDialog,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private apiMain: ApiService
   ) {}
   // userId: any;
   projectDetails = new FormGroup({});
