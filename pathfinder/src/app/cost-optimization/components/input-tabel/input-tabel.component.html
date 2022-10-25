@@ -29,7 +29,7 @@
     </div>
     <div class="inputs d-flex">
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Annual Revenue</mat-label>
+        <mat-label>Annual Revenue ($)</mat-label>
         <input
           autocomplete="off"
           formControlName="annual_revenue_for_client"
@@ -39,7 +39,7 @@
         <mat-error>Annual revenue is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>IT Spend</mat-label>
+        <mat-label>IT Spend (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="it_spent_perc"
@@ -59,7 +59,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Run IT Spend</mat-label>
+        <mat-label>Run IT Spend (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="run_business_perc"
@@ -69,7 +69,7 @@
         <mat-error>Run it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Grow IT Spend</mat-label>
+        <mat-label>Grow IT Spend (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="grow_business_perc"
@@ -79,7 +79,7 @@
         <mat-error>Grow it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Transform IT Spend</mat-label>
+        <mat-label>Transform IT Spend (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="transform_it_perc"
@@ -89,7 +89,7 @@
         <mat-error>Transform it spend is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="inp">
-        <mat-label>Annual avg. Inflation</mat-label>
+        <mat-label>Annual avg. Inflation (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="annual_inflation_perc"
@@ -152,7 +152,7 @@
         }}
       </h2>
       <button (click)="core.openChartsDailog()" mat-button color="primary">
-        Vew Chart
+        View Chart
       </button>
     </div>
     <div class="result-tabel">
@@ -161,7 +161,7 @@
           <tr>
             <td class="w-50">IT Spend as % of Revenue (~1.2-3%)</td>
             <!-- <td>{{ itSpend?.value || 0 }} %</td> -->
-            <td>{{ inputTableData?.it_spent_perc }}</td>
+            <td>{{ inputTableData?.it_spent_perc }}%</td>
             <!-- <td>{{ caluclatedItSpend | currency: "USD":true:"1.0" }}</td> -->
             <td>
               {{ inputTableData?.it_spent_value | currency: "USD":true:"1.0" }}
@@ -170,7 +170,7 @@
           <tr>
             <td>Run the Business IT Spend</td>
             <!-- <td>{{ run?.value || 0 }} %</td> -->
-            <td>{{ inputTableData?.run_business_perc }}</td>
+            <td>{{ inputTableData?.run_business_perc }}%</td>
             <!-- <td>
             {{
               cal.caluclatePercentage(caluclatedItSpend, run?.value)
@@ -186,7 +186,7 @@
           <tr>
             <td>Grow the Business IT Spend</td>
             <!-- <td>{{ grow?.value || 0 }} %</td> -->
-            <td>{{ inputTableData?.grow_business_perc }}</td>
+            <td>{{ inputTableData?.grow_business_perc }}%</td>
 
             <!-- <td>
             {{
@@ -203,7 +203,7 @@
           <tr>
             <td>Transform the Business IT Spend</td>
             <!-- <td>{{ transform?.value || 0 }} %</td> -->
-            <td>{{ inputTableData?.transform_it_perc }}</td>
+            <td>{{ inputTableData?.transform_it_perc }}%</td>
 
             <!-- <td>
             {{

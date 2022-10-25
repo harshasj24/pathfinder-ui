@@ -28,8 +28,12 @@ th {
   }
 }
 .header {
-  display: flex;
+  display: flex; 
+  padding:10px; 
 }
 .header h2 {
   flex-grow: 1;
 }
+// .edit__save {
+
+// }

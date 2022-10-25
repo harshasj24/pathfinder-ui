@@ -16,10 +16,31 @@
         View Chart
       </button>
     </div>
-    <div class="mat-card__body">
+    <div class="d-flex">
+      <button
+        class="ms-auto edit__save me-2"
+        mat-raised-button
+        (click)="enableEdit()"
+        color="primary"
+        type="button"
+      >
+        Edit
+      </button>
+      <button
+        class="edit__save"
+        (click)="handleUpdate()"
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="canUpdate"
+      >
+        Calculate & save
+      </button>
+    </div>
+    <div class="mat-card__body mt-3">
       <div class="mat-card__body__inputs">
         <mat-form-field appearance="outline" class="">
-          <mat-label>Partner CTC (Onsite)</mat-label>
+          <mat-label>Partner CTC (Onsite) ($)</mat-label>
           <input
             autocomplete="off"
             matInput
@@ -29,7 +50,7 @@
           <mat-error>Partner CTC (Onsite) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
-          <mat-label>Partner CTC (Offshore)</mat-label>
+          <mat-label>Partner CTC (Offshore) ($)</mat-label>
           <input
             autocomplete="off"
             formControlName="partnerCtcOffshore"
@@ -39,7 +60,7 @@
           <mat-error>Partner CTC (Offshore) is required.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
-          <mat-label>Onsite Ratio (to be)</mat-label>
+          <mat-label>Onsite Ratio (to be) (%)</mat-label>
           <input
             autocomplete="off"
             formControlName="onsitRatio"
@@ -49,7 +70,7 @@
           <mat-error>Onsite Ratio (to be) is required</mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="">
-          <mat-label>Offshore Ratio (to be)</mat-label>
+          <mat-label>Offshore Ratio (to be) (%)</mat-label>
           <input
             autocomplete="off"
             formControlName="offshoreRatio"
@@ -80,7 +101,7 @@
             <th>Take Over Plan</th>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Take Over Plan</mat-label>
+                <mat-label>Take Over Plan (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="takeOverPlany1"
@@ -92,7 +113,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Take Over Plan</mat-label>
+                <mat-label>Take Over Plan (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="takeOverPlany2"
@@ -104,7 +125,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Take Over Plan</mat-label>
+                <mat-label>Take Over Plan (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="takeOverPlany3"
@@ -131,7 +152,7 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
+                  >Partner Productivity Improvement (In FTE %) (%)</mat-label
                 >
                 <input
                   autocomplete="off"
@@ -148,7 +169,7 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
+                  >Partner Productivity Improvement (In FTE %) (%)</mat-label
                 >
                 <input
                   autocomplete="off"
@@ -165,7 +186,7 @@
             <td>
               <mat-form-field appearance="outline" class="">
                 <mat-label
-                  >Partner Productivity Improvement (In FTE %)</mat-label
+                  >Partner Productivity Improvement (In FTE %) (%)</mat-label
                 >
                 <input
                   autocomplete="off"
@@ -197,7 +218,7 @@
             <th>Onsite ratio</th>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Onsite ratio</mat-label>
+                <mat-label>Onsite ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="onsiteRatioy1"
@@ -209,7 +230,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Onsite ratio</mat-label>
+                <mat-label>Onsite ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="onsiteRatioy2"
@@ -221,7 +242,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Onsite ratio</mat-label>
+                <mat-label>Onsite ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="onsiteRatioy3"
@@ -242,7 +263,7 @@
             <th>Offshore Ratio</th>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Offshore Ratio</mat-label>
+                <mat-label>Offshore Ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="offshoreRatioy1"
@@ -254,7 +275,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Offshore Ratio</mat-label>
+                <mat-label>Offshore Ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="offshoreRatioy2"
@@ -266,7 +287,7 @@
             </td>
             <td>
               <mat-form-field appearance="outline" class="">
-                <mat-label>Offshore Ratio</mat-label>
+                <mat-label>Offshore Ratio (%)</mat-label>
                 <input
                   autocomplete="off"
                   formControlName="offshoreRatioy3"
@@ -305,24 +326,6 @@
       >
         Update
       </button> -->
-      <button
-        class="ms-auto me-2"
-        mat-raised-button
-        (click)="enableEdit()"
-        color="primary"
-        type="button"
-      >
-        Edit
-      </button>
-      <button
-        (click)="handleUpdate()"
-        mat-raised-button
-        color="primary"
-        type="button"
-        [disabled]="canUpdate"
-      >
-        Calculate & save
-      </button>
     </div>
   </form>
 </mat-card>

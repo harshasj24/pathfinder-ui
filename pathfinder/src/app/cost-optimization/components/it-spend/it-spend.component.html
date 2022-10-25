@@ -37,13 +37,13 @@
         <tr>
           <td class="title border">Total IT spends on assets</td>
           <td class="baseline-year border">
-            {{ totalAssets?.itspendonassets_baseline }}
+            {{ totalAssets?.itspendonassets_baseline|currency: "USD":"symbol":"1.0" }}
           </td>
           <td
             *ngFor="let asset of totalAssets?.itspendcalc"
             class="border year"
           >
-            {{ asset?.itspendonassets_year }}
+            {{ asset?.itspendonassets_year|currency: "USD":"symbol":"1.0" }}
           </td>
         </tr>
       </tbody>

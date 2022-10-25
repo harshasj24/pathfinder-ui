@@ -11,7 +11,7 @@
     </div>
     <div class="inputs">
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>COT%</mat-label>
+        <mat-label>COT (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="cot_perc"
@@ -21,7 +21,7 @@
         <mat-error>Cost Of Transform is required</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>Client Share</mat-label>
+        <mat-label>Client Share (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="client_perc"
@@ -31,7 +31,7 @@
         <mat-error>Client Share is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>Partner/Client Share</mat-label>
+        <mat-label>Partner/Client Share (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="partner_perc"
@@ -41,7 +41,7 @@
         <mat-error>Partner/Client Share is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>COT Spread Year-1</mat-label>
+        <mat-label>COT Spread Year-1 (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="cot_spread_percy1"
@@ -51,7 +51,7 @@
         <mat-error>COT Spread Year-1 Share is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>COT Spread Year-2</mat-label>
+        <mat-label>COT Spread Year-2 (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="cot_spread_percy2"
@@ -61,7 +61,7 @@
         <mat-error>COT Spread Year-2 Share is required </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="p-2">
-        <mat-label>COT Spread Year-3</mat-label>
+        <mat-label>COT Spread Year-3 (%)</mat-label>
         <input
           autocomplete="off"
           formControlName="cot_spread_percy3"
@@ -119,22 +119,22 @@
           <td class="w-50">COT %</td>
           <!-- <td>{{ cot?.value || 0 }} %</td>
                     <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
-          <td>{{ costData?.cot_perc }}</td>
+          <td>{{ costData?.cot_perc }}%</td>
           <td>{{ costData?.cot_value | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
           <td>Client Share</td>
           <!-- <td>{{ clientshare?.value || 0 }} %</td>
                     <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
-          <td>{{ costData?.client_perc }}</td>
+          <td>{{ costData?.client_perc }}%</td>
           <td>{{ costData?.client_value | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
         <tr>
           <td>Partner/ Client share</td>
           <!-- <td>{{ partnershare?.value || 0 }} %</td>
                     <td>{{0|currency: "USD":"symbol":"1.0"}}</td> -->
-          <td>{{ costData?.partner_perc }}</td>
-          <td>{{ costData?.partner_value }}</td>
+          <td>{{ costData?.partner_perc }}%</td>
+          <td>{{ costData?.partner_value  | currency: "USD":"symbol":"1.0" }}</td>
         </tr>
       </tbody>
     </table>
