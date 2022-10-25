@@ -17,6 +17,10 @@
     >Pathfinder</a
   >
 
+  <p *ngIf="projectName" class="ms-auto project-name">
+    Project {{ projectName | titlecase }}
+  </p>
+
   <a
     routerLink="costOptimization"
     routerLinkActive="router-active"

@@ -39,3 +39,11 @@ a::before {
 a:hover::before {
   width: 100%;
 }
+.project-name {
+  color: rgb(180, 180, 180);
+  font-size: 1.25rem;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

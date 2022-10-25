@@ -143,6 +143,7 @@ export class InputTabelComponent implements OnInit {
     this.api.updateProject(benchmarks).subscribe((res) => {
       console.log(res);
       this.localStorage.set('project', res);
+      this.handleGet();
     });
   }
 

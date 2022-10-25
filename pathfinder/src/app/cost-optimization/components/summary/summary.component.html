@@ -1,9 +1,11 @@
 <mat-card>
   <div class="card__welcome-sections">
+    <h2 *ngIf="userId">Hello User{{ userId }}</h2>
     <h1>Welcome To Pathfinder</h1>
     <h3>An Ascendion Framework</h3>
   </div>
   <div class="card__anual-revenue container__column--center">
+    <h2 *ngIf="projectName">{{ projectName | titlecase }}</h2>
     <mat-form-field appearance="outline" class="inp">
       <mat-label>Annual Revenue</mat-label>
       <input

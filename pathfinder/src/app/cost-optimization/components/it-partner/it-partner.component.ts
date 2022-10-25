@@ -227,6 +227,7 @@ export class ItPartnerComponent implements OnInit {
     // });
     this.apiservice.updateProject(benchmarks).subscribe((res) => {
       this.localStorage.set('project', res);
+      this.handleGet();
     });
   }
 

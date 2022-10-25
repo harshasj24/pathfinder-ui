@@ -20,18 +20,27 @@ export class SummaryComponent implements OnInit {
     let benchMarks = { ...benchmark, ...userDetails };
     benchMarks.inputvalues.annual_revenue_for_client =
       this.annual_revenue_for_client;
-    this.api.createProject(benchMarks).subscribe((val) => {
+    this.api.createProject(benchMarks).subscribe((val: any) => {
       this.localStorage.set('project', val);
+      this.projectName = `Your Project ${val?.projectName} is ready`;
     });
   }
 
-  username: string = '';
+  userId: string = '';
+  projectName: string = 'Please provide annual revenue to continue';
 
   ngOnInit(): void {
     let project = this.localStorage.get('project');
     if (project) {
       this.annual_revenue_for_client =
         project.inputvalues.annual_revenue_for_client || '';
+      this.projectName = `Your Project ${project?.projectName} is ready`;
+      this.userId = project?.userId;
+    }
+
+    let user = this.localStorage.get('user');
+    if (user.userId) {
+      this.userId = user.userId;
     }
   }
 }

@@ -161,6 +161,7 @@ export class CostoftransformComponent implements OnInit {
     // });
     this.apiservice.updateProject(benchmarks).subscribe((res) => {
       this.localStorage.set('project', res);
+      this.handleGet();
     });
   }
   ngOnInit(): void {

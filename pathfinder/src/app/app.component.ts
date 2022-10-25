@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from './core/services/common.service';
+import { LocalStorageService } from './core/services/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,15 @@ import { CommonService } from './core/services/common.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private route: Router, public common: CommonService) {}
+  constructor(
+    private route: Router,
+    public common: CommonService,
+    private localStorage: LocalStorageService
+  ) {}
+
   pathName: any = false;
+  projectName: string = '';
+
   ngOnInit(): void {
     //-----------------------------------------------------------------------------//
     // setting the cookie-------
@@ -19,12 +27,22 @@ export class AppComponent implements OnInit {
     //-----------------------------------------------------------------------------//
 
     // hiding the navbar based on the route
+
     this.route.events.subscribe((val: any) => {
       if (val.url) {
         this.pathName = val.url;
         console.log(val.url);
+        let user = this.localStorage.get('user');
+        if (user) {
+          this.projectName = user?.projectName;
+        }
       }
     });
+
+    let user = this.localStorage.get('user');
+    if (user) {
+      this.projectName = user?.projectName;
+    }
   }
   title = 'pathfinder';
 }
