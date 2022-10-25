@@ -83,7 +83,7 @@ export class ItSpendComponent implements OnInit {
       claculatedData: {},
     },
     {
-      lable: 'MANAGED SERVICES',
+      lable: 'Managed Services',
       dailogTitle: 'managedServices',
       assetDetail: {
         asset: 'MANAGED SERVICES',
