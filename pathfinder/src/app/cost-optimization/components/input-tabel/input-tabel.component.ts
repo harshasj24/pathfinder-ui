@@ -28,6 +28,7 @@ export class InputTabelComponent implements OnInit {
   ) {}
   @Input() changePreDefined: boolean;
   inputTableData: any;
+  showTable: Boolean = true;
   submitted = false;
   canUpdate: boolean = false;
   max = 4;
@@ -168,6 +169,9 @@ export class InputTabelComponent implements OnInit {
   ngOnInit(): void {
     this.handleGet();
     !this.changePreDefined && this.disableEnable(true);
+    if (this.changePreDefined) {
+      this.showTable = false;
+    }
 
     this.industryBased?.valueChanges.subscribe((val) => {
       this.it_spent_perc?.setValidators([

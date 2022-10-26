@@ -158,7 +158,7 @@
       </div>
     </div>
   </form>
-  <div class="card-body mt-5">
+  <div *ngIf="showTable" class="card-body mt-5">
     <div class="header">
       <h2 class="">
         Annual revenue:{{
@@ -236,3 +236,4 @@
     </div>
   </div>
 </mat-card>
+
