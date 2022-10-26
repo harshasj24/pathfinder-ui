@@ -22,18 +22,21 @@ body {
 }
 tbody tr td,
 thead tr th {
-    padding: 1rem 1rem !important;
+  padding: 1rem 1rem !important;
 }
-tr td th{
-    border: 1px solid lightgray !important;
+tr td th {
+  border: 1px solid lightgray !important;
 }
-
 
 thead tr th {
-    font-size: 0.9rem;
-    background-color: #4472c4;
-    color: white;
-    border-left: 0.5px solid white;
-    font-weight: 500;
-    vertical-align: middle;
+  font-size: 0.9rem;
+  background-color: #4472c4;
+  color: white;
+  border-left: 0.5px solid white;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+tbody tr td:nth-child(n + 2) {
+  text-align: end;
 }

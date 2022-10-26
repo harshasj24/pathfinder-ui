@@ -26,6 +26,8 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { SummaryComponent } from './components/summary/summary.component';
+import { EditTabComponent } from './components/edit-tab/edit-tab.component';
+import { OptStoreService } from './services/opt-store.service';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -43,6 +45,7 @@ import { SummaryComponent } from './components/summary/summary.component';
     AssetFormComponent,
     ItspendrunComponent,
     SummaryComponent,
+    EditTabComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +58,7 @@ import { SummaryComponent } from './components/summary/summary.component';
     SharedModule,
     CoreModule,
   ],
-  providers: [],
+  providers: [OptStoreService],
   bootstrap: [HomeComponent],
 })
 export class CostOptimizationModule {}

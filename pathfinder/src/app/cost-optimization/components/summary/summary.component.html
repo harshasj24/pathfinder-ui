@@ -16,7 +16,20 @@
       />
       <mat-error>Annual revenue is required </mat-error>
     </mat-form-field>
-    <button (click)="claculateAndSave()" mat-raised-button color="primary">
+    <div class="summary__checkbox">
+      <mat-checkbox [(ngModel)]="isEdit"
+        >Do you want to edit default benchmarks?</mat-checkbox
+      >
+    </div>
+    <div *ngIf="isEdit" class="edit-options-tab w-100 mt-4">
+      <edit-tab></edit-tab>
+    </div>
+    <button
+      (click)="claculateAndSave()"
+      class="mt-3"
+      mat-raised-button
+      color="primary"
+    >
       Calculate and save
     </button>
   </div>

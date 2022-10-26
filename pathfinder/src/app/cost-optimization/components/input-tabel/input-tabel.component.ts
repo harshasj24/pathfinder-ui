@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Chart } from 'chart.js';
 import { ClaculationService } from 'src/app/claculation.service';
@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { CoreServices } from 'src/app/core/services/core.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { benchmark } from 'src/app/core/constants/benchmarks';
+import { OptStoreService } from '../../services/opt-store.service';
 @Component({
   selector: 'app-input-tabel',
   templateUrl: './input-tabel.component.html',
@@ -22,8 +23,10 @@ export class InputTabelComponent implements OnInit {
     private http: HttpService,
     private api: ApiService,
     public core: CoreServices,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private optStore: OptStoreService
   ) {}
+  @Input() changePreDefined: boolean;
   inputTableData: any;
   submitted = false;
   canUpdate: boolean = false;
@@ -137,14 +140,18 @@ export class InputTabelComponent implements OnInit {
     //   console.log(payload);
     //   this.handleGet();
     // });
-
-    let benchmarks = { ...this.api.getBenchMarks() };
-    benchmarks.inputvalues = payload;
-    this.api.updateProject(benchmarks).subscribe((res) => {
-      console.log(res);
-      this.localStorage.set('project', res);
-      this.handleGet();
-    });
+    if (this.changePreDefined) {
+      this.optStore.benchMarks.inputvalues = payload;
+    }
+    {
+      let benchmarks = { ...this.api.getBenchMarks() };
+      benchmarks.inputvalues = payload;
+      this.api.updateProject(benchmarks).subscribe((res) => {
+        console.log(res);
+        this.localStorage.set('project', res);
+        this.handleGet();
+      });
+    }
   }
 
   handleSubmit() {
@@ -160,7 +167,7 @@ export class InputTabelComponent implements OnInit {
 
   ngOnInit(): void {
     this.handleGet();
-    this.disableEnable(true);
+    !this.changePreDefined && this.disableEnable(true);
 
     this.industryBased?.valueChanges.subscribe((val) => {
       this.it_spent_perc?.setValidators([

@@ -14,6 +14,7 @@ export class SummaryComponent implements OnInit {
     private localStorage: LocalStorageService
   ) {}
   annual_revenue_for_client: any = '';
+  isEdit: any = '';
   claculateAndSave() {
     // this.api.getExistingProject().subscribe();
     let userDetails = this.localStorage.get('user');

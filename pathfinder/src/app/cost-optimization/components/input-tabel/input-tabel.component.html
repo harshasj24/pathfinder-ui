@@ -125,23 +125,37 @@
       >
         Update
       </button> -->
-      <button
-        (click)="enableEdit()"
-        class="mx-2"
-        mat-raised-button
-        color="primary"
-      >
-        Edit
-      </button>
-      <button
-        mat-raised-button
-        [disabled]="!canUpdate"
-        color="primary"
-        (click)="handleUpdate()"
-        type="button"
-      >
-        Calculate & Save
-      </button>
+      <div class="actions">
+        <div>
+          <button
+            *ngIf="changePreDefined"
+            (click)="enableEdit()"
+            mat-raised-button
+            color="primary"
+          >
+            Apply
+          </button>
+        </div>
+        <div *ngIf="!changePreDefined">
+          <button
+            (click)="enableEdit()"
+            class="mx-2"
+            mat-raised-button
+            color="primary"
+          >
+            Edit
+          </button>
+          <button
+            mat-raised-button
+            [disabled]="!canUpdate"
+            color="primary"
+            (click)="handleUpdate()"
+            type="button"
+          >
+            Calculate & Save
+          </button>
+        </div>
+      </div>
     </div>
   </form>
   <div class="card-body mt-5">
