@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { benchmark } from 'src/app/core/constants/benchmarks';
 import { CommonService } from 'src/app/core/services/common.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
+import { OptStoreService } from '../../services/opt-store.service';
 
 @Component({
   selector: 'app-costoftransform',
@@ -16,8 +17,10 @@ export class CostoftransformComponent implements OnInit {
     private apiservice: ApiService,
     private store: StoreService,
     private localStorage: LocalStorageService,
-    private common: CommonService
+    private common: CommonService,
+    private optStore: OptStoreService
   ) {}
+  @Input() changePreDefined: boolean;
   isLoaded: boolean = false;
   canUpdate: boolean = false;
   costData: any;
@@ -153,19 +156,26 @@ export class CostoftransformComponent implements OnInit {
       partner_perc: this.costtransformation.value['partner_perc'],
       yearBaseCostCalculations,
     };
-    let benchmarks = { ...this.apiservice.getBenchMarks() };
-    benchmarks.cost = payload;
-    // this.apiservice.updateCostoftransform(payload).subscribe((val) => {
-    //   console.log(val);
-    //   this.handleGet();
-    // });
-    this.apiservice.updateProject(benchmarks).subscribe((res) => {
-      this.localStorage.set('project', res);
-      this.handleGet();
-    });
+
+    if (this.changePreDefined) {
+      this.optStore.benchMarks.cost = payload;
+    } else {
+      let benchmarks = { ...this.apiservice.getBenchMarks() };
+      benchmarks.cost = payload;
+      // this.apiservice.updateCostoftransform(payload).subscribe((val) => {
+      //   console.log(val);
+      //   this.handleGet();
+      // });
+      this.apiservice.updateProject(benchmarks).subscribe((res) => {
+        this.localStorage.set('project', res);
+        this.handleGet();
+      });
+    }
   }
   ngOnInit(): void {
     this.handleGet();
-    this.common.disableEnable(true, this.controls, this.costtransformation);
+    if (!this.changePreDefined) {
+      this.common.disableEnable(true, this.controls, this.costtransformation);
+    }
   }
 }

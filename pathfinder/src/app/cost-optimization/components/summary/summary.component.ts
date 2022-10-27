@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { benchmark } from 'src/app/core/constants/benchmarks';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
+import { OptStoreService } from '../../services/opt-store.service';
 
 @Component({
   selector: 'app-summary',
@@ -11,20 +12,29 @@ import { ApiService } from 'src/app/services/api.service';
 export class SummaryComponent implements OnInit {
   constructor(
     private api: ApiService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private optStore: OptStoreService
   ) {}
   annual_revenue_for_client: any = '';
   isEdit: any = '';
   claculateAndSave() {
     // this.api.getExistingProject().subscribe();
-    let userDetails = this.localStorage.get('user');
-    let benchMarks = { ...benchmark, ...userDetails };
-    benchMarks.inputvalues.annual_revenue_for_client =
-      this.annual_revenue_for_client;
-    this.api.createProject(benchMarks).subscribe((val: any) => {
-      this.localStorage.set('project', val);
-      this.projectName = `Your Project ${val?.projectName} is ready`;
-    });
+    if (this.isEdit) {
+      let benchMarks = this.optStore.benchMarks;
+      this.api.createProject(benchMarks).subscribe((val: any) => {
+        this.localStorage.set('project', val);
+        this.projectName = `Your Project ${val?.projectName} is ready`;
+      });
+    } else {
+      let userDetails = this.localStorage.get('user');
+      let benchMarks = { ...benchmark, ...userDetails };
+      benchMarks.inputvalues.annual_revenue_for_client =
+        this.annual_revenue_for_client;
+      this.api.createProject(benchMarks).subscribe((val: any) => {
+        this.localStorage.set('project', val);
+        this.projectName = `Your Project ${val?.projectName} is ready`;
+      });
+    }
   }
 
   userId: string = '';

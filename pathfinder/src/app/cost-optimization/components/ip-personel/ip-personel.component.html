@@ -72,25 +72,38 @@
       </mat-form-field> -->
     </div>
     <div class="actions d-flex">
-      <button
-        class="ms-auto"
-        (click)="enableUpdate()"
-        mat-raised-button
-        color="primary"
-        type="button"
-      >
-        Edit
-      </button>
-      <button
-        [disabled]="!canUpdate"
-        class="ms-2"
-        mat-raised-button
-        color="primary"
-        type="button"
-        (click)="handleUpdate()"
-      >
-        Calculate & Save
-      </button>
+      <div *ngIf="changePreDefined" class="d-flex">
+        <button
+          class="ms-2"
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="handleUpdate()"
+        >
+          Apply
+        </button>
+      </div>
+      <div *ngIf="!changePreDefined" class="d-flex">
+        <button
+          class="ms-auto"
+          (click)="enableUpdate()"
+          mat-raised-button
+          color="primary"
+          type="button"
+        >
+          Edit
+        </button>
+        <button
+          [disabled]="!canUpdate"
+          class="ms-2"
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="handleUpdate()"
+        >
+          Calculate & Save
+        </button>
+      </div>
     </div>
   </form>
   <div class="result-table">

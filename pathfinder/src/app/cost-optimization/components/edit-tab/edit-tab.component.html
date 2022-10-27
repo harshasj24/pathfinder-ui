@@ -2,7 +2,13 @@
   <mat-tab label="Spends">
     <app-input-tabel [changePreDefined]="true"></app-input-tabel
   ></mat-tab>
-  <mat-tab label="It personnel"> Content 2 </mat-tab>
-  <mat-tab label="It personnel cost"> Content 3 </mat-tab>
-  <mat-tab label="COT"> Content 3 </mat-tab>
+  <mat-tab label="It personnel">
+    <app-ip-personel [changePreDefined]="true"></app-ip-personel
+  ></mat-tab>
+  <mat-tab label="It personnel cost">
+    <app-it-partner [changePreDefined]="true"></app-it-partner>
+  </mat-tab>
+  <mat-tab label="COT">
+    <app-costoftransform [changePreDefined]="true"></app-costoftransform>
+  </mat-tab>
 </mat-tab-group>

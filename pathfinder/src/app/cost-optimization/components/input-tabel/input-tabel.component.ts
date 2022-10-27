@@ -143,8 +143,7 @@ export class InputTabelComponent implements OnInit {
     // });
     if (this.changePreDefined) {
       this.optStore.benchMarks.inputvalues = payload;
-    }
-    {
+    } else {
       let benchmarks = { ...this.api.getBenchMarks() };
       benchmarks.inputvalues = payload;
       this.api.updateProject(benchmarks).subscribe((res) => {

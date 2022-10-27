@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -17,6 +18,7 @@ import { CoreServices } from 'src/app/core/services/core.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { CommonService } from 'src/app/core/services/common.service';
 import { benchmark } from 'src/app/core/constants/benchmarks';
+import { OptStoreService } from '../../services/opt-store.service';
 @Component({
   selector: 'app-ip-personel',
   templateUrl: './ip-personel.component.html',
@@ -30,10 +32,12 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     private http: HttpService,
     public core: CoreServices,
     private localStorage: LocalStorageService,
-    private common: CommonService
+    private common: CommonService,
+    private optStore: OptStoreService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
+  @Input() changePreDefined: boolean;
   isLoaded: boolean = false;
   itPersonelData: any;
   canUpdate: boolean = false;
@@ -85,7 +89,9 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     this.common.disableEnable(false, this.controls, this.itPersonel);
   }
   ngOnInit(): void {
-    this.common.disableEnable(true, this.controls, this.itPersonel);
+    if (!this.changePreDefined) {
+      this.common.disableEnable(true, this.controls, this.itPersonel);
+    }
     this.handleGet();
     this.store.store.subscribe((data: any) => {
       this.inputTabelVal = data;
@@ -135,13 +141,18 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
   }
 
   // get one request
+
   handleUpdate() {
-    let benchmarks = { ...this.apiservice.getBenchMarks() };
-    benchmarks.itpersonnel = this.itPersonel.value;
-    this.apiservice.updateProject(benchmarks).subscribe((res) => {
-      this.localStorage.set('project', res);
-      this.handleGet();
-    });
+    if (this.changePreDefined) {
+      this.optStore.benchMarks.itpersonnel = this.itPersonel.value;
+    } else {
+      let benchmarks = { ...this.apiservice.getBenchMarks() };
+      benchmarks.itpersonnel = this.itPersonel.value;
+      this.apiservice.updateProject(benchmarks).subscribe((res) => {
+        this.localStorage.set('project', res);
+        this.handleGet();
+      });
+    }
   }
   handleGet() {
     // this.apiservice

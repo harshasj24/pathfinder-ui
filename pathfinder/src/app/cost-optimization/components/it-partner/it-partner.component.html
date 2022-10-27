@@ -16,26 +16,39 @@
         View Chart
       </button>
     </div>
-    <div class="d-flex">
-      <button
-        class="ms-auto edit__save me-2"
-        mat-raised-button
-        (click)="enableEdit()"
-        color="primary"
-        type="button"
-      >
-        Edit
-      </button>
-      <button
-        class="edit__save"
-        (click)="handleUpdate()"
-        mat-raised-button
-        color="primary"
-        type="button"
-        [disabled]="canUpdate"
-      >
-        Calculate & save
-      </button>
+    <div class="actons d-flex">
+      <div class="d-flex w-100" *ngIf="changePreDefined">
+        <button
+          class="ms-auto edit__save me-2"
+          mat-raised-button
+          (click)="handleUpdate()"
+          color="primary"
+          type="button"
+        >
+          Apply
+        </button>
+      </div>
+      <div *ngIf="!changePreDefined" class="d-flex w-100">
+        <button
+          class="ms-auto edit__save me-2"
+          mat-raised-button
+          (click)="enableEdit()"
+          color="primary"
+          type="button"
+        >
+          Edit
+        </button>
+        <button
+          class="edit__save"
+          (click)="handleUpdate()"
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="canUpdate"
+        >
+          Calculate & save
+        </button>
+      </div>
     </div>
     <div class="mat-card__body mt-3">
       <div class="mat-card__body__inputs">

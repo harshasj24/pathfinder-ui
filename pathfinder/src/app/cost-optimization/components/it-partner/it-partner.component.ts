@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -14,6 +15,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
+import { OptStoreService } from '../../services/opt-store.service';
 
 export interface YearBaseCaluclation {
   yearLine: number;
@@ -36,10 +38,12 @@ export class ItPartnerComponent implements OnInit {
     private http: HttpService,
     public core: CoreServices,
     private localStorage: LocalStorageService,
-    private common: CommonService
+    private common: CommonService,
+    private optStore: OptStoreService
   ) {}
   @ViewChild('myChart') char: ElementRef;
   @ViewChild('myChart1') char1: ElementRef;
+  @Input() changePreDefined: boolean;
   isLoaded: boolean = false;
   itPersonelCostData: any = [];
   canUpdate: boolean = false;
@@ -218,21 +222,26 @@ export class ItPartnerComponent implements OnInit {
       partnerCtcOffshore: this.itpersonelcost.value['partnerCtcOffshore'],
       yearBseCalculations,
     };
-
-    let benchmarks = { ...this.apiservice.getBenchMarks() };
-    benchmarks.itpersonalcost = payload;
-    // this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
-    //   console.log(val);
-    //   this.handleGet();
-    // });
-    this.apiservice.updateProject(benchmarks).subscribe((res) => {
-      this.localStorage.set('project', res);
-      this.handleGet();
-    });
+    if (this.changePreDefined) {
+      this.optStore.benchMarks.itpersonalcost = payload;
+    } else {
+      let benchmarks = { ...this.apiservice.getBenchMarks() };
+      benchmarks.itpersonalcost = payload;
+      // this.apiservice.updatePersonnelCost(payload).subscribe((val) => {
+      //   console.log(val);
+      //   this.handleGet();
+      // });
+      this.apiservice.updateProject(benchmarks).subscribe((res) => {
+        this.localStorage.set('project', res);
+        this.handleGet();
+      });
+    }
   }
 
   ngOnInit(): void {
-    this.common.disableEnable(true, this.controls, this.itpersonelcost);
+    if (!this.changePreDefined) {
+      this.common.disableEnable(true, this.controls, this.itpersonelcost);
+    }
     this.handleGet();
     //   this.itpersonelcost.valueChanges.subscribe((values) => {
     //     if (values?.takeoverYear1) {
