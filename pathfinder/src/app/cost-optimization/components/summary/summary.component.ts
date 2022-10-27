@@ -16,7 +16,7 @@ export class SummaryComponent implements OnInit {
     private optStore: OptStoreService
   ) {}
   annual_revenue_for_client: any = '';
-  isEdit: any = '';
+  isEdit: any = false;
   claculateAndSave() {
     // this.api.getExistingProject().subscribe();
     if (this.isEdit) {

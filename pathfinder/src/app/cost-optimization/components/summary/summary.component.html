@@ -10,12 +10,14 @@
       <mat-label>Annual Revenue ($)</mat-label>
       <input
         autocomplete="off"
+        [disabled]="isEdit"
         matInput
         [(ngModel)]="annual_revenue_for_client"
         placeholder="Annual Revenue"
       />
       <mat-error>Annual revenue is required </mat-error>
     </mat-form-field>
+    <p>OR</p>
     <div class="summary__checkbox">
       <mat-checkbox [(ngModel)]="isEdit"
         >Do you want to edit default benchmarks?</mat-checkbox
