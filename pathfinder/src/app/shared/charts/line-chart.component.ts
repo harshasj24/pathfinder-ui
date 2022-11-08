@@ -12,7 +12,7 @@ import { Chart } from 'chart.js';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
 })
-export class LineChartComponent implements OnInit, AfterViewInit {
+export class LineChartComponent implements AfterViewInit {
   @ViewChild('myChart') myChart: ElementRef;
   @ViewChild('lineChart') lineChart: ElementRef;
   ngAfterViewInit(): void {
@@ -124,6 +124,4 @@ export class LineChartComponent implements OnInit, AfterViewInit {
   }
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

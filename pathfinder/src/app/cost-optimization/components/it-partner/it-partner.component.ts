@@ -92,7 +92,6 @@ export class ItPartnerComponent implements OnInit {
   getValue(key: string): any {
     this.itPersonelCostData?.yearBseCalculations?.map((el: any) => el[key]);
   }
-  ngAfterViewInit() {}
 
   getcalucatedVal() {}
   handleSubmit() {

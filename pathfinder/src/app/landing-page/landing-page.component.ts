@@ -7,12 +7,10 @@ import { DailogComponent } from './components/dailog/dailog.component';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss'],
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
   constructor(private dailog: MatDialog) {}
 
   openDailog() {
-    this.dailog.open(DailogComponent, { disableClose: true, });
+    this.dailog.open(DailogComponent, { disableClose: true });
   }
-
-  ngOnInit(): void {}
 }

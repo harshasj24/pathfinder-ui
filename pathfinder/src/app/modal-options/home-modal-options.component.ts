@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home-modal-options.component.html',
   styleUrls: ['./home-modal-options.component.scss'],
 })
-export class HomeModalOptionsComponent implements OnInit {
+export class HomeModalOptionsComponent {
   constructor() {}
   sidenav = [
     {
@@ -29,6 +29,4 @@ export class HomeModalOptionsComponent implements OnInit {
       title: 'WATERFALL MODAL',
     },
   ];
-
-  ngOnInit(): void {}
 }

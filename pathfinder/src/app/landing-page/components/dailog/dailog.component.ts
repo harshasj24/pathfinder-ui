@@ -11,7 +11,7 @@ import { LandingApiService } from '../../services/api.service';
   templateUrl: './dailog.component.html',
   styleUrls: ['./dailog.component.scss'],
 })
-export class DailogComponent implements OnInit {
+export class DailogComponent {
   constructor(
     private http: HttpService,
     private api: LandingApiService,
@@ -73,6 +73,4 @@ export class DailogComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {}
 }

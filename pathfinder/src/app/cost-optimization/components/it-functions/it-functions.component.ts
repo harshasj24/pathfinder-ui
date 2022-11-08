@@ -4,11 +4,11 @@ import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
 @Component({
-  selector: 'it-functions',
+  selector: 'app-it-functions',
   templateUrl: './it-functions.component.html',
   styleUrls: ['./it-functions.component.scss'],
 })
-export class ItFunctionsComponent implements OnInit {
+export class ItFunctionsComponent {
   constructor(private api: ApiService, private store: StoreService) {}
   canUpdate: boolean = false;
   itFunctions = new FormGroup({
@@ -91,7 +91,7 @@ export class ItFunctionsComponent implements OnInit {
   get it_management_fte_spread_perc() {
     return this.itFunctions.get('it_management_fte_spread_perc');
   }
-  ngOnInit(): void {}
+
   itFunctionsData: any = {};
 
   handleSubmit() {

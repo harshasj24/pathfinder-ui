@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'edit-tab',
+  selector: 'app-edit-tab',
   templateUrl: './edit-tab.component.html',
   styleUrls: ['./edit-tab.component.scss'],
 })
-export class EditTabComponent implements OnInit {
-  ngOnInit(): void {}
-}
+export class EditTabComponent {}
