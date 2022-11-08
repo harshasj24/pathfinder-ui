@@ -4,11 +4,11 @@ import { ApiService } from 'src/app/services/api.service';
 import { StoreService } from 'src/app/store.service';
 
 @Component({
-  selector: 'benchmarks',
+  selector: 'app-benchmarks',
   templateUrl: './benchmarks.component.html',
   styleUrls: ['./benchmarks.component.scss'],
 })
-export class BenchmarksComponent implements OnInit {
+export class BenchmarksComponent {
   select: any;
   currentYear = new Date().getFullYear();
   canUpdate: boolean = false;
@@ -37,8 +37,6 @@ export class BenchmarksComponent implements OnInit {
   get year() {
     return this.itspendcategories.get('year');
   }
-
-  ngOnInit(): void {}
 
   handleClick(e: any) {
     console.log(e.target.value);

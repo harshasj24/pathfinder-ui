@@ -8,10 +8,10 @@ import { CommonService } from 'src/app/core/services/common.service';
   templateUrl: './layout-side-nav.component.html',
   styleUrls: ['./layout-side-nav.component.scss'],
 })
-export class LayoutSideNavComponent implements OnInit, AfterViewInit {
+export class LayoutSideNavComponent implements AfterViewInit {
   constructor(public common: CommonService, private bps: BreakpointObserver) {}
   @ViewChild('sideNav') sideNav: MatSidenav;
-  ngOnInit(): void {}
+
   ngAfterViewInit(): void {
     this.common.sideNav = this.sideNav;
     this.bps.observe(['(max-width:820px)']).subscribe((observer) => {

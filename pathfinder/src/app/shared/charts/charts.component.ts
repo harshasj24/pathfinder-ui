@@ -14,7 +14,7 @@ import { Chart } from 'chart.js';
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss'],
 })
-export class ChartsComponent implements OnInit, AfterViewInit {
+export class ChartsComponent implements AfterViewInit {
   constructor() {}
   @ViewChild('myChart') myChart: ElementRef;
   @ViewChild('myChart2') myChart2: ElementRef;
@@ -72,7 +72,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
       },
     });
   }
-  ngOnInit(): void {}
+
   toggleChats() {
     this.toggle = !this.toggle;
   }

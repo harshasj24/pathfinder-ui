@@ -11,7 +11,7 @@ import { CommonService } from 'src/app/core/services/common.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent {
   constructor(private common: CommonService) {}
   sideNavRoutes = [
     {
@@ -70,7 +70,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.common.closeDrawer();
     }
   }
-
-  ngOnInit(): void {}
-  ngAfterViewInit(): void {}
 }

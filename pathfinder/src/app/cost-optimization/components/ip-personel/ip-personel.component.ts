@@ -24,7 +24,7 @@ import { OptStoreService } from '../../services/opt-store.service';
   templateUrl: './ip-personel.component.html',
   styleUrls: ['./ip-personel.component.scss'],
 })
-export class IpPersonelComponent implements OnInit, AfterViewInit {
+export class IpPersonelComponent implements OnInit {
   constructor(
     public cal: ClaculationService,
     private store: StoreService,
@@ -71,8 +71,6 @@ export class IpPersonelComponent implements OnInit, AfterViewInit {
     grow: 0,
     transform: 0,
   };
-
-  ngAfterViewInit() {}
 
   handleSubmit() {
     this.isLoaded = true;

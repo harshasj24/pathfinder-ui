@@ -3,12 +3,15 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'runitspend-outsource',
+  selector: 'app-runitspend-outsource',
   templateUrl: './runitspend-outsource.component.html',
   styleUrls: ['./runitspend-outsource.component.scss'],
 })
 export class RunitspendOutsourceComponent implements OnInit {
-  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
+  constructor(
+    private api: ApiService,
+    private localStorage: LocalStorageService
+  ) {}
   isLoaded: boolean = false;
   runitspendftedata: any;
   runitspendftedatayear: any;
@@ -79,24 +82,24 @@ export class RunitspendOutsourceComponent implements OnInit {
     //   this.runitspendftedata = res;
     //   this.runitspendftedatayear = res.runfteCalc;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { runitfte } = project;
-      this. runitspendftedata= runitfte;
-      this.runitspendftedatayear=runitfte.runfteCalc;
-  }
+      this.runitspendftedata = runitfte;
+      this.runitspendftedatayear = runitfte.runfteCalc;
+    }
   }
   getRunCost() {
     // this.api.getRunItOutsourceCosts().subscribe((res) => {
     //   this.runitspendcostsdata = res;
     //   this.runitspendcostsdatayear = res.runCostsCalc;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { runitcost } = project;
-      this.runitspendcostsdata= runitcost;
-      this.runitspendcostsdatayear =runitcost.runCostsCalc
-  }
+      this.runitspendcostsdata = runitcost;
+      this.runitspendcostsdatayear = runitcost.runCostsCalc;
+    }
   }
   ngOnInit(): void {
     this.getRunPer();

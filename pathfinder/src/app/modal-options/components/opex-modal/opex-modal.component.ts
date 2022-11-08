@@ -5,27 +5,31 @@ import { ApiService } from 'src/app/services/api.service';
 import { LineChartComponent } from 'src/app/shared/charts/line-chart.component';
 
 @Component({
-  selector: 'opex-modal',
+  selector: 'app-opex-modal',
   templateUrl: './opex-modal.component.html',
   styleUrls: ['./opex-modal.component.scss'],
 })
 export class OpexModalComponent implements OnInit {
-  constructor(private api: ApiService, private dailog: MatDialog,private localStorage: LocalStorageService) {}
+  constructor(
+    private api: ApiService,
+    private dailog: MatDialog,
+    private localStorage: LocalStorageService
+  ) {}
   isLoaded: boolean = false;
   ngOnInit(): void {
-    this.getData()
-    this.getdata()
+    this.getData();
+    this.getdata();
   }
   runopexfitdata: any;
   runopexfitdatayear: any;
   runopexdata: any;
   runopexdatayear: any;
-  
+
   getData() {
     // this.api.getrunopexB().subscribe((res) => {
     //   this.runopexfitdata = res;
     //   this.runopexfitdatayear = this.runopexfitdata.runfitshorecalculation;
-      // console.log(res);
+    // console.log(res);
     // });
     let project = this.localStorage.get(`project`);
     if (project) {
@@ -42,10 +46,10 @@ export class OpexModalComponent implements OnInit {
     //   this.runopexdata = res;
     //   this.runopexdatayear = this.runopexdata.runOpexCalc;
     // });
-    let project = this.localStorage.get('project')
+    let project = this.localStorage.get('project');
     if (project) {
-      let { model2B} = project;
-      this.runopexdata  = model2B;
+      let { model2B } = project;
+      this.runopexdata = model2B;
       this.runopexdatayear = this.runopexdata.runOpexCalc;
     }
   }
