@@ -7,6 +7,8 @@ import { BarChartComponent } from './charts/bar-chart.component';
 import { LineChartComponent } from './charts/line-chart.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LayoutSideNavComponent } from './layouts/layout-side-nav/layout-side-nav.component';
+import { HighBarchartComponent } from './highcharts/high-barchart/high-barchart.component';
+import { HighLinechartComponent } from './highcharts/high-linechart/high-linechart.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { LayoutSideNavComponent } from './layouts/layout-side-nav/layout-side-na
     LineChartComponent,
     PagenotfoundComponent,
     LayoutSideNavComponent,
+    HighBarchartComponent,
+    HighLinechartComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
@@ -25,6 +29,8 @@ import { LayoutSideNavComponent } from './layouts/layout-side-nav/layout-side-na
     LineChartComponent,
     PagenotfoundComponent,
     LayoutSideNavComponent,
+     HighBarchartComponent,
+    HighLinechartComponent,
   ],
 })
 export class SharedModule {}
