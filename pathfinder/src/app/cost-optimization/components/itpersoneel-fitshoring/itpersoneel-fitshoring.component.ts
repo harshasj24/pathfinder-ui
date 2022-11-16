@@ -8,7 +8,10 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./itpersoneel-fitshoring.component.scss'],
 })
 export class ItpersoneelFitshoringComponent implements OnInit {
-  constructor(private api: ApiService,private localStorage:LocalStorageService) {}
+  constructor(
+    private api: ApiService,
+    private localStorage: LocalStorageService
+  ) {}
   isLoaded: boolean = false;
   itpersonneldata: any;
   itpersonneldatayear: any;
@@ -71,15 +74,15 @@ export class ItpersoneelFitshoringComponent implements OnInit {
     //   this.itpersonneldata = val;
     //   this.itpersonneldatayear = val.fitcalc;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { itpersfit } = project;
-      this. itpersonneldata= itpersfit;
-      this.itpersonneldatayear=itpersfit.fitcalc
+      this.itpersonneldata = itpersfit;
+      this.itpersonneldatayear = itpersfit.fitcalc;
+    }
   }
-}
   ngOnInit(): void {
-    this.getData()
+    this.getData();
     // this.itpersonneldata = this.itpersonnelfitshoring;
     // this.itpersonneldatayear = this.itpersonneldata.fitcalc;
   }

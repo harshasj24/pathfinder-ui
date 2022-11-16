@@ -8,23 +8,26 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./savingmodal-b.component.scss'],
 })
 export class SavingmodalBComponent implements OnInit {
-  constructor(private api:ApiService,private localStorage:LocalStorageService) {}
-  isLoaded:false
+  constructor(
+    private api: ApiService,
+    private localStorage: LocalStorageService
+  ) {}
+  isLoaded: false;
   ngOnInit(): void {
     this.getData();
   }
-  savingmodelbdata:any
-  savingmodelbdatayear:any
-getData(){
-//  this.api.gettotalsavingB().subscribe((res)=>{
-//   this.savingmodelbdata=res
-//   this.savingmodelbdatayear=this.savingmodelbdata.model2bcalculation
-//  })
-let project = this.localStorage.get('project')
+  savingmodelbdata: any;
+  savingmodelbdatayear: any;
+  getData() {
+    //  this.api.gettotalsavingB().subscribe((res)=>{
+    //   this.savingmodelbdata=res
+    //   this.savingmodelbdatayear=this.savingmodelbdata.model2bcalculation
+    //  })
+    let project = this.localStorage.get('project');
     if (project) {
-      let {total2B } = project;
+      let { total2B } = project;
       this.savingmodelbdata = total2B;
       this.savingmodelbdatayear = this.savingmodelbdata.model2bcalculation;
     }
-}
+  }
 }

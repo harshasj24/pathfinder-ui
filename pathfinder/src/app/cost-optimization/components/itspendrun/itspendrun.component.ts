@@ -114,7 +114,7 @@ export class ItspendrunComponent implements OnInit {
     //   this.itspenddata = res;
     //   this.itspenddatayear = res.runpersonnelcalculation;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { itspendrun } = project;
       this.itspenddata = itspendrun;
@@ -126,10 +126,10 @@ export class ItspendrunComponent implements OnInit {
     //   this.outsourcingdata = res;
     //   this.outsourcingdatayear = res.outsourceOnsiteCalc;
     // });
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { outsourceonsite } = project;
-     
+
       console.log(outsourceonsite);
 
       this.outsourcingdata = outsourceonsite;
@@ -137,7 +137,7 @@ export class ItspendrunComponent implements OnInit {
     }
   }
   outsourcingOffshore() {
-    let project = this.localStorage.get("project");
+    let project = this.localStorage.get('project');
     if (project) {
       let { totalfitshore } = project;
       console.log(totalfitshore);
