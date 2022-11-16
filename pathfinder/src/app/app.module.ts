@@ -7,6 +7,7 @@ import { MaterialModule } from './material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { CoreModule } from './core/core.module';
     ReactiveFormsModule,
     SharedModule,
     CoreModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent],
