@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
 import { LineChartComponent } from 'src/app/shared/charts/line-chart.component';
 import * as Highcharts from 'highcharts'
+import { HighLinechartComponent } from 'src/app/shared/highcharts/high-linechart/high-linechart.component';
 
 @Component({
   selector: 'app-run-opex-model',
@@ -17,11 +18,19 @@ export class RunOpexModelComponent implements OnInit {
   runopexonsitedatayear: any;
   runopexdata: any;
   runopexdatayear: any;
-  Options:Object
+  graphData1:any[]
+  graphData2:any[]
+   graphData3:any[]
+    graphData4:any[]
     ngOnInit(): void {
     this.getData();
     this.getdata();
-     var chart = Highcharts.chart("container", this.Options );
+    this.graphData1=[this.runopexdata.client_drives_baseyear,this.runopexdatayear[0].client_drives,this.runopexdatayear[1].client_drives,this.runopexdatayear[2].client_drives];
+    this.graphData2=[this.runopexdata.with_partner_hs_baseyear,this.runopexdatayear[0].with_partner_hs,this.runopexdatayear[1].with_partner_hs,this.runopexdatayear[2].with_partner_hs];
+    this.graphData3=[this.runopexdata.with_partner_personnel_baseyear,this.runopexdatayear[0].with_partner_personnel,this.runopexdatayear[1].with_partner_personnel,this.runopexdatayear[2].with_partner_personnel];
+    this.graphData4=[this.runopexdata.total_partner_baseyear,this.runopexdatayear[0].total_partner,this.runopexdatayear[1].total_partner,this.runopexdatayear[2].total_partner];
+    
+    
   }
   constructor(private api: ApiService, private dailog: MatDialog,private localStorage:LocalStorageService) {
 
@@ -54,74 +63,15 @@ export class RunOpexModelComponent implements OnInit {
       this.runopexdata  = model2A;
       this.runopexdatayear = this.runopexdata.runOpex2aCalculation;
     }
-    console.log(this.runopexdata);
-    console.log(this.runopexdatayear );
-    
-    
-    this.Options = {
- 
-    chart: {
-        renderTo:'container',
-        // marginLeft: 100,
-        type:'line'
-    },
- 
-    title: {
-        text: 'TOTAL SAVING MODEL(WITH FITSHORING) ~$170MN IN 3 YRS'
-    },
- 
-    yAxis: {
-        title: {
-            text: ''
-        }
-
-    },
- 
-    xAxis: {
-        categories: ['Baseline Year', 'Year1', 'Year2', 'Year3']
-    },
- 
-    legend: {
-        align: 'left',
-        x: 70,
-        verticalAlign: 'top',
-        y: 70,
-        floating: true,
-        borderColor: '#CCC',
-        borderWidth: 1,
-        shadow: false
-    },
- 
-series: [
-    {
-    name: 'Tokyo',
-    type:'line',
-    data: [49.9, 71.5, 106.4, 129.2]
-
-  }, 
-  {
-    name: 'New York',
-    type:'line',
-    data: [83.6, 78.8, 98.5, 93.4]
-
-  }, {
-    name: 'London',
-    type:'line',
-    data: [48.9, 38.8, 39.3, 41.4]
-
-  }, {
-    name: 'Berlin',
-    type:'line',
-    data: [42.4, 33.2, 34.5, 39.7]
-
-  }
-]
-}
+    // console.log(this.runopexdata);
+    // console.log(this.runopexdatayear[0].client_drives );
+    // console.log(this.runopexdatayear[1].client_drives );
+    // console.log(this.runopexdatayear[2].client_drives );
 
   }
 
   openDailog() {
-    this.dailog.open(LineChartComponent);
+    // this.dailog.open( );
   }
 }
 
