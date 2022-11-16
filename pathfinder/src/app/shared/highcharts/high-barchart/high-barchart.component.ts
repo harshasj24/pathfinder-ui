@@ -1,78 +1,86 @@
-import { Component, Input, OnInit } from '@angular/core';
-import * as Highcharts from 'highcharts'
-
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-high-barchart',
   templateUrl: './high-barchart.component.html',
-  styleUrls: ['./high-barchart.component.scss']
+  styleUrls: ['./high-barchart.component.scss'],
 })
-export class HighBarchartComponent implements OnInit {
-Options:Object
-@Input() data:number[]
-  constructor() { 
-    this. Options = {
- 
-    chart: {
-        renderTo:'container1',
-        height:400,
-        width:800,
-        type:'column'
-    },
- 
-    title: {
-        text: '3 Years Total Saving Model Run Rate Reduction'
-    },
- 
-    yAxis: {
+export class HighBarchartComponent implements OnInit, AfterViewInit {
+  Options: Object;
+  @Input() data: number[];
+  @ViewChild('container1') container1: ElementRef;
+  constructor() {}
+  ngAfterViewInit(): void {
+    let element = this.container1.nativeElement;
+    this.Options = {
+      chart: {
+        renderTo: element,
+        height: 400,
+        width: 800,
+        type: 'column',
+      },
+
+      title: {
+        text: '3 Years Total Saving Model Run Rate Reduction',
+      },
+
+      yAxis: {
         title: {
-            text: ''
-        }
-    },
- 
-    xAxis: {
+          text: '',
+        },
+      },
+
+      xAxis: {
         categories: [
-            'BASELINE YEAR',
-            'Year1',
-            'Year2',
-            'Year3',
-            'EXIT RUN RATE'
+          'BASELINE YEAR',
+          'Year1',
+          'Year2',
+          'Year3',
+          'EXIT RUN RATE',
         ],
         // crosshair: true
-    },
- 
-    legend: {
-        enabled: true
-    },
- 
-    series: [{
-        name: 'With partner',
-        type:'column',
-        data:this.data
-        }
-    ],
-    responsive: {
-        rules: [{
+      },
+
+      legend: {
+        enabled: true,
+      },
+
+      series: [
+        {
+          name: 'With partner',
+          type: 'column',
+          data: this.data,
+        },
+      ],
+      responsive: {
+        rules: [
+          {
             condition: {
-                maxWidth: 200
+              maxWidth: 200,
             },
             chartOptions: {
-                legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
-                }
-            }
-        }]
-    }
-}
-
+              legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom',
+              },
+            },
+          },
+        ],
+      },
+    };
+    var chart = Highcharts.chart(element, this.Options);
   }
-
 
   ngOnInit(): void {
     console.log(this.data);
-    var chart = Highcharts.chart("container1", this.Options );
-    
   }
 }

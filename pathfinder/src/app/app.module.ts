@@ -20,7 +20,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     ReactiveFormsModule,
     SharedModule,
     CoreModule,
-    HighchartsChartModule
+    HighchartsChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
