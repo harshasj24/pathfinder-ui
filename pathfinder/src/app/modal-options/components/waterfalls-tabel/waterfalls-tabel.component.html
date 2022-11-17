@@ -33,33 +33,42 @@
       <tr>
         <td>Year-1</td>
         <td>
-          {{ waterfallsdata?.year1_with_partner | currency: "USD":"symbol":"1.0" }}
+          {{
+            waterfallsdata?.year1_with_partner | currency: "USD":"symbol":"1.0"
+          }}
         </td>
         <td>
           {{
-            waterfallsdata?.year1_without_partner | currency: "USD":"symbol":"1.0"
+            waterfallsdata?.year1_without_partner
+              | currency: "USD":"symbol":"1.0"
           }}
         </td>
       </tr>
       <tr>
         <td>Year-2</td>
         <td>
-          {{ waterfallsdata?.year2_with_partner | currency: "USD":"symbol":"1.0" }}
+          {{
+            waterfallsdata?.year2_with_partner | currency: "USD":"symbol":"1.0"
+          }}
         </td>
         <td>
           {{
-            waterfallsdata?.year2_without_partner | currency: "USD":"symbol":"1.0"
+            waterfallsdata?.year2_without_partner
+              | currency: "USD":"symbol":"1.0"
           }}
         </td>
       </tr>
       <tr>
         <td>Year-3</td>
         <td>
-          {{ waterfallsdata?.year3_with_partner | currency: "USD":"symbol":"1.0" }}
+          {{
+            waterfallsdata?.year3_with_partner | currency: "USD":"symbol":"1.0"
+          }}
         </td>
         <td>
           {{
-            waterfallsdata?.year3_without_partner | currency: "USD":"symbol":"1.0"
+            waterfallsdata?.year3_without_partner
+              | currency: "USD":"symbol":"1.0"
           }}
         </td>
       </tr>
@@ -67,7 +76,8 @@
         <td>Exit Run Rate</td>
         <td>
           {{
-            waterfallsdata?.exit_runrate_with_partner| currency: "USD":"symbol":"1.0"
+            waterfallsdata?.exit_runrate_with_partner
+              | currency: "USD":"symbol":"1.0"
           }}
         </td>
         <td>
@@ -81,7 +91,8 @@
         <td>Run Rate Reduction</td>
         <th>
           {{
-            waterfallsdata?.runrate_reduc_with_partner | currency: "USD":"symbol":"1.0"
+            waterfallsdata?.runrate_reduc_with_partner
+              | currency: "USD":"symbol":"1.0"
           }}
         </th>
         <td>
@@ -93,8 +104,8 @@
       </tr>
       <tr>
         <td></td>
-        <td>{{ waterfallsdata?.runrate_perc_with_partner}}%</td>
-        <td>{{ waterfallsdata?.runrate_perc_without_partner}}%</td>
+        <td>{{ waterfallsdata?.runrate_perc_with_partner }}%</td>
+        <td>{{ waterfallsdata?.runrate_perc_without_partner }}%</td>
       </tr>
       <tr>
         <td>3 Year Cumulative Savings</td>
@@ -111,4 +122,6 @@
   <!-- <button class="" (click)="getData()" mat-raised-button color="primary">
     Get
   </button> -->
+
+  <app-high-barchart [data]="graphData"></app-high-barchart>
 </mat-card>
