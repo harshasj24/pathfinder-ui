@@ -24,15 +24,7 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "chart.js": "^2.9.4",
-<<<<<<< HEAD
-    "eslint": "^8.27.0",
-=======
-    "ng-lint-report": "^0.2.0",
->>>>>>> 9244549d73ed3902a98f609763c0f422121d9389
-    "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
-    "tslint-angular": "^3.0.3",
-    "zone.js": "~0.11.4"
+    "tslint-angular": "^3.0.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.0",
