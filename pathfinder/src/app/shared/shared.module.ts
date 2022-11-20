@@ -9,6 +9,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LayoutSideNavComponent } from './layouts/layout-side-nav/layout-side-nav.component';
 import { HighBarchartComponent } from './highcharts/high-barchart/high-barchart.component';
 import { HighLinechartComponent } from './highcharts/high-linechart/high-linechart.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { HighLinechartComponent } from './highcharts/high-linechart/high-linecha
     LineChartComponent,
     PagenotfoundComponent,
     LayoutSideNavComponent,
-     HighBarchartComponent,
+    HighBarchartComponent,
     HighLinechartComponent,
   ],
 })

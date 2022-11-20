@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ApiService } from 'src/app/services/api.service';
 import { LineChartComponent } from 'src/app/shared/charts/line-chart.component';
+import { HighLinechartComponent } from 'src/app/shared/highcharts/high-linechart/high-linechart.component';
 
 @Component({
   selector: 'app-opex-modal',
@@ -15,18 +16,38 @@ export class OpexModalComponent implements OnInit {
     private dailog: MatDialog,
     private localStorage: LocalStorageService
   ) {}
-  graphData1:any[]
-  graphData2:any[]
-   graphData3:any[]
-    graphData4:any[]
+  graphData1: any[];
+  graphData2: any[];
+  graphData3: any[];
+  graphData4: any[];
   isLoaded: boolean = false;
   ngOnInit(): void {
     this.getData();
     this.getdata();
-    this.graphData1=[this.runopexdata.client_drives_baseyear,this.runopexdatayear[0].client_drives,this.runopexdatayear[1].client_drives,this.runopexdatayear[2].client_drives];
-    this.graphData2=[this.runopexdata.with_partner_hs_baseyear,this.runopexdatayear[0].with_partner_hs,this.runopexdatayear[1].with_partner_hs,this.runopexdatayear[2].with_partner_hs];
-    this.graphData3=[this.runopexdata.with_partner_personnel_baseyear,this.runopexdatayear[0].with_partner_personnel,this.runopexdatayear[1].with_partner_personnel,this.runopexdatayear[2].with_partner_personnel];
-    this.graphData4=[this.runopexdata.total_partner_baseyear,this.runopexdatayear[0].total_partner,this.runopexdatayear[1].total_partner,this.runopexdatayear[2].total_partner];
+    this.graphData1 = [
+      this.runopexdata.client_drives_baseyear,
+      this.runopexdatayear[0].client_drives,
+      this.runopexdatayear[1].client_drives,
+      this.runopexdatayear[2].client_drives,
+    ];
+    this.graphData2 = [
+      this.runopexdata.with_partner_hs_baseyear,
+      this.runopexdatayear[0].with_partner_hs,
+      this.runopexdatayear[1].with_partner_hs,
+      this.runopexdatayear[2].with_partner_hs,
+    ];
+    this.graphData3 = [
+      this.runopexdata.with_partner_personnel_baseyear,
+      this.runopexdatayear[0].with_partner_personnel,
+      this.runopexdatayear[1].with_partner_personnel,
+      this.runopexdatayear[2].with_partner_personnel,
+    ];
+    this.graphData4 = [
+      this.runopexdata.total_partner_baseyear,
+      this.runopexdatayear[0].total_partner,
+      this.runopexdatayear[1].total_partner,
+      this.runopexdatayear[2].total_partner,
+    ];
   }
   runopexfitdata: any;
   runopexfitdatayear: any;
@@ -47,7 +68,17 @@ export class OpexModalComponent implements OnInit {
     }
   }
   openDailog() {
-    this.dailog.open(LineChartComponent);
+    let graphData = {
+      data1: this.graphData1,
+      data2: this.graphData2,
+      data3: this.graphData3,
+      data4: this.graphData4,
+    };
+    this.dailog.open(HighLinechartComponent, {
+      data: {
+        graphData,
+      },
+    });
   }
   getdata() {
     // this.api.getrunopexmodelB().subscribe((res) => {

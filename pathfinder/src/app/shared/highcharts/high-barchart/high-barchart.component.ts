@@ -2,10 +2,12 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Inject,
   Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -17,7 +19,7 @@ export class HighBarchartComponent implements OnInit, AfterViewInit {
   Options: Object;
   @Input() data: number[];
   @ViewChild('container1') container1: ElementRef;
-  constructor() {}
+  constructor(@Inject(MAT_DIALOG_DATA) private dailogData: any) {}
   ngAfterViewInit(): void {
     let element = this.container1.nativeElement;
     this.Options = {
@@ -80,7 +82,17 @@ export class HighBarchartComponent implements OnInit, AfterViewInit {
     var chart = Highcharts.chart(element, this.Options);
   }
 
+  getDaiogData() {
+    console.log(this.dailogData);
+
+    if (this.dailogData.graphData) {
+      let { graphData } = this.dailogData;
+      this.data = graphData;
+    }
+  }
+
   ngOnInit(): void {
     console.log(this.data);
+    this.getDaiogData();
   }
 }

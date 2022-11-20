@@ -1,9 +1,17 @@
 thead tr th {
-    font-size: 0.9rem;
-    background-color: #4472c4;
-    color: white;
-    border-left: 0.5px solid white;
-    font-weight: 500;
+  font-size: 0.9rem;
+  background-color: #4472c4;
+  color: white;
+  border-left: 0.5px solid white;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.waterfall__header {
+  align-items: center !important;
+  h2 {
+    flex-grow: 1;
     vertical-align: middle;
-    
+    margin: 0;
+  }
 }

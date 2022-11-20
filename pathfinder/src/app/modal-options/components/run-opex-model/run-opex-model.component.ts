@@ -4,7 +4,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 import { ApiService } from 'src/app/services/api.service';
 import { DailogService } from 'src/app/services/dailog.service';
 import { LineChartComponent } from 'src/app/shared/charts/line-chart.component';
-import * as Highcharts from 'highcharts'
+import * as Highcharts from 'highcharts';
 import { HighLinechartComponent } from 'src/app/shared/highcharts/high-linechart/high-linechart.component';
 
 @Component({
@@ -18,24 +18,43 @@ export class RunOpexModelComponent implements OnInit {
   runopexonsitedatayear: any;
   runopexdata: any;
   runopexdatayear: any;
-  graphData1:any[]
-  graphData2:any[]
-   graphData3:any[]
-    graphData4:any[]
-    ngOnInit(): void {
+  graphData1: any[];
+  graphData2: any[];
+  graphData3: any[];
+  graphData4: any[];
+  ngOnInit(): void {
     this.getData();
     this.getdata();
-    this.graphData1=[this.runopexdata.client_drives_baseyear,this.runopexdatayear[0].client_drives,this.runopexdatayear[1].client_drives,this.runopexdatayear[2].client_drives];
-    this.graphData2=[this.runopexdata.with_partner_hs_baseyear,this.runopexdatayear[0].with_partner_hs,this.runopexdatayear[1].with_partner_hs,this.runopexdatayear[2].with_partner_hs];
-    this.graphData3=[this.runopexdata.with_partner_personnel_baseyear,this.runopexdatayear[0].with_partner_personnel,this.runopexdatayear[1].with_partner_personnel,this.runopexdatayear[2].with_partner_personnel];
-    this.graphData4=[this.runopexdata.total_partner_baseyear,this.runopexdatayear[0].total_partner,this.runopexdatayear[1].total_partner,this.runopexdatayear[2].total_partner];
-    
-    
+    this.graphData1 = [
+      this.runopexdata.client_drives_baseyear,
+      this.runopexdatayear[0].client_drives,
+      this.runopexdatayear[1].client_drives,
+      this.runopexdatayear[2].client_drives,
+    ];
+    this.graphData2 = [
+      this.runopexdata.with_partner_hs_baseyear,
+      this.runopexdatayear[0].with_partner_hs,
+      this.runopexdatayear[1].with_partner_hs,
+      this.runopexdatayear[2].with_partner_hs,
+    ];
+    this.graphData3 = [
+      this.runopexdata.with_partner_personnel_baseyear,
+      this.runopexdatayear[0].with_partner_personnel,
+      this.runopexdatayear[1].with_partner_personnel,
+      this.runopexdatayear[2].with_partner_personnel,
+    ];
+    this.graphData4 = [
+      this.runopexdata.total_partner_baseyear,
+      this.runopexdatayear[0].total_partner,
+      this.runopexdatayear[1].total_partner,
+      this.runopexdatayear[2].total_partner,
+    ];
   }
-  constructor(private api: ApiService, private dailog: MatDialog,private localStorage:LocalStorageService) {
-
-    }
-  
+  constructor(
+    private api: ApiService,
+    private dailog: MatDialog,
+    private localStorage: LocalStorageService
+  ) {}
 
   getData() {
     // this.api.getrunopexA().subscribe((res) => {
@@ -46,9 +65,10 @@ export class RunOpexModelComponent implements OnInit {
     // });
     let project = this.localStorage.get(`project`);
     if (project) {
-      let {runopexoutsource } = project;
+      let { runopexoutsource } = project;
       this.runopexonsitedata = runopexoutsource;
-      this.runopexonsitedatayear = this.runopexonsitedata.runoutsourcecalculation;
+      this.runopexonsitedatayear =
+        this.runopexonsitedata.runoutsourcecalculation;
     }
   }
   getdata() {
@@ -60,18 +80,26 @@ export class RunOpexModelComponent implements OnInit {
     let project = this.localStorage.get('project');
     if (project) {
       let { model2A } = project;
-      this.runopexdata  = model2A;
+      this.runopexdata = model2A;
       this.runopexdatayear = this.runopexdata.runOpex2aCalculation;
     }
     // console.log(this.runopexdata);
     // console.log(this.runopexdatayear[0].client_drives );
     // console.log(this.runopexdatayear[1].client_drives );
     // console.log(this.runopexdatayear[2].client_drives );
-
   }
 
   openDailog() {
-    // this.dailog.open( );
+    let graphData = {
+      data1: this.graphData1,
+      data2: this.graphData2,
+      data3: this.graphData3,
+      data4: this.graphData4,
+    };
+    this.dailog.open(HighLinechartComponent, {
+      data: {
+        graphData,
+      },
+    });
   }
 }
-

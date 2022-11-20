@@ -1,6 +1,11 @@
 <app-loader *ngIf="isLoaded"></app-loader>
 <mat-card>
-  <h2>Waterfall Model</h2>
+  <div class="waterfall__header py-2 d-flex align-items-center">
+    <h2 class="">Waterfall Model</h2>
+    <button (click)="openDailog()" mat-button color="primary">
+      View Chart
+    </button>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -123,5 +128,5 @@
     Get
   </button> -->
 
-  <app-high-barchart [data]="graphData"></app-high-barchart>
+  <!-- <app-high-barchart [data]="graphData"></app-high-barchart> -->
 </mat-card>
